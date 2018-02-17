@@ -74,7 +74,7 @@ public class Main {
     }
   }
 
-  @RequestMapping(value="/students/{name}", method= RequestMethod.PUT)
+  @RequestMapping(value="/students/{name}", method= RequestMethod.GET)
   public StudentDataModel getStudent(@PathVariable("name") String name) {
     StudentDataModel student = new StudentDataModel(100,"John","Smith", "cool kid", "major","minor", "12.jpg",true, Timestamp.valueOf(""));
 
