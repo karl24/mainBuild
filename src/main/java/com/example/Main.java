@@ -74,12 +74,12 @@ public class Main {
     }
   }
 
-//  @RequestMapping(value="/students/{name}", method= RequestMethod.PUT)
-//  public StudentDataModel getStudent(@PathVariable("name") String name) {
-//    StudentDataModel student = new StudentDataModel(100,"John","Smith", "cool kid", "major","minor", "12.jpg",true, Timestamp.valueOf(""));
-//
-//    return student;
-//  }
+  @RequestMapping(value="/students/{name}", method= RequestMethod.PUT)
+  public StudentDataModel getStudent(@PathVariable("name") String name) {
+    StudentDataModel student = new StudentDataModel(100,"John","Smith", "cool kid", "major","minor", "12.jpg",true, Timestamp.valueOf(""));
+
+    return student;
+  }
 
   @Bean
   public DataSource dataSource() throws SQLException {
