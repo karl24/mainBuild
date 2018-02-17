@@ -1,4 +1,4 @@
-package com.tutorfind;
+package com.tutorfind.model;
 
 /*
 Author: Karl Fernando

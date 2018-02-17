@@ -1,4 +1,4 @@
-package com.tutorfind;
+package com.tutorfind.model;
 
 import java.util.Objects;
 
