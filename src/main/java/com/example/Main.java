@@ -63,7 +63,7 @@ public class Main {
       ArrayList<String> output = new ArrayList<String>();
 
       while (rs.next()) {
-        output.add(rs.getInt("userid") + "\t" + rs.getString("username") + "\t" + rs.getString("email"));
+        output.add(rs.getString("username") + "\t" + rs.getString("email"));
       }
 
       model.put("records", output);
