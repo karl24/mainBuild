@@ -74,10 +74,10 @@ public class Main {
     }
   }
 
-  @RequestMapping(value="/studentstest", method= RequestMethod.GET)
-  public StudentDataModel getStudent() {
+  @RequestMapping(value="/studentstest/{name}", method= RequestMethod.GET)
+  public StudentDataModel getStudent(@PathVariable("name") String name) {
     StudentDataModel student = new StudentDataModel(100,"John","Smith", "cool kid", "major","minor", "12.jpg",true, new Timestamp(System.currentTimeMillis()));
-    //student.setLegalFirstName(name);
+    student.setLegalFirstName(name);
     return student;
   }
 
