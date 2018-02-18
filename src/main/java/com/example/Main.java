@@ -27,6 +27,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.sql.DataSource;
 import java.sql.*;
@@ -76,6 +77,7 @@ public class Main {
 
   @RequestMapping(value="/studentstest/{name}", method= RequestMethod.GET)
   public StudentDataModel getStudent(@PathVariable("name") String name) {
+    ModelAndView model = new ModelAndView("studentstest");
     StudentDataModel student = new StudentDataModel(100,"John","Smith", "cool kid", "major","minor", "12.jpg",true, new Timestamp(System.currentTimeMillis()));
     student.setLegalFirstName(name);
     return student;
