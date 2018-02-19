@@ -1,4 +1,4 @@
-package com.example;
+package com.tutorfind.model;
 
 import java.sql.Timestamp;
 import java.util.Objects;
