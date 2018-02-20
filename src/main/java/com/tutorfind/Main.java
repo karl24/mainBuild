@@ -27,7 +27,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.*;
-
+import org.springframework.web.servlet.ModelAndView;
+import com.tutorfind.model.*;
 import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
@@ -63,7 +64,7 @@ public class Main {
       ArrayList<String> output = new ArrayList<String>();
 
       while (rs.next()) {
-        output.add(rs.getInt("userid") + "\t" + rs.getString("username") + "\t" + rs.getString("email"));
+        output.add(rs.getString("email"));
       }
 
       model.put("records", output);
@@ -74,12 +75,6 @@ public class Main {
     }
   }
 
-  @RequestMapping(value="/students/{name}", method= RequestMethod.GET)
-  public StudentDataModel getStudent(@PathVariable("name") String name) {
-    StudentDataModel student = new StudentDataModel(100,"John","Smith", "cool kid", "major","minor", "12.jpg",true, new Timestamp(System.currentTimeMillis()));
-    student.setLegalFirstName(name);
-    return student;
-  }
 
   @Bean
   public DataSource dataSource() throws SQLException {
