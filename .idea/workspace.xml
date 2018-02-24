@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2c70f755-888c-4586-99cc-12f9667506f7" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/Main.java" afterPath="$PROJECT_DIR$/src/main/java/com/tutorfind/Main.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/Repositories/CustomerRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/tutorfind/CustomerRepository.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/model/Customer.java" afterPath="$PROJECT_DIR$/src/main/java/com/tutorfind/Customer.java" />
-    </list>
+    <list default="true" id="2c70f755-888c-4586-99cc-12f9667506f7" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,7 +12,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
@@ -27,6 +23,16 @@
                 <marker date="1519442015000" expanded="true" signature="2088:2107" ph="SELECT * FRO... users" />
                 <marker date="1519442015000" expanded="true" signature="2943:2965" ph="SELECT * FRO... students" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="110">
+              <caret line="75" column="39" lean-forward="false" selection-start-line="75" selection-start-column="39" selection-end-line="75" selection-end-column="39" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -61,18 +67,6 @@
             <state relative-caret-position="150">
               <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SubjectDataModel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/model/SubjectDataModel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="29" lean-forward="false" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -185,8 +179,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-22" />
-    <option name="y" value="24" />
+    <option name="x" value="116" />
+    <option name="y" value="35" />
     <option name="width" value="1462" />
     <option name="height" value="823" />
   </component>
@@ -465,7 +459,7 @@
       <workItem from="1518841771053" duration="1173000" />
       <workItem from="1518843197990" duration="588000" />
       <workItem from="1519018897659" duration="916000" />
-      <workItem from="1519078776077" duration="8700000" />
+      <workItem from="1519078776077" duration="8894000" />
     </task>
     <servers />
   </component>
@@ -478,10 +472,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12782000" />
+    <option name="totallyTimeSpent" value="12976000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-22" y="24" width="1462" height="823" extended-state="0" />
+    <frame x="116" y="35" width="1462" height="823" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -732,14 +726,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="33" lean-forward="false" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/model/TutorRatingDataModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="112">
@@ -892,6 +878,14 @@
             <marker date="1519442015000" expanded="true" signature="2088:2107" ph="SELECT * FRO... users" />
             <marker date="1519442015000" expanded="true" signature="2943:2965" ph="SELECT * FRO... students" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="75" column="39" lean-forward="false" selection-start-line="75" selection-start-column="39" selection-end-line="75" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>
