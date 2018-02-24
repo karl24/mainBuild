@@ -16,9 +16,11 @@
 
 package com.tutorfind;
 
+import com.tutorfind.Repositories.StudentRepository;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -41,7 +43,8 @@ public class Main {
   @Value("${spring.datasource.url}")
   private String dbUrl;
 
-  @Autowired
+    @Qualifier("dataSource")
+    @Autowired
   private DataSource dataSource;
 
   public static void main(String[] args) throws Exception {
@@ -53,27 +56,53 @@ public class Main {
     return "index";
   }
 
-  @RequestMapping("/db")
-  String db(Map<String, Object> model) {
-    try (Connection connection = dataSource.getConnection()) {
-      Statement stmt = connection.createStatement();
-     // stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ticks (tick timestamp)");
-      //stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
-      ResultSet rs = stmt.executeQuery("SELECT * FROM users");
 
-      ArrayList<String> output = new ArrayList<String>();
 
-      while (rs.next()) {
-        output.add(rs.getString("email"));
-      }
+//  @RequestMapping("/db")
+//  String db(Map<String, Object> model) {
+//    try (Connection connection = dataSource.getConnection()) {
+//      Statement stmt = connection.createStatement();
+//
+//      ResultSet rs = stmt.executeQuery("SELECT * FROM users");
+//
+//      ArrayList<String> output = new ArrayList<String>();
+//
+//      while (rs.next()) {
+//        output.add(rs.getString("email"));
+//      }
+//
+//      model.put("records", output);
+//      return "db";
+//    } catch (Exception e) {
+//      model.put("message", e.getMessage());
+//      return "error";
+//    }
+//  }
 
-      model.put("records", output);
-      return "db";
-    } catch (Exception e) {
-      model.put("message", e.getMessage());
-      return "error";
+    @RequestMapping("/db")
+    String accessStudents(Map<String, Object> model, StudentRepository repository) {
+        try (Connection connection = dataSource.getConnection()) {
+            Statement stmt = connection.createStatement();
+            // stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ticks (tick timestamp)");
+            //stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM students");
+
+           // ArrayList<String> output = new ArrayList<String>();
+
+            while (rs.next()) {
+                repository.save(new StudentDataModel(rs.getInt("userId"), rs.getString("legalFirstName"), rs.getString("legalLastName"),rs.getString("bio"), rs.getString("major"),rs.getString("minor"),rs.getString("img"),rs.getBoolean("active"),rs.getTimestamp("creationDate")));
+
+                //output.add(rs.getString("email"));
+            }
+            
+            model.put("records",repository);
+            //model.put("records", output);
+            return "db";
+        } catch (Exception e) {
+            model.put("message", e.getMessage());
+            return "error";
+        }
     }
-  }
 
 
   @Bean
