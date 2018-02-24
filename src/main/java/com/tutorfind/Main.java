@@ -25,7 +25,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.*;
@@ -38,6 +40,8 @@ import java.util.Map;
 
 @Controller
 @SpringBootApplication
+@EnableTransactionManagement
+@EnableJpaRepositories
 public class Main {
 
   @Value("${spring.datasource.url}")
