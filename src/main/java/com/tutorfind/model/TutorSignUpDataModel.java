@@ -4,10 +4,8 @@ package com.tutorfind.model;
 Author: Bryan
  */
 
-import javax.persistence.Entity;
 import java.util.Objects;
 
-@Entity
 public class TutorSignUpDataModel {
 
     // FOREIGN KEY, tutorPostId references tutorPost(tutorPostId)

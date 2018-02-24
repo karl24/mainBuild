@@ -4,18 +4,12 @@ package com.tutorfind.model;
 Author: Bryan
  */
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import java.util.Date;
 import java.util.Objects;
-@Entity
+
 public class TutorsDataModel {
 
     // PRIMARY KEY
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private int userId;
     private String legalFirstName;
     private String legalLastName;

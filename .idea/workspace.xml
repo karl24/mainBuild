@@ -2,7 +2,58 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c70f755-888c-4586-99cc-12f9667506f7" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/Procfile" afterPath="$PROJECT_DIR$/Procfile" />
+      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change beforePath="$PROJECT_DIR$/README_HEROKU.md" afterPath="$PROJECT_DIR$/README_HEROKU.md" />
+      <change beforePath="$PROJECT_DIR$/app.json" afterPath="$PROJECT_DIR$/app.json" />
+      <change beforePath="$PROJECT_DIR$/herokuLicense" afterPath="$PROJECT_DIR$/herokuLicense" />
+      <change beforePath="$PROJECT_DIR$/java-getting-started.iml" afterPath="$PROJECT_DIR$/java-getting-started.iml" />
+      <change beforePath="$PROJECT_DIR$/mvnw.cmd" afterPath="$PROJECT_DIR$/mvnw.cmd" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/Main.java" afterPath="$PROJECT_DIR$/src/main/java/com/tutorfind/Main.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/Repositories/StudentRepository.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/Services/StudentService.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/Services/StudentServiceImpl.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/config/Configuration.java" afterPath="$PROJECT_DIR$/src/main/java/com/tutorfind/config/Configuration.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/model/StudentDataModel.java" afterPath="$PROJECT_DIR$/src/main/java/com/tutorfind/model/StudentDataModel.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/model/StudentPostDataModel.java" afterPath="$PROJECT_DIR$/src/main/java/com/tutorfind/model/StudentPostDataModel.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/model/SubjectDataModel.java" afterPath="$PROJECT_DIR$/src/main/java/com/tutorfind/model/SubjectDataModel.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/model/TutorPostDataModel.java" afterPath="$PROJECT_DIR$/src/main/java/com/tutorfind/model/TutorPostDataModel.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/model/TutorRatingDataModel.java" afterPath="$PROJECT_DIR$/src/main/java/com/tutorfind/model/TutorRatingDataModel.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/model/TutorSignUpDataModel.java" afterPath="$PROJECT_DIR$/src/main/java/com/tutorfind/model/TutorSignUpDataModel.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/model/TutorSubjectDataModel.java" afterPath="$PROJECT_DIR$/src/main/java/com/tutorfind/model/TutorSubjectDataModel.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/model/TutorsDataModel.java" afterPath="$PROJECT_DIR$/src/main/java/com/tutorfind/model/TutorsDataModel.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/model/UserDataModel.java" afterPath="$PROJECT_DIR$/src/main/java/com/tutorfind/model/UserDataModel.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/banner.txt" afterPath="$PROJECT_DIR$/src/main/resources/banner.txt" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/lang-logo.png" afterPath="$PROJECT_DIR$/src/main/resources/public/lang-logo.png" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/stylesheets/main.css" afterPath="$PROJECT_DIR$/src/main/resources/public/stylesheets/main.css" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Admin_Inbox.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin_Inbox.html" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/ArchivedPosts.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/ArchivedPosts.html" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Posts_Admin.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/Posts_Admin.html" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/README.md" afterPath="$PROJECT_DIR$/src/main/resources/templates/README.md" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/StudentSignedInLandingPage.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/StudentSignedInLandingPage.html" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/TutorSignedInLandingPage.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/TutorSignedInLandingPage.html" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Tutor_SignedIn_SentPage.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/Tutor_SignedIn_SentPage.html" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/accountLoggedOut.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/accountLoggedOut.html" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/adminHomepage.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/adminHomepage.html" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/adminSubject.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/adminSubject.html" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/contactUs.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/contactUs.html" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/db.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/db.html" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/error.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/error.html" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/forgotPassword.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/forgotPassword.html" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/layout.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/layout.html" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/TutorFindLogo.png" afterPath="$PROJECT_DIR$/src/main/resources/templates/images/TutorFindLogo.png" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/default_profile_pic.jpg" afterPath="$PROJECT_DIR$/src/main/resources/templates/images/default_profile_pic.jpg" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/googleMap.png" afterPath="$PROJECT_DIR$/src/main/resources/templates/images/googleMap.png" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/mail.png" afterPath="$PROJECT_DIR$/src/main/resources/templates/images/mail.png" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/studentRaise.jpg" afterPath="$PROJECT_DIR$/src/main/resources/templates/images/studentRaise.jpg" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/teacherTeaching.jpg" afterPath="$PROJECT_DIR$/src/main/resources/templates/images/teacherTeaching.jpg" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/infoPage.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/infoPage.html" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/studentProfile.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/studentProfile.html" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/tutorProfile.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/tutorProfile.html" />
+      <change beforePath="$PROJECT_DIR$/system.properties" afterPath="$PROJECT_DIR$/system.properties" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -14,27 +65,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="68" column="7" lean-forward="true" selection-start-line="68" selection-start-column="7" selection-end-line="68" selection-end-column="7" />
+            <state relative-caret-position="480">
+              <caret line="46" column="23" lean-forward="false" selection-start-line="46" selection-start-column="23" selection-end-line="46" selection-end-column="23" />
               <folding>
-                <element signature="e#0#4066#0" expanded="true" />
-                <element signature="e#1452#1478#1" expanded="true" />
-                <element signature="e#2055#2063#0" expanded="true" />
-                <marker date="1519446935000" expanded="true" signature="1985:2004" ph="SELECT * FRO... users" />
-                <marker date="1519446935000" expanded="true" signature="2827:2849" ph="SELECT * FRO... students" />
+                <element signature="e#0#2753#0" expanded="true" />
+                <marker date="1519097850000" expanded="true" signature="2454:2457" ph="//..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="127">
-              <caret line="30" column="49" lean-forward="true" selection-start-line="30" selection-start-column="49" selection-end-line="30" selection-end-column="49" />
+            <state relative-caret-position="-240">
+              <caret line="53" column="40" lean-forward="false" selection-start-line="53" selection-start-column="40" selection-end-line="53" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -44,7 +92,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/model/StudentPostDataModel.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="150">
-              <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+              <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -54,8 +102,10 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/model/TutorPostDataModel.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="45">
-              <caret line="3" column="40" lean-forward="false" selection-start-line="3" selection-start-column="40" selection-end-line="3" selection-end-column="40" />
-              <folding />
+              <caret line="3" column="25" lean-forward="false" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -63,45 +113,11 @@
       <file leaf-file-name="UserDataModel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/model/UserDataModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="7" lean-forward="false" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
+            <state relative-caret-position="90">
+              <caret line="6" column="7" lean-forward="false" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StudentRepository.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/Repositories/StudentRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StudentService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/Services/StudentService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StudentServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/Services/StudentServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="2" lean-forward="false" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="2" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -158,11 +174,10 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="116" />
-    <option name="y" value="35" />
-    <option name="width" value="1462" />
-    <option name="height" value="823" />
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
+    <option name="width" value="1440" />
+    <option name="height" value="824" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -180,6 +195,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -218,24 +236,6 @@
               <item name="mainBuild" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="tutorfind" type="462c0819:PsiDirectoryNode" />
-              <item name="Repositories" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-getting-started" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mainBuild" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="tutorfind" type="462c0819:PsiDirectoryNode" />
-              <item name="Services" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-getting-started" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mainBuild" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -251,9 +251,6 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -433,7 +430,8 @@
       <workItem from="1519078776077" duration="9113000" />
       <workItem from="1519442562062" duration="564000" />
       <workItem from="1519443201739" duration="358000" />
-      <workItem from="1519443834559" duration="2753000" />
+      <workItem from="1519443834559" duration="3040000" />
+      <workItem from="1519447434469" duration="108000" />
     </task>
     <servers />
   </component>
@@ -446,10 +444,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16870000" />
+    <option name="totallyTimeSpent" value="17265000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="24" width="1440" height="823" extended-state="6" />
+    <frame x="0" y="23" width="1440" height="824" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -463,13 +461,12 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3288948" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32756326" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20763889" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -482,6 +479,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3288948" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288948" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -503,11 +501,8 @@
         <state relative-caret-position="990">
           <caret line="66" column="19" lean-forward="false" selection-start-line="66" selection-start-column="19" selection-end-line="66" selection-end-column="19" />
           <folding>
-            <element signature="e#0#4066#0" expanded="true" />
-            <element signature="e#1452#1478#1" expanded="true" />
-            <element signature="e#2055#2063#0" expanded="true" />
-            <marker date="1519446935000" expanded="true" signature="1985:2004" ph="SELECT * FRO... users" />
-            <marker date="1519446935000" expanded="true" signature="2827:2849" ph="SELECT * FRO... students" />
+            <element signature="e#0#2753#0" expanded="true" />
+            <marker date="1519097850000" expanded="true" signature="2454:2457" ph="//..." />
           </folding>
         </state>
       </provider>
@@ -531,11 +526,8 @@
         <state relative-caret-position="150">
           <caret line="24" column="19" lean-forward="true" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
           <folding>
-            <element signature="e#0#4066#0" expanded="true" />
-            <element signature="e#1452#1478#1" expanded="true" />
-            <element signature="e#2055#2063#0" expanded="true" />
-            <marker date="1519446935000" expanded="true" signature="1985:2004" ph="SELECT * FRO... users" />
-            <marker date="1519446935000" expanded="true" signature="2827:2849" ph="SELECT * FRO... students" />
+            <element signature="e#0#2753#0" expanded="true" />
+            <marker date="1519097850000" expanded="true" signature="2454:2457" ph="//..." />
           </folding>
         </state>
       </provider>
@@ -734,7 +726,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/model/StudentPostDataModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -742,8 +734,10 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/model/TutorPostDataModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
-          <caret line="3" column="40" lean-forward="false" selection-start-line="3" selection-start-column="40" selection-end-line="3" selection-end-column="40" />
-          <folding />
+          <caret line="3" column="25" lean-forward="false" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -753,7 +747,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -761,7 +754,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -769,14 +761,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-741">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/model/UserDataModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="7" lean-forward="false" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
+        <state relative-caret-position="90">
+          <caret line="6" column="7" lean-forward="false" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -785,11 +776,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/Services/StudentService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
+        <state relative-caret-position="90">
           <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -798,41 +787,35 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="0">
             <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="30" column="49" lean-forward="true" selection-start-line="30" selection-start-column="49" selection-end-line="30" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/Repositories/StudentRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
+        <state relative-caret-position="150">
           <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="68" column="7" lean-forward="true" selection-start-line="68" selection-start-column="7" selection-end-line="68" selection-end-column="7" />
+        <state relative-caret-position="480">
+          <caret line="46" column="23" lean-forward="false" selection-start-line="46" selection-start-column="23" selection-end-line="46" selection-end-column="23" />
           <folding>
-            <element signature="e#0#4066#0" expanded="true" />
-            <element signature="e#1452#1478#1" expanded="true" />
-            <element signature="e#2055#2063#0" expanded="true" />
-            <marker date="1519446935000" expanded="true" signature="1985:2004" ph="SELECT * FRO... users" />
-            <marker date="1519446935000" expanded="true" signature="2827:2849" ph="SELECT * FRO... students" />
+            <element signature="e#0#2753#0" expanded="true" />
+            <marker date="1519097850000" expanded="true" signature="2454:2457" ph="//..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-240">
+          <caret line="53" column="40" lean-forward="false" selection-start-line="53" selection-start-column="40" selection-end-line="53" selection-end-column="40" />
+          <folding />
         </state>
       </provider>
     </entry>

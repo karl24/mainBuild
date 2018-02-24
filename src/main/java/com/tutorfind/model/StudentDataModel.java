@@ -1,20 +1,10 @@
 package com.tutorfind.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.GenerationType;
 import java.sql.Timestamp;
 import java.util.Objects;
 
-
-@Entity
-@Table(name = "students")
 public class StudentDataModel {
 
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
     private int userId;
     private String legalFirstName;
     private String legalLastName;
@@ -24,10 +14,6 @@ public class StudentDataModel {
     private String img;
     private boolean active;
     private Timestamp creationDate;
-
-    public StudentDataModel(String legalFirstName){
-        this.legalFirstName = legalFirstName;
-    }
 
     public StudentDataModel(int userId, String legalFirstName, String legalLastName, String bio, String major, String minor, String img, boolean active, Timestamp creationDate) {
         this.userId = userId;
