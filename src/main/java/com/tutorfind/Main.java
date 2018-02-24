@@ -16,8 +16,6 @@
 
 package com.tutorfind;
 
-import com.tutorfind.Repositories.StudentRepository;
-import com.tutorfind.model.StudentDataModel;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
