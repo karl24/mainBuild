@@ -16,6 +16,7 @@
 
 package com.tutorfind;
 
+import com.tutorfind.Repository.StudentRepository;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,20 +54,20 @@ public class Main {
   }
 
   @RequestMapping("/db")
-  String db(Map<String, Object> model) {
+  String db(Map<String, Object> model, StudentRepository repository) {
     try (Connection connection = dataSource().getConnection()) {
       Statement stmt = connection.createStatement();
-     // stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ticks (tick timestamp)");
-      //stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
-      ResultSet rs = stmt.executeQuery("SELECT * FROM users");
 
-      ArrayList<String> output = new ArrayList<String>();
+      ResultSet rs = stmt.executeQuery("SELECT * FROM students");
+
+      //ArrayList<String> output = new ArrayList<String>();
 
       while (rs.next()) {
-        output.add(rs.getString("email"));
+        repository.save(new StudentDataModel(rs.getInt("userId"),rs.getString("legalFirstName"), rs.getString("legalLastName"),rs.getString("bio"),rs.getString("major"), rs.getString("minor"), rs.getString("img"),rs.getBoolean("active"), rs.getTimestamp("creationDate")));
+        //output.add(rs.getString("email"));
       }
-
-      model.put("records", output);
+      model.put("records",repository);
+      //model.put("records", output);
       return "db";
     } catch (Exception e) {
       model.put("message", e.getMessage());
