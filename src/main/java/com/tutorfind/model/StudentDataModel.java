@@ -3,12 +3,14 @@ package com.tutorfind.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.persistence.GenerationType;
 import java.sql.Timestamp;
 import java.util.Objects;
 
 
 @Entity
+@Table(name = "students")
 public class StudentDataModel {
 
     @Id
