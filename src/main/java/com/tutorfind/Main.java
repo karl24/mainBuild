@@ -85,8 +85,8 @@ public class Main {
 //  }
 
     @RequestMapping("/db")
-    String accessStudents(Map<String, Object> model) {
-        StudentService studentService = new StudentService();
+    String accessStudents(Map<String, Object> model,StudentRepository repository) {
+       // StudentService studentService = new StudentService();
         try (Connection connection = dataSource.getConnection()) {
             Statement stmt = connection.createStatement();
             // stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ticks (tick timestamp)");
@@ -97,11 +97,11 @@ public class Main {
 
             //repository.save(new StudentDataModel("test"));
             while (rs.next()) {
-                //repository.save(new StudentDataModel(rs.getInt("userId"), rs.getString("legalFirstName"), rs.getString("legalLastName"),rs.getString("bio"), rs.getString("major"),rs.getString("minor"),rs.getString("img"),rs.getBoolean("active"),rs.getTimestamp("creationDate")));
-                studentService.createStudent(new StudentDataModel(rs.getInt("userId"), rs.getString("legalFirstName"), rs.getString("legalLastName"),rs.getString("bio"), rs.getString("major"),rs.getString("minor"),rs.getString("img"),rs.getBoolean("active"),rs.getTimestamp("creationDate")));
+                repository.save(new StudentDataModel(rs.getInt("userId"), rs.getString("legalFirstName"), rs.getString("legalLastName"),rs.getString("bio"), rs.getString("major"),rs.getString("minor"),rs.getString("img"),rs.getBoolean("active"),rs.getTimestamp("creationDate")));
+
                 //output.add(rs.getString("email"));
             }
-            List<StudentDataModel> output = studentService.findAll();
+            List<StudentDataModel> output = repository.findAll();
 
             model.put("records", output);
             //model.put("records", output);

@@ -7,16 +7,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service("studentService")
-public class StudentService{
+public interface StudentService {
 
-    @Autowired
-    StudentRepository studentRepository;
+//    com.tutorfind.model.StudentDTO getUserById(Long id);
 
-    public void createStudent(StudentDataModel s){
-        studentRepository.save(s);
-    }
-
-    public List<StudentDataModel> findAll(){
-        return studentRepository.findAll();
-    }
 }
