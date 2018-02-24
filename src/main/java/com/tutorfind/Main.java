@@ -42,8 +42,7 @@ public class Main {
   @Value("${spring.datasource.url}")
   private String dbUrl;
 
-  @Autowired
-  private StudentRepository repository;
+  @Autowired StudentRepository repository;
 
   public static void main(String[] args) throws Exception {
     SpringApplication.run(Main.class, args);
