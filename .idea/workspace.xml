@@ -3,57 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2c70f755-888c-4586-99cc-12f9667506f7" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Procfile" afterPath="$PROJECT_DIR$/Procfile" />
-      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change beforePath="$PROJECT_DIR$/README_HEROKU.md" afterPath="$PROJECT_DIR$/README_HEROKU.md" />
-      <change beforePath="$PROJECT_DIR$/app.json" afterPath="$PROJECT_DIR$/app.json" />
-      <change beforePath="$PROJECT_DIR$/herokuLicense" afterPath="$PROJECT_DIR$/herokuLicense" />
-      <change beforePath="$PROJECT_DIR$/java-getting-started.iml" afterPath="$PROJECT_DIR$/java-getting-started.iml" />
-      <change beforePath="$PROJECT_DIR$/mvnw.cmd" afterPath="$PROJECT_DIR$/mvnw.cmd" />
       <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/Main.java" afterPath="$PROJECT_DIR$/src/main/java/com/tutorfind/Main.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/Repositories/StudentRepository.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/Services/StudentService.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/Services/StudentServiceImpl.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/config/Configuration.java" afterPath="$PROJECT_DIR$/src/main/java/com/tutorfind/config/Configuration.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/model/StudentDataModel.java" afterPath="$PROJECT_DIR$/src/main/java/com/tutorfind/model/StudentDataModel.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/model/StudentPostDataModel.java" afterPath="$PROJECT_DIR$/src/main/java/com/tutorfind/model/StudentPostDataModel.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/model/SubjectDataModel.java" afterPath="$PROJECT_DIR$/src/main/java/com/tutorfind/model/SubjectDataModel.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/model/TutorPostDataModel.java" afterPath="$PROJECT_DIR$/src/main/java/com/tutorfind/model/TutorPostDataModel.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/model/TutorRatingDataModel.java" afterPath="$PROJECT_DIR$/src/main/java/com/tutorfind/model/TutorRatingDataModel.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/model/TutorSignUpDataModel.java" afterPath="$PROJECT_DIR$/src/main/java/com/tutorfind/model/TutorSignUpDataModel.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/model/TutorSubjectDataModel.java" afterPath="$PROJECT_DIR$/src/main/java/com/tutorfind/model/TutorSubjectDataModel.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/model/TutorsDataModel.java" afterPath="$PROJECT_DIR$/src/main/java/com/tutorfind/model/TutorsDataModel.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/model/UserDataModel.java" afterPath="$PROJECT_DIR$/src/main/java/com/tutorfind/model/UserDataModel.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/banner.txt" afterPath="$PROJECT_DIR$/src/main/resources/banner.txt" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/lang-logo.png" afterPath="$PROJECT_DIR$/src/main/resources/public/lang-logo.png" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/stylesheets/main.css" afterPath="$PROJECT_DIR$/src/main/resources/public/stylesheets/main.css" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Admin_Inbox.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin_Inbox.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/ArchivedPosts.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/ArchivedPosts.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Posts_Admin.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/Posts_Admin.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/README.md" afterPath="$PROJECT_DIR$/src/main/resources/templates/README.md" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/StudentSignedInLandingPage.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/StudentSignedInLandingPage.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/TutorSignedInLandingPage.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/TutorSignedInLandingPage.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Tutor_SignedIn_SentPage.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/Tutor_SignedIn_SentPage.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/accountLoggedOut.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/accountLoggedOut.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/adminHomepage.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/adminHomepage.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/adminSubject.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/adminSubject.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/contactUs.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/contactUs.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/db.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/db.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/error.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/error.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/forgotPassword.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/forgotPassword.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/layout.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/layout.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/TutorFindLogo.png" afterPath="$PROJECT_DIR$/src/main/resources/templates/images/TutorFindLogo.png" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/default_profile_pic.jpg" afterPath="$PROJECT_DIR$/src/main/resources/templates/images/default_profile_pic.jpg" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/googleMap.png" afterPath="$PROJECT_DIR$/src/main/resources/templates/images/googleMap.png" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/mail.png" afterPath="$PROJECT_DIR$/src/main/resources/templates/images/mail.png" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/studentRaise.jpg" afterPath="$PROJECT_DIR$/src/main/resources/templates/images/studentRaise.jpg" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/teacherTeaching.jpg" afterPath="$PROJECT_DIR$/src/main/resources/templates/images/teacherTeaching.jpg" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/infoPage.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/infoPage.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/studentProfile.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/studentProfile.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/tutorProfile.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/tutorProfile.html" />
-      <change beforePath="$PROJECT_DIR$/system.properties" afterPath="$PROJECT_DIR$/system.properties" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -81,8 +31,8 @@
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-240">
-              <caret line="53" column="40" lean-forward="false" selection-start-line="53" selection-start-column="40" selection-end-line="53" selection-end-column="40" />
+            <state relative-caret-position="519">
+              <caret line="52" column="55" lean-forward="true" selection-start-line="52" selection-start-column="55" selection-end-line="52" selection-end-column="55" />
               <folding />
             </state>
           </provider>
@@ -91,7 +41,7 @@
       <file leaf-file-name="StudentPostDataModel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/model/StudentPostDataModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
+            <state relative-caret-position="135">
               <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
               <folding />
             </state>
@@ -115,9 +65,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="90">
               <caret line="6" column="7" lean-forward="false" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -162,9 +110,9 @@
         <option value="$PROJECT_DIR$/src/main/java/com/tutorfind/Repositories/CustomerRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tutorfind/Customer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tutorfind/CustomerRepository.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/tutorfind/Repositories/StudentRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tutorfind/Main.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
@@ -230,6 +178,15 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="tutorfind" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java-getting-started" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mainBuild" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="tutorfind" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="java-getting-started" type="b2602c69:ProjectViewProjectNode" />
@@ -431,7 +388,7 @@
       <workItem from="1519442562062" duration="564000" />
       <workItem from="1519443201739" duration="358000" />
       <workItem from="1519443834559" duration="3040000" />
-      <workItem from="1519447434469" duration="108000" />
+      <workItem from="1519447434469" duration="511000" />
     </task>
     <servers />
   </component>
@@ -444,7 +401,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17265000" />
+    <option name="totallyTimeSpent" value="17668000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="824" extended-state="6" />
@@ -723,14 +680,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/model/StudentPostDataModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/model/TutorPostDataModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -761,16 +710,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-741">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/model/UserDataModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="7" lean-forward="false" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -811,10 +750,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/model/StudentPostDataModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/model/UserDataModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="7" lean-forward="false" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-240">
-          <caret line="53" column="40" lean-forward="false" selection-start-line="53" selection-start-column="40" selection-end-line="53" selection-end-column="40" />
+        <state relative-caret-position="519">
+          <caret line="52" column="55" lean-forward="true" selection-start-line="52" selection-start-column="55" selection-end-line="52" selection-end-column="55" />
           <folding />
         </state>
       </provider>
