@@ -1,4 +1,4 @@
-package com.tutorfind.model;
+package com.tutorfind;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

@@ -16,9 +16,6 @@
 
 package com.tutorfind;
 
-import com.tutorfind.Repositories.CustomerRepository;
-import com.tutorfind.Repositories.StudentRepository;
-import com.tutorfind.Services.StudentService;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,13 +28,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
-import com.tutorfind.model.*;
+
 import javax.sql.DataSource;
 import java.sql.*;
-import java.util.*;
 import java.util.Map;
 
 @Controller
