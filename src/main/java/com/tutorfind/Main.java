@@ -42,7 +42,8 @@ public class Main {
   @Value("${spring.datasource.url}")
   private String dbUrl;
 
-
+  @Autowired
+  private StudentRepository repository;
 
   public static void main(String[] args) throws Exception {
     SpringApplication.run(Main.class, args);
@@ -54,7 +55,7 @@ public class Main {
   }
 
   @RequestMapping("/db")
-  String db(Map<String, Object> model, StudentRepository repository) {
+  String db(Map<String, Object> model) {
     try (Connection connection = dataSource().getConnection()) {
       Statement stmt = connection.createStatement();
 
