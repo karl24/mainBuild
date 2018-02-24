@@ -30,7 +30,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import java.util.*;
 import javax.sql.DataSource;
 import java.sql.*;
 import java.util.Map;
@@ -59,55 +59,55 @@ public class Main {
 
 
 
-//  @RequestMapping("/db")
-//  String db(Map<String, Object> model) {
-//    try (Connection connection = dataSource.getConnection()) {
-//      Statement stmt = connection.createStatement();
-//
-//      ResultSet rs = stmt.executeQuery("SELECT * FROM users");
-//
-//      ArrayList<String> output = new ArrayList<String>();
-//
-//      while (rs.next()) {
-//        output.add(rs.getString("email"));
-//      }
-//
-//      model.put("records", output);
-//      return "db";
-//    } catch (Exception e) {
-//      model.put("message", e.getMessage());
-//      return "error";
-//    }
-//  }
+  @RequestMapping("/db")
+  String db(Map<String, Object> model) {
+    try (Connection connection = dataSource.getConnection()) {
+      Statement stmt = connection.createStatement();
 
-    @RequestMapping("/db")
-    String accessStudents(Map<String, Object> model,StudentRepository repository) {
-       // StudentService studentService = new StudentService();
-        try (Connection connection = dataSource.getConnection()) {
-            Statement stmt = connection.createStatement();
-            // stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ticks (tick timestamp)");
-            //stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
-            ResultSet rs = stmt.executeQuery("SELECT * FROM students");
+      ResultSet rs = stmt.executeQuery("SELECT * FROM users");
 
-           // ArrayList<String> output = new ArrayList<String>();
+      ArrayList<String> output = new ArrayList<String>();
 
-            //repository.save(new StudentDataModel("test"));
-            //repository.save(new Customer("Kar","f"));
-            while (rs.next()) {
-                repository.save(new StudentDataModel(rs.getInt("userId"), rs.getString("legalFirstName"), rs.getString("legalLastName"),rs.getString("bio"), rs.getString("major"),rs.getString("minor"),rs.getString("img"),rs.getBoolean("active"),rs.getTimestamp("creationDate")));
+      while (rs.next()) {
+        output.add(rs.getString("email"));
+      }
 
-                //output.add(rs.getString("email"));
-            }
-            //List<StudentDataModel> output = repository.findAll();
-
-            model.put("records", repository);
-            //model.put("records", output);
-            return "db";
-        } catch (Exception e) {
-            model.put("message", e.getMessage());
-            return "error";
-        }
+      model.put("records", output);
+      return "db";
+    } catch (Exception e) {
+      model.put("message", e.getMessage());
+      return "error";
     }
+  }
+
+//    @RequestMapping("/db")
+//    String accessStudents(Map<String, Object> model,StudentRepository repository) {
+//       // StudentService studentService = new StudentService();
+//        try (Connection connection = dataSource.getConnection()) {
+//            Statement stmt = connection.createStatement();
+//            // stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ticks (tick timestamp)");
+//            //stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
+//            ResultSet rs = stmt.executeQuery("SELECT * FROM students");
+//
+//           // ArrayList<String> output = new ArrayList<String>();
+//
+//            //repository.save(new StudentDataModel("test"));
+//            //repository.save(new Customer("Kar","f"));
+//            while (rs.next()) {
+//                repository.save(new StudentDataModel(rs.getInt("userId"), rs.getString("legalFirstName"), rs.getString("legalLastName"),rs.getString("bio"), rs.getString("major"),rs.getString("minor"),rs.getString("img"),rs.getBoolean("active"),rs.getTimestamp("creationDate")));
+//
+//                //output.add(rs.getString("email"));
+//            }
+//            //List<StudentDataModel> output = repository.findAll();
+//
+//            model.put("records", repository);
+//            //model.put("records", output);
+//            return "db";
+//        } catch (Exception e) {
+//            model.put("message", e.getMessage());
+//            return "error";
+//        }
+//    }
 
 
   @Bean
