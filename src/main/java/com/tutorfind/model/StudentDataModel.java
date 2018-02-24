@@ -1,10 +1,18 @@
 package com.tutorfind.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.GenerationType;
 import java.sql.Timestamp;
 import java.util.Objects;
 
+
+@Entity
 public class StudentDataModel {
 
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private int userId;
     private String legalFirstName;
     private String legalLastName;

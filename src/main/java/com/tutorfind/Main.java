@@ -94,7 +94,7 @@ public class Main {
 
                 //output.add(rs.getString("email"));
             }
-            
+
             model.put("records",repository);
             //model.put("records", output);
             return "db";

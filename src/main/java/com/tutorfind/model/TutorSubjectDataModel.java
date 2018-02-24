@@ -1,8 +1,11 @@
 package com.tutorfind.model;
 
+import javax.persistence.Entity;
 import java.util.Objects;
 
+@Entity
 public class TutorSubjectDataModel {
+
 
     private int tutorUserId;
     private int subjectId;
