@@ -16,6 +16,8 @@
 
 package com.tutorfind;
 
+import com.tutorfind.Repositories.StudentRepository;
+import com.tutorfind.model.StudentDataModel;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -79,7 +81,7 @@ public class Main {
 //  }
 
     @RequestMapping("/db")
-    String accessStudents(Map<String, Object> model,CustomerRepository repository) {
+    String accessStudents(Map<String, Object> model,StudentRepository repository) {
        // StudentService studentService = new StudentService();
         try (Connection connection = dataSource.getConnection()) {
             Statement stmt = connection.createStatement();
@@ -90,9 +92,9 @@ public class Main {
            // ArrayList<String> output = new ArrayList<String>();
 
             //repository.save(new StudentDataModel("test"));
-            repository.save(new Customer("Kar","f"));
+            //repository.save(new Customer("Kar","f"));
             while (rs.next()) {
-                //repository.save(new StudentDataModel(rs.getInt("userId"), rs.getString("legalFirstName"), rs.getString("legalLastName"),rs.getString("bio"), rs.getString("major"),rs.getString("minor"),rs.getString("img"),rs.getBoolean("active"),rs.getTimestamp("creationDate")));
+                repository.save(new StudentDataModel(rs.getInt("userId"), rs.getString("legalFirstName"), rs.getString("legalLastName"),rs.getString("bio"), rs.getString("major"),rs.getString("minor"),rs.getString("img"),rs.getBoolean("active"),rs.getTimestamp("creationDate")));
 
                 //output.add(rs.getString("email"));
             }
