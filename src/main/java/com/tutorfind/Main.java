@@ -103,7 +103,7 @@ public class Main {
             }
             List<StudentDataModel> output = repository.findAll();
 
-            model.put("records", output);
+            model.put("records", repository);
             //model.put("records", output);
             return "db";
         } catch (Exception e) {
