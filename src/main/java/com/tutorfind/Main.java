@@ -89,8 +89,9 @@ public class Main {
 
            // ArrayList<String> output = new ArrayList<String>();
 
+            repository.save(new StudentDataModel("test"));
             while (rs.next()) {
-                repository.save(new StudentDataModel(rs.getInt("userId"), rs.getString("legalFirstName"), rs.getString("legalLastName"),rs.getString("bio"), rs.getString("major"),rs.getString("minor"),rs.getString("img"),rs.getBoolean("active"),rs.getTimestamp("creationDate")));
+                //repository.save(new StudentDataModel(rs.getInt("userId"), rs.getString("legalFirstName"), rs.getString("legalLastName"),rs.getString("bio"), rs.getString("major"),rs.getString("minor"),rs.getString("img"),rs.getBoolean("active"),rs.getTimestamp("creationDate")));
 
                 //output.add(rs.getString("email"));
             }
