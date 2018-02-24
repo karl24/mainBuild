@@ -2,30 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c70f755-888c-4586-99cc-12f9667506f7" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__antlr_antlr_2_7_7.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__dom4j_dom4j_1_6_1.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_transaction_javax_transaction_api_1_2.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_tomcat_jdbc_8_5_27.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_tomcat_juli_8_5_27.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjweaver_1_8_13.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_common_hibernate_commons_annotations_5_0_1_Final.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_core_5_0_12_Final.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_entitymanager_5_0_12_Final.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_javax_persistence_hibernate_jpa_2_1_api_1_0_0_Final.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_javassist_javassist_3_21_0_GA.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_jandex_2_0_0_Final.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_aop_1_5_10_RELEASE.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_jpa_1_5_10_RELEASE.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_jdbc_1_5_10_RELEASE.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_commons_1_13_10_RELEASE.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_jpa_1_11_10_RELEASE.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aspects_4_3_14_RELEASE.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_4_3_14_RELEASE.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_orm_4_3_14_RELEASE.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_4_3_14_RELEASE.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/java-getting-started.iml" afterPath="$PROJECT_DIR$/java-getting-started.iml" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/Main.java" afterPath="$PROJECT_DIR$/src/main/java/com/tutorfind/Main.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,24 +14,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="218">
-              <caret line="81" column="0" lean-forward="false" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
+            <state relative-caret-position="375">
+              <caret line="25" column="50" lean-forward="true" selection-start-line="25" selection-start-column="50" selection-end-line="25" selection-end-column="50" />
               <folding>
-                <element signature="e#0#4271#0" expanded="true" />
-                <element signature="imports" expanded="true" />
-                <element signature="e#1660#1686#1" expanded="true" />
-                <element signature="e#2263#2271#0" expanded="true" />
-                <marker date="1519443978000" expanded="true" signature="2193:2212" ph="SELECT * FRO... users" />
-                <marker date="1519443978000" expanded="true" signature="3035:3057" ph="SELECT * FRO... students" />
+                <element signature="e#0#4063#0" expanded="true" />
+                <element signature="e#1452#1478#1" expanded="true" />
+                <element signature="e#2055#2063#0" expanded="true" />
+                <marker date="1519444497000" expanded="true" signature="1985:2004" ph="SELECT * FRO... users" />
+                <marker date="1519444497000" expanded="true" signature="2827:2849" ph="SELECT * FRO... students" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="544">
@@ -171,8 +147,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/tutorfind/Repositories/CustomerRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tutorfind/Customer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tutorfind/CustomerRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/tutorfind/Main.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tutorfind/Main.java" />
       </list>
     </option>
   </component>
@@ -466,7 +442,7 @@
       <workItem from="1519078776077" duration="9113000" />
       <workItem from="1519442562062" duration="564000" />
       <workItem from="1519443201739" duration="358000" />
-      <workItem from="1519443834559" duration="302000" />
+      <workItem from="1519443834559" duration="408000" />
     </task>
     <servers />
   </component>
@@ -479,7 +455,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14419000" />
+    <option name="totallyTimeSpent" value="14525000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1440" height="823" extended-state="6" />
@@ -561,12 +537,11 @@
         <state relative-caret-position="990">
           <caret line="66" column="19" lean-forward="false" selection-start-line="66" selection-start-column="19" selection-end-line="66" selection-end-column="19" />
           <folding>
-            <element signature="e#0#4271#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-            <element signature="e#1660#1686#1" expanded="true" />
-            <element signature="e#2263#2271#0" expanded="true" />
-            <marker date="1519443978000" expanded="true" signature="2193:2212" ph="SELECT * FRO... users" />
-            <marker date="1519443978000" expanded="true" signature="3035:3057" ph="SELECT * FRO... students" />
+            <element signature="e#0#4063#0" expanded="true" />
+            <element signature="e#1452#1478#1" expanded="true" />
+            <element signature="e#2055#2063#0" expanded="true" />
+            <marker date="1519444497000" expanded="true" signature="1985:2004" ph="SELECT * FRO... users" />
+            <marker date="1519444497000" expanded="true" signature="2827:2849" ph="SELECT * FRO... students" />
           </folding>
         </state>
       </provider>
@@ -590,12 +565,11 @@
         <state relative-caret-position="150">
           <caret line="24" column="19" lean-forward="true" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
           <folding>
-            <element signature="e#0#4271#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-            <element signature="e#1660#1686#1" expanded="true" />
-            <element signature="e#2263#2271#0" expanded="true" />
-            <marker date="1519443978000" expanded="true" signature="2193:2212" ph="SELECT * FRO... users" />
-            <marker date="1519443978000" expanded="true" signature="3035:3057" ph="SELECT * FRO... students" />
+            <element signature="e#0#4063#0" expanded="true" />
+            <element signature="e#1452#1478#1" expanded="true" />
+            <element signature="e#2055#2063#0" expanded="true" />
+            <marker date="1519444497000" expanded="true" signature="1985:2004" ph="SELECT * FRO... users" />
+            <marker date="1519444497000" expanded="true" signature="2827:2849" ph="SELECT * FRO... students" />
           </folding>
         </state>
       </provider>
@@ -819,21 +793,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/Customer.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/CustomerRepository.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="81" column="0" lean-forward="false" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#4271#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-            <element signature="e#1660#1686#1" expanded="true" />
-            <element signature="e#2263#2271#0" expanded="true" />
-            <marker date="1519443978000" expanded="true" signature="2193:2212" ph="SELECT * FRO... users" />
-            <marker date="1519443978000" expanded="true" signature="3035:3057" ph="SELECT * FRO... students" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/Services/StudentService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -869,6 +828,20 @@
         <state relative-caret-position="544">
           <caret line="83" column="16" lean-forward="false" selection-start-line="83" selection-start-column="16" selection-end-line="83" selection-end-column="16" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="50" lean-forward="true" selection-start-line="25" selection-start-column="50" selection-end-line="25" selection-end-column="50" />
+          <folding>
+            <element signature="e#0#4063#0" expanded="true" />
+            <element signature="e#1452#1478#1" expanded="true" />
+            <element signature="e#2055#2063#0" expanded="true" />
+            <marker date="1519444497000" expanded="true" signature="1985:2004" ph="SELECT * FRO... users" />
+            <marker date="1519444497000" expanded="true" signature="2827:2849" ph="SELECT * FRO... students" />
+          </folding>
         </state>
       </provider>
     </entry>
