@@ -16,6 +16,7 @@
 
 package com.tutorfind;
 
+import com.tutorfind.Repositories.CustomerRepository;
 import com.tutorfind.Repositories.StudentRepository;
 import com.tutorfind.Services.StudentService;
 import com.zaxxer.hikari.HikariConfig;
@@ -85,7 +86,7 @@ public class Main {
 //  }
 
     @RequestMapping("/db")
-    String accessStudents(Map<String, Object> model,StudentRepository repository) {
+    String accessStudents(Map<String, Object> model,CustomerRepository repository) {
        // StudentService studentService = new StudentService();
         try (Connection connection = dataSource.getConnection()) {
             Statement stmt = connection.createStatement();
@@ -96,12 +97,13 @@ public class Main {
            // ArrayList<String> output = new ArrayList<String>();
 
             //repository.save(new StudentDataModel("test"));
+            repository.save(new Customer("Kar","f"));
             while (rs.next()) {
-                repository.save(new StudentDataModel(rs.getInt("userId"), rs.getString("legalFirstName"), rs.getString("legalLastName"),rs.getString("bio"), rs.getString("major"),rs.getString("minor"),rs.getString("img"),rs.getBoolean("active"),rs.getTimestamp("creationDate")));
+                //repository.save(new StudentDataModel(rs.getInt("userId"), rs.getString("legalFirstName"), rs.getString("legalLastName"),rs.getString("bio"), rs.getString("major"),rs.getString("minor"),rs.getString("img"),rs.getBoolean("active"),rs.getTimestamp("creationDate")));
 
                 //output.add(rs.getString("email"));
             }
-            List<StudentDataModel> output = repository.findAll();
+            //List<StudentDataModel> output = repository.findAll();
 
             model.put("records", repository);
             //model.put("records", output);
