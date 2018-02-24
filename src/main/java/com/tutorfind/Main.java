@@ -19,8 +19,11 @@ package com.tutorfind;
 import com.tutorfind.Repository.StudentRepository;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -42,7 +45,8 @@ public class Main {
   @Value("${spring.datasource.url}")
   private String dbUrl;
 
-  @Autowired StudentRepository repository;
+
+  private static final Logger log = LoggerFactory.getLogger(Main.class);
 
   public static void main(String[] args) throws Exception {
     SpringApplication.run(Main.class, args);
@@ -52,6 +56,41 @@ public class Main {
   String index() {
     return "index";
   }
+
+    @Bean
+    public CommandLineRunner demo(StudentRepository repository) {
+        return (args) -> {
+            // save a couple of customers
+            repository.save(new StudentDataModel(1, "Joe","Test","bio","major","minor","img",true,new Timestamp(System.currentTimeMillis())));
+//            repository.save(new Customer("Chloe", "O'Brian"));
+ //           repository.save(new Customer("Kim", "Bauer"));
+  //          repository.save(new Customer("David", "Palmer"));
+    //        repository.save(new Customer("Michelle", "Dessler"));
+
+            // fetch all customers
+            log.info("Customers found with findAll():");
+            log.info("-------------------------------");
+            for (StudentDataModel student : repository.findAll()) {
+                log.info(student.toString());
+            }
+            log.info("");
+
+            // fetch an individual customer by ID
+            StudentDataModel student = repository.findOne(1);
+            log.info("Customer found with findOne(1L):");
+            log.info("--------------------------------");
+            log.info(student.toString());
+            log.info("");
+
+            // fetch customers by last name
+            log.info("Customer found with findByLastName('Bauer'):");
+            log.info("--------------------------------------------");
+            for (StudentDataModel test : repository.findByLegalLastName("test")) {
+                log.info(test.toString());
+            }
+            log.info("");
+        };
+    }
 
   @RequestMapping("/db")
   String db(Map<String, Object> model) {
@@ -63,10 +102,10 @@ public class Main {
       //ArrayList<String> output = new ArrayList<String>();
 
       while (rs.next()) {
-        repository.save(new StudentDataModel(rs.getInt("userId"),rs.getString("legalFirstName"), rs.getString("legalLastName"),rs.getString("bio"),rs.getString("major"), rs.getString("minor"), rs.getString("img"),rs.getBoolean("active"), rs.getTimestamp("creationDate")));
+        //repository.save(new StudentDataModel(rs.getInt("userId"),rs.getString("legalFirstName"), rs.getString("legalLastName"),rs.getString("bio"),rs.getString("major"), rs.getString("minor"), rs.getString("img"),rs.getBoolean("active"), rs.getTimestamp("creationDate")));
         //output.add(rs.getString("email"));
       }
-      model.put("records",repository);
+     // model.put("records",repository);
       //model.put("records", output);
       return "db";
     } catch (Exception e) {
