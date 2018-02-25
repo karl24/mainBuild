@@ -13,6 +13,7 @@ public class StudentDataModel {
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
+    @Column(name = "userId")
     private int userId;
 
     @Column(name = "legalFirstName")
