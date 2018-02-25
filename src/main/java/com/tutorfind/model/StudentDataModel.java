@@ -45,77 +45,77 @@ public class StudentDataModel {
         this.creationDate = creationDate;
     }
 
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
-    public String getLegalFirstName() {
-        return legalFirstName;
-    }
-
-    public void setLegalFirstName(String legalFirstName) {
-        this.legalFirstName = legalFirstName;
-    }
-
-    public String getLegalLastName() {
-        return legalLastName;
-    }
-
-    public void setLegalLastName(String legalLastName) {
-        this.legalLastName = legalLastName;
-    }
-
-    public String getBio() {
-        return bio;
-    }
-
-    public void setBio(String bio) {
-        this.bio = bio;
-    }
-
-    public String getMajor() {
-        return major;
-    }
-
-    public void setMajor(String major) {
-        this.major = major;
-    }
-
-    public String getMinor() {
-        return minor;
-    }
-
-    public void setMinor(String minor) {
-        this.minor = minor;
-    }
-
-    public String getImg() {
-        return img;
-    }
-
-    public void setImg(String img) {
-        this.img = img;
-    }
-
-    public boolean isActive() {
-        return active;
-    }
-
-    public void setActive(boolean active) {
-        this.active = active;
-    }
-
-    public Timestamp getCreationDate() {
-        return creationDate;
-    }
-
-    public void setCreationDate(Timestamp creationDate) {
-        this.creationDate = creationDate;
-    }
+//    public int getUserId() {
+//        return userId;
+//    }
+//
+//    public void setUserId(int userId) {
+//        this.userId = userId;
+//    }
+//
+//    public String getLegalFirstName() {
+//        return legalFirstName;
+//    }
+//
+//    public void setLegalFirstName(String legalFirstName) {
+//        this.legalFirstName = legalFirstName;
+//    }
+//
+//    public String getLegalLastName() {
+//        return legalLastName;
+//    }
+//
+//    public void setLegalLastName(String legalLastName) {
+//        this.legalLastName = legalLastName;
+//    }
+//
+//    public String getBio() {
+//        return bio;
+//    }
+//
+//    public void setBio(String bio) {
+//        this.bio = bio;
+//    }
+//
+//    public String getMajor() {
+//        return major;
+//    }
+//
+//    public void setMajor(String major) {
+//        this.major = major;
+//    }
+//
+//    public String getMinor() {
+//        return minor;
+//    }
+//
+//    public void setMinor(String minor) {
+//        this.minor = minor;
+//    }
+//
+//    public String getImg() {
+//        return img;
+//    }
+//
+//    public void setImg(String img) {
+//        this.img = img;
+//    }
+//
+//    public boolean isActive() {
+//        return active;
+//    }
+//
+//    public void setActive(boolean active) {
+//        this.active = active;
+//    }
+//
+//    public Timestamp getCreationDate() {
+//        return creationDate;
+//    }
+//
+//    public void setCreationDate(Timestamp creationDate) {
+//        this.creationDate = creationDate;
+//    }
 
     @Override
     public boolean equals(Object o) {
