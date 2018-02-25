@@ -92,27 +92,27 @@ public class Main {
         };
     }
 
-  @RequestMapping("/db")
-  String db(Map<String, Object> model) {
-    try (Connection connection = dataSource().getConnection()) {
-      Statement stmt = connection.createStatement();
-
-      ResultSet rs = stmt.executeQuery("SELECT * FROM students");
-
-      //ArrayList<String> output = new ArrayList<String>();
-
-      while (rs.next()) {
-        //repository.save(new StudentDataModel(rs.getInt("userId"),rs.getString("legalFirstName"), rs.getString("legalLastName"),rs.getString("bio"),rs.getString("major"), rs.getString("minor"), rs.getString("img"),rs.getBoolean("active"), rs.getTimestamp("creationDate")));
-        //output.add(rs.getString("email"));
-      }
-     // model.put("records",repository);
-      //model.put("records", output);
-      return "db";
-    } catch (Exception e) {
-      model.put("message", e.getMessage());
-      return "error";
-    }
-  }
+//  @RequestMapping("/db")
+//  String db(Map<String, Object> model) {
+//    try (Connection connection = dataSource().getConnection()) {
+//      Statement stmt = connection.createStatement();
+//
+//      ResultSet rs = stmt.executeQuery("SELECT * FROM students");
+//
+//      //ArrayList<String> output = new ArrayList<String>();
+//
+//      while (rs.next()) {
+//        //repository.save(new StudentDataModel(rs.getInt("userId"),rs.getString("legalFirstName"), rs.getString("legalLastName"),rs.getString("bio"),rs.getString("major"), rs.getString("minor"), rs.getString("img"),rs.getBoolean("active"), rs.getTimestamp("creationDate")));
+//        //output.add(rs.getString("email"));
+//      }
+//     // model.put("records",repository);
+//      //model.put("records", output);
+//      return "db";
+//    } catch (Exception e) {
+//      model.put("message", e.getMessage());
+//      return "error";
+//    }
+//  }
 
 
   @Bean
