@@ -14,13 +14,22 @@ public class StudentDataModel {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private int userId;
+
+    @Column(name = "legalFirstName")
     private String legalFirstName;
+    @Column(name = "legalLastName")
     private String legalLastName;
+    @Column(name = "bio")
     private String bio;
+    @Column(name = "major")
     private String major;
+    @Column(name = "minor")
     private String minor;
+    @Column(name = "img")
     private String img;
+    @Column(name = "active")
     private boolean active;
+    @Column(name = "creationDate")
     private Timestamp creationDate;
 
     public StudentDataModel(int userId, String legalFirstName, String legalLastName, String bio, String major, String minor, String img, boolean active, Timestamp creationDate) {
