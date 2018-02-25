@@ -7,7 +7,7 @@ import javax.persistence.*;
 
 
 @Entity
-@Table(name = "students", schema = "tutortestdb")
+@Table(name = "students", schema = "d5968drpqfac60")
 public class StudentDataModel {
 
 
