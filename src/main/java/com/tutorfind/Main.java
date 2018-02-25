@@ -57,40 +57,40 @@ public class Main {
     return "index";
   }
 
-    @Bean
-    public CommandLineRunner demo(StudentRepository repository) {
-        return (args) -> {
-            // save a couple of customers
-            repository.save(new StudentDataModel(1, "Joe","Test","bio","major","minor","img",true,new Timestamp(System.currentTimeMillis())));
-//            repository.save(new Customer("Chloe", "O'Brian"));
- //           repository.save(new Customer("Kim", "Bauer"));
-  //          repository.save(new Customer("David", "Palmer"));
-    //        repository.save(new Customer("Michelle", "Dessler"));
-
-            // fetch all customers
-            log.info("Customers found with findAll():");
-            log.info("-------------------------------");
-            for (StudentDataModel student : repository.findAll()) {
-                log.info(student.toString());
-            }
-            log.info("");
-
-            // fetch an individual customer by ID
-            StudentDataModel student = repository.findOne(1);
-            log.info("Customer found with findOne(1L):");
-            log.info("--------------------------------");
-            log.info(student.toString());
-            log.info("");
-
-            // fetch customers by last name
-            log.info("Customer found with findByLastName('Bauer'):");
-            log.info("--------------------------------------------");
-            for (StudentDataModel test : repository.findByLegalLastName("test")) {
-                log.info(test.toString());
-            }
-            log.info("");
-        };
-    }
+//    @Bean
+//    public CommandLineRunner demo(StudentRepository repository) {
+//        return (args) -> {
+//            // save a couple of customers
+//            repository.save(new StudentDataModel(1, "Joe","Test","bio","major","minor","img",true,new Timestamp(System.currentTimeMillis())));
+////            repository.save(new Customer("Chloe", "O'Brian"));
+// //           repository.save(new Customer("Kim", "Bauer"));
+//  //          repository.save(new Customer("David", "Palmer"));
+//    //        repository.save(new Customer("Michelle", "Dessler"));
+//
+//            // fetch all customers
+//            log.info("Customers found with findAll():");
+//            log.info("-------------------------------");
+//            for (StudentDataModel student : repository.findAll()) {
+//                log.info(student.toString());
+//            }
+//            log.info("");
+//
+//            // fetch an individual customer by ID
+//            StudentDataModel student = repository.findOne(1);
+//            log.info("Customer found with findOne(1L):");
+//            log.info("--------------------------------");
+//            log.info(student.toString());
+//            log.info("");
+//
+//            // fetch customers by last name
+//            log.info("Customer found with findByLastName('Bauer'):");
+//            log.info("--------------------------------------------");
+//            for (StudentDataModel test : repository.findByLegalLastName("test")) {
+//                log.info(test.toString());
+//            }
+//            log.info("");
+//        };
+//    }
 
   @RequestMapping("/db")
   String db(Map<String, Object> model) {
