@@ -97,7 +97,7 @@ public class Main {
     try (Connection connection = dataSource().getConnection()) {
       Statement stmt = connection.createStatement();
 
-      ResultSet rs = stmt.executeQuery("SELECT * FROM students");
+      ResultSet rs = stmt.executeQuery("SELECT * FROM users");
 
       ArrayList<String> output = new ArrayList<String>();
 
