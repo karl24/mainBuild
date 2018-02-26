@@ -3,6 +3,8 @@ com/tutorfind/model/SubjectDataModel.class
 com/tutorfind/model/UserDataModel.class
 com/tutorfind/model/StudentPostDataModel.class
 com/tutorfind/model/TutorRatingDataModel.class
+com/tutorfind/GreetingController.class
+com/tutorfind/Greeting.class
 com/tutorfind/model/TutorSignUpDataModel.class
 com/tutorfind/Main.class
 com/tutorfind/model/StudentDataModel.class
