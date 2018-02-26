@@ -11,8 +11,8 @@ import javax.persistence.*;
 public class StudentDataModel {
 
 
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+   // @Id
+   // @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name = "userId")
     private int userId;
 
