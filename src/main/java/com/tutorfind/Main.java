@@ -84,6 +84,9 @@ import java.util.Map;
 @SpringBootApplication
 public class Main {
 
+    @Autowired
+    StudentRepository repository;
+
   @Value("${spring.datasource.url}")
   private String dbUrl;
 
@@ -147,9 +150,17 @@ public class Main {
         repository.save(new StudentDataModel(rs.getInt("userId"),rs.getString("legalFirstName"), rs.getString("legalLastName"),rs.getString("bio"),rs.getString("major"), rs.getString("minor"), rs.getString("img"),rs.getBoolean("active"), rs.getTimestamp("creationDate")));
         //output.add(rs.getString("email"));
       }
-      model.put("records",repository);
+        String result = "";
+
+        for(StudentDataModel cust : repository.findAll()){
+            result += cust.toString() + "<br>";
+        }
+
+        return result;
+
+      //model.put("records",repository);
       //model.put("records", output);
-      return "db";
+      //return "db";
     } catch (Exception e) {
       model.put("message", e.getMessage());
       return "error";
