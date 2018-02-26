@@ -22,30 +22,37 @@ public class StudentController {
     private DataSource dataSource;
 
 
-    @RequestMapping("/student")
-    public String student(@RequestParam(value="name", defaultValue="World") String name) {
+    private ArrayList<StudentDataModel> getStudentsFromDB() {
         try (Connection connection = dataSource.getConnection()) {
             Statement stmt = connection.createStatement();
-            // stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ticks (tick timestamp)");
-            //stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
+
             ResultSet rs = stmt.executeQuery("SELECT * FROM students");
 
             ArrayList<StudentDataModel> output = new ArrayList<StudentDataModel>();
 
             while (rs.next()) {
-                output.add(new StudentDataModel(rs.getInt("userId"),rs.getString("legalFirstName"),rs.getString("legalLastName"),
-                        rs.getString("bio"),rs.getString("major"),rs.getString("minor"),rs.getString("img"),rs.getBoolean("active"),rs.getTimestamp("creationDate")));
-            }
-            String result = "";
-
-            for(StudentDataModel cust : output){
-                result += cust.toString() + "<br>";
+                output.add(new StudentDataModel(rs.getInt("userId"), rs.getString("legalFirstName"), rs.getString("legalLastName"),
+                        rs.getString("bio"), rs.getString("major"), rs.getString("minor"), rs.getString("img"), rs.getBoolean("active"), rs.getTimestamp("creationDate")));
             }
 
-            return result;
-    } catch (SQLException e) {
+            return output;
+
+        } catch (SQLException e) {
             e.printStackTrace();
-            return "error";
+            return null;
+
         }
+    }
+
+    @RequestMapping("/students")
+    public String student(@RequestParam(value="name", defaultValue="World") String name) {
+
+        ArrayList<StudentDataModel> students = getStudentsFromDB();
+        String result = "";
+        for(StudentDataModel student : students){
+            result += student.toString() + "<br>";
+        }
+
+        return result;
     }
     }
