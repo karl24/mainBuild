@@ -14,7 +14,7 @@ public class StudentDataModel {
    // @Id
    // @GeneratedValue(strategy=GenerationType.AUTO)
     @Id
-    @Column(name = "userId")
+    //@Column(name = "userId")
     private int userId;
 
     @Column(name = "legalFirstName")
