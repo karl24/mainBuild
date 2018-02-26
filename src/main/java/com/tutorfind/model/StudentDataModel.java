@@ -15,6 +15,8 @@ public class StudentDataModel {
     private boolean active;
     private Timestamp creationDate;
 
+    public StudentDataModel(){}
+
     public StudentDataModel(int userId, String legalFirstName, String legalLastName, String bio, String major, String minor, String img, boolean active, Timestamp creationDate) {
         this.userId = userId;
         this.legalFirstName = legalFirstName;
