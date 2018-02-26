@@ -51,7 +51,7 @@ public class Main {
     public CommandLineRunner demo(StudentRepository repository) {
         return (args) -> {
             // save a couple of customers
-            repository.save(new StudentDataModel(1, "Joe","Test","bio","major","minor","img",true,new Timestamp(System.currentTimeMillis())));
+            repository.save(new StudentDataModel(100, "Joe","Test","bio","major","minor","img",true,new Timestamp(System.currentTimeMillis())));
 
             // fetch all customers
             log.info("Customers found with findAll():");
@@ -62,7 +62,7 @@ public class Main {
             log.info("");
 
             // fetch an individual customer by ID
-            StudentDataModel customer = repository.findOne(1);
+            StudentDataModel customer = repository.findOne(100);
             log.info("Customer found with findOne(1L):");
             log.info("--------------------------------");
             log.info(customer.toString());
