@@ -17,14 +17,16 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="535">
-              <caret line="98" column="0" lean-forward="true" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
+            <state relative-caret-position="813">
+              <caret line="78" column="5" lean-forward="true" selection-start-line="78" selection-start-column="5" selection-end-line="78" selection-end-column="5" />
               <folding>
-                <element signature="e#0#4717#0" expanded="true" />
-                <element signature="e#3857#3865#0" expanded="true" />
-                <marker date="1519605723000" expanded="true" signature="3787:3801" ph="SELECT * FRO... students" />
-                <marker date="1519605723000" expanded="true" signature="3787:3806" ph="SELECT * FRO... users" />
-                <marker date="1519605723000" expanded="true" signature="4418:4421" ph="//..." />
+                <element signature="e#0#6377#0" expanded="true" />
+                <element signature="e#1751#1752#0" expanded="true" />
+                <element signature="e#1800#1801#0" expanded="true" />
+                <marker date="1519606154000" expanded="false" signature="3146:3170" ph="${JDBC_DATABASE_URL:}" />
+                <marker date="1519606154000" expanded="true" signature="5389:5403" ph="SELECT * FRO... students" />
+                <marker date="1519606154000" expanded="true" signature="5389:5408" ph="SELECT * FRO... users" />
+                <marker date="1519606154000" expanded="true" signature="6050:6053" ph="//..." />
               </folding>
             </state>
           </provider>
@@ -363,7 +365,7 @@
       <workItem from="1519443834559" duration="3040000" />
       <workItem from="1519447434469" duration="1082000" />
       <workItem from="1519448606848" duration="7029000" />
-      <workItem from="1519605355874" duration="314000" />
+      <workItem from="1519605355874" duration="687000" />
     </task>
     <servers />
   </component>
@@ -376,7 +378,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25582000" />
+    <option name="totallyTimeSpent" value="25955000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="823" extended-state="0" />
@@ -440,11 +442,13 @@
         <state relative-caret-position="150">
           <caret line="24" column="19" lean-forward="true" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
           <folding>
-            <element signature="e#0#4717#0" expanded="true" />
-            <element signature="e#3857#3865#0" expanded="true" />
-            <marker date="1519605723000" expanded="true" signature="3787:3801" ph="SELECT * FRO... students" />
-            <marker date="1519605723000" expanded="true" signature="3787:3806" ph="SELECT * FRO... users" />
-            <marker date="1519605723000" expanded="true" signature="4418:4421" ph="//..." />
+            <element signature="e#0#6377#0" expanded="true" />
+            <element signature="e#1751#1752#0" expanded="true" />
+            <element signature="e#1800#1801#0" expanded="true" />
+            <marker date="1519606154000" expanded="false" signature="3146:3170" ph="${JDBC_DATABASE_URL:}" />
+            <marker date="1519606154000" expanded="true" signature="5389:5403" ph="SELECT * FRO... students" />
+            <marker date="1519606154000" expanded="true" signature="5389:5408" ph="SELECT * FRO... users" />
+            <marker date="1519606154000" expanded="true" signature="6050:6053" ph="//..." />
           </folding>
         </state>
       </provider>
@@ -725,14 +729,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="535">
-          <caret line="98" column="0" lean-forward="true" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
+        <state relative-caret-position="813">
+          <caret line="78" column="5" lean-forward="true" selection-start-line="78" selection-start-column="5" selection-end-line="78" selection-end-column="5" />
           <folding>
-            <element signature="e#0#4717#0" expanded="true" />
-            <element signature="e#3857#3865#0" expanded="true" />
-            <marker date="1519605723000" expanded="true" signature="3787:3801" ph="SELECT * FRO... students" />
-            <marker date="1519605723000" expanded="true" signature="3787:3806" ph="SELECT * FRO... users" />
-            <marker date="1519605723000" expanded="true" signature="4418:4421" ph="//..." />
+            <element signature="e#0#6377#0" expanded="true" />
+            <element signature="e#1751#1752#0" expanded="true" />
+            <element signature="e#1800#1801#0" expanded="true" />
+            <marker date="1519606154000" expanded="false" signature="3146:3170" ph="${JDBC_DATABASE_URL:}" />
+            <marker date="1519606154000" expanded="true" signature="5389:5403" ph="SELECT * FRO... students" />
+            <marker date="1519606154000" expanded="true" signature="5389:5408" ph="SELECT * FRO... users" />
+            <marker date="1519606154000" expanded="true" signature="6050:6053" ph="//..." />
           </folding>
         </state>
       </provider>
