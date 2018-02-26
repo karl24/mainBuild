@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 @RestController
+@RequestMapping("students")
 public class StudentController {
 
 
@@ -46,7 +47,7 @@ public class StudentController {
 
 
     @RequestMapping(method = RequestMethod.GET)
-    public @ResponseBody StudentDataModel printStudents( @RequestParam(value="students/{legalFirstName}", defaultValue="") String legalFirstName) {
+    public @ResponseBody StudentDataModel printStudents( @RequestParam(value="legalFirstName", defaultValue="") String legalFirstName) {
 
         ArrayList<StudentDataModel> students = getStudentsFromDB();
 
