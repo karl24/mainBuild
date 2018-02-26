@@ -44,19 +44,9 @@ public class StudentController {
         }
     }
 
-    @RequestMapping("/students")
-    public String students(@RequestParam(value="name", defaultValue="World") String name) {
-
-        ArrayList<StudentDataModel> students = getStudentsFromDB();
-        String result = "";
-        for(StudentDataModel student : students){
-            result += student.toString() + "<br>";
-        }
-
-        return result;
-    }
+    
     @RequestMapping(method = RequestMethod.GET)
-    public @ResponseBody StudentDataModel printStudents(@RequestParam(value="legalFirstName", defaultValue="Joe") String legalFirstName) {
+    public @ResponseBody StudentDataModel printStudents( @RequestParam(value="students/legalFirstName", defaultValue="Joe") String legalFirstName) {
 
         ArrayList<StudentDataModel> students = getStudentsFromDB();
 
