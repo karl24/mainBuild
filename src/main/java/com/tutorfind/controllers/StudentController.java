@@ -55,7 +55,7 @@ public class StudentController {
                return student;
         }
 
-        return null;
+        return new StudentDataModel();
     }
 
 }
