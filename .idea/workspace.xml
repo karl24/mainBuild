@@ -2,115 +2,63 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c70f755-888c-4586-99cc-12f9667506f7" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_jdbc_1_5_7_RELEASE.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_1_5_7_RELEASE.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_zaxxer_HikariCP_2_5_1.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_compress_1_9.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_1.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_core_8_5_27.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_core_8_5_20.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_el_8_5_27.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_el_8_5_20.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_websocket_8_5_27.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_websocket_8_5_20.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_tomcat_annotations_api_8_5_27.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_tomcat_jdbc_8_5_27.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_tomcat_juli_8_5_20.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_tomcat_juli_8_5_27.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_tomcat_jdbc_8_5_20.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjweaver_1_8_13.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjweaver_1_8_10.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_attoparser_attoparser_2_0_1_RELEASE.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_validator_5_3_6_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_validator_5_3_5_Final.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_1_5_10_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_1_5_7_RELEASE.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_actuator_1_5_10_RELEASE.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_1_5_10_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_1_5_7_RELEASE.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_devtools_1_5_10_RELEASE.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_1_5_10_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_1_5_7_RELEASE.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_actuator_1_5_10_RELEASE.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_aop_1_5_10_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_1_5_7_RELEASE.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_jpa_1_5_10_RELEASE.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_jdbc_1_5_10_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_1_5_7_RELEASE.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_1_5_10_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_jpa_1_5_7_RELEASE.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_1_5_10_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_1_5_7_RELEASE.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_thymeleaf_1_5_10_RELEASE.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_1_5_10_RELEASE.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_1_5_10_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_aop_1_5_7_RELEASE.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_1_5_10_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_1_5_7_RELEASE.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_1_5_10_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_1_5_7_RELEASE.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_commons_1_13_10_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_commons_1_13_7_RELEASE.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_jpa_1_11_10_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_jpa_1_11_7_RELEASE.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_4_3_14_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_4_3_11_RELEASE.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aspects_4_3_14_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aspects_4_3_11_RELEASE.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_4_3_14_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_4_3_11_RELEASE.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_4_3_14_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_4_3_11_RELEASE.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_4_3_14_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_4_3_11_RELEASE.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_4_3_14_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_4_3_11_RELEASE.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_4_3_14_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_4_3_11_RELEASE.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_orm_4_3_14_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_orm_4_3_11_RELEASE.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_4_3_14_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_4_3_11_RELEASE.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_4_3_14_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_4_3_11_RELEASE.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_4_3_14_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_4_3_11_RELEASE.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_4_3_14_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_4_3_11_RELEASE.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_thymeleaf_thymeleaf_3_0_2_RELEASE.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_thymeleaf_thymeleaf_spring4_3_0_2_RELEASE.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_unbescape_unbescape_1_1_4_RELEASE.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_webjars_bootstrap_4_0_0.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_webjars_jquery_3_3_1.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_webjars_jquery_ui_1_12_1.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_webjars_npm_popper_js_1_11_1.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_webjars_webjars_locator_0_32_1.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_webjars_webjars_locator_core_0_32.xml" afterPath="" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/css/bootstrap.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/css/font-awesome.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/css/jquery-ui.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/css/style.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/css/swipebox.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/css/bootstrap.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/css/font-awesome.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/css/jquery-ui.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/css/style.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/css/swipebox.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/Main.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/Repository/StudentRepository.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/config/Configuration.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/model/StudentDataModel.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/model/StudentPostDataModel.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/model/SubjectDataModel.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/model/TutorPostDataModel.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/model/TutorRatingDataModel.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/model/TutorSignUpDataModel.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/model/TutorSubjectDataModel.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/model/TutorsDataModel.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/model/UserDataModel.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java-getting-started.iml" afterPath="$PROJECT_DIR$/java-getting-started.iml" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/banner.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/bootstrap.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/font-awesome.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/jquery-ui.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/style.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/swipebox.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/lang-logo.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/stylesheets/main.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Admin_Inbox.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/ArchivedPosts.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Posts_Admin.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/StudentSignedInLandingPage.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/TutorSignedInLandingPage.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Tutor_SignedIn_SentPage.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/accountLoggedOut.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/adminHomepage.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/adminSubject.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/contactUs.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/css/bootstrap.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/css/font-awesome.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/css/jquery-ui.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/css/style.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/css/swipebox.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/db.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/devops" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/error.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fonts/FontAwesome.otf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fonts/fontawesome-webfont.eot" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fonts/fontawesome-webfont.svg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fonts/fontawesome-webfont.ttf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fonts/fontawesome-webfont.woff" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fonts/fontawesome-webfont.woff2" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fonts/glyphicons-halflings-regular.woff" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fonts/glyphicons-halflings-regular.woff2" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/forgotPassword.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/layout.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/TutorFindLogo.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/ab1.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/ab2.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/avb1.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/banner2.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/bg1.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/c-arrows.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/default_profile_pic.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/g1.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/g10.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/g11.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/g12.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/g2.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/g3.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/g4.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/g5.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/g6.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/g7.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/g8.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/g9.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/googleMap.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/icons.svg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/mail.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/play-button.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/search.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/studentRaise.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/t1.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/t2.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/t3.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/t4.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/t5.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/t6.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/teacherTeaching.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/up2.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/infoPage.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/js/SmoothScroll.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/js/bootstrap.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/js/easing.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/js/jquery-2.1.4.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/js/jquery-ui.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/js/jquery.swipebox.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/js/move-top.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/js/numscroller-1.0.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/js/simplePlayer.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/studentProfile.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/tutorProfile.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/w3layouts-License.txt" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -126,17 +74,17 @@
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="674">
-              <caret line="134" column="25" lean-forward="false" selection-start-line="134" selection-start-column="25" selection-end-line="134" selection-end-column="25" />
+              <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SpringJpaPostgreSqlApplication.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SpringJpaPostgreSqlApplication.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/springjpa/SpringJpaPostgreSqlApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="14" column="4" lean-forward="true" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
+            <state relative-caret-position="270">
+              <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -162,11 +110,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WebController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="WebController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/springjpa/controller/WebController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="25" column="8" lean-forward="true" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
+            <state relative-caret-position="525">
+              <caret line="43" column="27" lean-forward="false" selection-start-line="43" selection-start-column="27" selection-end-line="43" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -176,7 +124,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="45">
-              <caret line="3" column="28" lean-forward="false" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
+              <caret line="3" column="28" lean-forward="true" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -224,9 +172,9 @@
         <option value="$PROJECT_DIR$/src/main/java/com/tutorfind/Customer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tutorfind/Repository/StudentRepository.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/tutorfind/model/StudentDataModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tutorfind/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
       </list>
     </option>
   </component>
@@ -236,8 +184,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="58" />
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="823" />
@@ -258,8 +205,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -267,70 +212,12 @@
               <item name="java-getting-started" type="b2602c69:ProjectViewProjectNode" />
               <item name="mainBuild" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="java-getting-started" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mainBuild" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-getting-started" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mainBuild" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-getting-started" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mainBuild" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-getting-started" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mainBuild" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="springjpa" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-getting-started" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mainBuild" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="springjpa" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-getting-started" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mainBuild" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="springjpa" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-getting-started" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mainBuild" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="springjpa" type="462c0819:PsiDirectoryNode" />
-              <item name="repo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-getting-started" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mainBuild" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
@@ -444,6 +331,12 @@
       <module name="java-getting-started" />
       <envs />
     </configuration>
+    <configuration name="SpringJpaPostgreSqlApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.springjpa.SpringJpaPostgreSqlApplication" />
+      <module name="java-getting-started" />
+      <envs />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -477,9 +370,10 @@
       <option name="PROGRAM_PARAMETERS" />
       <predefined_log_file id="idea.log" enabled="true" />
     </configuration>
-    <list size="2">
+    <list size="3">
       <item index="0" class="java.lang.String" itemvalue="Spring Boot.Main" />
       <item index="1" class="java.lang.String" itemvalue="JUnit.com.tutorfind in java-getting-started" />
+      <item index="2" class="java.lang.String" itemvalue="Spring Boot.SpringJpaPostgreSqlApplication" />
     </list>
     <recent_temporary>
       <list size="1">
@@ -516,7 +410,8 @@
       <workItem from="1519447434469" duration="1082000" />
       <workItem from="1519448606848" duration="7029000" />
       <workItem from="1519605355874" duration="3094000" />
-      <workItem from="1519610592867" duration="24000" />
+      <workItem from="1519610592867" duration="209000" />
+      <workItem from="1519611133385" duration="130000" />
     </task>
     <servers />
   </component>
@@ -529,7 +424,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28386000" />
+    <option name="totallyTimeSpent" value="28701000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="823" extended-state="6" />
@@ -648,32 +543,8 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/Repository/StudentRepository.java" />
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="674">
-          <caret line="134" column="25" lean-forward="false" selection-start-line="134" selection-start-column="25" selection-end-line="134" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="28" lean-forward="false" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/model/StudentDataModel.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/Main.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/springjpa/SpringJpaPostgreSqlApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="14" column="4" lean-forward="true" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/springjpa/repo/CustomerRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -692,8 +563,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/springjpa/controller/WebController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="25" column="8" lean-forward="true" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
+        <state relative-caret-position="525">
+          <caret line="43" column="27" lean-forward="false" selection-start-line="43" selection-start-column="27" selection-end-line="43" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="28" lean-forward="true" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="674">
+          <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/springjpa/SpringJpaPostgreSqlApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding />
         </state>
       </provider>
