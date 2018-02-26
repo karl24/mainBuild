@@ -3,9 +3,7 @@ package com.tutorfind.controllers;
 import com.tutorfind.Greeting;
 import com.tutorfind.model.StudentDataModel;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -13,6 +11,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+
+import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 @RestController
 public class StudentController {
@@ -45,7 +45,7 @@ public class StudentController {
     }
 
     @RequestMapping("/students")
-    public String student(@RequestParam(value="name", defaultValue="World") String name) {
+    public String students(@RequestParam(value="name", defaultValue="World") String name) {
 
         ArrayList<StudentDataModel> students = getStudentsFromDB();
         String result = "";
@@ -55,4 +55,17 @@ public class StudentController {
 
         return result;
     }
+    @RequestMapping(method = RequestMethod.GET)
+    public @ResponseBody StudentDataModel printStudents(@RequestParam(value="legalFirstName", defaultValue="Joe") String legalFirstName) {
+
+        ArrayList<StudentDataModel> students = getStudentsFromDB();
+
+        for(StudentDataModel student : students){
+           if(student.getLegalFirstName().equals(legalFirstName))
+               return student;
+        }
+
+        return new StudentDataModel();
     }
+
+}
