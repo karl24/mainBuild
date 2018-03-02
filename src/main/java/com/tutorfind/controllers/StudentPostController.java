@@ -1,6 +1,6 @@
 // Built by ahardy based off of Karl's StudentController.java and https://spring.io/guides/gs/rest-service/
 // Currently returns all active student posts when you hit /studentpost , takes no parameters yet
-// To Do: if needed, add requests with parameteres for individual posts or subjects?  Figure out rs for JSON object
+// To Do: if needed, add requests with parameteres for individual posts or subjects?  Figure out rs for JSON object activity
 
 package com.tutorfind;
 
@@ -38,6 +38,7 @@ public class StudentPostController {
 
             ArrayList<StudentPostDataModel> output = new ArrayList<StudentPostDataModel>();
 
+//currently skips availability as the spring data model does as well
             while (rs.next()) {
                 output.add(new StudentPostDataModel(rs.getInt("studentPostId"), rs.getInt("ownerId"), rs.getInt("subjectId"),
                         rs.getString("location"), rs.getBoolean("acceptsPaid"), rs.getDouble("rate"),
