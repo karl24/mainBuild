@@ -4,6 +4,8 @@ package com.tutorfind.model;
 Author: Karl Fernando
  */
 
+import org.json.JSONObject;
+
 import java.sql.Timestamp;
 import java.util.Objects;
 
@@ -13,7 +15,7 @@ public class StudentPostDataModel {
     private int ownerId;
     private int subjectId;
     private String location;
-    //private JSONObject availability;
+    private JSONObject availability;
     private boolean acceptspaid;
     private double rate;
     private String unit;
@@ -119,21 +121,37 @@ public class StudentPostDataModel {
         this.acceptsgrouptutoring = acceptsgrouptutoring;
     }
 
+
+    public JSONObject getAvailability() {
+        return availability;
+    }
+
+    public void setAvailability(JSONObject availability) {
+        this.availability = availability;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof StudentPostDataModel)) return false;
         StudentPostDataModel that = (StudentPostDataModel) o;
         return studentPostId == that.studentPostId &&
                 ownerId == that.ownerId &&
                 subjectId == that.subjectId &&
+                acceptspaid == that.acceptspaid &&
+                Double.compare(that.rate, rate) == 0 &&
+                active == that.active &&
+                acceptsgrouptutoring == that.acceptsgrouptutoring &&
                 Objects.equals(location, that.location) &&
-                Objects.equals(acceptspaid, that.acceptspaid) &&
-                rate == that.rate &&
+                Objects.equals(availability, that.availability) &&
                 Objects.equals(unit, that.unit) &&
-                Objects.equals(createdts, this.createdts) &&
-                Objects.equals(active, that.active) &&
-                Objects.equals(acceptsgrouptutoring, that.acceptsgrouptutoring);
+                Objects.equals(createdts, that.createdts);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(studentPostId, ownerId, subjectId, location, availability, acceptspaid, rate, unit, createdts, active, acceptsgrouptutoring);
     }
 
     @Override
@@ -143,6 +161,7 @@ public class StudentPostDataModel {
                 ", ownerId=" + ownerId +
                 ", subjectId=" + subjectId +
                 ", location='" + location + '\'' +
+                ", availability=" + availability +
                 ", acceptspaid=" + acceptspaid +
                 ", rate=" + rate +
                 ", unit='" + unit + '\'' +
