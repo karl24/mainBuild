@@ -19,6 +19,8 @@ public class UserDataModel {
         this.passhash = passhash;
         this.userType = userType;
     }
+    
+    public UserDataModel() {}
 
     public int getUserId() {
         return userId;
