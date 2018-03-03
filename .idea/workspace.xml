@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c70f755-888c-4586-99cc-12f9667506f7" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/StudentController.java" afterPath="$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/StudentController.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -19,10 +18,10 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/StudentController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="409">
-              <caret line="51" column="83" lean-forward="false" selection-start-line="51" selection-start-column="83" selection-end-line="51" selection-end-column="83" />
+              <caret line="51" column="84" lean-forward="false" selection-start-line="51" selection-start-column="84" selection-end-line="51" selection-end-column="84" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1520049015000" expanded="true" signature="837:859" ph="SELECT * FRO... students" />
+                <marker date="1520049103000" expanded="true" signature="837:859" ph="SELECT * FRO... students" />
               </folding>
             </state>
           </provider>
@@ -453,7 +452,7 @@
       <workItem from="1519611133385" duration="350000" />
       <workItem from="1519611537653" duration="3362000" />
       <workItem from="1519615976562" duration="2262000" />
-      <workItem from="1520039196119" duration="5124000" />
+      <workItem from="1520039196119" duration="5198000" />
     </task>
     <servers />
   </component>
@@ -466,7 +465,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39669000" />
+    <option name="totallyTimeSpent" value="39743000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1231" height="823" extended-state="0" />
@@ -705,10 +704,10 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/StudentController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="409">
-          <caret line="51" column="83" lean-forward="false" selection-start-line="51" selection-start-column="83" selection-end-line="51" selection-end-column="83" />
+          <caret line="51" column="84" lean-forward="false" selection-start-line="51" selection-start-column="84" selection-end-line="51" selection-end-column="84" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1520049015000" expanded="true" signature="837:859" ph="SELECT * FRO... students" />
+            <marker date="1520049103000" expanded="true" signature="837:859" ph="SELECT * FRO... students" />
           </folding>
         </state>
       </provider>
