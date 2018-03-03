@@ -1,5 +1,7 @@
 package com.tutorfind.model;
 
+import org.json.JSONObject;
+
 import java.sql.Timestamp;
 import java.util.Objects;
 
@@ -9,7 +11,7 @@ public class TutorPostDataModel {
     private int ownerId;
     private int subjectId;
     private String location;
-    //private JsonObject availability;
+    private JSONObject availability;
     private double rate;
     private String unit;
     private Timestamp createdts;
@@ -18,11 +20,16 @@ public class TutorPostDataModel {
     private int currentsignedup;
     private boolean acceptsgroups;
 
-    public TutorPostDataModel(int tutorpostid, int ownerId, int subjectId, String location, double rate, String unit, Timestamp createdts, boolean active, int maxgroupsize, int currentsignedup, boolean acceptsgroups) {
+    public TutorPostDataModel(){
+
+    }
+
+    public TutorPostDataModel(int tutorpostid, int ownerId, int subjectId, String location, JSONObject availability, double rate, String unit, Timestamp createdts, boolean active, int maxgroupsize, int currentsignedup, boolean acceptsgroups) {
         this.tutorpostid = tutorpostid;
         this.ownerId = ownerId;
         this.subjectId = subjectId;
         this.location = location;
+        this.availability = availability;
         this.rate = rate;
         this.unit = unit;
         this.createdts = createdts;
@@ -120,6 +127,14 @@ public class TutorPostDataModel {
         this.acceptsgroups = acceptsgroups;
     }
 
+    public JSONObject getAvailability() {
+        return availability;
+    }
+
+    public void setAvailability(JSONObject availability) {
+        this.availability = availability;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -134,6 +149,7 @@ public class TutorPostDataModel {
                 currentsignedup == that.currentsignedup &&
                 acceptsgroups == that.acceptsgroups &&
                 Objects.equals(location, that.location) &&
+                Objects.equals(availability, that.availability) &&
                 Objects.equals(unit, that.unit) &&
                 Objects.equals(createdts, that.createdts);
     }
@@ -141,7 +157,7 @@ public class TutorPostDataModel {
     @Override
     public int hashCode() {
 
-        return Objects.hash(tutorpostid, ownerId, subjectId, location, rate, unit, createdts, active, maxgroupsize, currentsignedup, acceptsgroups);
+        return Objects.hash(tutorpostid, ownerId, subjectId, location, availability, rate, unit, createdts, active, maxgroupsize, currentsignedup, acceptsgroups);
     }
 
     @Override
@@ -151,6 +167,7 @@ public class TutorPostDataModel {
                 ", ownerId=" + ownerId +
                 ", subjectId=" + subjectId +
                 ", location='" + location + '\'' +
+                ", availability=" + availability +
                 ", rate=" + rate +
                 ", unit='" + unit + '\'' +
                 ", createdts=" + createdts +
