@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 @RestController
-@RequestMapping("students")
+@RequestMapping("studentProfile")
 public class StudentController {
 
 
