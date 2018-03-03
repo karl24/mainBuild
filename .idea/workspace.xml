@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c70f755-888c-4586-99cc-12f9667506f7" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/TutorPostController.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/model/TutorPostDataModel.java" afterPath="$PROJECT_DIR$/src/main/java/com/tutorfind/model/TutorPostDataModel.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/StudentController.java" afterPath="$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/StudentController.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,23 +15,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="StudentController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="StudentController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/StudentController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1">
-              <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+            <state relative-caret-position="409">
+              <caret line="51" column="83" lean-forward="false" selection-start-line="51" selection-start-column="83" selection-end-line="51" selection-end-column="83" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1520046116000" expanded="true" signature="837:859" ph="SELECT * FRO... students" />
+                <marker date="1520049015000" expanded="true" signature="837:859" ph="SELECT * FRO... students" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TutorPostController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TutorPostController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/TutorPostController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="539">
+            <state relative-caret-position="671">
               <caret line="64" column="0" lean-forward="true" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -152,10 +151,10 @@
         <option value="$PROJECT_DIR$/src/main/resources/templates/studentProfile.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/tutorfind/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tutorfind/model/StudentPostDataModel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/StudentController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/TutorPostDataModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tutorfind/model/TutorPostDataModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/TutorPostController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/StudentController.java" />
       </list>
     </option>
   </component>
@@ -454,7 +453,7 @@
       <workItem from="1519611133385" duration="350000" />
       <workItem from="1519611537653" duration="3362000" />
       <workItem from="1519615976562" duration="2262000" />
-      <workItem from="1520039196119" duration="4804000" />
+      <workItem from="1520039196119" duration="5124000" />
     </task>
     <servers />
   </component>
@@ -467,7 +466,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39349000" />
+    <option name="totallyTimeSpent" value="39669000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1231" height="823" extended-state="0" />
@@ -646,17 +645,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/StudentController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1">
-          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1520046116000" expanded="true" signature="837:859" ph="SELECT * FRO... students" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/model/StudentPostDataModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -704,12 +692,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/TutorPostController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="539">
+        <state relative-caret-position="671">
           <caret line="64" column="0" lean-forward="true" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#934#954#0" expanded="true" />
             <marker date="1520048622000" expanded="true" signature="842:865" ph="SELECT * FRO... tutorpost" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/StudentController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="409">
+          <caret line="51" column="83" lean-forward="false" selection-start-line="51" selection-start-column="83" selection-end-line="51" selection-end-column="83" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1520049015000" expanded="true" signature="837:859" ph="SELECT * FRO... students" />
           </folding>
         </state>
       </provider>

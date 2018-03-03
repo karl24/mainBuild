@@ -49,7 +49,7 @@ public class StudentController {
     @RequestMapping(method = RequestMethod.GET)
     public @ResponseBody
     StudentDataModel printStudents(@RequestParam(value = "legalFirstName", defaultValue = "") String legalFirstName,
-                                   @RequestParam(value = "userId", defaultValue = "1") int userId) {
+                                   @RequestParam(value = "userId", defaultValue = "") int userId) {
 
         ArrayList<StudentDataModel> students = getStudentsFromDB();
 
