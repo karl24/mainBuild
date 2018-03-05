@@ -2,10 +2,93 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c70f755-888c-4586-99cc-12f9667506f7" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/tutorfind/UserController.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/css/bootstrap.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/css/font-awesome.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/css/jquery-ui.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/css/style.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/css/swipebox.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/css/bootstrap.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/css/font-awesome.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/css/jquery-ui.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/css/style.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/css/swipebox.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Admin_Inbox.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/ArchivedPosts.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Posts_Admin.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/README.md" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/StudentSignedInLandingPage.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/TutorSignedInLandingPage.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Tutor_SignedIn_SentPage.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/accountLoggedOut.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/adminHomepage.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/adminSubject.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/contactUs.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/css/bootstrap.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/css/font-awesome.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/css/jquery-ui.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/css/style.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/css/swipebox.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/db.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/error.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fonts/FontAwesome.otf" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fonts/fontawesome-webfont.eot" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fonts/fontawesome-webfont.svg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fonts/fontawesome-webfont.ttf" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fonts/fontawesome-webfont.woff" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fonts/fontawesome-webfont.woff2" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fonts/glyphicons-halflings-regular.woff" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fonts/glyphicons-halflings-regular.woff2" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/forgotPassword.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/layout.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/TutorFindLogo.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/ab1.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/ab2.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/avb1.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/banner2.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/bg1.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/c-arrows.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/default_profile_pic.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/g1.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/g10.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/g11.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/g12.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/g2.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/g3.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/g4.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/g5.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/g6.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/g7.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/g8.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/g9.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/googleMap.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/icons.svg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/mail.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/play-button.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/search.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/studentRaise.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/t1.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/t2.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/t3.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/t4.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/t5.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/t6.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/teacherTeaching.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/up2.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/infoPage.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/js/SmoothScroll.min.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/js/bootstrap.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/js/easing.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/js/jquery-2.1.4.min.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/js/jquery-ui.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/js/jquery.swipebox.min.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/js/move-top.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/js/numscroller-1.0.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/js/simplePlayer.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/studentProfile.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/tutorProfile.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/w3layouts-License.txt" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,7 +116,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/resources/script/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="375">
-              <caret line="28" column="57" lean-forward="true" selection-start-line="28" selection-start-column="57" selection-end-line="28" selection-end-column="57" />
+              <caret line="28" column="57" lean-forward="false" selection-start-line="28" selection-start-column="57" selection-end-line="28" selection-end-column="57" />
               <folding />
             </state>
           </provider>
@@ -150,30 +233,6 @@
               <item name="mainBuild" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-getting-started" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mainBuild" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="tutorfind" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-getting-started" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mainBuild" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="tutorfind" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-getting-started" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mainBuild" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -183,15 +242,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="script" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-getting-started" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mainBuild" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="script" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -394,7 +444,7 @@
       <workItem from="1519611537653" duration="3362000" />
       <workItem from="1519615976562" duration="2262000" />
       <workItem from="1520039196119" duration="6501000" />
-      <workItem from="1520051914759" duration="2465000" />
+      <workItem from="1520051914759" duration="3285000" />
     </task>
     <servers />
   </component>
@@ -407,11 +457,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43511000" />
+    <option name="totallyTimeSpent" value="44331000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1231" height="823" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -433,7 +482,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24289195" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24289195" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Learn" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -663,7 +712,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/resources/script/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
-          <caret line="28" column="57" lean-forward="true" selection-start-line="28" selection-start-column="57" selection-end-line="28" selection-end-column="57" />
+          <caret line="28" column="57" lean-forward="false" selection-start-line="28" selection-start-column="57" selection-end-line="28" selection-end-column="57" />
           <folding />
         </state>
       </provider>
