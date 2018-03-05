@@ -48,13 +48,13 @@ public class StudentController {
 
     @RequestMapping(method = RequestMethod.GET)
     public @ResponseBody
-    StudentDataModel printStudents(@RequestParam(value = "legalFirstName", defaultValue = "") String legalFirstName,
+    StudentDataModel printStudents(@RequestParam(value = "request", defaultValue = "") String request,
                                    @RequestParam(value = "userId", defaultValue = "0") int userId) {
 
         ArrayList<StudentDataModel> students = getStudentsFromDB();
 
         for (StudentDataModel student : students) {
-            if (student.getLegalFirstName().equals(legalFirstName))
+            if (student.getLegalFirstName().equals(request))
                 return student;
             if(student.getUserId() == userId)
                 return student;
