@@ -1,24 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2c70f755-888c-4586-99cc-12f9667506f7" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/StudentController.java" afterPath="$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/StudentController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/script/.gitignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/script/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/script/index.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/script/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/script/public/favicon.ico" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/script/public/index.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/script/public/manifest.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/script/src/App.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/script/src/App.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/script/src/App.test.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/script/src/index.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/script/src/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/script/src/logo.svg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/script/src/registerServiceWorker.js" afterPath="" />
-    </list>
+    <list default="true" id="2c70f755-888c-4586-99cc-12f9667506f7" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -377,7 +360,7 @@
       <workItem from="1519615976562" duration="2262000" />
       <workItem from="1520039196119" duration="6501000" />
       <workItem from="1520051914759" duration="4820000" />
-      <workItem from="1520241781993" duration="40000" />
+      <workItem from="1520241781993" duration="117000" />
     </task>
     <servers />
   </component>
@@ -390,7 +373,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45906000" />
+    <option name="totallyTimeSpent" value="45983000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1231" height="823" extended-state="0" />
