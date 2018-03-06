@@ -1,91 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2c70f755-888c-4586-99cc-12f9667506f7" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/bootstrap.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/font-awesome.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/jquery-ui.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/style.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/swipebox.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/lang-logo.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/stylesheets/main.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Admin_Inbox.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/ArchivedPosts.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Posts_Admin.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/StudentSignedInLandingPage.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/TutorSignedInLandingPage.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Tutor_SignedIn_SentPage.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/accountLoggedOut.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/adminHomepage.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/adminSubject.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/contactUs.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/css/bootstrap.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/css/font-awesome.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/css/jquery-ui.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/css/style.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/css/swipebox.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/db.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/error.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fonts/FontAwesome.otf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fonts/fontawesome-webfont.eot" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fonts/fontawesome-webfont.svg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fonts/fontawesome-webfont.ttf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fonts/fontawesome-webfont.woff" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fonts/fontawesome-webfont.woff2" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fonts/glyphicons-halflings-regular.woff" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fonts/glyphicons-halflings-regular.woff2" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/forgotPassword.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/layout.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/TutorFindLogo.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/ab1.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/ab2.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/avb1.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/banner2.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/bg1.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/c-arrows.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/default_profile_pic.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/g1.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/g10.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/g11.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/g12.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/g2.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/g3.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/g4.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/g5.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/g6.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/g7.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/g8.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/g9.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/googleMap.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/icons.svg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/mail.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/play-button.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/search.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/studentRaise.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/t1.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/t2.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/t3.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/t4.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/t5.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/t6.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/teacherTeaching.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/images/up2.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/infoPage.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/js/SmoothScroll.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/js/bootstrap.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/js/easing.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/js/jquery-2.1.4.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/js/jquery-ui.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/js/jquery.swipebox.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/js/move-top.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/js/numscroller-1.0.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/js/simplePlayer.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/studentProfile.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/tutorProfile.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/w3layouts-License.txt" afterPath="" />
-    </list>
+    <list default="true" id="2c70f755-888c-4586-99cc-12f9667506f7" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -262,28 +178,6 @@
               <item name="mainBuild" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-getting-started" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mainBuild" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="react-app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-getting-started" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mainBuild" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="react-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-getting-started" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mainBuild" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -493,7 +387,7 @@
       <workItem from="1519615976562" duration="2262000" />
       <workItem from="1520039196119" duration="6501000" />
       <workItem from="1520051914759" duration="4820000" />
-      <workItem from="1520241781993" duration="1644000" />
+      <workItem from="1520241781993" duration="2309000" />
     </task>
     <servers />
   </component>
@@ -506,7 +400,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47510000" />
+    <option name="totallyTimeSpent" value="48175000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1231" height="823" extended-state="0" />
