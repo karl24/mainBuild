@@ -44,9 +44,11 @@
       <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="4500">
+              <caret line="300" column="0" lean-forward="false" selection-start-line="300" selection-start-column="0" selection-end-line="300" selection-end-column="0" />
+              <folding>
+                <marker date="1520193202000" expanded="true" signature="0:8829" ph="{&quot;name&quot;: &quot;local-tutor-find&quot;...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -397,7 +399,7 @@
       <workItem from="1520051914759" duration="4820000" />
       <workItem from="1520241781993" duration="3447000" />
       <workItem from="1520320717505" duration="384000" />
-      <workItem from="1520322385550" duration="245000" />
+      <workItem from="1520322385550" duration="420000" />
     </task>
     <servers />
   </component>
@@ -410,7 +412,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49942000" />
+    <option name="totallyTimeSpent" value="50117000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1231" height="823" extended-state="0" />
@@ -641,9 +643,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="4500">
+          <caret line="300" column="0" lean-forward="false" selection-start-line="300" selection-start-column="0" selection-end-line="300" selection-end-column="0" />
+          <folding>
+            <marker date="1520193202000" expanded="true" signature="0:8829" ph="{&quot;name&quot;: &quot;local-tutor-find&quot;...}" />
+          </folding>
         </state>
       </provider>
     </entry>
