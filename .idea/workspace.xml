@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c70f755-888c-4586-99cc-12f9667506f7" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/TutorSubjectController.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/model/TutorSubjectDataModel.java" afterPath="$PROJECT_DIR$/src/main/java/com/tutorfind/model/TutorSubjectDataModel.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/TutorSubjectController.java" afterPath="$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/TutorSubjectController.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,13 +18,13 @@
       <file leaf-file-name="TutorSubjectController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/TutorSubjectController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="915">
-              <caret line="61" column="41" lean-forward="false" selection-start-line="61" selection-start-column="41" selection-end-line="61" selection-end-column="41" />
+            <state relative-caret-position="549">
+              <caret line="61" column="23" lean-forward="true" selection-start-line="61" selection-start-column="23" selection-end-line="61" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#856#879#0" expanded="true" />
-                <marker date="1520982841000" expanded="true" signature="757:771" ph="SELECT * FRO... students" />
-                <marker date="1520982841000" expanded="true" signature="757:784" ph="SELECT * FRO... tutorsubjects" />
+                <marker date="1520983777000" expanded="true" signature="757:771" ph="SELECT * FRO... students" />
+                <marker date="1520983777000" expanded="true" signature="757:784" ph="SELECT * FRO... tutorsubjects" />
               </folding>
             </state>
           </provider>
@@ -398,7 +397,7 @@
       <workItem from="1519615976562" duration="2262000" />
       <workItem from="1520039196119" duration="6501000" />
       <workItem from="1520051914759" duration="1233000" />
-      <workItem from="1520977246135" duration="2347000" />
+      <workItem from="1520977246135" duration="2782000" />
     </task>
     <servers />
   </component>
@@ -411,7 +410,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44626000" />
+    <option name="totallyTimeSpent" value="45061000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1231" height="823" extended-state="0" />
@@ -682,13 +681,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/TutorSubjectController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="915">
-          <caret line="61" column="41" lean-forward="false" selection-start-line="61" selection-start-column="41" selection-end-line="61" selection-end-column="41" />
+        <state relative-caret-position="549">
+          <caret line="61" column="23" lean-forward="true" selection-start-line="61" selection-start-column="23" selection-end-line="61" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#856#879#0" expanded="true" />
-            <marker date="1520982841000" expanded="true" signature="757:771" ph="SELECT * FRO... students" />
-            <marker date="1520982841000" expanded="true" signature="757:784" ph="SELECT * FRO... tutorsubjects" />
+            <marker date="1520983777000" expanded="true" signature="757:771" ph="SELECT * FRO... students" />
+            <marker date="1520983777000" expanded="true" signature="757:784" ph="SELECT * FRO... tutorsubjects" />
           </folding>
         </state>
       </provider>

@@ -45,21 +45,21 @@ public class TutorSubjectController {
 
     @RequestMapping(method = RequestMethod.GET)
     public @ResponseBody
-    TutorSubjectDataModel printTutorSubject(@RequestParam(value = "tutorUserId", defaultValue = "0") int tutorUserId,
+    ArrayList<TutorSubjectDataModel> printTutorSubject(@RequestParam(value = "tutorUserId", defaultValue = "0") int tutorUserId,
                                    @RequestParam(value = "subjectId", defaultValue = "0") int subjectId) {
 
         ArrayList<TutorSubjectDataModel> tutorSubjects = getTutorSubjectsFromDB();
-
+        ArrayList<TutorSubjectDataModel> selectedTutorSubjects = new ArrayList<>();
         for (TutorSubjectDataModel tutorSubject : tutorSubjects) {
             if (tutorSubject.getTutorUserId() == tutorUserId)
-                return tutorSubject;
+               selectedTutorSubjects.add(tutorSubject);
             if(tutorSubject.getSubjectId() == subjectId)
-                return tutorSubject;
+                selectedTutorSubjects.add(tutorSubject);
         }
 
 
 
-        return new TutorSubjectDataModel();
+        return selectedTutorSubjects;
     }
 
 
