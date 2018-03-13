@@ -7,6 +7,8 @@ public class TutorSubjectDataModel {
     private int tutorUserId;
     private int subjectId;
 
+    public TutorSubjectDataModel(){}
+
     public TutorSubjectDataModel(int tutorUserId, int subjectId) {
         this.tutorUserId = tutorUserId;
         this.subjectId = subjectId;
