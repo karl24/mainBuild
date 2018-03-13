@@ -22,6 +22,17 @@ public class TutorRatingDataModel {
     private String subject;
     private String comments;
 
+    public TutorRatingDataModel(){}
+
+    public TutorRatingDataModel(int tutorUserId, int studentUserId,int tutorPostId, int rating, String subject, String comments){
+        this.tutorUserId = tutorUserId;
+        this.studentUserId = studentUserId;
+        this.tutorPostId = tutorPostId;
+        this.rating = rating;
+        this.subject = subject;
+        this.comments = comments;
+    }
+
     public int getTutorUserId() {
         return tutorUserId;
     }
