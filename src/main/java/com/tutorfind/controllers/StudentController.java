@@ -42,10 +42,10 @@ public class StudentController {
         }
     }
 
-    public void updateStudentLegalFirstName(int userId, String legalFirstName){
+    public void updateStudentFromDB(int userId, String columnName, String legalFirstName){
         try (Connection connection = dataSource.getConnection()) {
             //Statement stmt = connection.createStatement();
-            String query = "update students set legalFirstName = ? where userId = ?";
+            String query = "update students set " + columnName + " = ? where userId = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(2,userId);
             preparedStatement.setString(1, legalFirstName);
@@ -81,15 +81,19 @@ public class StudentController {
     }
 
     @RequestMapping("studentId={studentId}")
-    public StudentDataModel updateStudent(@PathVariable(value = "studentId") int id, @RequestParam(value = "changeLegalFirstNameTo") String legalFirstName){
+    public StudentDataModel updateStudent(@PathVariable(value = "studentId") int id,
+                                          @RequestParam(value = "changeLegalFirstNameTo") String legalFirstName,
+                                          @RequestParam(value = "changeLegalLastNameTo") String legalLastName){
 
         ArrayList<StudentDataModel> students = getStudentsFromDB();
 
         for (StudentDataModel student : students) {
 
             if(student.getUserId() == id){
-                updateStudentLegalFirstName(id,legalFirstName);
-
+                if(!legalFirstName.isEmpty())
+                    updateStudentFromDB(id,"legalFirstName",legalFirstName);
+                if(!legalLastName.isEmpty())
+                    updateStudentFromDB(id,"legalLastName",legalLastName);
             }
 
         }
