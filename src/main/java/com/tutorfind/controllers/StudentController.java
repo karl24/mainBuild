@@ -49,7 +49,7 @@ public class StudentController {
             PreparedStatement preparedStatement = connection.prepareStatement("query");
             preparedStatement.setInt(2,userId);
             preparedStatement.setString(1, legalFirstName);
-            preparedStatement.executeUpdate();
+            preparedStatement.executeQuery();
             connection.close();
 
 
@@ -93,6 +93,7 @@ public class StudentController {
             }
 
         }
+
 
 
 
