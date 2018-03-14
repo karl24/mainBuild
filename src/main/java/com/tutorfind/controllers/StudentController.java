@@ -80,7 +80,7 @@ public class StudentController {
         return new StudentDataModel();
     }
 
-    @RequestMapping("{studentId}")
+    @RequestMapping("studentId={studentId}")
     public StudentDataModel updateStudent(@PathVariable(value = "studentId") int id, @RequestParam(value = "changeLegalFirstNameTo") String legalFirstName){
 
         ArrayList<StudentDataModel> students = getStudentsFromDB();
