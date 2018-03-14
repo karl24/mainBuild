@@ -89,11 +89,16 @@ public class StudentController {
 
             if(student.getUserId() == id){
                 updateStudentLegalFirstName(id,legalFirstName);
-                return student;
+
             }
 
         }
-
+        students = getStudentsFromDB();
+        for(StudentDataModel student : students) {
+            if(student.getUserId() == id) {
+                return student;
+            }
+        }
 
 
 
