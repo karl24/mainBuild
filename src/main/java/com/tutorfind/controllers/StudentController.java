@@ -65,6 +65,24 @@ public class StudentController {
         return new StudentDataModel();
     }
 
+    @RequestMapping("{studentId}")
+    public StudentDataModel updateStudent(@PathVariable(value = "studentId") int id){
+
+        ArrayList<StudentDataModel> students = getStudentsFromDB();
+
+        for (StudentDataModel student : students) {
+
+            if(student.getUserId() == id)
+                return student;
+        }
+
+
+
+        return new StudentDataModel();
+    }
+
+
+    }
 
 }
 
