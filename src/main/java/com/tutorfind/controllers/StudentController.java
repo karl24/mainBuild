@@ -82,8 +82,8 @@ public class StudentController {
 
     @RequestMapping("studentId={studentId}")
     public StudentDataModel updateStudent(@PathVariable(value = "studentId") int id,
-                                          @RequestParam(value = "changeLegalFirstNameTo") String legalFirstName,
-                                          @RequestParam(value = "changeLegalLastNameTo") String legalLastName){
+                                          @RequestParam(value = "changeLegalFirstNameTo",defaultValue = "") String legalFirstName,
+                                          @RequestParam(value = "changeLegalLastNameTo", defaultValue = "") String legalLastName){
 
         ArrayList<StudentDataModel> students = getStudentsFromDB();
 
