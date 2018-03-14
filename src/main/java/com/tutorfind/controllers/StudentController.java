@@ -44,12 +44,12 @@ public class StudentController {
 
     public void updateStudentLegalFirstName(int userId, String legalFirstName){
         try (Connection connection = dataSource.getConnection()) {
-            Statement stmt = connection.createStatement();
+            //Statement stmt = connection.createStatement();
             String query = "update students set legalFirstName = ? where userId = ?";
-            PreparedStatement preparedStatement = connection.prepareStatement("query");
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(2,userId);
             preparedStatement.setString(1, legalFirstName);
-            preparedStatement.executeQuery();
+            preparedStatement.executeUpdate();
             connection.close();
 
 
