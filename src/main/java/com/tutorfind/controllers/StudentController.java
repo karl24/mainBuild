@@ -6,10 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -45,6 +42,24 @@ public class StudentController {
         }
     }
 
+    public void updateStudentLegalFirstName(int userId, String legalFirstName){
+        try (Connection connection = dataSource.getConnection()) {
+            Statement stmt = connection.createStatement();
+            String query = "update students set legalFirstName = ? where userId = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement("query");
+            preparedStatement.setInt(2,userId);
+            preparedStatement.setString(1, legalFirstName);
+            preparedStatement.executeUpdate();
+            connection.close();
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+
+        }
+    }
+
 
     @RequestMapping(method = RequestMethod.GET)
     public @ResponseBody
@@ -66,14 +81,17 @@ public class StudentController {
     }
 
     @RequestMapping("{studentId}")
-    public StudentDataModel updateStudent(@PathVariable(value = "studentId") int id){
+    public StudentDataModel updateStudent(@PathVariable(value = "studentId") int id, @RequestParam(value = "changeLegalFirstNameTo") String legalFirstName){
 
         ArrayList<StudentDataModel> students = getStudentsFromDB();
 
         for (StudentDataModel student : students) {
 
-            if(student.getUserId() == id)
+            if(student.getUserId() == id){
+                updateStudentLegalFirstName(id,legalFirstName);
                 return student;
+            }
+
         }
 
 
