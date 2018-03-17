@@ -45,19 +45,22 @@ public class TutorRatingController {
 
     @RequestMapping(method = RequestMethod.GET)
     public @ResponseBody
-    TutorRatingDataModel printTutorRating(@RequestParam(value = "tutoruserid", defaultValue = "0") int tutoruserid) {
+    ArrayList<TutorRatingDataModel> printTutorRating(@RequestParam(value = "tutoruserid", defaultValue = "0") int tutoruserid) {
 
         ArrayList<TutorRatingDataModel> tutorRatings = getTutorRatingsFromDB();
-
+        ArrayList<TutorRatingDataModel> acceptedTutorRatings = new ArrayList<>();
         for (TutorRatingDataModel tutorRating : tutorRatings) {
-            if (tutorRating.getTutorUserId() == tutoruserid)
-                return tutorRating;
+            if (tutorRating.getTutorUserId() == tutoruserid){
+                acceptedTutorRatings.add(tutorRating);
+                return acceptedTutorRatings;
+            }
+
 
         }
 
 
 
-        return new TutorRatingDataModel();
+        return tutorRatings;
     }
 
 

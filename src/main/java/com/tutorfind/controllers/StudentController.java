@@ -88,18 +88,16 @@ public class StudentController {
             }
         }
 
-        for(StudentDataModel student : students) {
-            acceptedStudents.add(student);
-        }
 
-        return acceptedStudents;
+
+        return students;
     }
 
 
 
 
 
-    @RequestMapping(value = "{studentId}", method = {RequestMethod.POST,RequestMethod.GET})
+    @RequestMapping(value = "{studentId}", method = {RequestMethod.POST})
     public StudentDataModel updateStudent(@PathVariable("studentId") int id, @RequestBody StudentDataModel s) {
 
             StudentDataModel student = new StudentDataModel();
@@ -121,48 +119,7 @@ public class StudentController {
     }
 
 
-//    @RequestMapping(method = RequestMethod.POST, value = "studentId={studentId}")
-//    public StudentDataModel updateStudent(@PathVariable(value = "studentId") int id,
-//                                          @RequestParam(value = "changeLegalFirstNameTo",defaultValue = "") String legalFirstName,
-//                                          @RequestParam(value = "changeLegalLastNameTo", defaultValue = "") String legalLastName,
-//                                          @RequestParam(value = "changeBioTo", defaultValue = "") String bio,
-//                                          @RequestParam(value = "changeMajorTo", defaultValue = "") String major,
-//                                          @RequestParam(value = "changeMinorTo", defaultValue = "") String minor,
-//                                          @RequestParam(value = "changeImageTo", defaultValue = "") String img){
-//
-//        ArrayList<StudentDataModel> students = getStudentsFromDB();
-//
-//        for (StudentDataModel student : students) {
-//
-//            if(student.getUserId() == id){
-//                if(!legalFirstName.isEmpty())
-//                    updateStudentFromDB(id,"legalFirstName",legalFirstName);
-//                if(!legalLastName.isEmpty())
-//                    updateStudentFromDB(id,"legalLastName",legalLastName);
-//                if(!bio.isEmpty())
-//                    updateStudentFromDB(id,"bio",bio);
-//                if(!major.isEmpty())
-//                    updateStudentFromDB(id,"major",major);
-//                if(!minor.isEmpty())
-//                    updateStudentFromDB(id,"minor",minor);
-//                if(!img.isEmpty())
-//                    updateStudentFromDB(id,"img",img);
-//
-//
-//            }
-//
-//        }
-//        students = getStudentsFromDB();
-//        for(StudentDataModel student : students) {
-//            if(student.getUserId() == id) {
-//                return student;
-//            }
-//        }
-//
-//
-//
-//        return new StudentDataModel();
-//    }
+
 
 
 
