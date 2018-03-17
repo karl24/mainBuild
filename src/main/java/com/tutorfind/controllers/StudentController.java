@@ -83,7 +83,7 @@ public class StudentController {
     }
 
 
-    @RequestMapping(value = "studentId = {studentId}", method = RequestMethod.POST)
+    @RequestMapping(value = "studentId = {studentId}")
     public @ResponseBody StudentDataModel updateStudent(@PathVariable(value = "studentId") int id, @RequestBody StudentDataModel s) {
 
             StudentDataModel student = new StudentDataModel();
