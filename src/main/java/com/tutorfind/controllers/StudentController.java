@@ -63,31 +63,31 @@ public class StudentController {
     }
 
 
-//    @RequestMapping(method = RequestMethod.GET)
-//    public @ResponseBody
-//    StudentDataModel printStudents(@RequestParam(value = "legalFirstName", defaultValue = "") String legalFirstName,
-//                                   @RequestParam(value = "userId", defaultValue = "0") int userId) {
-//
-//        ArrayList<StudentDataModel> students = getStudentsFromDB();
-//
-//        for (StudentDataModel student : students) {
-//            if (student.getLegalFirstName().equals(legalFirstName))
-//                return student;
-//            if(student.getUserId() == userId)
-//                return student;
-//        }
-//
-//
-//
-//        return new StudentDataModel();
-//    }
+    @RequestMapping(method = RequestMethod.GET)
+    public @ResponseBody
+    StudentDataModel printStudents(@RequestParam(value = "legalFirstName", defaultValue = "") String legalFirstName,
+                                   @RequestParam(value = "userId", defaultValue = "0") int userId) {
+
+        ArrayList<StudentDataModel> students = getStudentsFromDB();
+
+        for (StudentDataModel student : students) {
+            if (student.getLegalFirstName().equals(legalFirstName))
+                return student;
+            if(student.getUserId() == userId)
+                return student;
+        }
 
 
 
+        return new StudentDataModel();
     }
 
+
+
+
+
     @RequestMapping(value = "{studentId}", method = RequestMethod.POST)
-    public @ResponseBody ResponseEntity updateStudent(@PathVariable int id, @RequestBody StudentDataModel s) {
+    public @ResponseBody ResponseEntity updateStudent(@PathVariable("studentId") int id, @RequestBody StudentDataModel s) {
 
             StudentDataModel student = new StudentDataModel();
             student.setLegalFirstName(s.getLegalFirstName());
