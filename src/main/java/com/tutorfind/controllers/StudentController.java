@@ -44,13 +44,19 @@ public class StudentController {
         }
     }
 
-    public void updateStudentFromDB(int userId, String columnName, String argument){
+    public void updateStudentFromDB(int userId, String legalFirstName,String legalLastName, String bio, String major, String minor, String img, boolean active){
         try (Connection connection = dataSource.getConnection()) {
             //Statement stmt = connection.createStatement();
-            String query = "update students set " + columnName + " = ? where userId = ?";
+            String query = "update students set legalFirstName = ?, legalLastName = ?, bio = ?, major = ?, minor = ?, img = ?, active = ? where userId = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(2,userId);
-            preparedStatement.setString(1, argument);
+            preparedStatement.setString(2, legalLastName);
+            preparedStatement.setString(1, legalFirstName);
+            preparedStatement.setString(3, bio);
+            preparedStatement.setString(4, major);
+            preparedStatement.setString(5, minor);
+            preparedStatement.setString(6, img);
+            preparedStatement.setBoolean(7,active);
+            preparedStatement.setInt(8,userId);
             preparedStatement.executeUpdate();
             connection.close();
 
@@ -86,7 +92,7 @@ public class StudentController {
 
 
 
-    @RequestMapping(value = "{studentId}", method = RequestMethod.POST)
+    @RequestMapping(value = "{studentId}", method = {RequestMethod.POST,RequestMethod.GET})
     public @ResponseBody ResponseEntity updateStudent(@PathVariable("studentId") int id, @RequestBody StudentDataModel s) {
 
             StudentDataModel student = new StudentDataModel();
@@ -101,7 +107,7 @@ public class StudentController {
             student.setImg(s.getImg());
 
             s = student;
-
+            updateStudentFromDB(id,s.getLegalFirstName(),s.getLegalLastName(),s.getBio(),s.getMajor(),s.getMinor(),s.getImg(),s.isActive());
             return new ResponseEntity(s, HttpStatus.OK);
 
 
