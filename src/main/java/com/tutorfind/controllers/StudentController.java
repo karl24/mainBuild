@@ -2,6 +2,7 @@ package com.tutorfind.controllers;
 
 import com.tutorfind.model.StudentDataModel;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.*;
 
 import javax.sql.DataSource;
@@ -10,6 +11,7 @@ import java.util.ArrayList;
 
 
 @RestController
+@ComponentScan("com.tutorfind.controllers.StudentRepository")
 @RequestMapping("students")
 public class StudentController {
 
