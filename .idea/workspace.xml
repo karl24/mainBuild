@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c70f755-888c-4586-99cc-12f9667506f7" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/Main.java" afterPath="$PROJECT_DIR$/src/main/java/com/tutorfind/Main.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/StudentController.java" afterPath="$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/StudentController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/StudentRepository.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" afterPath="$PROJECT_DIR$/target/classes/application.properties" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/tutorfind/StudentPostController.class" afterPath="$PROJECT_DIR$/target/classes/com/tutorfind/StudentPostController.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/tutorfind/controllers/TutorPostController.class" afterPath="$PROJECT_DIR$/target/classes/com/tutorfind/controllers/TutorPostController.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/tutorfind/controllers/TutorRatingController.class" afterPath="$PROJECT_DIR$/target/classes/com/tutorfind/controllers/TutorRatingController.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/tutorfind/controllers/TutorSubjectController.class" afterPath="$PROJECT_DIR$/target/classes/com/tutorfind/controllers/TutorSubjectController.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/tutorfind/controllers/UserController.class" afterPath="$PROJECT_DIR$/target/classes/com/tutorfind/controllers/UserController.class" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,11 +17,11 @@
       <file leaf-file-name="StudentController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/StudentController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="486">
-              <caret line="97" column="39" lean-forward="true" selection-start-line="97" selection-start-column="39" selection-end-line="97" selection-end-column="39" />
+            <state relative-caret-position="308">
+              <caret line="98" column="0" lean-forward="true" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
               <folding>
-                <marker date="1521274420000" expanded="true" signature="854:876" ph="SELECT * FRO... students" />
-                <marker date="1521274420000" expanded="true" signature="1697:1756" ph="update students... " />
+                <marker date="1521311647000" expanded="true" signature="854:876" ph="SELECT * FRO... students" />
+                <marker date="1521311647000" expanded="true" signature="1697:1756" ph="update students... " />
               </folding>
             </state>
           </provider>
@@ -440,7 +431,7 @@
       <workItem from="1521272418282" duration="514000" />
       <workItem from="1521272937550" duration="436000" />
       <workItem from="1521273415492" duration="784000" />
-      <workItem from="1521274269447" duration="193000" />
+      <workItem from="1521274269447" duration="1031000" />
     </task>
     <servers />
   </component>
@@ -453,7 +444,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64167000" />
+    <option name="totallyTimeSpent" value="65005000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="821" extended-state="0" />
@@ -475,7 +466,7 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3271028" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3271028" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -730,11 +721,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/StudentController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="97" column="39" lean-forward="true" selection-start-line="97" selection-start-column="39" selection-end-line="97" selection-end-column="39" />
+        <state relative-caret-position="308">
+          <caret line="98" column="0" lean-forward="true" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
           <folding>
-            <marker date="1521274420000" expanded="true" signature="854:876" ph="SELECT * FRO... students" />
-            <marker date="1521274420000" expanded="true" signature="1697:1756" ph="update students... " />
+            <marker date="1521311647000" expanded="true" signature="854:876" ph="SELECT * FRO... students" />
+            <marker date="1521311647000" expanded="true" signature="1697:1756" ph="update students... " />
           </folding>
         </state>
       </provider>

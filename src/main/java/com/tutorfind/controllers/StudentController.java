@@ -84,7 +84,7 @@ public class StudentController {
 
 
     @RequestMapping(value = "studentId = {studentId}", method = RequestMethod.POST)
-    public ResponseEntity updateStudent(@PathVariable int id, @RequestBody StudentDataModel s) {
+    public StudentDataModel updateStudent(@PathVariable(value = "studentId") int id, @RequestBody StudentDataModel s) {
 
             StudentDataModel student = new StudentDataModel();
             student.setLegalFirstName(s.getLegalFirstName());
@@ -98,8 +98,9 @@ public class StudentController {
             student.setImg(s.getImg());
 
             s = student;
+            //postman add to database
 
-            return new ResponseEntity(s, HttpStatus.OK);
+            return s;
 
 
     }
