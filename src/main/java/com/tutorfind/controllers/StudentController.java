@@ -100,7 +100,7 @@ public class StudentController {
             s = student;
             //postman add to database
 
-            return s;
+            return student;
 
 
     }
