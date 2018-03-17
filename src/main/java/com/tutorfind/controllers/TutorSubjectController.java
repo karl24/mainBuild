@@ -51,15 +51,22 @@ public class TutorSubjectController {
         ArrayList<TutorSubjectDataModel> tutorSubjects = getTutorSubjectsFromDB();
         ArrayList<TutorSubjectDataModel> selectedTutorSubjects = new ArrayList<>();
         for (TutorSubjectDataModel tutorSubject : tutorSubjects) {
-            if (tutorSubject.getTutorUserId() == tutorUserId)
-               selectedTutorSubjects.add(tutorSubject);
-            if(tutorSubject.getSubjectId() == subjectId)
+            if (tutorSubject.getTutorUserId() == tutorUserId) {
                 selectedTutorSubjects.add(tutorSubject);
+                return selectedTutorSubjects;
+            }
+            if(tutorSubject.getSubjectId() == subjectId) {
+                selectedTutorSubjects.add(tutorSubject);
+                return selectedTutorSubjects;
+            }
         }
 
 
-
-        return selectedTutorSubjects;
+        if(selectedTutorSubjects.isEmpty()) {
+            return tutorSubjects;
+        }else {
+            return selectedTutorSubjects;
+        }
     }
 
 
