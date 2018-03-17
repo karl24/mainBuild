@@ -80,18 +80,19 @@ public class StudentController {
 
 
     @RequestMapping(value = "studentId = {studentId}", method = RequestMethod.POST)
-    public StudentDataModel updateStudent(@RequestBody StudentDataModel s) {
+    public StudentDataModel updateStudent(@PathVariable int id, @RequestBody StudentDataModel s) {
         StudentDataModel student = new StudentDataModel();
-        student.setLegalFirstName(s.getLegalFirstName());
-        student.setUserId(s.getUserId());
-        student.setLegalLastName(s.getLegalLastName());
-        student.setMajor(s.getMajor());
-        student.setActive(s.isActive());
-        student.setBio(s.getBio());
-        student.setMinor(s.getMinor());
-        student.setCreationDate(s.getCreationDate());
-        student.setImg(s.getImg());
-
+        if(s.getUserId() == id) {
+            student.setLegalFirstName(s.getLegalFirstName());
+            student.setUserId(s.getUserId());
+            student.setLegalLastName(s.getLegalLastName());
+            student.setMajor(s.getMajor());
+            student.setActive(s.isActive());
+            student.setBio(s.getBio());
+            student.setMinor(s.getMinor());
+            student.setCreationDate(s.getCreationDate());
+            student.setImg(s.getImg());
+        }
         return student;
 
 
