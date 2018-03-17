@@ -78,48 +78,69 @@ public class StudentController {
         return new StudentDataModel();
     }
 
-    @RequestMapping("studentId={studentId}")
-    public StudentDataModel updateStudent(@PathVariable(value = "studentId") int id,
-                                          @RequestParam(value = "changeLegalFirstNameTo",defaultValue = "") String legalFirstName,
-                                          @RequestParam(value = "changeLegalLastNameTo", defaultValue = "") String legalLastName,
-                                          @RequestParam(value = "changeBioTo", defaultValue = "") String bio,
-                                          @RequestParam(value = "changeMajorTo", defaultValue = "") String major,
-                                          @RequestParam(value = "changeMinorTo", defaultValue = "") String minor,
-                                          @RequestParam(value = "changeImageTo", defaultValue = "") String img){
 
-        ArrayList<StudentDataModel> students = getStudentsFromDB();
+    @RequestMapping(value = "{studentId}", method = RequestMethod.POST)
+    public StudentDataModel updateStudent(@RequestBody StudentDataModel s) {
+        StudentDataModel student = new StudentDataModel();
+        student.setLegalFirstName(s.getLegalFirstName());
+        student.setUserId(s.getUserId());
+        student.setLegalLastName(s.getLegalLastName());
+        student.setMajor(s.getMajor());
+        student.setActive(s.isActive());
+        student.setBio(s.getBio());
+        student.setMinor(s.getMinor());
+        student.setCreationDate(s.getCreationDate());
+        student.setImg(s.getImg());
 
-        for (StudentDataModel student : students) {
-
-            if(student.getUserId() == id){
-                if(!legalFirstName.isEmpty())
-                    updateStudentFromDB(id,"legalFirstName",legalFirstName);
-                if(!legalLastName.isEmpty())
-                    updateStudentFromDB(id,"legalLastName",legalLastName);
-                if(!bio.isEmpty())
-                    updateStudentFromDB(id,"bio",bio);
-                if(!major.isEmpty())
-                    updateStudentFromDB(id,"major",major);
-                if(!minor.isEmpty())
-                    updateStudentFromDB(id,"minor",minor);
-                if(!img.isEmpty())
-                    updateStudentFromDB(id,"img",img);
-
-
-            }
-
-        }
-        students = getStudentsFromDB();
-        for(StudentDataModel student : students) {
-            if(student.getUserId() == id) {
-                return student;
-            }
-        }
+        return student;
 
 
 
-        return new StudentDataModel();
     }
+
+
+//    @RequestMapping(method = RequestMethod.POST, value = "studentId={studentId}")
+//    public StudentDataModel updateStudent(@PathVariable(value = "studentId") int id,
+//                                          @RequestParam(value = "changeLegalFirstNameTo",defaultValue = "") String legalFirstName,
+//                                          @RequestParam(value = "changeLegalLastNameTo", defaultValue = "") String legalLastName,
+//                                          @RequestParam(value = "changeBioTo", defaultValue = "") String bio,
+//                                          @RequestParam(value = "changeMajorTo", defaultValue = "") String major,
+//                                          @RequestParam(value = "changeMinorTo", defaultValue = "") String minor,
+//                                          @RequestParam(value = "changeImageTo", defaultValue = "") String img){
+//
+//        ArrayList<StudentDataModel> students = getStudentsFromDB();
+//
+//        for (StudentDataModel student : students) {
+//
+//            if(student.getUserId() == id){
+//                if(!legalFirstName.isEmpty())
+//                    updateStudentFromDB(id,"legalFirstName",legalFirstName);
+//                if(!legalLastName.isEmpty())
+//                    updateStudentFromDB(id,"legalLastName",legalLastName);
+//                if(!bio.isEmpty())
+//                    updateStudentFromDB(id,"bio",bio);
+//                if(!major.isEmpty())
+//                    updateStudentFromDB(id,"major",major);
+//                if(!minor.isEmpty())
+//                    updateStudentFromDB(id,"minor",minor);
+//                if(!img.isEmpty())
+//                    updateStudentFromDB(id,"img",img);
+//
+//
+//            }
+//
+//        }
+//        students = getStudentsFromDB();
+//        for(StudentDataModel student : students) {
+//            if(student.getUserId() == id) {
+//                return student;
+//            }
+//        }
+//
+//
+//
+//        return new StudentDataModel();
+//    }
 
 
 
