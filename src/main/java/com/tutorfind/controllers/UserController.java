@@ -45,12 +45,15 @@ public class UserController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public @ResponseBody UserDataModel printUsers(@RequestParam(value = "userName", defaultValue = "") String userName) {
+    public @ResponseBody UserDataModel printUsers(@RequestParam(value = "userName", defaultValue = "") String userName,
+                                                  @RequestParam(value = "userId", defaultValue = "0") int userId) {
 
         ArrayList<UserDataModel> users = getActiveUsersFromDB();
 
         for(UserDataModel user : users){
             if(user.getUserName().equals(userName))
+                return user;
+            if(user.getUserId() == userId)
                 return user;
         }
 
