@@ -1,6 +1,5 @@
 package com.tutorfind.controllers;
 
-import com.tutorfind.Greeting;
 import com.tutorfind.model.StudentDataModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -9,7 +8,6 @@ import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
 
-import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 @RestController
 @RequestMapping("students")
@@ -42,13 +40,13 @@ public class StudentController {
         }
     }
 
-    public void updateStudentFromDB(int userId, String columnName, String legalFirstName){
+    public void updateStudentFromDB(int userId, String columnName, String argument){
         try (Connection connection = dataSource.getConnection()) {
             //Statement stmt = connection.createStatement();
             String query = "update students set " + columnName + " = ? where userId = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(2,userId);
-            preparedStatement.setString(1, legalFirstName);
+            preparedStatement.setString(1, argument);
             preparedStatement.executeUpdate();
             connection.close();
 
@@ -83,7 +81,11 @@ public class StudentController {
     @RequestMapping("studentId={studentId}")
     public StudentDataModel updateStudent(@PathVariable(value = "studentId") int id,
                                           @RequestParam(value = "changeLegalFirstNameTo",defaultValue = "") String legalFirstName,
-                                          @RequestParam(value = "changeLegalLastNameTo", defaultValue = "") String legalLastName){
+                                          @RequestParam(value = "changeLegalLastNameTo", defaultValue = "") String legalLastName,
+                                          @RequestParam(value = "changeBioTo", defaultValue = "") String bio,
+                                          @RequestParam(value = "changeMajorTo", defaultValue = "") String major,
+                                          @RequestParam(value = "changeMinorTo", defaultValue = "") String minor,
+                                          @RequestParam(value = "changeImageTo", defaultValue = "") String img){
 
         ArrayList<StudentDataModel> students = getStudentsFromDB();
 
@@ -94,6 +96,16 @@ public class StudentController {
                     updateStudentFromDB(id,"legalFirstName",legalFirstName);
                 if(!legalLastName.isEmpty())
                     updateStudentFromDB(id,"legalLastName",legalLastName);
+                if(!bio.isEmpty())
+                    updateStudentFromDB(id,"bio",bio);
+                if(!major.isEmpty())
+                    updateStudentFromDB(id,"major",major);
+                if(!minor.isEmpty())
+                    updateStudentFromDB(id,"minor",minor);
+                if(!img.isEmpty())
+                    updateStudentFromDB(id,"img",img);
+
+
             }
 
         }
