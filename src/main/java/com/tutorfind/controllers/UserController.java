@@ -62,10 +62,12 @@ public class UserController {
             }
         }
 
+        if(acceptedUsers.isEmpty()) {
 
+            return users;
+        }else {
             return acceptedUsers;
-        
-
+        }
     }
 
 }

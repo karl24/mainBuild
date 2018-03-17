@@ -79,18 +79,22 @@ public class StudentController {
         for (StudentDataModel student : students) {
             if (student.getLegalFirstName().equals(legalFirstName)){
                 acceptedStudents.add(student);
-                return acceptedStudents;
+
             }
 
             if(student.getUserId() == userId) {
                acceptedStudents.add(student);
-               return acceptedStudents;
+
             }
         }
 
 
 
-        return students;
+        if (acceptedStudents.isEmpty()) {
+            return students;
+        }else {
+            return acceptedStudents;
+        }
     }
 
 

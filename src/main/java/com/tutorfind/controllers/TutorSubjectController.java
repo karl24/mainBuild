@@ -62,8 +62,11 @@ public class TutorSubjectController {
         }
 
 
-
-        return tutorSubjects;
+        if(selectedTutorSubjects.isEmpty()) {
+            return tutorSubjects;
+        }else {
+            return selectedTutorSubjects;
+        }
     }
 
 

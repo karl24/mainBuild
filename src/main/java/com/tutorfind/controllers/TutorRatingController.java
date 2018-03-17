@@ -52,15 +52,18 @@ public class TutorRatingController {
         for (TutorRatingDataModel tutorRating : tutorRatings) {
             if (tutorRating.getTutorUserId() == tutoruserid){
                 acceptedTutorRatings.add(tutorRating);
-                return acceptedTutorRatings;
+
             }
 
 
         }
 
 
-
-        return tutorRatings;
+        if(acceptedTutorRatings.isEmpty()) {
+            return tutorRatings;
+        }else {
+            return acceptedTutorRatings;
+        }
     }
 
 
