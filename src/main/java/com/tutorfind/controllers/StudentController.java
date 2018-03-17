@@ -83,7 +83,7 @@ public class StudentController {
 //    }
 
     @RequestMapping(method = RequestMethod.POST)
-    public @ResponseBody ResponseEntity updateStudent(@RequestParam(value = "legalFirstName", defaultValue = "") String legalFirstName,
+    public ResponseEntity updateStudent(@RequestParam(value = "legalFirstName", defaultValue = "") String legalFirstName,
                                    @RequestParam(value = "userId", defaultValue = "0") int userId, @RequestBody StudentDataModel s) {
 
         StudentDataModel student = new StudentDataModel();
