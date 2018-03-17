@@ -93,7 +93,7 @@ public class StudentController {
 
 
     @RequestMapping(value = "{studentId}", method = {RequestMethod.POST,RequestMethod.GET})
-    public ResponseEntity updateStudent(@PathVariable("studentId") int id, @RequestBody StudentDataModel s) {
+    public StudentDataModel updateStudent(@PathVariable("studentId") int id, @RequestBody StudentDataModel s) {
 
             StudentDataModel student = new StudentDataModel();
             student.setLegalFirstName(s.getLegalFirstName());
@@ -108,7 +108,7 @@ public class StudentController {
 
             s = student;
             updateStudentFromDB(id,s.getLegalFirstName(),s.getLegalLastName(),s.getBio(),s.getMajor(),s.getMinor(),s.getImg(),s.isActive());
-            return new ResponseEntity(s, HttpStatus.OK);
+            return s;
 
 
     }
