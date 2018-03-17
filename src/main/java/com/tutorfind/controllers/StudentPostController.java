@@ -2,9 +2,8 @@
 // Currently returns all active student posts when you hit /studentpost , takes no parameters yet
 // To Do: if needed, add requests with parameteres for individual posts or subjects?  Figure out rs for JSON object activity
 
-package com.tutorfind;
+package com.tutorfind.controllers;
 
-import java.util.concurrent.atomic.AtomicLong;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
