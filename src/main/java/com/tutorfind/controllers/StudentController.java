@@ -17,6 +17,8 @@ public class StudentController {
     @Autowired
     private DataSource dataSource;
 
+    @Autowired
+    private StudentRepository repo;
 
     private ArrayList<StudentDataModel> getStudentsFromDB() {
         try (Connection connection = dataSource.getConnection()) {
@@ -81,8 +83,8 @@ public class StudentController {
 
     @RequestMapping(value = "studentId = {studentId}", method = RequestMethod.POST)
     public StudentDataModel updateStudent(@PathVariable int id, @RequestBody StudentDataModel s) {
-        StudentDataModel student = new StudentDataModel();
-        if(s.getUserId() == id) {
+        StudentDataModel student = repo.findOne(id);
+
             student.setLegalFirstName(s.getLegalFirstName());
             student.setUserId(s.getUserId());
             student.setLegalLastName(s.getLegalLastName());
@@ -92,10 +94,8 @@ public class StudentController {
             student.setMinor(s.getMinor());
             student.setCreationDate(s.getCreationDate());
             student.setImg(s.getImg());
-        }
-        return student;
 
-
+        return repo.save(student);
 
     }
 
