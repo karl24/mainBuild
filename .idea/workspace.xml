@@ -69,10 +69,10 @@
       <file leaf-file-name="UserController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="395">
-              <caret line="69" column="6" lean-forward="false" selection-start-line="69" selection-start-column="6" selection-end-line="69" selection-end-column="6" />
+            <state relative-caret-position="345">
+              <caret line="66" column="8" lean-forward="true" selection-start-line="66" selection-start-column="8" selection-end-line="66" selection-end-column="8" />
               <folding>
-                <marker date="1521319936000" expanded="true" signature="908:927" ph="SELECT * FRO... users" />
+                <marker date="1521320166000" expanded="true" signature="908:927" ph="SELECT * FRO... users" />
               </folding>
             </state>
           </provider>
@@ -452,7 +452,7 @@
       <workItem from="1521272418282" duration="514000" />
       <workItem from="1521272937550" duration="436000" />
       <workItem from="1521273415492" duration="784000" />
-      <workItem from="1521274269447" duration="6167000" />
+      <workItem from="1521274269447" duration="6360000" />
     </task>
     <servers />
   </component>
@@ -465,7 +465,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70141000" />
+    <option name="totallyTimeSpent" value="70334000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="5" y="23" width="1440" height="821" extended-state="6" />
@@ -760,10 +760,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="69" column="6" lean-forward="false" selection-start-line="69" selection-start-column="6" selection-end-line="69" selection-end-column="6" />
+        <state relative-caret-position="345">
+          <caret line="66" column="8" lean-forward="true" selection-start-line="66" selection-start-column="8" selection-end-line="66" selection-end-column="8" />
           <folding>
-            <marker date="1521319936000" expanded="true" signature="908:927" ph="SELECT * FRO... users" />
+            <marker date="1521320166000" expanded="true" signature="908:927" ph="SELECT * FRO... users" />
           </folding>
         </state>
       </provider>
