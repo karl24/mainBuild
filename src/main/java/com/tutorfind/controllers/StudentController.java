@@ -3,6 +3,8 @@ package com.tutorfind.controllers;
 import com.tutorfind.model.StudentDataModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.sql.DataSource;
@@ -19,8 +21,6 @@ public class StudentController {
     @Autowired
     private DataSource dataSource;
 
-    @Autowired
-    private StudentRepository repo;
 
     private ArrayList<StudentDataModel> getStudentsFromDB() {
         try (Connection connection = dataSource.getConnection()) {
@@ -84,9 +84,9 @@ public class StudentController {
 
 
     @RequestMapping(value = "studentId = {studentId}", method = RequestMethod.POST)
-    public StudentDataModel updateStudent(@PathVariable int id, @RequestBody StudentDataModel s) {
-        StudentDataModel student = repo.findOne(id);
+    public ResponseEntity updateStudent(@PathVariable int id, @RequestBody StudentDataModel s) {
 
+            StudentDataModel student = new StudentDataModel();
             student.setLegalFirstName(s.getLegalFirstName());
             student.setUserId(s.getUserId());
             student.setLegalLastName(s.getLegalLastName());
@@ -97,7 +97,10 @@ public class StudentController {
             student.setCreationDate(s.getCreationDate());
             student.setImg(s.getImg());
 
-        return repo.save(student);
+            s = student;
+
+            return new ResponseEntity(s, HttpStatus.OK);
+
 
     }
 
