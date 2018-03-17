@@ -2,8 +2,49 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c70f755-888c-4586-99cc-12f9667506f7" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__antlr_antlr_2_7_7.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__dom4j_dom4j_1_6_1.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_geronimo_specs_geronimo_jta_1_1_spec_1_1_1.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjrt_1_8_13.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_common_hibernate_commons_annotations_5_0_1_Final.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_core_5_0_12_Final.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_entitymanager_5_0_12_Final.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_javax_persistence_hibernate_jpa_2_1_api_1_0_0_Final.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_javassist_javassist_3_21_0_GA.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_jandex_2_0_0_Final.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_jpa_1_11_10_RELEASE.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_4_3_14_RELEASE.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_orm_4_3_14_RELEASE.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_4_3_14_RELEASE.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/StudentController.java" afterPath="$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/StudentController.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/StudentPostController.java" afterPath="" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/StudentRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/StudentRepository.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/TutorPostController.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/TutorRatingController.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/TutorSubjectController.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/UserController.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" afterPath="$PROJECT_DIR$/target/classes/application.properties" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tutorfind/Greeting.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tutorfind/GreetingController.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tutorfind/Main.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tutorfind/StudentPostController.class" afterPath="$PROJECT_DIR$/target/classes/com/tutorfind/StudentPostController.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tutorfind/config/Configuration.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tutorfind/controllers/StudentController.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tutorfind/controllers/StudentRepository.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tutorfind/controllers/TutorPostController.class" afterPath="$PROJECT_DIR$/target/classes/com/tutorfind/controllers/TutorPostController.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tutorfind/controllers/TutorRatingController.class" afterPath="$PROJECT_DIR$/target/classes/com/tutorfind/controllers/TutorRatingController.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tutorfind/controllers/TutorSubjectController.class" afterPath="$PROJECT_DIR$/target/classes/com/tutorfind/controllers/TutorSubjectController.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tutorfind/controllers/UserController.class" afterPath="$PROJECT_DIR$/target/classes/com/tutorfind/controllers/UserController.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tutorfind/model/StudentDataModel.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tutorfind/model/StudentPostDataModel.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tutorfind/model/SubjectDataModel.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tutorfind/model/TutorPostDataModel.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tutorfind/model/TutorRatingDataModel.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tutorfind/model/TutorSignUpDataModel.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tutorfind/model/TutorSubjectDataModel.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tutorfind/model/TutorsDataModel.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tutorfind/model/UserDataModel.class" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,31 +56,62 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="StudentController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="StudentController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/StudentController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+            <state relative-caret-position="1425">
+              <caret line="95" column="23" lean-forward="false" selection-start-line="95" selection-start-column="23" selection-end-line="95" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#902#920#0" expanded="true" />
-                <marker date="1521257693000" expanded="true" signature="813:835" ph="SELECT * FRO... students" />
-                <marker date="1521257693000" expanded="true" signature="1656:1675" ph="update students... " />
-                <marker date="1521257693000" expanded="true" signature="1656:1676" ph="update students... " />
-                <marker date="1521257693000" expanded="true" signature="1656:1715" ph="update students... " />
+                <marker date="1521257700000" expanded="true" signature="813:835" ph="SELECT * FRO... students" />
+                <marker date="1521257700000" expanded="true" signature="1656:1715" ph="update students... " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StudentRepository.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="720">
+              <caret line="78" column="1" lean-forward="false" selection-start-line="78" selection-start-column="1" selection-end-line="78" selection-end-column="1" />
+              <folding>
+                <marker date="1521257700000" expanded="true" signature="1880:2457" ph="{...}" />
+                <marker date="1521257700000" expanded="true" signature="2138:2157" ph="SELECT * FRO... users" />
+                <marker date="1521257700000" expanded="true" signature="2521:2749" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StudentRepository.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/StudentRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="32" lean-forward="false" selection-start-line="0" selection-start-column="32" selection-end-line="0" selection-end-column="32" />
+            <state relative-caret-position="180">
+              <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1485">
+              <caret line="99" column="0" lean-forward="false" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="java-getting-started.iml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/java-getting-started.iml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="20" column="37" lean-forward="false" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -47,49 +119,9 @@
       <file leaf-file-name="StudentDataModel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/model/StudentDataModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-171">
+            <state relative-caret-position="165">
               <caret line="12" column="25" lean-forward="false" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/UserController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
-              <caret line="41" column="24" lean-forward="false" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="24" />
-              <folding>
-                <marker date="1521252777000" expanded="true" signature="908:927" ph="SELECT * FRO... users" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TutorSubjectController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/TutorSubjectController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="743">
-              <caret line="52" column="32" lean-forward="false" selection-start-line="52" selection-start-column="32" selection-end-line="52" selection-end-column="32" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <marker date="1520983777000" expanded="true" signature="757:771" ph="SELECT * FRO... students" />
-                <marker date="1520983777000" expanded="true" signature="757:784" ph="SELECT * FRO... tutorsubjects" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TutorRatingController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/TutorRatingController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="518">
-              <caret line="38" column="32" lean-forward="false" selection-start-line="38" selection-start-column="32" selection-end-line="38" selection-end-column="32" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <marker date="1520981477000" expanded="true" signature="751:765" ph="SELECT * FRO... students" />
-                <marker date="1520981477000" expanded="true" signature="751:776" ph="SELECT * FRO... tutorrating" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -99,29 +131,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="150">
               <caret line="13" column="36" lean-forward="false" selection-start-line="13" selection-start-column="36" selection-end-line="13" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TutorPostController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/TutorPostController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="457">
-              <caret line="40" column="25" lean-forward="false" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="25" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <marker date="1520048622000" expanded="true" signature="842:865" ph="SELECT * FRO... tutorpost" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TutorSubjectDataModel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/model/TutorSubjectDataModel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="35" lean-forward="false" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -140,6 +149,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>first</find>
+      <find>hibernate</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -169,10 +179,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/tutorfind/Repositories/StudentRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tutorfind/Customer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tutorfind/Repository/StudentRepository.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/tutorfind/model/StudentDataModel.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/studentProfile.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/tutorfind/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tutorfind/model/StudentPostDataModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/TutorPostDataModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/TutorPostController.java" />
@@ -184,6 +192,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/tutorfind/model/TutorPostDataModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/StudentRepository.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tutorfind/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/StudentController.java" />
       </list>
     </option>
@@ -194,9 +204,9 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
-    <option name="width" value="1362" />
+    <option name="width" value="1440" />
     <option name="height" value="821" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -215,7 +225,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
@@ -272,7 +282,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -472,7 +482,8 @@
       <workItem from="1520051914759" duration="1233000" />
       <workItem from="1520977246135" duration="4836000" />
       <workItem from="1521010123264" duration="6213000" />
-      <workItem from="1521228759911" duration="6795000" />
+      <workItem from="1521228759911" duration="8912000" />
+      <workItem from="1521272418282" duration="37000" />
     </task>
     <servers />
   </component>
@@ -485,10 +496,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60123000" />
+    <option name="totallyTimeSpent" value="62277000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="821" extended-state="6" />
+    <frame x="0" y="23" width="1440" height="821" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -502,13 +513,12 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288948" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3271028" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3271028" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20763889" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -521,6 +531,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288948" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288948" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -537,7 +548,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/model/TutorSignUpDataModel.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/model/TutorSubjectDataModel.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/model/UserDataModel.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/model/StudentDataModel.java" />
@@ -605,14 +615,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="74">
-          <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/TutorPostDataModel.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/model/StudentPostDataModel.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -636,16 +638,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="60" column="26" lean-forward="false" selection-start-line="60" selection-start-column="26" selection-end-line="60" selection-end-column="26" />
-          <folding>
-            <marker date="1519612307000" expanded="true" signature="2138:2157" ph="SELECT * FRO... users" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/db.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -657,9 +649,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
           <caret line="45" column="12" lean-forward="false" selection-start-line="45" selection-start-column="12" selection-end-line="45" selection-end-column="12" />
-          <folding>
-            <marker date="1520039113000" expanded="true" signature="1417:1595" ph="SELECT stude... studentpost" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -683,11 +673,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="743">
           <caret line="52" column="32" lean-forward="false" selection-start-line="52" selection-start-column="32" selection-end-line="52" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1520983777000" expanded="true" signature="757:771" ph="SELECT * FRO... students" />
-            <marker date="1520983777000" expanded="true" signature="757:784" ph="SELECT * FRO... tutorsubjects" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -703,11 +689,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="518">
           <caret line="38" column="32" lean-forward="false" selection-start-line="38" selection-start-column="32" selection-end-line="38" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1520981477000" expanded="true" signature="751:765" ph="SELECT * FRO... students" />
-            <marker date="1520981477000" expanded="true" signature="751:776" ph="SELECT * FRO... tutorrating" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -723,10 +705,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="457">
           <caret line="40" column="25" lean-forward="false" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1520048622000" expanded="true" signature="842:865" ph="SELECT * FRO... tutorpost" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -734,41 +713,64 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="282">
           <caret line="41" column="24" lean-forward="false" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="24" />
-          <folding>
-            <marker date="1521252777000" expanded="true" signature="908:927" ph="SELECT * FRO... users" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/model/StudentDataModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-171">
+        <state relative-caret-position="165">
           <caret line="12" column="25" lean-forward="false" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/StudentRepository.java">
+    <entry file="file://$PROJECT_DIR$/java-getting-started.iml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="32" lean-forward="false" selection-start-line="0" selection-start-column="32" selection-end-line="0" selection-end-column="32" />
+        <state relative-caret-position="300">
+          <caret line="20" column="37" lean-forward="false" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1485">
+          <caret line="99" column="0" lean-forward="false" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="78" column="1" lean-forward="false" selection-start-line="78" selection-start-column="1" selection-end-line="78" selection-end-column="1" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <marker date="1521257700000" expanded="true" signature="1880:2457" ph="{...}" />
+            <marker date="1521257700000" expanded="true" signature="2138:2157" ph="SELECT * FRO... users" />
+            <marker date="1521257700000" expanded="true" signature="2521:2749" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/StudentController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        <state relative-caret-position="1425">
+          <caret line="95" column="23" lean-forward="false" selection-start-line="95" selection-start-column="23" selection-end-line="95" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#902#920#0" expanded="true" />
-            <marker date="1521257693000" expanded="true" signature="813:835" ph="SELECT * FRO... students" />
-            <marker date="1521257693000" expanded="true" signature="1656:1675" ph="update students... " />
-            <marker date="1521257693000" expanded="true" signature="1656:1676" ph="update students... " />
-            <marker date="1521257693000" expanded="true" signature="1656:1715" ph="update students... " />
+            <marker date="1521257700000" expanded="true" signature="813:835" ph="SELECT * FRO... students" />
+            <marker date="1521257700000" expanded="true" signature="1656:1715" ph="update students... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/StudentRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
