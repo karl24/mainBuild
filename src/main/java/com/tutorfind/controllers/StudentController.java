@@ -79,7 +79,7 @@ public class StudentController {
     }
 
 
-    @RequestMapping(value = "{studentId}", method = RequestMethod.POST)
+    @RequestMapping(value = "studentId = {studentId}", method = RequestMethod.POST)
     public StudentDataModel updateStudent(@RequestBody StudentDataModel s) {
         StudentDataModel student = new StudentDataModel();
         student.setLegalFirstName(s.getLegalFirstName());
