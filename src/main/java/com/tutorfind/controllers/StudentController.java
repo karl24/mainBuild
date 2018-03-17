@@ -71,21 +71,28 @@ public class StudentController {
 
     @RequestMapping(method = RequestMethod.GET)
     public @ResponseBody
-    StudentDataModel printStudents(@RequestParam(value = "legalFirstName", defaultValue = "") String legalFirstName,
+    ArrayList<StudentDataModel> printStudents(@RequestParam(value = "legalFirstName", defaultValue = "") String legalFirstName,
                                    @RequestParam(value = "userId", defaultValue = "0") int userId) {
 
         ArrayList<StudentDataModel> students = getStudentsFromDB();
-
+        ArrayList<StudentDataModel> acceptedStudents = new ArrayList<>();
         for (StudentDataModel student : students) {
-            if (student.getLegalFirstName().equals(legalFirstName))
-                return student;
-            if(student.getUserId() == userId)
-                return student;
+            if (student.getLegalFirstName().equals(legalFirstName)){
+                acceptedStudents.add(student);
+                return acceptedStudents;
+            }
+
+            if(student.getUserId() == userId) {
+               acceptedStudents.add(student);
+               return acceptedStudents;
+            }
         }
 
+        for(StudentDataModel student : students) {
+            acceptedStudents.add(student);
+        }
 
-
-        return new StudentDataModel();
+        return acceptedStudents;
     }
 
 
