@@ -54,15 +54,20 @@ public class UserController {
         for(UserDataModel user : users){
             if(user.getUserName().equals(userName)) {
                 acceptedUsers.add(user);
-                return acceptedUsers;
+
             }
             if(user.getUserId() == userId) {
                 acceptedUsers.add(user);
-                return acceptedUsers;
+
             }
         }
 
-        return users;
+        if(acceptedUsers.isEmpty()){
+            return users;
+        }else {
+            return acceptedUsers;
+        }
+       
     }
 
 }
