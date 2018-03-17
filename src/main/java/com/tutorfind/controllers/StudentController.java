@@ -63,46 +63,67 @@ public class StudentController {
     }
 
 
-    @RequestMapping(method = RequestMethod.GET)
-    public @ResponseBody
-    StudentDataModel printStudents(@RequestParam(value = "legalFirstName", defaultValue = "") String legalFirstName,
-                                   @RequestParam(value = "userId", defaultValue = "0") int userId) {
+//    @RequestMapping(method = RequestMethod.GET)
+//    public @ResponseBody
+//    StudentDataModel printStudents(@RequestParam(value = "legalFirstName", defaultValue = "") String legalFirstName,
+//                                   @RequestParam(value = "userId", defaultValue = "0") int userId) {
+//
+//        ArrayList<StudentDataModel> students = getStudentsFromDB();
+//
+//        for (StudentDataModel student : students) {
+//            if (student.getLegalFirstName().equals(legalFirstName))
+//                return student;
+//            if(student.getUserId() == userId)
+//                return student;
+//        }
+//
+//
+//
+//        return new StudentDataModel();
+//    }
 
-        ArrayList<StudentDataModel> students = getStudentsFromDB();
+    @RequestMapping(method = RequestMethod.POST)
+    public @ResponseBody ResponseEntity updateStudent(@RequestParam(value = "legalFirstName", defaultValue = "") String legalFirstName,
+                                   @RequestParam(value = "userId", defaultValue = "0") int userId, @RequestBody StudentDataModel s) {
 
-        for (StudentDataModel student : students) {
-            if (student.getLegalFirstName().equals(legalFirstName))
-                return student;
-            if(student.getUserId() == userId)
-                return student;
-        }
+        StudentDataModel student = new StudentDataModel();
+        student.setLegalFirstName(s.getLegalFirstName());
+        student.setUserId(s.getUserId());
+        student.setLegalLastName(s.getLegalLastName());
+        student.setMajor(s.getMajor());
+        student.setActive(s.isActive());
+        student.setBio(s.getBio());
+        student.setMinor(s.getMinor());
+        student.setCreationDate(s.getCreationDate());
+        student.setImg(s.getImg());
+
+        s = student;
+
+        return new ResponseEntity(s, HttpStatus.OK);
 
 
-
-        return new StudentDataModel();
     }
 
-
-    @RequestMapping(value = "studentId = {studentId}", method = RequestMethod.POST)
-    public ResponseEntity updateStudent(@PathVariable int id, @RequestBody StudentDataModel s) {
-
-            StudentDataModel student = new StudentDataModel();
-            student.setLegalFirstName(s.getLegalFirstName());
-            student.setUserId(s.getUserId());
-            student.setLegalLastName(s.getLegalLastName());
-            student.setMajor(s.getMajor());
-            student.setActive(s.isActive());
-            student.setBio(s.getBio());
-            student.setMinor(s.getMinor());
-            student.setCreationDate(s.getCreationDate());
-            student.setImg(s.getImg());
-
-            s = student;
-
-            return new ResponseEntity(s, HttpStatus.OK);
-
-
-    }
+//    @RequestMapping(value = "studentId = {studentId}", method = RequestMethod.POST)
+//    public @ResponseBody ResponseEntity updateStudent(@PathVariable int id, @RequestBody StudentDataModel s) {
+//
+//            StudentDataModel student = new StudentDataModel();
+//            student.setLegalFirstName(s.getLegalFirstName());
+//            student.setUserId(s.getUserId());
+//            student.setLegalLastName(s.getLegalLastName());
+//            student.setMajor(s.getMajor());
+//            student.setActive(s.isActive());
+//            student.setBio(s.getBio());
+//            student.setMinor(s.getMinor());
+//            student.setCreationDate(s.getCreationDate());
+//            student.setImg(s.getImg());
+//
+//            s = student;
+//
+//            return new ResponseEntity(s, HttpStatus.OK);
+//
+//
+//    }
 
 
 //    @RequestMapping(method = RequestMethod.POST, value = "studentId={studentId}")
