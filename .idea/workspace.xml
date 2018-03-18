@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c70f755-888c-4586-99cc-12f9667506f7" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/StudentController.java" afterPath="$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/StudentController.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/UserController.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -14,17 +14,30 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="StudentController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="StudentController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/StudentController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="81" column="58" lean-forward="false" selection-start-line="81" selection-start-column="58" selection-end-line="81" selection-end-column="58" />
+            <state relative-caret-position="-813">
+              <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
               <folding>
                 <marker date="1521336235000" expanded="true" signature="935:957" ph="SELECT * FRO... students" />
                 <marker date="1521336235000" expanded="true" signature="1854:1873" ph="update students... " />
                 <marker date="1521336235000" expanded="true" signature="1854:1874" ph="update students... " />
                 <marker date="1521336235000" expanded="true" signature="1854:1963" ph="update students... " />
                 <marker date="1521336235000" expanded="true" signature="1854:1980" ph="update students... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/UserController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="359">
+              <caret line="83" column="0" lean-forward="true" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+              <folding>
+                <marker date="1521408940000" expanded="true" signature="815:834" ph="SELECT * FRO... users" />
+                <marker date="1521408940000" expanded="true" signature="3051:3089" ph="insert into users... " />
               </folding>
             </state>
           </provider>
@@ -85,7 +98,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/tutorfind/StudentRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tutorfind/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/StudentPostController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/TutorRatingController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/TutorSubjectController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tutorfind/model/SubjectDataModel.java" />
@@ -95,6 +107,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/tutorfind/model/TutorSignUpDataModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/TutorSignUpController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/StudentController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/UserController.java" />
       </list>
     </option>
   </component>
@@ -395,7 +408,7 @@
       <workItem from="1521272418282" duration="514000" />
       <workItem from="1521272937550" duration="436000" />
       <workItem from="1521273415492" duration="784000" />
-      <workItem from="1521274269447" duration="11232000" />
+      <workItem from="1521274269447" duration="13223000" />
     </task>
     <servers />
   </component>
@@ -408,7 +421,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75206000" />
+    <option name="totallyTimeSpent" value="77197000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="5" y="23" width="1440" height="821" extended-state="6" />
@@ -675,16 +688,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1521321045000" expanded="true" signature="908:927" ph="SELECT * FRO... users" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/model/SubjectDataModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -747,14 +750,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/StudentController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="81" column="58" lean-forward="false" selection-start-line="81" selection-start-column="58" selection-end-line="81" selection-end-column="58" />
+        <state relative-caret-position="-813">
+          <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
           <folding>
             <marker date="1521336235000" expanded="true" signature="935:957" ph="SELECT * FRO... students" />
             <marker date="1521336235000" expanded="true" signature="1854:1873" ph="update students... " />
             <marker date="1521336235000" expanded="true" signature="1854:1874" ph="update students... " />
             <marker date="1521336235000" expanded="true" signature="1854:1963" ph="update students... " />
             <marker date="1521336235000" expanded="true" signature="1854:1980" ph="update students... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="83" column="0" lean-forward="true" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+          <folding>
+            <marker date="1521408940000" expanded="true" signature="815:834" ph="SELECT * FRO... users" />
+            <marker date="1521408940000" expanded="true" signature="3051:3089" ph="insert into users... " />
           </folding>
         </state>
       </provider>
