@@ -21,6 +21,19 @@ public class TutorsDataModel {
     private Date timestamp;
     private double avgRating;
 
+    public TutorsDataModel(int userId, String legalFirstName, String legalLastName, String bio, String degrees, String links, String img, Boolean active, Date timestamp, double avgRating) {
+        this.userId = userId;
+        this.legalFirstName = legalFirstName;
+        this.legalLastName = legalLastName;
+        this.bio = bio;
+        this.degrees = degrees;
+        this.links = links;
+        this.img = img;
+        this.active = active;
+        this.timestamp = timestamp;
+        this.avgRating = avgRating;
+    }
+
     public int getUserId() {
         return userId;
     }

@@ -13,6 +13,12 @@ public class TutorSignUpDataModel {
     // FOREIGN KEY, studentUserId references students(userId)
     private int studentUserId;
 
+
+    public TutorSignUpDataModel(int tutorPostId, int studentUserId) {
+        this.tutorPostId = tutorPostId;
+        this.studentUserId = studentUserId;
+    }
+
     public int getTutorPostId() {
         return tutorPostId;
     }
@@ -20,6 +26,9 @@ public class TutorSignUpDataModel {
     public void setTutorPostId(int tutorPostId) {
         this.tutorPostId = tutorPostId;
     }
+
+
+
 
     @Override
     public boolean equals(Object o) {

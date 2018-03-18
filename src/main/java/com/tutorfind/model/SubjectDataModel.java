@@ -12,6 +12,11 @@ public class SubjectDataModel {
     private int subjectId;
     private String subjectName;
 
+    public SubjectDataModel(int subjectId, String subjectName){
+        this.subjectId = subjectId;
+        this.subjectName = subjectName;
+    }
+
     public int getSubjectId() {
         return subjectId;
     }
