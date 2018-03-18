@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
@@ -71,8 +73,14 @@ public class StudentController {
 
     @RequestMapping(method = RequestMethod.GET)
     public @ResponseBody
-    ArrayList<StudentDataModel> printStudents(@RequestParam(value = "legalFirstName", defaultValue = "") String legalFirstName,
-                                   @RequestParam(value = "userId", defaultValue = "0") int userId) {
+    ArrayList<StudentDataModel> printStudents(HttpServletResponse response,
+                                              @CookieValue(value = "hits",defaultValue = "0") Long hits,
+                                              @RequestParam(value = "legalFirstName", defaultValue = "") String legalFirstName,
+                                              @RequestParam(value = "userId", defaultValue = "0") int userId) {
+
+        hits++;
+        Cookie cookie = new Cookie("hits",hits.toString());
+        response.addCookie(cookie);
 
         ArrayList<StudentDataModel> students = getStudentsFromDB();
         ArrayList<StudentDataModel> acceptedStudents = new ArrayList<>();
@@ -95,6 +103,9 @@ public class StudentController {
         }else {
             return acceptedStudents;
         }
+
+
+
     }
 
 
