@@ -9,10 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 
 @RestController
@@ -69,5 +66,46 @@ public class UserController {
             return acceptedUsers;
         }
     }
+
+    @RequestMapping(value = "insert/{userId}", method = {RequestMethod.POST})
+    public UserDataModel insertUser(@PathVariable("userId") int id, @RequestBody UserDataModel u) {
+
+        UserDataModel user = new UserDataModel();
+        user.setEmail(u.getEmail());
+        user.setPasshash(u.getPasshash());
+        user.setSalt(u.getSalt());
+        user.setUserId(u.getUserId());
+        user.setUserName(u.getUserName());
+        user.setUserType(u.getUserType());
+
+        u = user;
+        updateStudentFromDB(u.getUserId(),u.getUserName(),u.getEmail(),u.getSalt(),u.getPasshash(),u.getUserType());
+        return u;
+
+
+    }
+
+    public void updateStudentFromDB(int userId, String  userName, String email, String salt, String passhash, String userType){
+        try (Connection connection = dataSource.getConnection()) {
+            //Statement stmt = connection.createStatement();
+            String query = "insert into users VALUES (?,?,?,?,?,?)";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1,userId);
+            preparedStatement.setString(2, userName);
+            preparedStatement.setString(3, email);
+            preparedStatement.setString(4,salt);
+            preparedStatement.setString(5, passhash);
+            preparedStatement.setString(6, userType);
+            preparedStatement.executeUpdate();
+            connection.close();
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+
+        }
+    }
+
 
 }
