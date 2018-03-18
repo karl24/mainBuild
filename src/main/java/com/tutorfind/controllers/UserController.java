@@ -67,8 +67,8 @@ public class UserController {
         }
     }
 
-    @RequestMapping(value = "{studentId}/insert", method = {RequestMethod.POST})
-    public UserDataModel insertUser(@PathVariable("studentId") int id, @RequestBody UserDataModel u) {
+    @RequestMapping(value = "insert/{userId}", method = {RequestMethod.POST})
+    public UserDataModel insertUser(@PathVariable("userId") int id, @RequestBody UserDataModel u) {
 
         UserDataModel user = new UserDataModel();
         user.setEmail(u.getEmail());
