@@ -45,7 +45,7 @@ public class SubjectController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public @ResponseBody ArrayList<SubjectDataModel> printUsers(@RequestParam(value = "subjectId", defaultValue = "") int subjectId) {
+    public @ResponseBody ArrayList<SubjectDataModel> printSubjects(@RequestParam(value = "subjectId", defaultValue = "0") int subjectId) {
 
         ArrayList<SubjectDataModel> subjects = getActiveSubjectFromDB();
         ArrayList<SubjectDataModel> acceptedSubjects = new ArrayList<>();
@@ -57,7 +57,6 @@ public class SubjectController {
         }
 
         if(acceptedSubjects.isEmpty()) {
-
             return subjects;
         }else {
             return acceptedSubjects;
