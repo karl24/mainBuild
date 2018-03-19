@@ -29,7 +29,7 @@ public class StudentController{
             Statement stmt = connection.createStatement();
 
             ResultSet rs = stmt.executeQuery("SELECT * FROM students");
-            ResultSet rsUser = stmt.executeQuery("SELECT * FROM users");
+           
 
             ArrayList<StudentDataModel> output = new ArrayList<StudentDataModel>();
 
