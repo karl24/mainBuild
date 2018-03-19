@@ -72,6 +72,30 @@ public class StudentController extends UserController{
         }
     }
 
+    public void insertStudentIntoDB(int userId, String legalFirstName,String legalLastName, String bio, String major, String minor, String img, boolean active){
+        try (Connection connection = dataSource.getConnection()) {
+            //Statement stmt = connection.createStatement();
+            String query = "insert into students VALUES(?,?,?,?,?,?,?,?)";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(3, legalLastName);
+            preparedStatement.setString(2, legalFirstName);
+            preparedStatement.setString(4, bio);
+            preparedStatement.setString(5, major);
+            preparedStatement.setString(6, minor);
+            preparedStatement.setString(7, img);
+            preparedStatement.setBoolean(8,active);
+            preparedStatement.setInt(1,userId);
+            preparedStatement.executeUpdate();
+            connection.close();
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+
+        }
+    }
+
 
     @RequestMapping(method = RequestMethod.GET)
     public @ResponseBody
@@ -124,19 +148,32 @@ public class StudentController extends UserController{
     }
 
 
+    @RequestMapping(value = "insert", method = {RequestMethod.POST})
+    public UserDataModel insertStudent(@RequestBody StudentDataModel s) {
 
-//    @RequestMapping(value = "insert", method = {RequestMethod.POST})
-//    public StudentDataModel insertStudent(@RequestBody StudentDataModel s) {
-//
-//        StudentDataModel student = new StudentDataModel();
-//
-//
-//        u = user;
-//        insertUserIntoDB(u.getUserId(),u.getUserName(),u.getEmail(),u.getSalt(),u.getPasshash(),u.getUserType());
-//        return u;
-//
-//
-//    }
+        StudentDataModel student = new StudentDataModel();
+        student.setLegalFirstName(s.getLegalFirstName());
+        student.setUserId(s.getUserId());
+        student.setLegalLastName(s.getLegalLastName());
+        student.setMajor(s.getMajor());
+        student.setActive(s.isActive());
+        student.setBio(s.getBio());
+        student.setMinor(s.getMinor());
+        student.setCreationDate(s.getCreationDate());
+        student.setImg(s.getImg());
+        student.setUserName(s.getUserName());
+        student.setEmail(s.getEmail());
+        student.setSalt(s.getSalt());
+        student.setPasshash(s.getPasshash());
+        student.setUserType(s.getUserType());
+
+        s = student;
+        insertUserIntoDB(s.getUserId(),s.getUserName(),s.getEmail(),s.getSalt(),s.getPasshash(),s.getUserType());
+        insertStudentIntoDB(s.getUserId(),s.getLegalFirstName(),s.getLegalLastName(),s.getBio(),s.getMajor(),s.getMinor(),s.getImg(),s.isActive());
+        return s;
+
+
+    }
 
     @RequestMapping(value = "update/{studentId}", method = {RequestMethod.POST})
     public StudentDataModel updateStudent(@PathVariable("studentId") int id, @RequestBody StudentDataModel s) {
