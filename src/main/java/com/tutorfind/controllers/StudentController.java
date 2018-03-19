@@ -1,6 +1,7 @@
 package com.tutorfind.controllers;
 
 import com.tutorfind.model.StudentDataModel;
+import com.tutorfind.model.UserDataModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.HttpStatus;
@@ -17,7 +18,7 @@ import java.util.ArrayList;
 @RestController
 @ComponentScan("com.tutorfind.controllers.StudentRepository")
 @RequestMapping("students")
-public class StudentController {
+public class StudentController extends UserController{
 
 
     @Autowired
@@ -29,6 +30,7 @@ public class StudentController {
             Statement stmt = connection.createStatement();
 
             ResultSet rs = stmt.executeQuery("SELECT * FROM students");
+
 
             ArrayList<StudentDataModel> output = new ArrayList<StudentDataModel>();
 
@@ -70,6 +72,30 @@ public class StudentController {
         }
     }
 
+    public void insertStudentIntoDB(int userId, String legalFirstName,String legalLastName, String bio, String major, String minor, String img, boolean active){
+        try (Connection connection = dataSource.getConnection()) {
+            //Statement stmt = connection.createStatement();
+            String query = "insert into students VALUES(?,?,?,?,?,?,?,?)";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(3, legalLastName);
+            preparedStatement.setString(2, legalFirstName);
+            preparedStatement.setString(4, bio);
+            preparedStatement.setString(5, major);
+            preparedStatement.setString(6, minor);
+            preparedStatement.setString(7, img);
+            preparedStatement.setBoolean(8,active);
+            preparedStatement.setInt(1,userId);
+            preparedStatement.executeUpdate();
+            connection.close();
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+
+        }
+    }
+
 
     @RequestMapping(method = RequestMethod.GET)
     public @ResponseBody
@@ -84,6 +110,19 @@ public class StudentController {
 
         ArrayList<StudentDataModel> students = getStudentsFromDB();
         ArrayList<StudentDataModel> acceptedStudents = new ArrayList<>();
+        ArrayList<UserDataModel> users = getActiveUsersFromDB();
+        for(StudentDataModel s: students){
+            for(UserDataModel u : users){
+                if(s.getUserId() == u.getUserId()){
+                    s.setUserType(u.getUserType());
+                    s.setPasshash(u.getPasshash());
+                    s.setSalt(u.getSalt());
+                    s.setEmail(u.getEmail());
+                    s.setUserName(u.getUserName());
+                }
+            }
+        }
+
         for (StudentDataModel student : students) {
             if (student.getLegalFirstName().equals(legalFirstName)){
                 acceptedStudents.add(student);
@@ -109,10 +148,34 @@ public class StudentController {
     }
 
 
+    @RequestMapping(value = "insert", method = {RequestMethod.POST})
+    public UserDataModel insertStudent(@RequestBody StudentDataModel s) {
+
+        StudentDataModel student = new StudentDataModel();
+        student.setLegalFirstName(s.getLegalFirstName());
+        student.setUserId(s.getUserId());
+        student.setLegalLastName(s.getLegalLastName());
+        student.setMajor(s.getMajor());
+        student.setActive(s.isActive());
+        student.setBio(s.getBio());
+        student.setMinor(s.getMinor());
+        student.setCreationDate(s.getCreationDate());
+        student.setImg(s.getImg());
+        student.setUserName(s.getUserName());
+        student.setEmail(s.getEmail());
+        student.setSalt(s.getSalt());
+        student.setPasshash(s.getPasshash());
+        student.setUserType(s.getUserType());
+
+        s = student;
+        insertUserIntoDB(s.getUserId(),s.getUserName(),s.getEmail(),s.getSalt(),s.getPasshash(),s.getUserType());
+        insertStudentIntoDB(s.getUserId(),s.getLegalFirstName(),s.getLegalLastName(),s.getBio(),s.getMajor(),s.getMinor(),s.getImg(),s.isActive());
+        return s;
 
 
+    }
 
-    @RequestMapping(value = "{studentId}", method = {RequestMethod.POST})
+    @RequestMapping(value = "update/{studentId}", method = {RequestMethod.POST})
     public StudentDataModel updateStudent(@PathVariable("studentId") int id, @RequestBody StudentDataModel s) {
 
             StudentDataModel student = new StudentDataModel();
@@ -125,9 +188,15 @@ public class StudentController {
             student.setMinor(s.getMinor());
             student.setCreationDate(s.getCreationDate());
             student.setImg(s.getImg());
+            student.setUserName(s.getUserName());
+            student.setEmail(s.getEmail());
+            student.setSalt(s.getSalt());
+            student.setPasshash(s.getPasshash());
+            student.setUserType(s.getUserType());
 
             s = student;
             updateStudentFromDB(id,s.getLegalFirstName(),s.getLegalLastName(),s.getBio(),s.getMajor(),s.getMinor(),s.getImg(),s.isActive());
+            updateUserFromDB(id,s.getUserName(),s.getEmail(),s.getSalt(),s.getPasshash(),s.getUserType());
             return s;
 
 

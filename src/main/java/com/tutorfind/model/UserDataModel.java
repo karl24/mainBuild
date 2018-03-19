@@ -91,13 +91,13 @@ public class UserDataModel {
 
     @Override
     public String toString() {
-        return "UserDataModel{" +
+
+        return
                 "userId=" + userId +
                 ", userName='" + userName + '\'' +
                 ", email='" + email + '\'' +
                 ", salt='" + salt + '\'' +
                 ", passhash='" + passhash + '\'' +
-                ", userType='" + userType + '\'' +
-                '}';
+                ", userType='" + userType + '\'';
     }
 }

@@ -15,8 +15,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 @RestController
-@RequestMapping("users")
-public class UserController {
+public abstract class UserController {
 
     @Autowired
     private DataSource dataSource;
@@ -24,7 +23,7 @@ public class UserController {
 
     private static final Random RANDOM = new SecureRandom();
 
-    private ArrayList<UserDataModel> getActiveUsersFromDB() {
+    public ArrayList<UserDataModel> getActiveUsersFromDB() {
         try (Connection connection = dataSource.getConnection()) {
             Statement stmt = connection.createStatement();
 
@@ -46,31 +45,31 @@ public class UserController {
         }
     }
 
-    @RequestMapping(method = RequestMethod.GET)
-    public @ResponseBody ArrayList<UserDataModel> printUsers(@RequestParam(value = "userName", defaultValue = "") String userName,
-                                                  @RequestParam(value = "userId", defaultValue = "0") int userId) {
-
-        ArrayList<UserDataModel> users = getActiveUsersFromDB();
-        ArrayList<UserDataModel> acceptedUsers = new ArrayList<>();
-
-        for(UserDataModel user : users){
-            if(user.getUserName().equals(userName)) {
-                acceptedUsers.add(user);
-
-            }
-            if(user.getUserId() == userId) {
-                acceptedUsers.add(user);
-
-            }
-        }
-
-        if(acceptedUsers.isEmpty()) {
-
-            return users;
-        }else {
-            return acceptedUsers;
-        }
-    }
+//    @RequestMapping(method = RequestMethod.GET)
+//    public @ResponseBody ArrayList<UserDataModel> printUsers(@RequestParam(value = "userName", defaultValue = "") String userName,
+//                                                  @RequestParam(value = "userId", defaultValue = "0") int userId) {
+//
+//        ArrayList<UserDataModel> users = getActiveUsersFromDB();
+//        ArrayList<UserDataModel> acceptedUsers = new ArrayList<>();
+//
+//        for(UserDataModel user : users){
+//            if(user.getUserName().equals(userName)) {
+//                acceptedUsers.add(user);
+//
+//            }
+//            if(user.getUserId() == userId) {
+//                acceptedUsers.add(user);
+//
+//            }
+//        }
+//
+//        if(acceptedUsers.isEmpty()) {
+//
+//            return users;
+//        }else {
+//            return acceptedUsers;
+//        }
+//    }
 
     public static byte[] getNextSalt() {
         byte[] salt = new byte[16];
@@ -78,23 +77,23 @@ public class UserController {
         return salt;
     }
 
-    @RequestMapping(value = "insert", method = {RequestMethod.POST})
-    public UserDataModel insertUser(@RequestBody UserDataModel u) {
-
-        UserDataModel user = new UserDataModel();
-        user.setEmail(u.getEmail());
-        user.setPasshash(u.getPasshash());
-        user.setSalt(new String(getNextSalt()));
-        user.setUserId(u.getUserId());
-        user.setUserName(u.getUserName());
-        user.setUserType(u.getUserType());
-
-        u = user;
-        insertUserIntoDB(u.getUserId(),u.getUserName(),u.getEmail(),u.getSalt(),u.getPasshash(),u.getUserType());
-        return u;
-
-
-    }
+//    @RequestMapping(value = "insert", method = {RequestMethod.POST})
+//    public UserDataModel insertUser(@RequestBody UserDataModel u) {
+//
+//        UserDataModel user = new UserDataModel();
+//        user.setEmail(u.getEmail());
+//        user.setPasshash(u.getPasshash());
+//        user.setSalt(new String(getNextSalt()));
+//        user.setUserId(u.getUserId());
+//        user.setUserName(u.getUserName());
+//        user.setUserType(u.getUserType());
+//
+//        u = user;
+//        insertUserIntoDB(u.getUserId(),u.getUserName(),u.getEmail(),u.getSalt(),u.getPasshash(),u.getUserType());
+//        return u;
+//
+//
+//    }
 
     public void insertUserIntoDB(int userId, String  userName, String email, String salt, String passhash, String userType){
         try (Connection connection = dataSource.getConnection()) {
@@ -107,6 +106,27 @@ public class UserController {
             preparedStatement.setString(4,salt);
             preparedStatement.setString(5, passhash);
             preparedStatement.setString(6, userType);
+            preparedStatement.executeUpdate();
+            connection.close();
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+    }
+
+    public void updateUserFromDB(int userId,String username, String email, String salt, String passhash, String usertype){
+        try (Connection connection = dataSource.getConnection()) {
+            //Statement stmt = connection.createStatement();
+            String query = "update users set username = ?, email = ?, salt = ?, passhash = ?, usertype = ? where userId = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1,username);
+            preparedStatement.setString(2,email);
+            preparedStatement.setString(3,salt);
+            preparedStatement.setString(4,passhash);
+            preparedStatement.setString(5,usertype);
+            preparedStatement.setInt(6,userId);
             preparedStatement.executeUpdate();
             connection.close();
 
