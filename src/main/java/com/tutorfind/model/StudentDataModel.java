@@ -3,7 +3,7 @@ package com.tutorfind.model;
 import java.sql.Timestamp;
 import java.util.Objects;
 
-public class StudentDataModel extends UserDataModel{
+public class StudentDataModel {
 
     private int userId;
     private String legalFirstName;
@@ -125,7 +125,7 @@ public class StudentDataModel extends UserDataModel{
 
     @Override
     public String toString() {
-        return "Student{" + super.toString() +
+        return "Student{" +
                 "userId=" + userId +
                 ", legalFirstName='" + legalFirstName + '\'' +
                 ", legalLastName='" + legalLastName + '\'' +
