@@ -9,8 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.sql.DataSource;
+import java.security.SecureRandom;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Random;
 
 @RestController
 @RequestMapping("users")
@@ -18,6 +20,9 @@ public class UserController {
 
     @Autowired
     private DataSource dataSource;
+
+
+    private static final Random RANDOM = new SecureRandom();
 
     private ArrayList<UserDataModel> getActiveUsersFromDB() {
         try (Connection connection = dataSource.getConnection()) {
@@ -67,25 +72,31 @@ public class UserController {
         }
     }
 
+    public static byte[] getNextSalt() {
+        byte[] salt = new byte[16];
+        RANDOM.nextBytes(salt);
+        return salt;
+    }
+
     @RequestMapping(value = "insert/{userId}", method = {RequestMethod.POST})
     public UserDataModel insertUser(@PathVariable("userId") int id, @RequestBody UserDataModel u) {
 
         UserDataModel user = new UserDataModel();
         user.setEmail(u.getEmail());
         user.setPasshash(u.getPasshash());
-        user.setSalt(u.getSalt());
+        user.setSalt(new String(getNextSalt()));
         user.setUserId(u.getUserId());
         user.setUserName(u.getUserName());
         user.setUserType(u.getUserType());
 
         u = user;
-        updateStudentFromDB(u.getUserId(),u.getUserName(),u.getEmail(),u.getSalt(),u.getPasshash(),u.getUserType());
+        insertUserIntoDB(u.getUserId(),u.getUserName(),u.getEmail(),u.getSalt(),u.getPasshash(),u.getUserType());
         return u;
 
 
     }
 
-    public void updateStudentFromDB(int userId, String  userName, String email, String salt, String passhash, String userType){
+    public void insertUserIntoDB(int userId, String  userName, String email, String salt, String passhash, String userType){
         try (Connection connection = dataSource.getConnection()) {
             //Statement stmt = connection.createStatement();
             String query = "insert into users VALUES (?,?,?,?,?,?)";

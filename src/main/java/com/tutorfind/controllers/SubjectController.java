@@ -44,6 +44,8 @@ public class SubjectController {
         }
     }
 
+
+
     @RequestMapping(method = RequestMethod.GET)
     public @ResponseBody ArrayList<SubjectDataModel> printSubjects(@RequestParam(value = "subjectId", defaultValue = "0") int subjectId) {
 
