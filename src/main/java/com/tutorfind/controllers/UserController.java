@@ -15,7 +15,6 @@ import java.util.ArrayList;
 import java.util.Random;
 
 @RestController
-@RequestMapping("users")
 public abstract class UserController {
 
     @Autowired
