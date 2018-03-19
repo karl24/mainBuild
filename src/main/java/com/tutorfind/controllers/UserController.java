@@ -113,6 +113,27 @@ public abstract class UserController {
         } catch (SQLException e) {
             e.printStackTrace();
 
+        }
+    }
+
+    public void updateUserFromDB(int userId,String username, String email, String salt, String passhash, String usertype){
+        try (Connection connection = dataSource.getConnection()) {
+            //Statement stmt = connection.createStatement();
+            String query = "update users set username = ?, email = ?, salt = ?, passhash = ?, usertype = ? where userId = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1,username);
+            preparedStatement.setString(2,email);
+            preparedStatement.setString(3,salt);
+            preparedStatement.setString(4,passhash);
+            preparedStatement.setString(5,usertype);
+            preparedStatement.setInt(6,userId);
+            preparedStatement.executeUpdate();
+            connection.close();
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
 
         }
     }
