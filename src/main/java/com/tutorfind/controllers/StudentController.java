@@ -17,7 +17,7 @@ import java.util.ArrayList;
 @RestController
 @ComponentScan("com.tutorfind.controllers.StudentRepository")
 @RequestMapping("students")
-public class StudentController extends UserController{
+public class StudentController{
 
 
     @Autowired
