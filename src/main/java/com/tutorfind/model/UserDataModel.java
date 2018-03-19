@@ -2,7 +2,7 @@ package com.tutorfind.model;
 
 import java.util.Objects;
 
-public abstract class UserDataModel {
+public class UserDataModel {
 
     private int userId;
     private String userName;

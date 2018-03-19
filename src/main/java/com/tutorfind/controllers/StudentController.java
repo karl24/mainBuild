@@ -1,6 +1,7 @@
 package com.tutorfind.controllers;
 
 import com.tutorfind.model.StudentDataModel;
+import com.tutorfind.model.UserDataModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.HttpStatus;
@@ -17,7 +18,7 @@ import java.util.ArrayList;
 @RestController
 @ComponentScan("com.tutorfind.controllers.StudentRepository")
 @RequestMapping("students")
-public class StudentController{
+public class StudentController extends UserController{
 
 
     @Autowired
@@ -29,7 +30,7 @@ public class StudentController{
             Statement stmt = connection.createStatement();
 
             ResultSet rs = stmt.executeQuery("SELECT * FROM students");
-           
+
 
             ArrayList<StudentDataModel> output = new ArrayList<StudentDataModel>();
 
@@ -85,6 +86,19 @@ public class StudentController{
 
         ArrayList<StudentDataModel> students = getStudentsFromDB();
         ArrayList<StudentDataModel> acceptedStudents = new ArrayList<>();
+        ArrayList<UserDataModel> users = getActiveUsersFromDB();
+        for(StudentDataModel s: students){
+            for(UserDataModel u : users){
+                if(s.getUserId() == u.getUserId()){
+                    s.setUserType(u.getUserType());
+                    s.setPasshash(u.getPasshash());
+                    s.setSalt(u.getSalt());
+                    s.setEmail(u.getEmail());
+                    s.setUserName(u.getUserName());
+                }
+            }
+        }
+
         for (StudentDataModel student : students) {
             if (student.getLegalFirstName().equals(legalFirstName)){
                 acceptedStudents.add(student);
@@ -137,6 +151,11 @@ public class StudentController{
             student.setMinor(s.getMinor());
             student.setCreationDate(s.getCreationDate());
             student.setImg(s.getImg());
+            student.setUserName(s.getUserName());
+            student.setEmail(s.getEmail());
+            student.setSalt(s.getSalt());
+            student.setPasshash(s.getPasshash());
+            student.setUserType(s.getUserType());
 
             s = student;
             updateStudentFromDB(id,s.getLegalFirstName(),s.getLegalLastName(),s.getBio(),s.getMajor(),s.getMinor(),s.getImg(),s.isActive());

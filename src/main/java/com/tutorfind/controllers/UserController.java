@@ -23,27 +23,27 @@ public abstract class UserController {
 
     private static final Random RANDOM = new SecureRandom();
 
-//    private ArrayList<UserDataModel> getActiveUsersFromDB() {
-//        try (Connection connection = dataSource.getConnection()) {
-//            Statement stmt = connection.createStatement();
-//
-//            ResultSet rs = stmt.executeQuery("SELECT * FROM users");
-//
-//            ArrayList<UserDataModel> output = new ArrayList();
-//
-//            while (rs.next()) {
-//                output.add(new UserDataModel(rs.getInt("userId"), rs.getString("userName"), rs.getString("email"),
-//                        rs.getString("salt"), rs.getString("passhash"), rs.getString("userType")));
-//            }
-//
-//            return output;
-//
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//            return null;
-//
-//        }
-//    }
+    public ArrayList<UserDataModel> getActiveUsersFromDB() {
+        try (Connection connection = dataSource.getConnection()) {
+            Statement stmt = connection.createStatement();
+
+            ResultSet rs = stmt.executeQuery("SELECT * FROM users");
+
+            ArrayList<UserDataModel> output = new ArrayList();
+
+            while (rs.next()) {
+                output.add(new UserDataModel(rs.getInt("userId"), rs.getString("userName"), rs.getString("email"),
+                        rs.getString("salt"), rs.getString("passhash"), rs.getString("userType")));
+            }
+
+            return output;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+
+        }
+    }
 
 //    @RequestMapping(method = RequestMethod.GET)
 //    public @ResponseBody ArrayList<UserDataModel> printUsers(@RequestParam(value = "userName", defaultValue = "") String userName,
