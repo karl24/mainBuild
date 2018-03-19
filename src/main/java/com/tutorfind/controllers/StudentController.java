@@ -17,7 +17,7 @@ import java.util.ArrayList;
 @RestController
 @ComponentScan("com.tutorfind.controllers.StudentRepository")
 @RequestMapping("students")
-public class StudentController {
+public class StudentController extends UserController{
 
 
     @Autowired
@@ -29,6 +29,7 @@ public class StudentController {
             Statement stmt = connection.createStatement();
 
             ResultSet rs = stmt.executeQuery("SELECT * FROM students");
+            ResultSet rsUser = stmt.executeQuery("SELECT * FROM users");
 
             ArrayList<StudentDataModel> output = new ArrayList<StudentDataModel>();
 
@@ -110,9 +111,20 @@ public class StudentController {
 
 
 
+//    @RequestMapping(value = "insert", method = {RequestMethod.POST})
+//    public StudentDataModel insertStudent(@RequestBody StudentDataModel s) {
+//
+//        StudentDataModel student = new StudentDataModel();
+//
+//
+//        u = user;
+//        insertUserIntoDB(u.getUserId(),u.getUserName(),u.getEmail(),u.getSalt(),u.getPasshash(),u.getUserType());
+//        return u;
+//
+//
+//    }
 
-
-    @RequestMapping(value = "{studentId}", method = {RequestMethod.POST})
+    @RequestMapping(value = "update/{studentId}", method = {RequestMethod.POST})
     public StudentDataModel updateStudent(@PathVariable("studentId") int id, @RequestBody StudentDataModel s) {
 
             StudentDataModel student = new StudentDataModel();

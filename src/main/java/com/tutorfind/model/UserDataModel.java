@@ -2,7 +2,7 @@ package com.tutorfind.model;
 
 import java.util.Objects;
 
-public class UserDataModel {
+public abstract class UserDataModel {
 
     private int userId;
     private String userName;
@@ -91,13 +91,13 @@ public class UserDataModel {
 
     @Override
     public String toString() {
-        return "UserDataModel{" +
+
+        return
                 "userId=" + userId +
                 ", userName='" + userName + '\'' +
                 ", email='" + email + '\'' +
                 ", salt='" + salt + '\'' +
                 ", passhash='" + passhash + '\'' +
-                ", userType='" + userType + '\'' +
-                '}';
+                ", userType='" + userType + '\'';
     }
 }

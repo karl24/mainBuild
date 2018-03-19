@@ -16,7 +16,7 @@ import java.util.Random;
 
 @RestController
 @RequestMapping("users")
-public class UserController {
+public abstract class UserController {
 
     @Autowired
     private DataSource dataSource;
@@ -24,53 +24,53 @@ public class UserController {
 
     private static final Random RANDOM = new SecureRandom();
 
-    private ArrayList<UserDataModel> getActiveUsersFromDB() {
-        try (Connection connection = dataSource.getConnection()) {
-            Statement stmt = connection.createStatement();
+//    private ArrayList<UserDataModel> getActiveUsersFromDB() {
+//        try (Connection connection = dataSource.getConnection()) {
+//            Statement stmt = connection.createStatement();
+//
+//            ResultSet rs = stmt.executeQuery("SELECT * FROM users");
+//
+//            ArrayList<UserDataModel> output = new ArrayList();
+//
+//            while (rs.next()) {
+//                output.add(new UserDataModel(rs.getInt("userId"), rs.getString("userName"), rs.getString("email"),
+//                        rs.getString("salt"), rs.getString("passhash"), rs.getString("userType")));
+//            }
+//
+//            return output;
+//
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//            return null;
+//
+//        }
+//    }
 
-            ResultSet rs = stmt.executeQuery("SELECT * FROM users");
-
-            ArrayList<UserDataModel> output = new ArrayList();
-
-            while (rs.next()) {
-                output.add(new UserDataModel(rs.getInt("userId"), rs.getString("userName"), rs.getString("email"),
-                        rs.getString("salt"), rs.getString("passhash"), rs.getString("userType")));
-            }
-
-            return output;
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return null;
-
-        }
-    }
-
-    @RequestMapping(method = RequestMethod.GET)
-    public @ResponseBody ArrayList<UserDataModel> printUsers(@RequestParam(value = "userName", defaultValue = "") String userName,
-                                                  @RequestParam(value = "userId", defaultValue = "0") int userId) {
-
-        ArrayList<UserDataModel> users = getActiveUsersFromDB();
-        ArrayList<UserDataModel> acceptedUsers = new ArrayList<>();
-
-        for(UserDataModel user : users){
-            if(user.getUserName().equals(userName)) {
-                acceptedUsers.add(user);
-
-            }
-            if(user.getUserId() == userId) {
-                acceptedUsers.add(user);
-
-            }
-        }
-
-        if(acceptedUsers.isEmpty()) {
-
-            return users;
-        }else {
-            return acceptedUsers;
-        }
-    }
+//    @RequestMapping(method = RequestMethod.GET)
+//    public @ResponseBody ArrayList<UserDataModel> printUsers(@RequestParam(value = "userName", defaultValue = "") String userName,
+//                                                  @RequestParam(value = "userId", defaultValue = "0") int userId) {
+//
+//        ArrayList<UserDataModel> users = getActiveUsersFromDB();
+//        ArrayList<UserDataModel> acceptedUsers = new ArrayList<>();
+//
+//        for(UserDataModel user : users){
+//            if(user.getUserName().equals(userName)) {
+//                acceptedUsers.add(user);
+//
+//            }
+//            if(user.getUserId() == userId) {
+//                acceptedUsers.add(user);
+//
+//            }
+//        }
+//
+//        if(acceptedUsers.isEmpty()) {
+//
+//            return users;
+//        }else {
+//            return acceptedUsers;
+//        }
+//    }
 
     public static byte[] getNextSalt() {
         byte[] salt = new byte[16];
@@ -78,23 +78,23 @@ public class UserController {
         return salt;
     }
 
-    @RequestMapping(value = "insert", method = {RequestMethod.POST})
-    public UserDataModel insertUser(@RequestBody UserDataModel u) {
-
-        UserDataModel user = new UserDataModel();
-        user.setEmail(u.getEmail());
-        user.setPasshash(u.getPasshash());
-        user.setSalt(new String(getNextSalt()));
-        user.setUserId(u.getUserId());
-        user.setUserName(u.getUserName());
-        user.setUserType(u.getUserType());
-
-        u = user;
-        insertUserIntoDB(u.getUserId(),u.getUserName(),u.getEmail(),u.getSalt(),u.getPasshash(),u.getUserType());
-        return u;
-
-
-    }
+//    @RequestMapping(value = "insert", method = {RequestMethod.POST})
+//    public UserDataModel insertUser(@RequestBody UserDataModel u) {
+//
+//        UserDataModel user = new UserDataModel();
+//        user.setEmail(u.getEmail());
+//        user.setPasshash(u.getPasshash());
+//        user.setSalt(new String(getNextSalt()));
+//        user.setUserId(u.getUserId());
+//        user.setUserName(u.getUserName());
+//        user.setUserType(u.getUserType());
+//
+//        u = user;
+//        insertUserIntoDB(u.getUserId(),u.getUserName(),u.getEmail(),u.getSalt(),u.getPasshash(),u.getUserType());
+//        return u;
+//
+//
+//    }
 
     public void insertUserIntoDB(int userId, String  userName, String email, String salt, String passhash, String userType){
         try (Connection connection = dataSource.getConnection()) {
