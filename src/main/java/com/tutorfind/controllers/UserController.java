@@ -78,8 +78,8 @@ public class UserController {
         return salt;
     }
 
-    @RequestMapping(value = "insert/{userId}", method = {RequestMethod.POST})
-    public UserDataModel insertUser(@PathVariable("userId") int id, @RequestBody UserDataModel u) {
+    @RequestMapping(value = "insert", method = {RequestMethod.POST})
+    public UserDataModel insertUser(@RequestBody UserDataModel u) {
 
         UserDataModel user = new UserDataModel();
         user.setEmail(u.getEmail());
