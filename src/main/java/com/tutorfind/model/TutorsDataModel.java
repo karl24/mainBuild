@@ -4,10 +4,12 @@ package com.tutorfind.model;
 Author: Bryan
  */
 
+import java.sql.Time;
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.Objects;
 
-public class TutorsDataModel {
+public class TutorsDataModel extends UserDataModel{
 
     // PRIMARY KEY
     private int userId;
@@ -18,10 +20,10 @@ public class TutorsDataModel {
     private String links;
     private String img;
     private Boolean active;
-    private Date timestamp;
+    private Timestamp timestamp;
     private double avgRating;
 
-    public TutorsDataModel(int userId, String legalFirstName, String legalLastName, String bio, String degrees, String links, String img, Boolean active, Date timestamp, double avgRating) {
+    public TutorsDataModel(int userId, String legalFirstName, String legalLastName, String bio, String degrees, String links, String img, Boolean active, Timestamp timestamp, double avgRating) {
         this.userId = userId;
         this.legalFirstName = legalFirstName;
         this.legalLastName = legalLastName;
@@ -33,6 +35,8 @@ public class TutorsDataModel {
         this.timestamp = timestamp;
         this.avgRating = avgRating;
     }
+
+    public TutorsDataModel(){}
 
     public int getUserId() {
         return userId;
@@ -98,11 +102,11 @@ public class TutorsDataModel {
         this.active = active;
     }
 
-    public Date getTimestamp() {
+    public Timestamp getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(Date timestamp) {
+    public void setTimestamp(Timestamp timestamp) {
         this.timestamp = timestamp;
     }
 
@@ -139,7 +143,7 @@ public class TutorsDataModel {
 
     @Override
     public String toString() {
-        return "tutorsDataModel{" +
+        return "tutorsDataModel{" + super.toString() +
                 "userId=" + userId +
                 ", legalFirstName='" + legalFirstName + '\'' +
                 ", legalLastName='" + legalLastName + '\'' +
