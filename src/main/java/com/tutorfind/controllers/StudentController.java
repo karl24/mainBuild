@@ -5,6 +5,7 @@ import com.tutorfind.model.UserDataModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -150,7 +151,7 @@ public class StudentController extends UserController{
     }
 
 
-    @RequestMapping(value = "insert", method = {RequestMethod.POST})
+    @RequestMapping(value = "insert", method = {RequestMethod.POST}, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<StudentDataModel> insertStudent(@RequestBody StudentDataModel s) {
 
         StudentDataModel student = new StudentDataModel();
