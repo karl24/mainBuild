@@ -151,7 +151,7 @@ public class StudentController extends UserController{
 
 
     @RequestMapping(value = "insert", method = {RequestMethod.POST})
-    public UserDataModel insertStudent(@RequestBody StudentDataModel s) {
+    public ResponseEntity<StudentDataModel> insertStudent(@RequestBody StudentDataModel s) {
 
         StudentDataModel student = new StudentDataModel();
         student.setLegalFirstName(s.getLegalFirstName());
@@ -172,13 +172,13 @@ public class StudentController extends UserController{
         s = student;
         insertUserIntoDB(s.getUserId(),s.getUserName(),s.getEmail(),s.getSalt(),s.getPasshash(),s.getUserType());
         insertStudentIntoDB(s.getUserId(),s.getLegalFirstName(),s.getLegalLastName(),s.getBio(),s.getMajor(),s.getMinor(),s.getImg(),s.isActive());
-        return s;
+        return new ResponseEntity<>(HttpStatus.OK);
 
 
     }
 
     @RequestMapping(value = "update/{studentId}", method = {RequestMethod.POST})
-    public StudentDataModel updateStudent(@PathVariable("studentId") int id, @RequestBody StudentDataModel s) {
+    public ResponseEntity<StudentDataModel> updateStudent(@PathVariable("studentId") int id, @RequestBody StudentDataModel s) {
 
             StudentDataModel student = new StudentDataModel();
             student.setLegalFirstName(s.getLegalFirstName());
@@ -199,7 +199,7 @@ public class StudentController extends UserController{
             s = student;
             updateStudentFromDB(id,s.getLegalFirstName(),s.getLegalLastName(),s.getBio(),s.getMajor(),s.getMinor(),s.getImg(),s.isActive(),s.getCreationDate());
             updateUserFromDB(id,s.getUserName(),s.getEmail(),s.getSalt(),s.getPasshash(),s.getUserType());
-            return s;
+            return new ResponseEntity<>(HttpStatus.OK);
 
 
     }

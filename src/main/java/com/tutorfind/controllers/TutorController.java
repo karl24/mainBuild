@@ -3,6 +3,8 @@ package com.tutorfind.controllers;
 
 import com.tutorfind.model.TutorsDataModel;
 import com.tutorfind.model.UserDataModel;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -129,7 +131,7 @@ public class TutorController extends UserController{
     }
 
     @RequestMapping(value = "insert", method = {RequestMethod.POST})
-    public UserDataModel insertStudent(@RequestBody TutorsDataModel t) {
+    public ResponseEntity<TutorsDataModel> insertTutor(@RequestBody TutorsDataModel t) {
 
         TutorsDataModel tutor = new TutorsDataModel();
         tutor.setLegalFirstName(t.getLegalFirstName());
@@ -151,13 +153,13 @@ public class TutorController extends UserController{
         t = tutor;
         insertUserIntoDB(t.getUserId(),t.getUserName(),t.getEmail(),t.getSalt(),t.getPasshash(),t.getUserType());
         insertTutorIntoDB(t.getUserId(),t.getLegalFirstName(),t.getLegalLastName(),t.getBio(),t.getDegrees(),t.getLinks(),t.getImg(),t.getActive(),t.getTimestamp(),t.getAvgRating());
-        return t;
+        return new ResponseEntity<>(HttpStatus.OK);
 
 
     }
 
     @RequestMapping(value = "update/{tutorId}", method = {RequestMethod.POST})
-    public TutorsDataModel updateTutor(@PathVariable("tutorId") int id, @RequestBody TutorsDataModel t) {
+    public ResponseEntity<TutorsDataModel> updateTutor(@PathVariable("tutorId") int id, @RequestBody TutorsDataModel t) {
 
         TutorsDataModel tutor = new TutorsDataModel();
         tutor.setLegalFirstName(t.getLegalFirstName());
@@ -179,7 +181,7 @@ public class TutorController extends UserController{
         t = tutor;
         updateTutorsFromDB(id,t.getLegalFirstName(),t.getLegalLastName(),t.getBio(),t.getDegrees(),t.getLinks(),t.getImg(),t.getActive(),t.getTimestamp(),t.getAvgRating());
         updateUserFromDB(id,t.getUserName(),t.getEmail(),t.getSalt(),t.getPasshash(),t.getUserType());
-        return t;
+        return new ResponseEntity<>(HttpStatus.OK);
 
 
     }
