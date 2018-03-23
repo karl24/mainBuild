@@ -23,6 +23,7 @@ public class TutorPostController {
 
 
     private ArrayList<TutorPostDataModel> getTutorPostFromDB() {
+
         try (Connection connection = dataSource.getConnection()) {
             Statement stmt = connection.createStatement();
 
@@ -32,7 +33,8 @@ public class TutorPostController {
 
             while (rs.next()) {
                 try {
-                    output.add(new TutorPostDataModel(rs.getInt("tutorpostid"),rs.getInt("ownerId"),rs.getInt("subjectId"),rs.getString("location"),new JSONObject(rs.getString("availability")),rs.getDouble("rate"),rs.getString("unit"),rs.getTimestamp("createdts"),rs.getBoolean("active"),rs.getInt("maxgroupsize"),rs.getInt("currentsignedup"),rs.getBoolean("acceptsgroups")));
+                    JSONObject object = new JSONObject(rs.getString("availability"));
+                    output.add(new TutorPostDataModel(rs.getInt("tutorpostid"),rs.getInt("ownerId"),rs.getInt("subjectId"),rs.getString("location"),object,rs.getDouble("rate"),rs.getString("unit"),rs.getTimestamp("createdts"),rs.getBoolean("active"),rs.getInt("maxgroupsize"),rs.getInt("currentsignedup"),rs.getBoolean("acceptsgroups")));
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
