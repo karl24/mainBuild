@@ -32,12 +32,10 @@ public class TutorPostController {
             ArrayList<TutorPostDataModel> output = new ArrayList<TutorPostDataModel>();
 
             while (rs.next()) {
-                try {
-                    JSONObject object = new JSONObject(rs.getString("availability"));
-                    output.add(new TutorPostDataModel(rs.getInt("tutorpostid"),rs.getInt("ownerId"),rs.getInt("subjectId"),rs.getString("location"),object,rs.getDouble("rate"),rs.getString("unit"),rs.getTimestamp("createdts"),rs.getBoolean("active"),rs.getInt("maxgroupsize"),rs.getInt("currentsignedup"),rs.getBoolean("acceptsgroups")));
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+
+
+                    output.add(new TutorPostDataModel(rs.getInt("tutorpostid"),rs.getInt("ownerId"),rs.getInt("subjectId"),rs.getString("location"),rs.getString("availability"),rs.getDouble("rate"),rs.getString("unit"),rs.getTimestamp("createdts"),rs.getBoolean("active"),rs.getInt("maxgroupsize"),rs.getInt("currentsignedup"),rs.getBoolean("acceptsgroups")));
+                
             }
 
             return output;
