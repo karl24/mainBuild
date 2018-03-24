@@ -181,23 +181,7 @@ public class StudentController extends UserController{
     @RequestMapping(method = {RequestMethod.PUT}, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<StudentDataModel> insertStudent(@RequestBody StudentDataModel s) {
 
-        StudentDataModel student = new StudentDataModel();
-        student.setLegalFirstName(s.getLegalFirstName());
-        student.setUserId(s.getUserId());
-        student.setLegalLastName(s.getLegalLastName());
-        student.setMajor(s.getMajor());
-        student.setActive(s.isActive());
-        student.setBio(s.getBio());
-        student.setMinor(s.getMinor());
-        student.setCreationDate(s.getCreationDate());
-        student.setImg(s.getImg());
-        student.setUserName(s.getUserName());
-        student.setEmail(s.getEmail());
-        student.setSalt(s.getSalt());
-        student.setPasshash(s.getPasshash());
-        student.setUserType(s.getUserType());
 
-        s = student;
         insertUserIntoDB(s.getUserId(),s.getUserName(),s.getEmail(),s.getSalt(),s.getPasshash(),s.getUserType());
         insertStudentIntoDB(s.getUserId(),s.getLegalFirstName(),s.getLegalLastName(),s.getBio(),s.getMajor(),s.getMinor(),s.getImg(),s.isActive(),s.getCreationDate());
         return new ResponseEntity<>(HttpStatus.OK);
@@ -208,23 +192,7 @@ public class StudentController extends UserController{
     @RequestMapping(value = "{studentId}", method = {RequestMethod.POST})
     public ResponseEntity<StudentDataModel> updateStudent(@PathVariable("studentId") int id, @RequestBody StudentDataModel s) {
 
-            StudentDataModel student = new StudentDataModel();
-            student.setLegalFirstName(s.getLegalFirstName());
-            student.setUserId(s.getUserId());
-            student.setLegalLastName(s.getLegalLastName());
-            student.setMajor(s.getMajor());
-            student.setActive(s.isActive());
-            student.setBio(s.getBio());
-            student.setMinor(s.getMinor());
-            student.setCreationDate(s.getCreationDate());
-            student.setImg(s.getImg());
-            student.setUserName(s.getUserName());
-            student.setEmail(s.getEmail());
-            student.setSalt(s.getSalt());
-            student.setPasshash(s.getPasshash());
-            student.setUserType(s.getUserType());
 
-            s = student;
             updateStudentFromDB(id,s.getLegalFirstName(),s.getLegalLastName(),s.getBio(),s.getMajor(),s.getMinor(),s.getImg(),s.isActive());
             updateUserFromDB(id,s.getUserName(),s.getEmail(),s.getSalt(),s.getPasshash(),s.getUserType());
             return new ResponseEntity<>(HttpStatus.OK);
