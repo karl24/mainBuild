@@ -62,8 +62,6 @@ public abstract class PostController {
                 return post;
         }
 
-
-ß
         return new PostDataModel();
     }
 }
