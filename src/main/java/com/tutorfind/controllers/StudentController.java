@@ -30,7 +30,7 @@ public class StudentController extends UserController{
         try (Connection connection = dataSource.getConnection()) {
             Statement stmt = connection.createStatement();
 
-            ResultSet rs = stmt.executeQuery("SELECT * FROM students ORDER BY creationdate DESC");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM students WHERE active IS TRUE ORDER BY creationdate DESC");
 
 
             ArrayList<StudentDataModel> output = new ArrayList<StudentDataModel>();

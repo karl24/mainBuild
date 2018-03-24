@@ -6,6 +6,7 @@ Author: Bryan
 
 import java.sql.Time;
 import java.sql.Timestamp;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Objects;
 
@@ -21,9 +22,9 @@ public class TutorsDataModel extends UserDataModel{
     private String img;
     private Boolean active;
     private Timestamp timestamp;
-    private double avgRating;
+    private Integer[] ratings;
 
-    public TutorsDataModel(int userId, String legalFirstName, String legalLastName, String bio, String degrees, String links, String img, Boolean active, Timestamp timestamp, double avgRating) {
+    public TutorsDataModel(int userId, String legalFirstName, String legalLastName, String bio, String degrees, String links, String img, Boolean active, Timestamp timestamp,  Integer[] ratings) {
         this.userId = userId;
         this.legalFirstName = legalFirstName;
         this.legalLastName = legalLastName;
@@ -33,7 +34,7 @@ public class TutorsDataModel extends UserDataModel{
         this.img = img;
         this.active = active;
         this.timestamp = timestamp;
-        this.avgRating = avgRating;
+        this.ratings = ratings;
     }
 
     public TutorsDataModel(){}
@@ -110,21 +111,21 @@ public class TutorsDataModel extends UserDataModel{
         this.timestamp = timestamp;
     }
 
-    public double getAvgRating() {
-        return avgRating;
+    public Integer[] getRatings() {
+        return ratings;
     }
 
-    public void setAvgRating(double avgRating) {
-        this.avgRating = avgRating;
+    public void setRatings(Integer[] ratings) {
+        this.ratings = ratings;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof TutorsDataModel)) return false;
+        if (!super.equals(o)) return false;
         TutorsDataModel that = (TutorsDataModel) o;
         return userId == that.userId &&
-                Double.compare(that.avgRating, avgRating) == 0 &&
                 Objects.equals(legalFirstName, that.legalFirstName) &&
                 Objects.equals(legalLastName, that.legalLastName) &&
                 Objects.equals(bio, that.bio) &&
@@ -132,18 +133,21 @@ public class TutorsDataModel extends UserDataModel{
                 Objects.equals(links, that.links) &&
                 Objects.equals(img, that.img) &&
                 Objects.equals(active, that.active) &&
-                Objects.equals(timestamp, that.timestamp);
+                Objects.equals(timestamp, that.timestamp) &&
+                Arrays.equals(ratings, that.ratings);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(userId, legalFirstName, legalLastName, bio, degrees, links, img, active, timestamp, avgRating);
+        int result = Objects.hash(super.hashCode(), userId, legalFirstName, legalLastName, bio, degrees, links, img, active, timestamp);
+        result = 31 * result + Arrays.hashCode(ratings);
+        return result;
     }
 
     @Override
     public String toString() {
-        return "tutorsDataModel{" + super.toString() +
+        return "TutorsDataModel{" + super.toString() +
                 "userId=" + userId +
                 ", legalFirstName='" + legalFirstName + '\'' +
                 ", legalLastName='" + legalLastName + '\'' +
@@ -153,7 +157,7 @@ public class TutorsDataModel extends UserDataModel{
                 ", img='" + img + '\'' +
                 ", active=" + active +
                 ", timestamp=" + timestamp +
-                ", avgRating=" + avgRating +
+                ", ratings=" + Arrays.toString(ratings) +
                 '}';
     }
 }
