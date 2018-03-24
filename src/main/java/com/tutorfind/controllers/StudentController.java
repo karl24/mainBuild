@@ -5,6 +5,7 @@ import com.tutorfind.model.UserDataModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,7 +30,7 @@ public class StudentController extends UserController{
         try (Connection connection = dataSource.getConnection()) {
             Statement stmt = connection.createStatement();
 
-            ResultSet rs = stmt.executeQuery("SELECT * FROM students");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM students ORDER BY creationdate DESC");
 
 
             ArrayList<StudentDataModel> output = new ArrayList<StudentDataModel>();
@@ -48,10 +49,10 @@ public class StudentController extends UserController{
         }
     }
 
-    public void updateStudentFromDB(int userId, String legalFirstName,String legalLastName, String bio, String major, String minor, String img, boolean active, Timestamp creationDate){
+    public void updateStudentFromDB(int userId, String legalFirstName,String legalLastName, String bio, String major, String minor, String img, boolean active) {
         try (Connection connection = dataSource.getConnection()) {
             //Statement stmt = connection.createStatement();
-            String query = "update students set legalFirstName = ?, legalLastName = ?, bio = ?, major = ?, minor = ?, img = ?, active = ?, creationdate = ? where userId = ?";
+            String query = "update students set legalFirstName = ?, legalLastName = ?, bio = ?, major = ?, minor = ?, img = ?, active = ? where userId = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(2, legalLastName);
             preparedStatement.setString(1, legalFirstName);
@@ -60,8 +61,8 @@ public class StudentController extends UserController{
             preparedStatement.setString(5, minor);
             preparedStatement.setString(6, img);
             preparedStatement.setBoolean(7,active);
-            preparedStatement.setTimestamp(8,creationDate);
-            preparedStatement.setInt(9, userId);
+
+            preparedStatement.setInt(8, userId);
 
             preparedStatement.executeUpdate();
             connection.close();
@@ -74,10 +75,10 @@ public class StudentController extends UserController{
         }
     }
 
-    public void insertStudentIntoDB(int userId, String legalFirstName,String legalLastName, String bio, String major, String minor, String img, boolean active){
+    public void insertStudentIntoDB(int userId, String legalFirstName,String legalLastName, String bio, String major, String minor, String img, boolean active, Timestamp creationdate){
         try (Connection connection = dataSource.getConnection()) {
             //Statement stmt = connection.createStatement();
-            String query = "insert into students VALUES(?,?,?,?,?,?,?,?)";
+            String query = "insert into students VALUES(?,?,?,?,?,?,?,?,?)";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(3, legalLastName);
             preparedStatement.setString(2, legalFirstName);
@@ -86,6 +87,7 @@ public class StudentController extends UserController{
             preparedStatement.setString(6, minor);
             preparedStatement.setString(7, img);
             preparedStatement.setBoolean(8,active);
+            preparedStatement.setTimestamp(9, creationdate);
             preparedStatement.setInt(1,userId);
             preparedStatement.executeUpdate();
             connection.close();
@@ -103,8 +105,7 @@ public class StudentController extends UserController{
     public @ResponseBody
     ArrayList<StudentDataModel> printStudents(HttpServletResponse response,
                                               @CookieValue(value = "hits",defaultValue = "0") Long hits,
-                                              @RequestParam(value = "legalFirstName", defaultValue = "") String legalFirstName,
-                                              @RequestParam(value = "userId", defaultValue = "0") int userId) {
+                                              @RequestParam(value = "legalFirstName", defaultValue = "") String legalFirstName){
 
         hits++;
         Cookie cookie = new Cookie("hits",hits.toString());
@@ -131,12 +132,7 @@ public class StudentController extends UserController{
 
             }
 
-            if(student.getUserId() == userId) {
-               acceptedStudents.add(student);
-
-            }
         }
-
 
 
         if (acceptedStudents.isEmpty()) {
@@ -149,8 +145,40 @@ public class StudentController extends UserController{
 
     }
 
+    @RequestMapping(value = "{id}", method = RequestMethod.GET)
+    public @ResponseBody
+    StudentDataModel printStudents(@PathVariable("id") int userId) {
 
-    @RequestMapping(value = "insert", method = {RequestMethod.POST})
+
+        ArrayList<StudentDataModel> students = getStudentsFromDB();
+        ArrayList<UserDataModel> users = getActiveUsersFromDB();
+        for(StudentDataModel s: students){
+            for(UserDataModel u : users){
+                if(s.getUserId() == u.getUserId()){
+                    s.setUserType(u.getUserType());
+                    s.setPasshash(u.getPasshash());
+                    s.setEmail(u.getEmail());
+                    s.setUserName(u.getUserName());
+                    s.setSalt(u.getSalt());
+                }
+            }
+        }
+
+        for (StudentDataModel student : students) {
+
+
+            if(student.getUserId() == userId) {
+                return student;
+            }
+        }
+
+
+        return null;
+
+    }
+
+
+    @RequestMapping(method = {RequestMethod.PUT}, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<StudentDataModel> insertStudent(@RequestBody StudentDataModel s) {
 
         StudentDataModel student = new StudentDataModel();
@@ -171,13 +199,13 @@ public class StudentController extends UserController{
 
         s = student;
         insertUserIntoDB(s.getUserId(),s.getUserName(),s.getEmail(),s.getSalt(),s.getPasshash(),s.getUserType());
-        insertStudentIntoDB(s.getUserId(),s.getLegalFirstName(),s.getLegalLastName(),s.getBio(),s.getMajor(),s.getMinor(),s.getImg(),s.isActive());
+        insertStudentIntoDB(s.getUserId(),s.getLegalFirstName(),s.getLegalLastName(),s.getBio(),s.getMajor(),s.getMinor(),s.getImg(),s.isActive(),s.getCreationDate());
         return new ResponseEntity<>(HttpStatus.OK);
 
 
     }
 
-    @RequestMapping(value = "update/{studentId}", method = {RequestMethod.POST})
+    @RequestMapping(value = "{studentId}", method = {RequestMethod.POST})
     public ResponseEntity<StudentDataModel> updateStudent(@PathVariable("studentId") int id, @RequestBody StudentDataModel s) {
 
             StudentDataModel student = new StudentDataModel();
@@ -197,7 +225,7 @@ public class StudentController extends UserController{
             student.setUserType(s.getUserType());
 
             s = student;
-            updateStudentFromDB(id,s.getLegalFirstName(),s.getLegalLastName(),s.getBio(),s.getMajor(),s.getMinor(),s.getImg(),s.isActive(),s.getCreationDate());
+            updateStudentFromDB(id,s.getLegalFirstName(),s.getLegalLastName(),s.getBio(),s.getMajor(),s.getMinor(),s.getImg(),s.isActive());
             updateUserFromDB(id,s.getUserName(),s.getEmail(),s.getSalt(),s.getPasshash(),s.getUserType());
             return new ResponseEntity<>(HttpStatus.OK);
 

@@ -11,7 +11,7 @@ public class TutorPostDataModel {
     private int ownerId;
     private int subjectId;
     private String location;
-    private JSONObject availability;
+    private String availability;
     private double rate;
     private String unit;
     private Timestamp createdts;
@@ -24,7 +24,7 @@ public class TutorPostDataModel {
 
     }
 
-    public TutorPostDataModel(int tutorpostid, int ownerId, int subjectId, String location, JSONObject availability, double rate, String unit, Timestamp createdts, boolean active, int maxgroupsize, int currentsignedup, boolean acceptsgroups) {
+    public TutorPostDataModel(int tutorpostid, int ownerId, int subjectId, String location, String availability, double rate, String unit, Timestamp createdts, boolean active, int maxgroupsize, int currentsignedup, boolean acceptsgroups) {
         this.tutorpostid = tutorpostid;
         this.ownerId = ownerId;
         this.subjectId = subjectId;
@@ -127,11 +127,11 @@ public class TutorPostDataModel {
         this.acceptsgroups = acceptsgroups;
     }
 
-    public JSONObject getAvailability() {
+    public String getAvailability() {
         return availability;
     }
 
-    public void setAvailability(JSONObject availability) {
+    public void setAvailability(String availability) {
         this.availability = availability;
     }
 
