@@ -35,7 +35,7 @@ public class TutorPostController {
 
 
                     output.add(new TutorPostDataModel(rs.getInt("tutorpostid"),rs.getInt("ownerId"),rs.getInt("subjectId"),rs.getString("location"),rs.getString("availability"),rs.getDouble("rate"),rs.getString("unit"),rs.getTimestamp("createdts"),rs.getBoolean("active"),rs.getInt("maxgroupsize"),rs.getInt("currentsignedup"),rs.getBoolean("acceptsgroups")));
-                
+
             }
 
             return output;
