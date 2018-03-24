@@ -30,7 +30,7 @@ public class StudentController extends UserController{
         try (Connection connection = dataSource.getConnection()) {
             Statement stmt = connection.createStatement();
 
-            ResultSet rs = stmt.executeQuery("SELECT * FROM students ORDER BY creationdate");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM students ORDER BY creationdate DESC");
 
 
             ArrayList<StudentDataModel> output = new ArrayList<StudentDataModel>();
@@ -49,10 +49,10 @@ public class StudentController extends UserController{
         }
     }
 
-    public void updateStudentFromDB(int userId, String legalFirstName,String legalLastName, String bio, String major, String minor, String img, boolean active, Timestamp creationDate){
+    public void updateStudentFromDB(int userId, String legalFirstName,String legalLastName, String bio, String major, String minor, String img, boolean active) {
         try (Connection connection = dataSource.getConnection()) {
             //Statement stmt = connection.createStatement();
-            String query = "update students set legalFirstName = ?, legalLastName = ?, bio = ?, major = ?, minor = ?, img = ?, active = ?, creationdate = ? where userId = ?";
+            String query = "update students set legalFirstName = ?, legalLastName = ?, bio = ?, major = ?, minor = ?, img = ?, active = ? where userId = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(2, legalLastName);
             preparedStatement.setString(1, legalFirstName);
@@ -61,8 +61,8 @@ public class StudentController extends UserController{
             preparedStatement.setString(5, minor);
             preparedStatement.setString(6, img);
             preparedStatement.setBoolean(7,active);
-            preparedStatement.setTimestamp(8,creationDate);
-            preparedStatement.setInt(9, userId);
+
+            preparedStatement.setInt(8, userId);
 
             preparedStatement.executeUpdate();
             connection.close();
@@ -225,7 +225,7 @@ public class StudentController extends UserController{
             student.setUserType(s.getUserType());
 
             s = student;
-            updateStudentFromDB(id,s.getLegalFirstName(),s.getLegalLastName(),s.getBio(),s.getMajor(),s.getMinor(),s.getImg(),s.isActive(),s.getCreationDate());
+            updateStudentFromDB(id,s.getLegalFirstName(),s.getLegalLastName(),s.getBio(),s.getMajor(),s.getMinor(),s.getImg(),s.isActive());
             updateUserFromDB(id,s.getUserName(),s.getEmail(),s.getSalt(),s.getPasshash(),s.getUserType());
             return new ResponseEntity<>(HttpStatus.OK);
 
