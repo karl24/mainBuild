@@ -115,10 +115,10 @@ public class TutorController extends UserController{
 
 
     @RequestMapping(method = RequestMethod.GET)
-    public @ResponseBody ArrayList<TutorsDataModel> printTutors(@RequestParam(value = "userId", defaultValue = "0") int userId) {
+    public @ResponseBody ArrayList<TutorsDataModel> printTutors() {
 
         ArrayList<TutorsDataModel> tutors = getActiveTutorsFromDB();
-        ArrayList<TutorsDataModel> acceptedTutors = new ArrayList<>();
+
         ArrayList<UserDataModel> users = getActiveUsersFromDB();
 
         for(TutorsDataModel tutor : tutors){
@@ -133,22 +133,38 @@ public class TutorController extends UserController{
             }
 
         }
-
-        for(TutorsDataModel tutor : tutors){
-            if(tutor.getUserId() == userId) {
-                acceptedTutors.add(tutor);
-            }
-        }
-
-        if(acceptedTutors.isEmpty()) {
-
-            return tutors;
-        }else {
-            return acceptedTutors;
-        }
+        return tutors;
     }
 
-    @RequestMapping(value = "insert", method = {RequestMethod.POST})
+    @RequestMapping(value = "{id}",method = RequestMethod.GET)
+    public @ResponseBody TutorsDataModel printTutor(@PathVariable("id") int id) {
+
+        ArrayList<TutorsDataModel> tutors = getActiveTutorsFromDB();
+        ArrayList<UserDataModel> users = getActiveUsersFromDB();
+
+        for(TutorsDataModel tutor : tutors){
+            for(UserDataModel user : users){
+                if(tutor.getUserId() == user.getUserId()){
+                    tutor.setUserType(user.getUserType());
+                    tutor.setPasshash(user.getPasshash());
+                    tutor.setSalt(user.getSalt());
+                    tutor.setUserName(user.getUserName());
+                    tutor.setEmail(user.getEmail());
+                }
+            }
+
+        }
+
+        for(TutorsDataModel tutor : tutors){
+            if(tutor.getUserId() == id){
+                return tutor;
+            }
+        }
+        return null;
+
+    }
+
+    @RequestMapping(method = {RequestMethod.PUT})
     public ResponseEntity<TutorsDataModel> insertTutor(@RequestBody TutorsDataModel t) {
 
 
@@ -159,7 +175,7 @@ public class TutorController extends UserController{
 
     }
 
-    @RequestMapping(value = "update/{tutorId}", method = {RequestMethod.POST})
+    @RequestMapping(value = "{tutorId}", method = {RequestMethod.POST})
     public ResponseEntity<TutorsDataModel> updateTutor(@PathVariable("tutorId") int id, @RequestBody TutorsDataModel t) {
 
         updateTutorsFromDB(id,t.getLegalFirstName(),t.getLegalLastName(),t.getBio(),t.getDegrees(),t.getLinks(),t.getImg(),t.getActive(),t.getTimestamp(),t.getRatings());

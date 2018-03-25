@@ -147,7 +147,7 @@ public class StudentController extends UserController{
 
     @RequestMapping(value = "{id}", method = RequestMethod.GET)
     public @ResponseBody
-    StudentDataModel printStudents(@PathVariable("id") int userId) {
+    StudentDataModel printStudent(@PathVariable("id") int userId) {
 
 
         ArrayList<StudentDataModel> students = getStudentsFromDB();
