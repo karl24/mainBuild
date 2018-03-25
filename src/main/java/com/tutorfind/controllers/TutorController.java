@@ -57,7 +57,7 @@ public class TutorController extends UserController{
     }
 
     @RequestMapping(value = "test", method = RequestMethod.GET)
-    public @ResponseBody Integer[] testing(@RequestParam(value = "userId", defaultValue = "0") int userId) {
+    public @ResponseBody String testing(@RequestParam(value = "userId", defaultValue = "0") int userId) {
         try (Connection connection = dataSource.getConnection()) {
             Statement stmt = connection.createStatement();
 
@@ -78,7 +78,7 @@ public class TutorController extends UserController{
                         ratings[i] = Integer.parseInt(r[i]);
                     }
                 }
-                return ratings;
+                return ratingsString;
               //  output.add(new TutorsDataModel(rs.getInt("userId"),rs.getString("legalfirstname"),rs.getString("legallastname"),rs.getString("bio"),rs.getString("degrees"),rs.getString("links"),rs.getString("img"),rs.getBoolean("active"),rs.getTimestamp("creationdate"),ratings));
             }
 
