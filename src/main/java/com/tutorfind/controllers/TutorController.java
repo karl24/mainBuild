@@ -56,47 +56,13 @@ public class TutorController extends UserController{
         }
     }
 
-    @RequestMapping(value = "test", method = RequestMethod.GET)
-    public @ResponseBody String testing(@RequestParam(value = "userId", defaultValue = "0") int userId) {
-        try (Connection connection = dataSource.getConnection()) {
-            Statement stmt = connection.createStatement();
-
-            ResultSet rs = stmt.executeQuery("SELECT * FROM tutors");
-
-            ArrayList<TutorsDataModel> output = new ArrayList();
-
-            while (rs.next()) {
-                String ratingsString = rs.getString("rating");
-                String[] r = ratingsString.split(",");
-                Integer[] ratings = new Integer[r.length];
-                for(int i = 0; i < r.length; i ++) {
-                    if(i == 0) {
-                        ratings[i] = Integer.parseInt(r[i].substring(1));
-                    }else if (i == r.length-1){
-                        ratings[i] = Integer.parseInt(r[i].substring(0,1));
-                    }else {
-                        ratings[i] = Integer.parseInt(r[i]);
-                    }
-                }
-                return ratingsString;
-              //  output.add(new TutorsDataModel(rs.getInt("userId"),rs.getString("legalfirstname"),rs.getString("legallastname"),rs.getString("bio"),rs.getString("degrees"),rs.getString("links"),rs.getString("img"),rs.getBoolean("active"),rs.getTimestamp("creationdate"),ratings));
-            }
-
-            return null;
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return null;
-
-        }
-    }
 
     public void updateTutorsFromDB(int userId, String legalFirstName,String legalLastName, String bio, String degrees, String links,String img, boolean active, Timestamp creationdate, Integer[] ratings){
         try (Connection connection = dataSource.getConnection()) {
             final java.sql.Array sqlArray = connection.createArrayOf("integer", ratings);
            
             //Statement stmt = connection.createStatement();
-            String query = "update tutors set legalFirstName = ?, legalLastName = ?, bio = ?, degrees = ?, links = ?, img = ?, active = ?, creationdate = ?, avgrating = ? where userId = ?";
+            String query = "update tutors set legalFirstName = ?, legalLastName = ?, bio = ?, degrees = ?, links = ?, img = ?, active = ?, creationdate = ?, rating = ? where userId = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(2, legalLastName);
             preparedStatement.setString(1, legalFirstName);
