@@ -107,6 +107,9 @@ public class TutorController extends UserController{
         ArrayList<TutorsDataModel> tutors = getActiveTutorsFromDB();
         ArrayList<TutorsDataModel> acceptedTutors = new ArrayList<>();
         ArrayList<UserDataModel> users = getActiveUsersFromDB();
+        if(tutors.isEmpty()){
+            return tutors;
+        }
         for(TutorsDataModel tutor : tutors){
             for(UserDataModel user : users){
                 if(tutor.getUserId() == user.getUserId()){
