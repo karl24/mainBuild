@@ -66,7 +66,7 @@ public class TutorController extends UserController{
             ArrayList<TutorsDataModel> output = new ArrayList();
 
             while (rs.next()) {
-                String ratingsString = rs.getString("ratings");
+                String ratingsString = rs.getString("rating");
                 String[] r = ratingsString.split(",");
                 Integer[] ratings = new Integer[r.length];
                 for(int i = 0; i < r.length; i ++) {
