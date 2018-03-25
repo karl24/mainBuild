@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c70f755-888c-4586-99cc-12f9667506f7" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/StudentController.java" afterPath="$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/StudentController.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/TutorController.java" afterPath="$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/TutorController.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -37,14 +36,15 @@
       <file leaf-file-name="TutorController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/TutorController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="447">
-              <caret line="177" column="29" lean-forward="false" selection-start-line="177" selection-start-column="29" selection-end-line="177" selection-end-column="29" />
+            <state relative-caret-position="660">
+              <caret line="44" column="21" lean-forward="true" selection-start-line="44" selection-start-column="21" selection-end-line="44" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1522015668000" expanded="true" signature="979:993" ph="SELECT * FRO... users" />
-                <marker date="1522015668000" expanded="true" signature="979:999" ph="SELECT * FRO... tutors" />
-                <marker date="1522015668000" expanded="true" signature="2590:2746" ph="update tutors... " />
-                <marker date="1522015668000" expanded="true" signature="3985:4031" ph="insert into students... " />
+                <marker date="1522015710000" expanded="true" signature="979:993" ph="SELECT * FRO... users" />
+                <marker date="1522015710000" expanded="true" signature="979:999" ph="SELECT * FRO... tutors" />
+                <marker date="1522015710000" expanded="true" signature="979:1047" ph="SELECT * FRO... tutors" />
+                <marker date="1522015710000" expanded="true" signature="2638:2794" ph="update tutors... " />
+                <marker date="1522015710000" expanded="true" signature="4033:4079" ph="insert into students... " />
               </folding>
             </state>
           </provider>
@@ -440,7 +440,7 @@
       <workItem from="1521272937550" duration="436000" />
       <workItem from="1521273415492" duration="784000" />
       <workItem from="1521274269447" duration="40548000" />
-      <workItem from="1521926121077" duration="4496000" />
+      <workItem from="1521926121077" duration="4541000" />
     </task>
     <servers />
   </component>
@@ -453,7 +453,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="109018000" />
+    <option name="totallyTimeSpent" value="109063000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="821" extended-state="6" />
@@ -832,14 +832,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/TutorController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
-          <caret line="177" column="29" lean-forward="false" selection-start-line="177" selection-start-column="29" selection-end-line="177" selection-end-column="29" />
+        <state relative-caret-position="660">
+          <caret line="44" column="21" lean-forward="true" selection-start-line="44" selection-start-column="21" selection-end-line="44" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1522015668000" expanded="true" signature="979:993" ph="SELECT * FRO... users" />
-            <marker date="1522015668000" expanded="true" signature="979:999" ph="SELECT * FRO... tutors" />
-            <marker date="1522015668000" expanded="true" signature="2590:2746" ph="update tutors... " />
-            <marker date="1522015668000" expanded="true" signature="3985:4031" ph="insert into students... " />
+            <marker date="1522015710000" expanded="true" signature="979:993" ph="SELECT * FRO... users" />
+            <marker date="1522015710000" expanded="true" signature="979:999" ph="SELECT * FRO... tutors" />
+            <marker date="1522015710000" expanded="true" signature="979:1047" ph="SELECT * FRO... tutors" />
+            <marker date="1522015710000" expanded="true" signature="2638:2794" ph="update tutors... " />
+            <marker date="1522015710000" expanded="true" signature="4033:4079" ph="insert into students... " />
           </folding>
         </state>
       </provider>

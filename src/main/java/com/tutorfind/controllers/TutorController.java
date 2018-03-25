@@ -27,7 +27,7 @@ public class TutorController extends UserController{
         try (Connection connection = dataSource.getConnection()) {
             Statement stmt = connection.createStatement();
 
-            ResultSet rs = stmt.executeQuery("SELECT * FROM tutors");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM tutors WHERE active IS TRUE ORDER BY creationdate DESC");
 
             ArrayList<TutorsDataModel> output = new ArrayList();
 
