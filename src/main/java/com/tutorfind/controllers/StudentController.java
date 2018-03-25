@@ -30,7 +30,7 @@ public class StudentController extends UserController{
         try (Connection connection = dataSource.getConnection()) {
             Statement stmt = connection.createStatement();
 
-            ResultSet rs = stmt.executeQuery("SELECT * FROM students ORDER BY creationdate DESC");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM students WHERE active IS TRUE ORDER BY creationdate DESC");
 
 
             ArrayList<StudentDataModel> output = new ArrayList<StudentDataModel>();
@@ -147,7 +147,7 @@ public class StudentController extends UserController{
 
     @RequestMapping(value = "{id}", method = RequestMethod.GET)
     public @ResponseBody
-    StudentDataModel printStudents(@PathVariable("id") int userId) {
+    StudentDataModel printStudent(@PathVariable("id") int userId) {
 
 
         ArrayList<StudentDataModel> students = getStudentsFromDB();

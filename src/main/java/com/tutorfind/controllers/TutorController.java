@@ -27,12 +27,24 @@ public class TutorController extends UserController{
         try (Connection connection = dataSource.getConnection()) {
             Statement stmt = connection.createStatement();
 
-            ResultSet rs = stmt.executeQuery("SELECT * FROM tutors");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM tutors WHERE active IS TRUE ORDER BY creationdate DESC");
 
             ArrayList<TutorsDataModel> output = new ArrayList();
 
             while (rs.next()) {
-                output.add(new TutorsDataModel(rs.getInt("userId"),rs.getString("legalfirstname"),rs.getString("legallastname"),rs.getString("bio"),rs.getString("degrees"),rs.getString("links"),rs.getString("img"),rs.getBoolean("active"),rs.getTimestamp("creationdate"),rs.getInt("avgrating")));
+                String ratingsString = rs.getString("rating");
+                String[] r = ratingsString.split(",");
+                Integer[] ratings = new Integer[r.length];
+                for(int i = 0; i < r.length; i ++) {
+                    if(i == 0) {
+                        ratings[i] = Integer.parseInt(r[i].substring(1));
+                    }else if (i == r.length-1){
+                        ratings[i] = Integer.parseInt(r[i].substring(0,1));
+                    }else {
+                        ratings[i] = Integer.parseInt(r[i]);
+                    }
+                }
+                output.add(new TutorsDataModel(rs.getInt("userId"),rs.getString("legalfirstname"),rs.getString("legallastname"),rs.getString("bio"),rs.getString("degrees"),rs.getString("links"),rs.getString("img"),rs.getBoolean("active"),rs.getTimestamp("creationdate"),ratings));
             }
 
             return output;
@@ -44,10 +56,13 @@ public class TutorController extends UserController{
         }
     }
 
-    public void updateTutorsFromDB(int userId, String legalFirstName,String legalLastName, String bio, String degrees, String links,String img, boolean active, Timestamp creationdate, double avgRating){
+
+    public void updateTutorsFromDB(int userId, String legalFirstName,String legalLastName, String bio, String degrees, String links,String img, boolean active, Timestamp creationdate, Integer[] ratings){
         try (Connection connection = dataSource.getConnection()) {
+            final java.sql.Array sqlArray = connection.createArrayOf("integer", ratings);
+           
             //Statement stmt = connection.createStatement();
-            String query = "update tutors set legalFirstName = ?, legalLastName = ?, bio = ?, degrees = ?, links = ?, img = ?, active = ?, creationdate = ?, avgrating = ? where userId = ?";
+            String query = "update tutors set legalFirstName = ?, legalLastName = ?, bio = ?, degrees = ?, links = ?, img = ?, active = ?, creationdate = ?, rating = ? where userId = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(2, legalLastName);
             preparedStatement.setString(1, legalFirstName);
@@ -57,7 +72,7 @@ public class TutorController extends UserController{
             preparedStatement.setString(6, img);
             preparedStatement.setBoolean(7,active);
             preparedStatement.setTimestamp(8, creationdate);
-            preparedStatement.setDouble(9,avgRating);
+            preparedStatement.setArray(9,sqlArray);
             preparedStatement.setInt(10,userId);
             preparedStatement.executeUpdate();
             connection.close();
@@ -70,9 +85,11 @@ public class TutorController extends UserController{
         }
     }
 
-    public void insertTutorIntoDB(int userId, String legalFirstName,String legalLastName, String bio, String degrees, String links,String img, boolean active, Timestamp timestamp, double avgRating){
+    public void insertTutorIntoDB(int userId, String legalFirstName,String legalLastName, String bio, String degrees, String links,String img, boolean active, Timestamp timestamp, Integer[] ratings){
         try (Connection connection = dataSource.getConnection()) {
             //Statement stmt = connection.createStatement();
+
+            final java.sql.Array sqlArray = connection.createArrayOf("integer", ratings);
             String query = "insert into tutors VALUES(?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(3, legalLastName);
@@ -83,7 +100,7 @@ public class TutorController extends UserController{
             preparedStatement.setString(7, img);
             preparedStatement.setBoolean(8,active);
             preparedStatement.setTimestamp(9, timestamp);
-            preparedStatement.setDouble(10,avgRating);
+            preparedStatement.setArray(10, sqlArray);
             preparedStatement.setInt(1,userId);
             preparedStatement.executeUpdate();
             connection.close();
@@ -98,11 +115,12 @@ public class TutorController extends UserController{
 
 
     @RequestMapping(method = RequestMethod.GET)
-    public @ResponseBody ArrayList<TutorsDataModel> printTutors(@RequestParam(value = "userId", defaultValue = "0") int userId) {
+    public @ResponseBody ArrayList<TutorsDataModel> printTutors() {
 
         ArrayList<TutorsDataModel> tutors = getActiveTutorsFromDB();
-        ArrayList<TutorsDataModel> acceptedTutors = new ArrayList<>();
+
         ArrayList<UserDataModel> users = getActiveUsersFromDB();
+
         for(TutorsDataModel tutor : tutors){
             for(UserDataModel user : users){
                 if(tutor.getUserId() == user.getUserId()){
@@ -115,71 +133,52 @@ public class TutorController extends UserController{
             }
 
         }
-
-        for(TutorsDataModel tutor : tutors){
-            if(tutor.getUserId() == userId) {
-                acceptedTutors.add(tutor);
-            }
-        }
-
-        if(acceptedTutors.isEmpty()) {
-
-            return tutors;
-        }else {
-            return acceptedTutors;
-        }
+        return tutors;
     }
 
-    @RequestMapping(value = "insert", method = {RequestMethod.POST})
+    @RequestMapping(value = "{id}",method = RequestMethod.GET)
+    public @ResponseBody TutorsDataModel printTutor(@PathVariable("id") int id) {
+
+        ArrayList<TutorsDataModel> tutors = getActiveTutorsFromDB();
+        ArrayList<UserDataModel> users = getActiveUsersFromDB();
+
+        for(TutorsDataModel tutor : tutors){
+            for(UserDataModel user : users){
+                if(tutor.getUserId() == user.getUserId()){
+                    tutor.setUserType(user.getUserType());
+                    tutor.setPasshash(user.getPasshash());
+                    tutor.setSalt(user.getSalt());
+                    tutor.setUserName(user.getUserName());
+                    tutor.setEmail(user.getEmail());
+                }
+            }
+
+        }
+
+        for(TutorsDataModel tutor : tutors){
+            if(tutor.getUserId() == id){
+                return tutor;
+            }
+        }
+        return null;
+
+    }
+
+    @RequestMapping(method = {RequestMethod.PUT})
     public ResponseEntity<TutorsDataModel> insertTutor(@RequestBody TutorsDataModel t) {
 
-        TutorsDataModel tutor = new TutorsDataModel();
-        tutor.setLegalFirstName(t.getLegalFirstName());
-        tutor.setLegalLastName(t.getLegalLastName());
-        tutor.setActive(t.getActive());
-        tutor.setAvgRating(t.getAvgRating());
-        tutor.setBio(t.getBio());
-        tutor.setDegrees(t.getDegrees());
-        tutor.setImg(t.getImg());
-        tutor.setLinks(t.getLinks());
-        tutor.setTimestamp(t.getTimestamp());
-        tutor.setUserId(t.getUserId());
-        tutor.setEmail(t.getEmail());
-        tutor.setPasshash(t.getPasshash());
-        tutor.setSalt(t.getSalt());
-        tutor.setUserName(t.getUserName());
-        tutor.setUserType(t.getUserType());
 
-        t = tutor;
         insertUserIntoDB(t.getUserId(),t.getUserName(),t.getEmail(),t.getSalt(),t.getPasshash(),t.getUserType());
-        insertTutorIntoDB(t.getUserId(),t.getLegalFirstName(),t.getLegalLastName(),t.getBio(),t.getDegrees(),t.getLinks(),t.getImg(),t.getActive(),t.getTimestamp(),t.getAvgRating());
+        insertTutorIntoDB(t.getUserId(),t.getLegalFirstName(),t.getLegalLastName(),t.getBio(),t.getDegrees(),t.getLinks(),t.getImg(),t.getActive(),t.getTimestamp(),t.getRatings());
         return new ResponseEntity<>(HttpStatus.OK);
 
 
     }
 
-    @RequestMapping(value = "update/{tutorId}", method = {RequestMethod.POST})
+    @RequestMapping(value = "{tutorId}", method = {RequestMethod.POST})
     public ResponseEntity<TutorsDataModel> updateTutor(@PathVariable("tutorId") int id, @RequestBody TutorsDataModel t) {
 
-        TutorsDataModel tutor = new TutorsDataModel();
-        tutor.setLegalFirstName(t.getLegalFirstName());
-        tutor.setLegalLastName(t.getLegalLastName());
-        tutor.setActive(t.getActive());
-        tutor.setAvgRating(t.getAvgRating());
-        tutor.setBio(t.getBio());
-        tutor.setDegrees(t.getDegrees());
-        tutor.setImg(t.getImg());
-        tutor.setLinks(t.getLinks());
-        tutor.setTimestamp(t.getTimestamp());
-        tutor.setUserId(t.getUserId());
-        tutor.setEmail(t.getEmail());
-        tutor.setPasshash(t.getPasshash());
-        tutor.setSalt(t.getSalt());
-        tutor.setUserName(t.getUserName());
-        tutor.setUserType(t.getUserType());
-
-        t = tutor;
-        updateTutorsFromDB(id,t.getLegalFirstName(),t.getLegalLastName(),t.getBio(),t.getDegrees(),t.getLinks(),t.getImg(),t.getActive(),t.getTimestamp(),t.getAvgRating());
+        updateTutorsFromDB(id,t.getLegalFirstName(),t.getLegalLastName(),t.getBio(),t.getDegrees(),t.getLinks(),t.getImg(),t.getActive(),t.getTimestamp(),t.getRatings());
         updateUserFromDB(id,t.getUserName(),t.getEmail(),t.getSalt(),t.getPasshash(),t.getUserType());
         return new ResponseEntity<>(HttpStatus.OK);
 
