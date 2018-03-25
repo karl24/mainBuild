@@ -32,7 +32,19 @@ public class TutorController extends UserController{
             ArrayList<TutorsDataModel> output = new ArrayList();
 
             while (rs.next()) {
-                output.add(new TutorsDataModel(rs.getInt("userId"),rs.getString("legalfirstname"),rs.getString("legallastname"),rs.getString("bio"),rs.getString("degrees"),rs.getString("links"),rs.getString("img"),rs.getBoolean("active"),rs.getTimestamp("creationdate"),(Integer[])rs.getArray("ratings").getArray()));
+                String ratingsString = rs.getString("ratings");
+                String[] r = ratingsString.split(",");
+                Integer[] ratings = new Integer[r.length];
+                for(int i = 0; i < r.length; i ++) {
+                    if(i == 0) {
+                        ratings[i] = Integer.parseInt(r[i].substring(1));
+                    }else if (i == r.length-1){
+                        ratings[i] = Integer.parseInt(r[i].substring(0,1));
+                    }else {
+                        ratings[i] = Integer.parseInt(r[i]);
+                    }
+                }
+                output.add(new TutorsDataModel(rs.getInt("userId"),rs.getString("legalfirstname"),rs.getString("legallastname"),rs.getString("bio"),rs.getString("degrees"),rs.getString("links"),rs.getString("img"),rs.getBoolean("active"),rs.getTimestamp("creationdate"),ratings));
             }
 
             return output;
@@ -107,9 +119,7 @@ public class TutorController extends UserController{
         ArrayList<TutorsDataModel> tutors = getActiveTutorsFromDB();
         ArrayList<TutorsDataModel> acceptedTutors = new ArrayList<>();
         ArrayList<UserDataModel> users = getActiveUsersFromDB();
-        if(tutors.isEmpty()){
-            return tutors;
-        }
+
         for(TutorsDataModel tutor : tutors){
             for(UserDataModel user : users){
                 if(tutor.getUserId() == user.getUserId()){
