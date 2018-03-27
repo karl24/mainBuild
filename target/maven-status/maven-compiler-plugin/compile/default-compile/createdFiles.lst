@@ -15,6 +15,8 @@ com/tutorfind/Main.class
 com/tutorfind/controllers/TutorSignUpController.class
 com/tutorfind/model/StudentDataModel.class
 com/tutorfind/controllers/StudentController.class
+com/tutorfind/model/PostDataModel.class
+com/tutorfind/controllers/PostController.class
 com/tutorfind/controllers/TutorPostController.class
 com/tutorfind/config/Configuration.class
 com/tutorfind/model/TutorSubjectDataModel.class

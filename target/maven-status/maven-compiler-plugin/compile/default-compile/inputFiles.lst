@@ -1,4 +1,5 @@
 /Users/ahardy/dev/git/mainBuild/src/main/java/com/tutorfind/controllers/TutorSubjectController.java
+/Users/ahardy/dev/git/mainBuild/src/main/java/com/tutorfind/controllers/PostController.java
 /Users/ahardy/dev/git/mainBuild/src/main/java/com/tutorfind/model/TutorSignUpDataModel.java
 /Users/ahardy/dev/git/mainBuild/src/main/java/com/tutorfind/model/StudentPostDataModel.java
 /Users/ahardy/dev/git/mainBuild/src/main/java/com/tutorfind/model/TutorsDataModel.java
@@ -6,6 +7,7 @@
 /Users/ahardy/dev/git/mainBuild/src/main/java/com/tutorfind/controllers/TutorController.java
 /Users/ahardy/dev/git/mainBuild/src/main/java/com/tutorfind/model/TutorPostDataModel.java
 /Users/ahardy/dev/git/mainBuild/src/main/java/com/tutorfind/controllers/StudentPostController.java
+/Users/ahardy/dev/git/mainBuild/src/main/java/com/tutorfind/model/PostDataModel.java
 /Users/ahardy/dev/git/mainBuild/src/main/java/com/tutorfind/controllers/StudentController.java
 /Users/ahardy/dev/git/mainBuild/src/main/java/com/tutorfind/model/StudentDataModel.java
 /Users/ahardy/dev/git/mainBuild/src/main/java/com/tutorfind/model/UserDataModel.java
