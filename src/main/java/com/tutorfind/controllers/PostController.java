@@ -82,8 +82,36 @@ public class PostController{
 
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+    }
 
+    private ArrayList<PostDataModel> getActivePostsByTypeFromDB(String posterType) {
+        try (Connection connection = dataSource.getConnection()) {
+            String query = "SELECT * FROM posts WHERE active IS TRUE AND posterType = ? ORDER BY createdTs DESC";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, posterType);
 
+            ResultSet rs = preparedStatement.executeQuery();
+
+            connection.close();
+
+            ArrayList<PostDataModel> output = new ArrayList();
+
+            while (rs.next()) {
+                output.add(new PostDataModel(rs.getInt("postId"), rs.getString("posterType"),
+                        rs.getInt("ownerId"), rs.getInt("subjectId"),
+                        rs.getString("location"), rs.getString("availability"),
+                        rs.getBoolean("acceptsPaid"), rs.getDouble("rate"),
+                        rs.getString("unit"), rs.getTimestamp("createdTs"),
+                        rs.getBoolean("active"), rs.getBoolean("acceptsGroupTutoring"),
+                        rs.getInt("currentlySignedUp")));
+            }
+
+            return output;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
         }
     }
 
@@ -106,6 +134,12 @@ public class PostController{
             }
         }
         return null;
+    }
+
+    @RequestMapping(method = RequestMethod.GET)
+    public @ResponseBody ArrayList<PostDataModel> printPostsByType(
+        @RequestParam(value = "type", defaultValue = "") String posterType){
+            return getActivePostsByTypeFromDB(posterType);
     }
 
     @RequestMapping(value = "{postId}", method = {RequestMethod.POST}, consumes = MediaType.APPLICATION_JSON_VALUE)
