@@ -70,7 +70,7 @@ import java.sql.*;
 import java.util.ArrayList;
 
 @RestController
-@RequestMapping("activetutors")
+@RequestMapping("posts")
 public class PostController{
 
     @Autowired
