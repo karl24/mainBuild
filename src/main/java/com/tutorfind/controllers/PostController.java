@@ -52,6 +52,40 @@ public class PostController{
         }
     }
 
+    public void updatePostsFromDB(int postId, String posterType, int ownerId, int subjectId, String location,
+        String availability, boolean acceptsPaid, double rate, String unit, Timestamp createdTs, boolean active,
+        boolean acceptsGroupTutoring, int currentlySignedUp){
+
+        try (Connection connection = dataSource.getConnection()) {
+            String query = "UPDATE posts SET posterType = ?, ownerId = ?, subjectId = ?, location = ?, " +
+                "availability = ?, acceptsPaid = ?, rate = ?, unit = ?, createdTs = ?, active = ?, " +
+                "acceptsGroupTutoring = ?, currentlySignedUp = ? WHERE postId = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, posterType);
+            preparedStatement.setInt(2, ownerId);
+            preparedStatement.setInt(3, subjectId);
+            preparedStatement.setString(4, location);
+            preparedStatement.setString(5, availability);
+            preparedStatement.setBoolean(6, acceptsPaid);
+            preparedStatement.setDouble(7, rate);
+            preparedStatement.setString(8, unit);
+            preparedStatement.setTimestamp(9, createdTs);
+            preparedStatement.setBoolean(10, active);
+            preparedStatement.setBoolean(11, acceptsGroupTutoring);
+            preparedStatement.setInt(12, currentlySignedUp);
+            preparedStatement.setInt(13, postId);
+
+            preparedStatement.executeUpdate();
+
+            connection.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+
+        }
+    }
+
     @RequestMapping(method = RequestMethod.GET)
     public @ResponseBody ArrayList<PostDataModel> printPosts() {
 
@@ -71,6 +105,14 @@ public class PostController{
             }
         }
         return null;
+    }
 
+    @RequestMapping(value = "{postId}", method = {RequestMethod.POST})
+    public ResponseEntity<PostDataModel> updatePost(@PathVariable("postId") int id, @RequestBody PostDataModel pdm) {
+
+        updatePostsFromDB(id, pdm.getPosterType(), pdm.getOwnerId(), pdm.getSubjectId(),
+                pdm.getLocation(), pdm.getAvailability(), pdm.isAcceptsPaid(), pdm.getRate(), pdm.getUnit(),
+                pdm.getCreatedTs(), pdm.isActive(), pdm. isAcceptsGroupTutoring(), pdm.getCurrentlySignedUp());
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }
