@@ -87,10 +87,9 @@ public class PostController{
 
     private ArrayList<PostDataModel> getActivePostsByTypeFromDB(String posterType) {
         try (Connection connection = dataSource.getConnection()) {
-            String query = "SELECT * FROM posts WHERE active IS TRUE AND posterType IN (\'?\') ORDER BY createdTs DESC";
+            String query = "SELECT * FROM posts WHERE active IS TRUE ? ORDER BY createdTs DESC";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, posterType);
-            System.out.println(query);
 
             ResultSet rs = preparedStatement.executeQuery();
 
@@ -139,8 +138,16 @@ public class PostController{
 
     @RequestMapping(method = RequestMethod.GET)
     public @ResponseBody ArrayList<PostDataModel> printPostsByType(
-        @RequestParam(value = "type", defaultValue = "student\',\' tutor") String posterType){
+        @RequestParam(value = "type", defaultValue = "") String posterType){
+
+        if(posterType == ""){
+            return getActivePostsFromDB();
+
+        } else {
+            String stringQuery = "AND posterType IN \'" + posterType + "\'";
             return getActivePostsByTypeFromDB(posterType);
+        }
+
     }
 
     @RequestMapping(value = "{postId}", method = {RequestMethod.POST}, consumes = MediaType.APPLICATION_JSON_VALUE)
