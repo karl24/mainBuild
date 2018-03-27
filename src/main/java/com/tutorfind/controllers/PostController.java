@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.MediaType;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -107,7 +108,7 @@ public class PostController{
         return null;
     }
 
-    @RequestMapping(value = "{postId}", method = {RequestMethod.POST})
+    @RequestMapping(value = "{postId}", method = {RequestMethod.POST}, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<PostDataModel> updatePost(@PathVariable("postId") int id, @RequestBody PostDataModel pdm) {
 
         updatePostsFromDB(id, pdm.getPosterType(), pdm.getOwnerId(), pdm.getSubjectId(),
