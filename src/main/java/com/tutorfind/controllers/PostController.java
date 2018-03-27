@@ -32,7 +32,7 @@ public abstract class PostController {
         try (Connection connection = dataSource.getConnection()) {
             Statement stmt = connection.createStatement();
 
-            ResultSet rs = stmt.executeQuery("SELECT * FROM post WHERE active IS TRUE ORDER BY createdTs DESC");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM posts WHERE active IS TRUE ORDER BY createdTs DESC");
 
             ArrayList<PostDataModel> output = new ArrayList();
 
@@ -51,7 +51,6 @@ public abstract class PostController {
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
-
         }
     }
 }
