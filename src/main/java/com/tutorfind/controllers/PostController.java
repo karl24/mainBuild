@@ -28,7 +28,7 @@ public abstract class PostController {
 
 //    private static final Random RANDOM = new SecureRandom();
 
-    public ArrayList<PostDataModel> getActiveUsersFromDB() {
+    public ArrayList<PostDataModel> getActivePostsFromDB() {
         try (Connection connection = dataSource.getConnection()) {
             Statement stmt = connection.createStatement();
 
