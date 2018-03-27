@@ -90,6 +90,7 @@ public class PostController{
             String query = "SELECT * FROM posts WHERE active IS TRUE AND posterType IN (\'?\') ORDER BY createdTs DESC";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, posterType);
+            System.out.println(query);
 
             ResultSet rs = preparedStatement.executeQuery();
 
