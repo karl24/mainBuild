@@ -13,10 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 
 @RestController
@@ -27,6 +24,7 @@ public class PostController {
     private DataSource dataSource;
 
     public ArrayList<PostDataModel> getActivePostsFromDB() {
+        System.out.println("Getting active posts from DB");
         try (Connection connection = dataSource.getConnection()) {
             Statement stmt = connection.createStatement();
 
