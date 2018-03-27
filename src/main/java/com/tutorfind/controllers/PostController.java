@@ -20,7 +20,7 @@ import java.util.ArrayList;
 
 @RestController
 @RequestMapping("posts")
-public abstract class PostController {
+public class PostController {
 
     @Autowired
     private DataSource dataSource;
