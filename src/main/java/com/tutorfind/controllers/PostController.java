@@ -13,10 +13,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.sql.DataSource;
-//import java.security.SecureRandom;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
-//import java.util.Random;
 
 @RestController
 @RequestMapping("posts")
@@ -24,9 +25,6 @@ public class PostController {
 
     @Autowired
     private DataSource dataSource;
-
-
-//    private static final Random RANDOM = new SecureRandom();
 
     public ArrayList<PostDataModel> getActivePostsFromDB() {
         try (Connection connection = dataSource.getConnection()) {
