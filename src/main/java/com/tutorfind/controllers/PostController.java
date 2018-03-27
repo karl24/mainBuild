@@ -59,7 +59,7 @@ public class PostController{
 
         try (Connection connection = dataSource.getConnection()) {
             String query = "UPDATE posts SET posterType = ?, ownerId = ?, subjectId = ?, location = ?, " +
-                "availability = ?, acceptsPaid = ?, rate = ?, unit = ?, createdTs = ?, active = ?, " +
+                "availability = CAST(? AS JSON), acceptsPaid = ?, rate = ?, unit = ?, createdTs = ?, active = ?, " +
                 "acceptsGroupTutoring = ?, currentlySignedUp = ? WHERE postId = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, posterType);
