@@ -4,6 +4,8 @@ Created by Adam Hardy based on Karl's StudentController and UserController
 
 package com.tutorfind.controllers;
 
+import com.tutorfind.model.UserDataModel;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,9 +19,9 @@ import java.sql.*;
 import java.util.ArrayList;
 
 @RestController
-@RequestMapping("activeposts")
+@RequestMapping("activetutors")
 public class PostController {
-
+/*
     @Autowired
     private DataSource dataSource;
 
@@ -48,5 +50,31 @@ public class PostController {
             e.printStackTrace();
             return null;
         }
+    }*/
+
+    @Autowired
+    private DataSource dataSource;
+
+    public ArrayList<UserDataModel> getActiveUsersFromDB() {
+        try (Connection connection = dataSource.getConnection()) {
+            Statement stmt = connection.createStatement();
+
+            ResultSet rs = stmt.executeQuery("SELECT * FROM users");
+
+            ArrayList<UserDataModel> output = new ArrayList();
+
+            while (rs.next()) {
+                output.add(new UserDataModel(rs.getInt("userId"), rs.getString("userName"), rs.getString("email"),
+                        rs.getString("salt"), rs.getString("passhash"), rs.getString("userType")));
+            }
+
+            return output;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+
+        }
     }
+
 }
