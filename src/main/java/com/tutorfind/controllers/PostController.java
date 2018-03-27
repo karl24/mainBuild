@@ -17,7 +17,7 @@ import java.sql.*;
 import java.util.ArrayList;
 
 @RestController
-@RequestMapping("posts")
+@RequestMapping("activeposts")
 public class PostController {
 
     @Autowired
