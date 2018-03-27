@@ -19,6 +19,7 @@ import java.util.ArrayList;
 //import java.util.Random;
 
 @RestController
+@RequestMapping("posts")
 public abstract class PostController {
 
     @Autowired
