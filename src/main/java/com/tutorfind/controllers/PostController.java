@@ -144,7 +144,7 @@ public class PostController{
             return getActivePostsFromDB();
 
         } else {
-            String stringQuery = "AND posterType IN \'" + posterType + "\'";
+            String stringQuery = "AND posterType = \'" + posterType + "\'";
             return getActivePostsByTypeFromDB(posterType);
         }
 
