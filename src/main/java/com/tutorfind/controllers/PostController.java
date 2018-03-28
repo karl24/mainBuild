@@ -155,7 +155,7 @@ public class PostController{
         ) String posterType) {
 
         if(posterType != null && !posterType.isEmpty()){
-            return getActivePostsByTypeFromDB(posterType);
+            return getActivePostsByTypeFromDB("\'" + posterType + "\'");
         } else {
             return getActivePostsFromDB();
         }
@@ -183,8 +183,6 @@ public class PostController{
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-
-    //how do you make this not require a postId in the put request object?
     @RequestMapping(method = {RequestMethod.PUT}, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<PostDataModel> insertPost(@RequestBody PostDataModel pdm) {
 
