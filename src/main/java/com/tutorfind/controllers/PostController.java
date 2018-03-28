@@ -49,7 +49,6 @@ public class PostController{
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
-
         }
     }
 
@@ -111,7 +110,8 @@ public class PostController{
 
         } catch (SQLException e) {
             e.printStackTrace();
-            return null;
+//            return null;
+            return getActivePostsFromDB();
         }
     }
 
@@ -123,7 +123,6 @@ public class PostController{
 
         if(posterType != null && !posterType.isEmpty()){
             return getActivePostsByTypeFromDB(posterType);
-            //return getActivePostsFromDB();
         } else {
             return getActivePostsFromDB();
         }
