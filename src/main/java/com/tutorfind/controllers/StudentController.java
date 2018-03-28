@@ -147,7 +147,10 @@ public class StudentController extends UserController{
 
     @RequestMapping(value = "{id}", method = RequestMethod.GET)
     public @ResponseBody
-    StudentDataModel printStudent(@PathVariable("id") int userId) {
+    StudentDataModel printStudent(HttpServletResponse response, @CookieValue(value = "email", defaultValue = "") String email,
+                                  @PathVariable("id") int userId) {
+
+
 
 
         ArrayList<StudentDataModel> students = getStudentsFromDB();
@@ -168,6 +171,8 @@ public class StudentController extends UserController{
 
 
             if(student.getUserId() == userId) {
+                Cookie cookie = new Cookie("email",student.getEmail());
+                response.addCookie(cookie);
                 return student;
             }
         }
