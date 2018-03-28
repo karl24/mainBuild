@@ -87,7 +87,7 @@ public class PostController{
 
     private ArrayList<PostDataModel> getActivePostsByTypeFromDB(String posterType) {
         try (Connection connection = dataSource.getConnection()) {
-            String query = "SELECT * FROM posts WHERE active IS TRUE AND posterType = 'tutor' ORDER BY createdTs DESC";
+            String query = "SELECT * FROM posts WHERE active IS TRUE AND posterType = ? ORDER BY createdTs DESC";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, posterType);
 
@@ -115,16 +115,17 @@ public class PostController{
         }
     }
 
+
+    //working with empty param or no param, doesn't filter correctly when I put in tutor or student
     @RequestMapping(method = RequestMethod.GET)
-    public @ResponseBody ArrayList<PostDataModel> printPosts(@RequestParam(value = "type", required = false,
-        defaultValue = "") String posterType) {
+    public @ResponseBody ArrayList<PostDataModel> printPosts(@RequestParam(value = "type", required = false
+        ) String posterType) {
 
         if(posterType != null && !posterType.isEmpty()){
             return getActivePostsByTypeFromDB(posterType);
         } else {
             return getActivePostsFromDB();
         }
-
     }
 
     @RequestMapping(value = "{id}",method = RequestMethod.GET)
@@ -139,20 +140,6 @@ public class PostController{
         }
         return null;
     }
-
-/*    @RequestMapping(method = RequestMethod.GET)
-    public @ResponseBody ArrayList<PostDataModel> printPostsByType(
-        @RequestParam(value = "type", defaultValue = "") String posterType){
-
-        if(posterType == ""){
-            return getActivePostsFromDB();
-
-        } else {
-            String stringQuery = "AND posterType = \'" + posterType + "\'";
-            return getActivePostsByTypeFromDB(posterType);
-        }
-
-    }*/
 
     @RequestMapping(value = "{postId}", method = {RequestMethod.POST}, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<PostDataModel> updatePost(@PathVariable("postId") int id, @RequestBody PostDataModel pdm) {
