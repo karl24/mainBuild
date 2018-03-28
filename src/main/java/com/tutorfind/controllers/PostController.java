@@ -87,7 +87,7 @@ public class PostController{
 
     private ArrayList<PostDataModel> getActivePostsByTypeFromDB(String posterType) {
         try (Connection connection = dataSource.getConnection()) {
-            String query = "SELECT * FROM posts WHERE active IS TRUE ? ORDER BY createdTs DESC";
+            String query = "SELECT * FROM posts WHERE active IS TRUE AND posterType = ? ORDER BY createdTs DESC";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, posterType);
 
@@ -115,13 +115,19 @@ public class PostController{
         }
     }
 
-/*    @RequestMapping(method = RequestMethod.GET)
-    public @ResponseBody ArrayList<PostDataModel> printPosts() {
+    @RequestMapping(method = RequestMethod.GET)
+    public @ResponseBody ArrayList<PostDataModel> printPosts(@RequestParam(value = "type", required = false,
+        defaultValue = "") String posterType) {
 
-        ArrayList<PostDataModel> posts = getActivePostsFromDB();
+        if(posterType == ""){
+            return getActivePostsFromDB();
 
-        return posts;
-    }*/
+        } else {
+
+            return getActivePostsByTypeFromDB(posterType);
+        }
+
+    }
 
     @RequestMapping(value = "{id}",method = RequestMethod.GET)
     public @ResponseBody PostDataModel printPosts(@PathVariable("id") int id) {
@@ -136,7 +142,7 @@ public class PostController{
         return null;
     }
 
-    @RequestMapping(method = RequestMethod.GET)
+/*    @RequestMapping(method = RequestMethod.GET)
     public @ResponseBody ArrayList<PostDataModel> printPostsByType(
         @RequestParam(value = "type", defaultValue = "") String posterType){
 
@@ -148,7 +154,7 @@ public class PostController{
             return getActivePostsByTypeFromDB(posterType);
         }
 
-    }
+    }*/
 
     @RequestMapping(value = "{postId}", method = {RequestMethod.POST}, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<PostDataModel> updatePost(@PathVariable("postId") int id, @RequestBody PostDataModel pdm) {
