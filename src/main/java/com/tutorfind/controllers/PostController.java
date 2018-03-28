@@ -86,13 +86,11 @@ public class PostController{
 
     private ArrayList<PostDataModel> getActivePostsByTypeFromDB(String posterType) {
         try (Connection connection = dataSource.getConnection()) {
-            String query = "SELECT * FROM posts WHERE active IS TRUE AND posterType='student' ORDER BY createdTs DESC";
+            String query = "SELECT * FROM posts WHERE active IS TRUE AND posterType=? ORDER BY createdTs DESC";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-//            preparedStatement.setString(1, posterType);
+            preparedStatement.setString(1, posterType);
 
             ResultSet rs = preparedStatement.executeQuery();
-
-            connection.close();
 
             ArrayList<PostDataModel> output = new ArrayList();
 
@@ -105,7 +103,7 @@ public class PostController{
                         rs.getBoolean("active"), rs.getBoolean("acceptsGroupTutoring"),
                         rs.getInt("currentlySignedUp")));
             }
-
+            
             return output;
 
         } catch (SQLException e) {
