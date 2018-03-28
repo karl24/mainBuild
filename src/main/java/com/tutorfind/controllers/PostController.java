@@ -86,9 +86,9 @@ public class PostController{
 
     private ArrayList<PostDataModel> getActivePostsByTypeFromDB(String posterType) {
         try (Connection connection = dataSource.getConnection()) {
-            String query = "SELECT * FROM posts WHERE active IS TRUE AND posterType=? ORDER BY createdTs DESC";
+            String query = "SELECT * FROM posts WHERE active IS TRUE AND posterType='student' ORDER BY createdTs DESC";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1, posterType);
+//            preparedStatement.setString(1, posterType);
 
             ResultSet rs = preparedStatement.executeQuery();
 
@@ -155,7 +155,7 @@ public class PostController{
         ) String posterType) {
 
         if(posterType != null && !posterType.isEmpty()){
-            return getActivePostsByTypeFromDB("\'" + posterType + "\'");
+            return getActivePostsByTypeFromDB(posterType);
         } else {
             return getActivePostsFromDB();
         }
