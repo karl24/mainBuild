@@ -183,7 +183,9 @@ public class PostController{
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @RequestMapping(method = {RequestMethod.PUT})
+
+    //how do you make this not require a postId in the put request object?
+    @RequestMapping(method = {RequestMethod.PUT}, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<PostDataModel> insertPost(@RequestBody PostDataModel pdm) {
 
         insertPostIntoDB(pdm.getPosterType(), pdm.getOwnerId(), pdm.getSubjectId(),
