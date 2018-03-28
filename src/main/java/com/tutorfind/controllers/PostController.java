@@ -116,15 +116,13 @@ public class PostController{
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public @ResponseBody ArrayList<PostDataModel> printPosts(@RequestParam(value = "type", required = false,
-        defaultValue = "") String posterType) {
+    public @ResponseBody ArrayList<PostDataModel> printPosts(@RequestParam(value = "type", required = false)
+        String posterType) {
 
-        if(posterType == ""){
-            return getActivePostsFromDB();
-
-        } else {
-
+        if(posterType != null && !posterType.isEmpty()){
             return getActivePostsByTypeFromDB(posterType);
+        } else {
+            return getActivePostsFromDB();
         }
 
     }
