@@ -122,7 +122,8 @@ public class PostController{
         ) String posterType) {
 
         if(posterType != null && !posterType.isEmpty()){
-            return getActivePostsByTypeFromDB(posterType);
+            //return getActivePostsByTypeFromDB(posterType);
+            return getActivePostsFromDB();
         } else {
             return getActivePostsFromDB();
         }
