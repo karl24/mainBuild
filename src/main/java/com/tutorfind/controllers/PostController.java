@@ -103,13 +103,13 @@ public class PostController{
                         rs.getBoolean("active"), rs.getBoolean("acceptsGroupTutoring"),
                         rs.getInt("currentlySignedUp")));
             }
-            
+
+            connection.close();
             return output;
 
         } catch (SQLException e) {
             e.printStackTrace();
-//            return null; add this back when fixed
-            return getActivePostsFromDB();
+            return null;
         }
     }
 
