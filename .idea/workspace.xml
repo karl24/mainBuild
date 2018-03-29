@@ -21,6 +21,7 @@
   </component>
   <component name="FileEditorManager">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="StudentController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/StudentController.java">
@@ -38,20 +39,31 @@
 =======
     <leaf>
       <file leaf-file-name="StudentController.java" pinned="false" current-in-tab="false">
+=======
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="StudentController.java" pinned="false" current-in-tab="true">
+>>>>>>> 3ab7ee010ac23376de0fc26eda0f86939cf9af7f
         <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/StudentController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="588">
-              <caret line="113" column="63" lean-forward="false" selection-start-line="113" selection-start-column="47" selection-end-line="113" selection-end-column="63" />
+            <state relative-caret-position="60">
+              <caret line="17" column="12" lean-forward="false" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
               <folding>
+<<<<<<< HEAD
                 <marker date="1522114844127" expanded="true" signature="1042:1112" ph="SELECT * FRO... students" />
                 <marker date="1522114844127" expanded="true" signature="2011:2137" ph="update students... " />
                 <marker date="1522114844127" expanded="true" signature="3157:3203" ph="insert into students... " />
 >>>>>>> 595756e9f4651ea497357987ba9e5726575fce29
+=======
+                <marker date="1522292048406" expanded="true" signature="1054:1124" ph="SELECT * FRO... students" />
+                <marker date="1522292048406" expanded="true" signature="2023:2149" ph="update students... " />
+                <marker date="1522292048406" expanded="true" signature="3169:3215" ph="insert into students... " />
+>>>>>>> 3ab7ee010ac23376de0fc26eda0f86939cf9af7f
               </folding>
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="UserController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -108,25 +120,29 @@
         </entry>
       </file>
       <file leaf-file-name="PostController.java" pinned="false" current-in-tab="true">
+=======
+      <file leaf-file-name="PostController.java" pinned="false" current-in-tab="false">
+>>>>>>> 3ab7ee010ac23376de0fc26eda0f86939cf9af7f
         <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/PostController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="106" column="31" lean-forward="false" selection-start-line="106" selection-start-column="31" selection-end-line="106" selection-end-column="31" />
+            <state relative-caret-position="315">
+              <caret line="21" column="12" lean-forward="false" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
               <folding>
-                <element signature="e#0#8363#0" expanded="true" />
+                <element signature="e#0#8376#0" expanded="true" />
                 <element signature="imports" expanded="true" />
-                <marker date="1522208361161" expanded="true" signature="1032:1096" ph="SELECT * FRO... posts" />
-                <marker date="1522208361161" expanded="true" signature="2273:2347" ph="UPDATE osts... " />
-                <marker date="1522208361161" expanded="true" signature="2273:2464" ph="UPDATE osts... " />
-                <marker date="1522208361161" expanded="true" signature="2273:2550" ph="UPDATE osts... " />
-                <marker date="1522208361161" expanded="true" signature="3705:3746" ph="SELECT * FRO... posts" />
-                <marker date="1522208361161" expanded="true" signature="3705:3786" ph="SELECT * FRO... posts" />
-                <marker date="1522208361161" expanded="true" signature="5186:5433" ph="INSERT INTO posts... " />
+                <marker date="1522292088210" expanded="true" signature="1045:1109" ph="SELECT * FRO... posts" />
+                <marker date="1522292088210" expanded="true" signature="2286:2360" ph="UPDATE osts... " />
+                <marker date="1522292088210" expanded="true" signature="2286:2477" ph="UPDATE osts... " />
+                <marker date="1522292088210" expanded="true" signature="2286:2563" ph="UPDATE osts... " />
+                <marker date="1522292088210" expanded="true" signature="3718:3759" ph="SELECT * FRO... posts" />
+                <marker date="1522292088210" expanded="true" signature="3718:3799" ph="SELECT * FRO... posts" />
+                <marker date="1522292088210" expanded="true" signature="5199:5446" ph="INSERT INTO posts... " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="PostDataModel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/model/PostDataModel.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -149,11 +165,16 @@
 =======
       <file leaf-file-name="SubjectController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/SubjectController.java">
+=======
+      <file leaf-file-name="TutorController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/TutorController.java">
+>>>>>>> 3ab7ee010ac23376de0fc26eda0f86939cf9af7f
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="569">
-              <caret line="49" column="80" lean-forward="false" selection-start-line="49" selection-start-column="68" selection-end-line="49" selection-end-column="80" />
+            <state relative-caret-position="270">
+              <caret line="18" column="12" lean-forward="false" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
+<<<<<<< HEAD
                 <marker date="1522114844128" expanded="true" signature="923:944" ph="SELECT * FRO... subject" />
               </folding>
             </state>
@@ -168,6 +189,11 @@
               <folding>
                 <marker date="1522114844127" expanded="true" signature="1382:1560" ph="SELECT stude... studentpost" />
 >>>>>>> 595756e9f4651ea497357987ba9e5726575fce29
+=======
+                <marker date="1522292088203" expanded="true" signature="992:1060" ph="SELECT * FRO... tutors" />
+                <marker date="1522292088203" expanded="true" signature="2651:2807" ph="update tutors... " />
+                <marker date="1522292088203" expanded="true" signature="4046:4092" ph="insert into tutors... " />
+>>>>>>> 3ab7ee010ac23376de0fc26eda0f86939cf9af7f
               </folding>
             </state>
           </provider>
@@ -196,6 +222,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+<<<<<<< HEAD
 <<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/main/java/com/example/StudentDataModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tutorfind/StudentDataModel.java" />
@@ -238,6 +265,11 @@
 =======
         <option value="$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/PostController.java" />
 >>>>>>> 595756e9f4651ea497357987ba9e5726575fce29
+=======
+        <option value="$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/StudentController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/PostController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/TutorController.java" />
+>>>>>>> 3ab7ee010ac23376de0fc26eda0f86939cf9af7f
       </list>
     </option>
   </component>
@@ -248,6 +280,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
 <<<<<<< HEAD
+<<<<<<< HEAD
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1440" />
@@ -256,6 +289,10 @@
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="4" />
     <option name="y" value="28" />
+=======
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
+>>>>>>> 3ab7ee010ac23376de0fc26eda0f86939cf9af7f
     <option name="width" value="1680" />
     <option name="height" value="1027" />
 >>>>>>> 595756e9f4651ea497357987ba9e5726575fce29
@@ -275,6 +312,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -317,16 +357,20 @@
       <pane id="PackagesPane" />
 =======
       <pane id="Scratches" />
+<<<<<<< HEAD
       <pane id="PackagesPane" />
       <pane id="AndroidView" />
 >>>>>>> 595756e9f4651ea497357987ba9e5726575fce29
       <pane id="Scope" />
+=======
+>>>>>>> 3ab7ee010ac23376de0fc26eda0f86939cf9af7f
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -465,12 +509,18 @@
       <workItem from="1522179575767" duration="2500000" />
 =======
       <updated>1522119621088</updated>
+<<<<<<< HEAD
       <workItem from="1522119622684" duration="18008000" />
 >>>>>>> 595756e9f4651ea497357987ba9e5726575fce29
+=======
+      <workItem from="1522119622684" duration="18613000" />
+      <workItem from="1522291984852" duration="106000" />
+>>>>>>> 3ab7ee010ac23376de0fc26eda0f86939cf9af7f
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
 <<<<<<< HEAD
     <option name="totallyTimeSpent" value="113089000" />
   </component>
@@ -482,28 +532,34 @@
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1680" height="1027" extended-state="6" />
 >>>>>>> 595756e9f4651ea497357987ba9e5726575fce29
+=======
+    <option name="totallyTimeSpent" value="18719000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="1680" height="1027" extended-state="6" />
+>>>>>>> 3ab7ee010ac23376de0fc26eda0f86939cf9af7f
     <editor active="true" />
     <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21071428" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
 <<<<<<< HEAD
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -522,12 +578,15 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
 =======
 >>>>>>> 595756e9f4651ea497357987ba9e5726575fce29
+=======
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+>>>>>>> 3ab7ee010ac23376de0fc26eda0f86939cf9af7f
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -541,6 +600,18 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/StudentController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1500">
+          <caret line="113" column="63" lean-forward="false" selection-start-line="113" selection-start-column="47" selection-end-line="113" selection-end-column="63" />
+          <folding>
+            <marker date="1522292048406" expanded="true" signature="1054:1124" ph="SELECT * FRO... students" />
+            <marker date="1522292048406" expanded="true" signature="2023:2149" ph="update students... " />
+            <marker date="1522292048406" expanded="true" signature="3169:3215" ph="insert into students... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -553,16 +624,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/model/StudentPostDataModel.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/TutorPostController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1029">
-          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        <state relative-caret-position="90">
+          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding>
+            <marker date="1522114844128" expanded="true" signature="843:866" ph="SELECT * FRO... tutorpost" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/TutorController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2295">
+          <caret line="166" column="0" lean-forward="false" selection-start-line="166" selection-start-column="0" selection-end-line="175" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1522292088203" expanded="true" signature="992:1060" ph="SELECT * FRO... tutors" />
+            <marker date="1522292088203" expanded="true" signature="2651:2807" ph="update tutors... " />
+            <marker date="1522292088203" expanded="true" signature="4046:4092" ph="insert into tutors... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/model/PostDataModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1770">
+          <caret line="169" column="175" lean-forward="false" selection-start-line="169" selection-start-column="28" selection-end-line="169" selection-end-column="175" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/SubjectController.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
 <<<<<<< HEAD
         <state relative-caret-position="870">
           <caret line="58" column="9" lean-forward="true" selection-start-line="58" selection-start-column="9" selection-end-line="58" selection-end-column="9" />
@@ -587,6 +682,9 @@
             <marker date="1521273886000" expanded="true" signature="2039:2058" ph="SELECT * FRO... users" />
 =======
         <state relative-caret-position="569">
+=======
+        <state relative-caret-position="540">
+>>>>>>> 3ab7ee010ac23376de0fc26eda0f86939cf9af7f
           <caret line="49" column="80" lean-forward="false" selection-start-line="49" selection-start-column="68" selection-end-line="49" selection-end-column="80" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -627,17 +725,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/TutorPostController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/PostController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        <state relative-caret-position="1590">
+          <caret line="106" column="31" lean-forward="false" selection-start-line="106" selection-start-column="31" selection-end-line="106" selection-end-column="31" />
           <folding>
+<<<<<<< HEAD
             <marker date="1522114844128" expanded="true" signature="843:866" ph="SELECT * FRO... tutorpost" />
 >>>>>>> 595756e9f4651ea497357987ba9e5726575fce29
+=======
+            <element signature="e#0#8376#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <marker date="1522292088210" expanded="true" signature="1045:1109" ph="SELECT * FRO... posts" />
+            <marker date="1522292088210" expanded="true" signature="2286:2360" ph="UPDATE osts... " />
+            <marker date="1522292088210" expanded="true" signature="2286:2477" ph="UPDATE osts... " />
+            <marker date="1522292088210" expanded="true" signature="2286:2563" ph="UPDATE osts... " />
+            <marker date="1522292088210" expanded="true" signature="3718:3759" ph="SELECT * FRO... posts" />
+            <marker date="1522292088210" expanded="true" signature="3718:3799" ph="SELECT * FRO... posts" />
+            <marker date="1522292088210" expanded="true" signature="5199:5446" ph="INSERT INTO posts... " />
+>>>>>>> 3ab7ee010ac23376de0fc26eda0f86939cf9af7f
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/StudentPostController.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -647,18 +758,28 @@
             <marker date="1521321247000" expanded="true" signature="1382:1560" ph="SELECT stude... studentpost" />
 =======
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/StudentController.java">
+=======
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/UserController.java">
+>>>>>>> 3ab7ee010ac23376de0fc26eda0f86939cf9af7f
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="588">
-          <caret line="113" column="63" lean-forward="false" selection-start-line="113" selection-start-column="47" selection-end-line="113" selection-end-column="63" />
+        <state relative-caret-position="90">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="41" />
           <folding>
+<<<<<<< HEAD
             <marker date="1522114844127" expanded="true" signature="1042:1112" ph="SELECT * FRO... students" />
             <marker date="1522114844127" expanded="true" signature="2011:2137" ph="update students... " />
             <marker date="1522114844127" expanded="true" signature="3157:3203" ph="insert into students... " />
 >>>>>>> 595756e9f4651ea497357987ba9e5726575fce29
+=======
+            <marker date="1522114844129" expanded="true" signature="921:940" ph="SELECT * FRO... users" />
+            <marker date="1522114844129" expanded="true" signature="3339:3377" ph="insert into users... " />
+            <marker date="1522114844129" expanded="true" signature="4222:4317" ph="update users... " />
+>>>>>>> 3ab7ee010ac23376de0fc26eda0f86939cf9af7f
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/TutorPostController.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -667,6 +788,22 @@
           <folding>
             <element signature="e#935#955#0" expanded="true" />
             <marker date="1521856363000" expanded="true" signature="843:866" ph="SELECT * FRO... tutorpost" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/model/StudentPostDataModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1029">
+          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/TutorPostController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding>
+            <marker date="1522114844128" expanded="true" signature="843:866" ph="SELECT * FRO... tutorpost" />
+>>>>>>> 3ab7ee010ac23376de0fc26eda0f86939cf9af7f
           </folding>
         </state>
       </provider>
@@ -682,22 +819,49 @@
 =======
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/model/PostDataModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1646">
+        <state relative-caret-position="861">
           <caret line="169" column="175" lean-forward="false" selection-start-line="169" selection-start-column="28" selection-end-line="169" selection-end-column="175" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/TutorController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/SubjectController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="166" column="0" lean-forward="false" selection-start-line="166" selection-start-column="0" selection-end-line="175" selection-end-column="5" />
+        <state relative-caret-position="569">
+          <caret line="49" column="80" lean-forward="false" selection-start-line="49" selection-start-column="68" selection-end-line="49" selection-end-column="80" />
           <folding>
             <element signature="imports" expanded="true" />
+            <marker date="1522114844128" expanded="true" signature="923:944" ph="SELECT * FRO... subject" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/StudentPostController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="24" column="13" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+          <folding>
+            <marker date="1522114844127" expanded="true" signature="1382:1560" ph="SELECT stude... studentpost" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/TutorController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="12" lean-forward="false" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+<<<<<<< HEAD
             <marker date="1522114844128" expanded="true" signature="979:1047" ph="SELECT * FRO... tutors" />
             <marker date="1522114844128" expanded="true" signature="2638:2794" ph="update tutors... " />
             <marker date="1522114844128" expanded="true" signature="4033:4079" ph="insert into tutors... " />
 >>>>>>> 595756e9f4651ea497357987ba9e5726575fce29
+=======
+            <marker date="1522292088203" expanded="true" signature="992:1060" ph="SELECT * FRO... tutors" />
+            <marker date="1522292088203" expanded="true" signature="2651:2807" ph="update tutors... " />
+            <marker date="1522292088203" expanded="true" signature="4046:4092" ph="insert into tutors... " />
+>>>>>>> 3ab7ee010ac23376de0fc26eda0f86939cf9af7f
           </folding>
         </state>
       </provider>
@@ -718,11 +882,12 @@
 =======
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/PostController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="106" column="31" lean-forward="false" selection-start-line="106" selection-start-column="31" selection-end-line="106" selection-end-column="31" />
+        <state relative-caret-position="315">
+          <caret line="21" column="12" lean-forward="false" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
           <folding>
-            <element signature="e#0#8363#0" expanded="true" />
+            <element signature="e#0#8376#0" expanded="true" />
             <element signature="imports" expanded="true" />
+<<<<<<< HEAD
             <marker date="1522208361161" expanded="true" signature="1032:1096" ph="SELECT * FRO... posts" />
             <marker date="1522208361161" expanded="true" signature="2273:2347" ph="UPDATE osts... " />
             <marker date="1522208361161" expanded="true" signature="2273:2464" ph="UPDATE osts... " />
@@ -731,6 +896,27 @@
             <marker date="1522208361161" expanded="true" signature="3705:3786" ph="SELECT * FRO... posts" />
             <marker date="1522208361161" expanded="true" signature="5186:5433" ph="INSERT INTO posts... " />
 >>>>>>> 595756e9f4651ea497357987ba9e5726575fce29
+=======
+            <marker date="1522292088210" expanded="true" signature="1045:1109" ph="SELECT * FRO... posts" />
+            <marker date="1522292088210" expanded="true" signature="2286:2360" ph="UPDATE osts... " />
+            <marker date="1522292088210" expanded="true" signature="2286:2477" ph="UPDATE osts... " />
+            <marker date="1522292088210" expanded="true" signature="2286:2563" ph="UPDATE osts... " />
+            <marker date="1522292088210" expanded="true" signature="3718:3759" ph="SELECT * FRO... posts" />
+            <marker date="1522292088210" expanded="true" signature="3718:3799" ph="SELECT * FRO... posts" />
+            <marker date="1522292088210" expanded="true" signature="5199:5446" ph="INSERT INTO posts... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tutorfind/controllers/StudentController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="17" column="12" lean-forward="false" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
+          <folding>
+            <marker date="1522292048406" expanded="true" signature="1054:1124" ph="SELECT * FRO... students" />
+            <marker date="1522292048406" expanded="true" signature="2023:2149" ph="update students... " />
+            <marker date="1522292048406" expanded="true" signature="3169:3215" ph="insert into students... " />
+>>>>>>> 3ab7ee010ac23376de0fc26eda0f86939cf9af7f
           </folding>
         </state>
       </provider>

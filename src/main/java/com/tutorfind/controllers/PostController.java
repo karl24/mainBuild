@@ -19,6 +19,7 @@ import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
 
+@CrossOrigin
 @RestController
 @RequestMapping("posts")
 public class PostController{
