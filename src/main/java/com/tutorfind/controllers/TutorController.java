@@ -33,20 +33,22 @@ public class TutorController extends UserController{
 
             while (rs.next()) {
                 String ratingsString = rs.getString("rating");
-                String[] r = ratingsString.split(",");
-                Integer[] ratings = new Integer[r.length];
-                for(int i = 0; i < r.length; i ++) {
-                    if(i == 0) {
-                        ratings[i] = Integer.parseInt(r[i].substring(1));
-                    }else if (i == r.length-1){
-                        ratings[i] = Integer.parseInt(r[i].substring(0,1));
-                    }else {
-                        ratings[i] = Integer.parseInt(r[i]);
+                if (ratingsString.length() != 2) {
+                    String[] r = ratingsString.split(",");
+                    Integer[] ratings = new Integer[r.length];
+                    for (int i = 0; i < r.length; i++) {
+                        if (i == 0) {
+                            ratings[i] = Integer.parseInt(r[i].substring(1));
+                        } else if (i == r.length - 1) {
+                            ratings[i] = Integer.parseInt(r[i].substring(0, 1));
+                        } else {
+                            ratings[i] = Integer.parseInt(r[i]);
+                        }
                     }
-                }
-                output.add(new TutorsDataModel(rs.getInt("userId"),rs.getString("legalfirstname"),rs.getString("legallastname"),rs.getString("bio"),rs.getString("degrees"),rs.getString("links"),rs.getString("img"),rs.getBoolean("active"),rs.getTimestamp("creationdate"),ratings));
-            }
+                    output.add(new TutorsDataModel(rs.getInt("userId"), rs.getString("legalfirstname"), rs.getString("legallastname"), rs.getString("bio"), rs.getString("degrees"), rs.getString("links"), rs.getString("img"), rs.getBoolean("active"), rs.getTimestamp("creationdate"), ratings));
 
+                }
+            }
             return output;
 
         } catch (SQLException e) {
