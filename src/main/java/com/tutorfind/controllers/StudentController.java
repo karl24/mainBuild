@@ -15,7 +15,7 @@ import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
 
-
+@CrossOrigin
 @RestController
 @ComponentScan("com.tutorfind.controllers.StudentRepository")
 @RequestMapping("students")

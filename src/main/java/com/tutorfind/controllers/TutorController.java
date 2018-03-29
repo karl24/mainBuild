@@ -16,6 +16,7 @@ import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
 
+@CrossOrigin
 @RestController
 @RequestMapping("tutors")
 public class TutorController extends UserController{
