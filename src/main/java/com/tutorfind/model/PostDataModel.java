@@ -8,7 +8,7 @@ public class PostDataModel {
     private int postId;
     private String posterType;
     private int ownerId;
-    private int subjectId;
+    private String subject;
     private String location;
     private String availability;
     private boolean acceptsPaid;
@@ -22,13 +22,13 @@ public class PostDataModel {
     public PostDataModel() {
     }
 
-    public PostDataModel(int postId, String posterType, int ownerId, int subjectId, String location,
+    public PostDataModel(int postId, String posterType, int ownerId, String subject, String location,
                          String availability, boolean acceptsPaid, double rate, String unit, Timestamp createdTs,
                          boolean active, boolean acceptsGroupTutoring, int currentlySignedUp) {
         this.postId = postId;
         this.posterType = posterType;
         this.ownerId = ownerId;
-        this.subjectId = subjectId;
+        this.subject = subject;
         this.location = location;
         this.availability = availability;
         this.acceptsPaid = acceptsPaid;
@@ -64,12 +64,12 @@ public class PostDataModel {
         this.ownerId = ownerId;
     }
 
-    public int getSubjectId() {
-        return subjectId;
+    public String getSubject() {
+        return subject;
     }
 
-    public void setSubjectId(int subjectId) {
-        this.subjectId = subjectId;
+    public void setSubject(String subject) {
+        this.subject = subject;
     }
 
     public String getLocation() {
@@ -152,7 +152,7 @@ public class PostDataModel {
         return postId == that.postId &&
                 Objects.equals(posterType, that.posterType) &&
                 ownerId == that.ownerId &&
-                subjectId == that.subjectId &&
+                subject == that.subject &&
                 Objects.equals(location, that.location) &&
                 Objects.equals(availability, that.availability)&&
                 acceptsPaid == that.acceptsPaid &&
@@ -167,7 +167,7 @@ public class PostDataModel {
     @Override
     public int hashCode() {
 
-        return Objects.hash(postId, posterType, ownerId, subjectId, location, availability, acceptsPaid, rate, unit, createdTs, active, acceptsGroupTutoring, currentlySignedUp);
+        return Objects.hash(postId, posterType, ownerId, subject, location, availability, acceptsPaid, rate, unit, createdTs, active, acceptsGroupTutoring, currentlySignedUp);
     }
 
 
@@ -177,7 +177,7 @@ public class PostDataModel {
                 "postid=" + postId +
                 ", posterType=" + posterType +
                 ", ownerId=" + ownerId +
-                ", subjectId=" + subjectId +
+                ", subject=" + subject +
                 ", location='" + location + '\'' +
                 ", availability=" + availability +
                 ", acceptsPaid=" + acceptsPaid +
