@@ -90,9 +90,8 @@ public abstract class UserController {
             preparedStatement.setInt(1,userId);
             preparedStatement.setString(2, userName);
             preparedStatement.setString(3, email);
-            preparedStatement.setString(4,salt);
-            preparedStatement.setString(5, passhash);
-            preparedStatement.setString(6, userType);
+            preparedStatement.setString(4, passhash);
+            preparedStatement.setString(5, userType);
             preparedStatement.executeUpdate();
             connection.close();
 
