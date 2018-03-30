@@ -85,7 +85,7 @@ public abstract class UserController {
     public void insertUserIntoDB(int userId, String  userName, String email, String salt, String passhash, String userType){
         try (Connection connection = dataSource.getConnection()) {
             //Statement stmt = connection.createStatement();
-            String query = "insert into users VALUES (?,?,?,?,?,?)";
+            String query = "insert into users VALUES (?,?,?,?,crypt(?,gen_salt('bf')),?)";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1,userId);
             preparedStatement.setString(2, userName);

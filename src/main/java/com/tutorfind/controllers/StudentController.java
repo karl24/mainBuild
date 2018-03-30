@@ -185,11 +185,18 @@ public class StudentController extends UserController{
 
     @RequestMapping(method = {RequestMethod.PUT}, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<StudentDataModel> insertStudent(@RequestBody StudentDataModel s) {
+        ArrayList<StudentDataModel> studentInDB = getStudentsFromDB();
+        for(StudentDataModel student: studentInDB){
+            if(s.getEmail().equals(student.getEmail())){
+                return new ResponseEntity<>(HttpStatus.OK);
+            }
+        }
         s.setPasshash(getPassHash(s.getPasshash()));
         s.setSalt(new String(getNextSalt()));
         insertUserIntoDB(s.getUserId(),s.getUserName(),s.getEmail(),s.getSalt(),s.getPasshash(),s.getUserType());
         insertStudentIntoDB(s.getUserId(),s.getLegalFirstName(),s.getLegalLastName(),s.getBio(),s.getMajor(),s.getMinor(),s.getImg(),s.isActive(),s.getCreationDate());
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.CREATED);
+
 
 
     }
