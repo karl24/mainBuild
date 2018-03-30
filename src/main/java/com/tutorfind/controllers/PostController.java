@@ -37,7 +37,7 @@ public class PostController{
 
             while (rs.next()) {
                 output.add(new PostDataModel(rs.getInt("postId"), rs.getString("posterType"),
-                        rs.getInt("ownerId"), rs.getInt("subjectId"),
+                        rs.getInt("ownerId"), rs.getString("subject"),
                         rs.getString("location"), rs.getString("availability"),
                         rs.getBoolean("acceptsPaid"), rs.getDouble("rate"),
                         rs.getString("unit"), rs.getTimestamp("createdTs"),
@@ -53,18 +53,18 @@ public class PostController{
         }
     }
 
-    public void updatePostsFromDB(int postId, String posterType, int ownerId, int subjectId, String location,
+    public void updatePostsFromDB(int postId, String posterType, int ownerId, String subject, String location,
         String availability, boolean acceptsPaid, double rate, String unit, Timestamp createdTs, boolean active,
         boolean acceptsGroupTutoring, int currentlySignedUp){
 
         try (Connection connection = dataSource.getConnection()) {
-            String query = "UPDATE posts SET posterType = ?, ownerId = ?, subjectId = ?, location = ?, " +
+            String query = "UPDATE posts SET posterType = ?, ownerId = ?, subject = ?, location = ?, " +
                 "availability = CAST(? AS JSON), acceptsPaid = ?, rate = ?, unit = ?, createdTs = ?, active = ?, " +
                 "acceptsGroupTutoring = ?, currentlySignedUp = ? WHERE postId = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, posterType);
             preparedStatement.setInt(2, ownerId);
-            preparedStatement.setInt(3, subjectId);
+            preparedStatement.setString(3, subject);
             preparedStatement.setString(4, location);
             preparedStatement.setString(5, availability);
             preparedStatement.setBoolean(6, acceptsPaid);
@@ -97,7 +97,7 @@ public class PostController{
 
             while (rs.next()) {
                 output.add(new PostDataModel(rs.getInt("postId"), rs.getString("posterType"),
-                        rs.getInt("ownerId"), rs.getInt("subjectId"),
+                        rs.getInt("ownerId"), rs.getString("subject"),
                         rs.getString("location"), rs.getString("availability"),
                         rs.getBoolean("acceptsPaid"), rs.getDouble("rate"),
                         rs.getString("unit"), rs.getTimestamp("createdTs"),
@@ -114,19 +114,19 @@ public class PostController{
         }
     }
 
-    public void insertPostIntoDB(String posterType, int ownerId, int subjectId, String location,
+    public void insertPostIntoDB(String posterType, int ownerId, String subject, String location,
         String availability, boolean acceptsPaid, double rate, String unit, Timestamp createdTs, boolean active,
         boolean acceptsGroupTutoring, int currentlySignedUp){
 
         try (Connection connection = dataSource.getConnection()) {
 
-            String query = "INSERT INTO posts (posterType, ownerId, subjectId, location, availability, acceptsPaid, " +
+            String query = "INSERT INTO posts (posterType, ownerId, subject, location, availability, acceptsPaid, " +
                 "rate, unit, createdTs, active, acceptsGroupTutoring, currentlySignedUp) " +
                 "VALUES(?,?,?,?,CAST(? AS JSON),?,?,?,?,?,?,?)";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, posterType);
             preparedStatement.setInt(2, ownerId);
-            preparedStatement.setInt(3, subjectId);
+            preparedStatement.setString(3, subject);
             preparedStatement.setString(4, location);
             preparedStatement.setString(5, availability);
             preparedStatement.setBoolean(6, acceptsPaid);
@@ -176,7 +176,7 @@ public class PostController{
     @RequestMapping(value = "{postId}", method = {RequestMethod.POST}, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<PostDataModel> updatePost(@PathVariable("postId") int id, @RequestBody PostDataModel pdm) {
 
-        updatePostsFromDB(id, pdm.getPosterType(), pdm.getOwnerId(), pdm.getSubjectId(),
+        updatePostsFromDB(id, pdm.getPosterType(), pdm.getOwnerId(), pdm.getSubject(),
                 pdm.getLocation(), pdm.getAvailability(), pdm.isAcceptsPaid(), pdm.getRate(), pdm.getUnit(),
                 pdm.getCreatedTs(), pdm.isActive(), pdm. isAcceptsGroupTutoring(), pdm.getCurrentlySignedUp());
         return new ResponseEntity<>(HttpStatus.OK);
@@ -185,7 +185,7 @@ public class PostController{
     @RequestMapping(method = {RequestMethod.PUT}, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<PostDataModel> insertPost(@RequestBody PostDataModel pdm) {
 
-        insertPostIntoDB(pdm.getPosterType(), pdm.getOwnerId(), pdm.getSubjectId(),
+        insertPostIntoDB(pdm.getPosterType(), pdm.getOwnerId(), pdm.getSubject(),
                 pdm.getLocation(), pdm.getAvailability(), pdm.isAcceptsPaid(), pdm.getRate(), pdm.getUnit(),
                 pdm.getCreatedTs(), pdm.isActive(), pdm. isAcceptsGroupTutoring(), pdm.getCurrentlySignedUp());
         return new ResponseEntity<>(HttpStatus.OK);
