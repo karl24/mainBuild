@@ -191,7 +191,7 @@ public class StudentController extends UserController{
                 return new ResponseEntity<>(HttpStatus.OK);
             }
         }
-        s.setPasshash(getPassHash(s.getPasshash()));
+        //s.setPasshash(getPassHash(s.getPasshash()));
         s.setSalt(new String(getNextSalt()));
         insertUserIntoDB(s.getUserId(),s.getUserName(),s.getEmail(),s.getSalt(),s.getPasshash(),s.getUserType());
         insertStudentIntoDB(s.getUserId(),s.getLegalFirstName(),s.getLegalLastName(),s.getBio(),s.getMajor(),s.getMinor(),s.getImg(),s.isActive(),s.getCreationDate());
