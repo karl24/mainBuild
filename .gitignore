@@ -1,0 +1,8 @@
+# compiled class file
+*.class
+
+# Intellij
+.idea/workspace.xml
+
+# Mac
+*.DS_Store

@@ -50,7 +50,7 @@ CREATE TABLE posts(
     postId SERIAL,
     posterType VARCHAR(16),
     ownerId INT,
-    subjectId INT,
+    subject VARCHAR(64),
     location VARCHAR(32),
     availability JSON,
     acceptsPaid BOOLEAN,
@@ -93,11 +93,11 @@ VALUES (1, 'Joe', 'Test', 'I am a really cool student', 'CIS', 'Math', 'https://
 
 --3.2) Finish inserting data
 
-INSERT INTO posts (posterType, ownerId, subjectId, location, availability, acceptsPaid, rate, unit, createdTs, active, acceptsGroupTutoring, currentlySignedUp)
-VALUES ('tutor', 2, 3, 'Starbucks in Belmont', '{"Monday":"Night","Tuesday":"Morning","Friday":"Afternoon"}', TRUE, 20.50, 'dollars/hour', '2018-02-02 09:17:17', TRUE, TRUE, 2)
-    ,('tutor', 4, 4, 'Computers in NDNU Library', '{"Saturday":"All Day"}', TRUE, 50, 'dollars/session', '2018-01-01 14:22:23', TRUE, FALSE, 3)
-    ,('student', 1, 5, 'NDNU Library', '{"Monday":"Morning","Wednesday":"Morning"}', FALSE, 0, 'dollars/hour', '2018-02-03 12:24:46', TRUE, FALSE, 0)
-    ,('student', 1, 4, 'Mac Lab', '{"Sunday":"All Day"}', TRUE, 20, 'dollars/session', '2017-12-01 08:10:23', FALSE, TRUE, 0);
+INSERT INTO posts (posterType, ownerId, subject, location, availability, acceptsPaid, rate, unit, createdTs, active, acceptsGroupTutoring, currentlySignedUp)
+VALUES ('tutor', 2, 'PSYCHOLOGY', 'Starbucks in Belmont', '{"Monday":"Night","Tuesday":"Morning","Friday":"Afternoon"}', TRUE, 20.50, 'dollars/hour', '2018-02-02 09:17:17', TRUE, TRUE, 2)
+    ,('tutor', 4, 'COMPUTER AND INFORMATION SYSTEMS', 'Computers in NDNU Library', '{"Saturday":"All Day"}', TRUE, 50, 'dollars/session', '2018-01-01 14:22:23', TRUE, FALSE, 3)
+    ,('student', 1, 'SOCIAL WORK', 'NDNU Library', '{"Monday":"Morning","Wednesday":"Morning"}', FALSE, 0, 'dollars/hour', '2018-02-03 12:24:46', TRUE, FALSE, 0)
+    ,('student', 1, 'HISTORY', 'Mac Lab', '{"Sunday":"All Day"}', TRUE, 20, 'dollars/session', '2017-12-01 08:10:23', FALSE, TRUE, 0);
 
 --4) Test query
 SELECT
