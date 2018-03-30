@@ -47,52 +47,18 @@ public abstract class UserController {
         }
     }
 
-    public String getPassHash(String password){
-
-        String generatedPassword = null;
-        try {
-            // Create MessageDigest instance for MD5
-            MessageDigest md = MessageDigest.getInstance("MD5");
-            //Add password bytes to digest
-            md.update(password.getBytes());
-            //Get the hash's bytes
-            byte[] bytes = md.digest();
-            //This bytes[] has bytes in decimal format;
-            //Convert it to hexadecimal format
-            StringBuilder sb = new StringBuilder();
-            for(int i=0; i< bytes.length ;i++)
-            {
-                sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
-            }
-            //Get complete hashed password in hex format
-            generatedPassword = sb.toString();
-        }
-        catch (NoSuchAlgorithmException e)
-        {
-            e.printStackTrace();
-        }
-        return generatedPassword;
-    }
-
-    public static byte[] getNextSalt() {
-        byte[] salt = new byte[16];
-        RANDOM.nextBytes(salt);
-        return salt;
-    }
-
 
 
     public void insertUserIntoDB(int userId, String  userName, String email, String salt, String passhash, String userType){
         try (Connection connection = dataSource.getConnection()) {
-            //Statement stmt = connection.createStatement();
-            String query = "insert into users VALUES (?,?,?,?,?,?)";
+
+            String query = "insert into users VALUES (?,?,?,gen_salt('bf'),crypt(?,gen_salt('bf')),?)";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1,userId);
             preparedStatement.setString(2, userName);
             preparedStatement.setString(3, email);
-            preparedStatement.setString(4,salt);
-            preparedStatement.setString(5, passhash);
-            preparedStatement.setString(6, userType);
+            preparedStatement.setString(4, passhash);
+            preparedStatement.setString(5, userType);
             preparedStatement.executeUpdate();
             connection.close();
 

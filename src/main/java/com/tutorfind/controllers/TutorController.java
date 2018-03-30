@@ -176,8 +176,7 @@ public class TutorController extends UserController{
     @RequestMapping(method = {RequestMethod.PUT})
     public ResponseEntity<TutorsDataModel> insertTutor(@RequestBody TutorsDataModel t) {
 
-        t.setSalt(new String(getNextSalt()));
-        t.setPasshash(getPassHash(t.getPasshash()));
+        
         insertUserIntoDB(t.getUserId(),t.getUserName(),t.getEmail(),t.getSalt(),t.getPasshash(),t.getUserType());
         insertTutorIntoDB(t.getUserId(),t.getLegalFirstName(),t.getLegalLastName(),t.getBio(),t.getDegrees(),t.getLinks(),t.getImg(),t.getActive(),t.getTimestamp(),t.getRatings());
         return new ResponseEntity<>(HttpStatus.OK);
