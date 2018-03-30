@@ -34,20 +34,28 @@ public class TutorController extends UserController{
 
             while (rs.next()) {
                 String ratingsString = rs.getString("rating");
-                String[] r = ratingsString.split(",");
-                Integer[] ratings = new Integer[r.length];
-                for(int i = 0; i < r.length; i ++) {
-                    if(i == 0) {
-                        ratings[i] = Integer.parseInt(r[i].substring(1));
-                    }else if (i == r.length-1){
-                        ratings[i] = Integer.parseInt(r[i].substring(0,1));
-                    }else {
-                        ratings[i] = Integer.parseInt(r[i]);
+                if (ratingsString.length() != 2) {
+                    String[] r = ratingsString.split(",");
+                    Integer[] ratings = new Integer[r.length];
+                    for (int i = 0; i < r.length; i++) {
+                        if (i == 0) {
+                            ratings[i] = Integer.parseInt(r[i].substring(1));
+                        } else if (i == r.length - 1) {
+                            ratings[i] = Integer.parseInt(r[i].substring(0, 1));
+                        } else {
+                            ratings[i] = Integer.parseInt(r[i]);
+                        }
                     }
-                }
-                output.add(new TutorsDataModel(rs.getInt("userId"),rs.getString("legalfirstname"),rs.getString("legallastname"),rs.getString("bio"),rs.getString("degrees"),rs.getString("links"),rs.getString("img"),rs.getBoolean("active"),rs.getTimestamp("creationdate"),ratings));
-            }
+                    output.add(new TutorsDataModel(rs.getInt("userId"), rs.getString("legalfirstname"), rs.getString("legallastname"), rs.getString("bio"), rs.getString("degrees"), rs.getString("links"), rs.getString("img"), rs.getBoolean("active"), rs.getTimestamp("creationdate"), ratings));
 
+                }else {
+                   Integer[] ratings = new Integer[0];
+                    output.add(new TutorsDataModel(rs.getInt("userId"), rs.getString("legalfirstname"), rs.getString("legallastname"), rs.getString("bio"), rs.getString("degrees"), rs.getString("links"), rs.getString("img"), rs.getBoolean("active"), rs.getTimestamp("creationdate"), ratings));
+
+                }
+
+
+            }
             return output;
 
         } catch (SQLException e) {
@@ -168,7 +176,8 @@ public class TutorController extends UserController{
     @RequestMapping(method = {RequestMethod.PUT})
     public ResponseEntity<TutorsDataModel> insertTutor(@RequestBody TutorsDataModel t) {
 
-
+        t.setSalt(new String(getNextSalt()));
+        t.setPasshash(getPassHash(t.getPasshash()));
         insertUserIntoDB(t.getUserId(),t.getUserName(),t.getEmail(),t.getSalt(),t.getPasshash(),t.getUserType());
         insertTutorIntoDB(t.getUserId(),t.getLegalFirstName(),t.getLegalLastName(),t.getBio(),t.getDegrees(),t.getLinks(),t.getImg(),t.getActive(),t.getTimestamp(),t.getRatings());
         return new ResponseEntity<>(HttpStatus.OK);
