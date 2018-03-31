@@ -3,6 +3,7 @@
 
 # Intellij
 .idea/workspace.xml
+*.iml
 
 # Mac
 *.DS_Store
