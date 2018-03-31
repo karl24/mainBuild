@@ -1,0 +1,61 @@
+package com.tutorfind.controllers;
+
+import com.tutorfind.exceptions.ResourceNotFoundException;
+import com.tutorfind.model.StudentDataModel;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+
+
+public class LoginController {
+
+
+    @Autowired
+    private DataSource dataSource;
+
+
+    @RequestMapping(value = "login", method = {RequestMethod.POST})
+    public StudentDataModel loginStudent(@RequestBody StudentDataModel s){
+
+        try (Connection connection = dataSource.getConnection()) {
+            Statement stmt = connection.createStatement();
+
+            ResultSet rs = stmt.executeQuery("SELECT username, passhash FROM users WHERE email =" + s.getEmail() + " AND passhash = crypt('passhash'," + s.getPasshash() + ")");
+
+
+            ArrayList<StudentDataModel> output = new ArrayList<StudentDataModel>();
+
+            while (rs.next()) {
+                output.add(new StudentDataModel(rs.getInt("userId"), rs.getString("legalFirstName"), rs.getString("legalLastName"),
+                        rs.getString("bio"), rs.getString("major"), rs.getString("minor"), rs.getString("img"), rs.getBoolean("active"), rs.getTimestamp("creationDate")));
+            }
+
+           if(output.isEmpty()){
+                throw new ResourceNotFoundException();
+           }else {
+                return output.get(0);
+           }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+
+        }
+
+    }
+
+
+
+}
