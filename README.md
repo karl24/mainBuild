@@ -1,3 +1,26 @@
-# devops
-DevOps script and utilities
-Test Merge - bryanbesnyi
+# Tutor Find
+
+[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+
+## Running Locally
+
+Make sure you have Java and Maven installed.  Also, install the [Heroku CLI](https://cli.heroku.com/).
+
+```sh
+$ git clone https://github.com/heroku/java-getting-started.git
+$ cd java-getting-started
+$ mvn install
+$ heroku local:start
+```
+
+Your app should now be running on [localhost:5000](http://localhost:5000/).
+
+Note: The database connectivity 
+
+## Deploying to Heroku
+
+```sh
+$ heroku create
+$ git push heroku master
+$ heroku open
+```
