@@ -37,7 +37,7 @@ public class ForgotPasswordController {
             ResultSet rs = preparedStatement.executeQuery();
 
             if(rs.next()){
-                return "Result is " + rs.getString("email");
+                return rs.getString("email");
                 //reset password
                 //send email
             }
@@ -49,7 +49,7 @@ public class ForgotPasswordController {
             return e.getMessage();
         }
 
-        return "error";
+        return "not a match to active student";
     }
 
 
