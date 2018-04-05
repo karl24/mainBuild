@@ -27,7 +27,7 @@ public class ForgotPasswordController {
     @Autowired
     private DataSource dataSource;
 
-    private String isEmailActive(String email){
+    private String isStudentEmailActive(String email){
 
         try (Connection connection = dataSource.getConnection()) {
             String query = "SELECT u.email FROM users u LEFT JOIN students s ON u.userid = s.userid WHERE u.email = ? AND s.active = true;";
@@ -47,15 +47,14 @@ public class ForgotPasswordController {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
+        
         return "set email to " + email;
     }
 
 
-    @RequestMapping(value = "{email}",method = RequestMethod.GET)
-    public @ResponseBody String checkIfEmailIsActive(@PathVariable("email") String email){
+    @RequestMapping(value = "/student/{email}",method = RequestMethod.GET)
+    public @ResponseBody boolean checkIfEmailIsActive(@PathVariable("email") String email){
 
-        return isEmailActive(email);
-
+        return (email == isStudentEmailActive(email));
     }
 }
