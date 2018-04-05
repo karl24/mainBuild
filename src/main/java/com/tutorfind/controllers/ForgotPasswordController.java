@@ -38,11 +38,7 @@ public class ForgotPasswordController {
             ResultSet rs = preparedStatement.executeQuery();
 
             if(rs.next()){
-                int userId = getUserId(email, "students");
-                updatePassword(userId);
                 return rs.getString("email");
-                //reset password
-                //send email
             }
             connection.close();
 
@@ -126,13 +122,24 @@ public class ForgotPasswordController {
 
     @RequestMapping(value = "/student/{email}",method = RequestMethod.GET)
     public @ResponseBody boolean checkIfStudentEmailIsActive(@PathVariable("email") String email){
-
-        return isStudentEmailActive(email).equals(email);
+        if(isStudentEmailActive(email).equals(email)){
+            int userId = getUserId(email, "students");
+            updatePassword(userId);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @RequestMapping(value = "/tutor/{email}",method = RequestMethod.GET)
     public @ResponseBody boolean checkIfTutorEmailIsActive(@PathVariable("email") String email){
+        if(isTutorEmailActive(email).equals(email)){
+            int userId = getUserId(email, "tutors");
+            updatePassword(userId);
+            return true;
+        } else {
+            return false;
+        }
 
-        return isTutorEmailActive(email).equals(email);
     }
 }
