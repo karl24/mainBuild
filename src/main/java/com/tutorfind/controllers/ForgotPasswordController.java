@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.UUID;
 
 @CrossOrigin
 @RestController
@@ -37,11 +38,12 @@ public class ForgotPasswordController {
             ResultSet rs = preparedStatement.executeQuery();
 
             if(rs.next()){
+                int userId = getUserId(email, "students");
+                updatePassword(userId, "students");
                 return rs.getString("email");
                 //reset password
                 //send email
             }
-
             connection.close();
 
         } catch (SQLException e) {
@@ -62,6 +64,8 @@ public class ForgotPasswordController {
             ResultSet rs = preparedStatement.executeQuery();
 
             if(rs.next()){
+                int userId = getUserId(email, "tutors");
+                updatePassword(userId, "tutors");
                 return rs.getString("email");
                 //reset password
                 //send email
@@ -75,6 +79,49 @@ public class ForgotPasswordController {
         }
 
         return "not a match to active tutor";
+    }
+
+    //once we figure out session validation, we'll need to generate a password and hash
+    private String getRandomPassword(){
+        return UUID.randomUUID().toString();
+    }
+
+    private int getUserId(String email, String type){
+        try (Connection connection = dataSource.getConnection()) {
+            String query = "SELECT userid FROM ? WHERE email = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, type);
+            preparedStatement.setString(2, email);
+
+            ResultSet rs = preparedStatement.executeQuery();
+            connection.close();
+
+            if(rs.next()){
+                return rs.getInt("userid");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    private void updatePassword(int userId, String type){
+        String newPassword = getRandomPassword();
+
+        try (Connection connection = dataSource.getConnection()) {
+            String query = "UPDATE ? SET passhash = ? WHERE userId = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, type);
+            preparedStatement.setString(2, newPassword);
+            preparedStatement.setInt(3, userId);
+            preparedStatement.executeUpdate();
+            connection.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
     }
 
 
