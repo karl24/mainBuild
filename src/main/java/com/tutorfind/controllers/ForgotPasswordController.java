@@ -37,7 +37,7 @@ public class ForgotPasswordController {
             ResultSet rs = preparedStatement.executeQuery();
 
             if(rs.next()){
-                return rs.getString("active");
+                return rs.getString("email");
                 //reset password
                 //send email
             }
