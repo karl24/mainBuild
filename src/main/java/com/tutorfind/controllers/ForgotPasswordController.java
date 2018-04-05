@@ -108,7 +108,7 @@ public class ForgotPasswordController {
         try (Connection connection = dataSource.getConnection()) {
             String query = "UPDATE users SET passhash = ? WHERE userId = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1, newPassword);
+            preparedStatement.setString(1, "thisWorked");
             preparedStatement.setInt(2, userId);
             preparedStatement.executeUpdate();
             connection.close();
