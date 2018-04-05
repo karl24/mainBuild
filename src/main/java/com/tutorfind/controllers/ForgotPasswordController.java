@@ -79,14 +79,14 @@ public class ForgotPasswordController {
 
 
     @RequestMapping(value = "/student/{email}",method = RequestMethod.GET)
-    public @ResponseBody String checkIfStudentEmailIsActive(@PathVariable("email") String email){
+    public @ResponseBody boolean checkIfStudentEmailIsActive(@PathVariable("email") String email){
 
-        return isStudentEmailActive(email);
+        return isStudentEmailActive(email).equals(email);
     }
 
     @RequestMapping(value = "/tutor/{email}",method = RequestMethod.GET)
-    public @ResponseBody String checkIfTutorEmailIsActive(@PathVariable("email") String email){
+    public @ResponseBody boolean checkIfTutorEmailIsActive(@PathVariable("email") String email){
 
-        return isTutorEmailActive(email);
+        return isTutorEmailActive(email).equals(email);
     }
 }
