@@ -43,6 +43,7 @@ public class LoginController {
            if(output.isEmpty()){
                 throw new ResourceNotFoundException();
            }else {
+                System.out.println(output.get(0));
                 return output.get(0);
            }
 
@@ -53,6 +54,9 @@ public class LoginController {
         }
 
     }
+
+
+
 
 
 
