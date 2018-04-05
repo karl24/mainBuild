@@ -30,7 +30,7 @@ public class ForgotPasswordController {
     private String isEmailActive(String email){
 
         try (Connection connection = dataSource.getConnection()) {
-            String query = "SELECT u.email FROM users u LEFT JOIN students s ON u.userid = s.userid WHERE u.email = ?";
+            String query = "SELECT u.email FROM users u LEFT JOIN students s ON u.userid = s.userid WHERE u.email = ? AND s.active = true;";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, email);
 
@@ -48,7 +48,7 @@ public class ForgotPasswordController {
             e.printStackTrace();
         }
 
-        return "didn't hit resultset";
+        return "set email to " + email;
     }
 
 
