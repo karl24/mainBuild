@@ -85,15 +85,17 @@ public class ForgotPasswordController {
             preparedStatement.setString(1, email);
 
             ResultSet rs = preparedStatement.executeQuery();
-            connection.close();
+
 
             if(rs.next()){
                 return rs.getInt("userid");
             }
+            connection.close();
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
         return 0;
     }
 
