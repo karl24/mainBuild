@@ -32,8 +32,12 @@ public class ForgotPasswordController {
     private boolean isEmailActive(String email){
 
         try (Connection connection = dataSource.getConnection()) {
-            String query = "SELECT s.active FROM users u INNER JOIN students s ON u.userid = s.userid" +
-                    " WHERE u.email = ? AND s.active = TRUE;";
+            String query = "SELECT CASE " +
+                " WHEN s.active IS TRUE THEN s.active WHEN t.active IS TRUE THEN t.active ELSE FALSE" +
+                    " END AS active FROM users u" +
+                    " LEFT JOIN students s ON u.userid = s.userid" +
+                    " LEFT JOIN tutors t ON u.userid = t.userid" +
+                    " WHERE u.email = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, email);
 
@@ -41,6 +45,7 @@ public class ForgotPasswordController {
 
             if(rs.next()){
                 isActiveEmail = rs.getBoolean("active");
+                return isActiveEmail;
                 //reset password
                 //send email
             }
