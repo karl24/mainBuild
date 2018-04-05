@@ -55,7 +55,7 @@ public class ForgotPasswordController {
             e.printStackTrace();
         }
 
-        return isActiveEmail;
+        return true;
     }
 
 
