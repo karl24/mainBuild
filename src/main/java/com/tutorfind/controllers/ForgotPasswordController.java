@@ -39,7 +39,7 @@ public class ForgotPasswordController {
 
             if(rs.next()){
                 int userId = getUserId(email, "students");
-                updatePassword(userId, "students");
+                updatePassword(userId);
                 return rs.getString("email");
                 //reset password
                 //send email
@@ -65,7 +65,7 @@ public class ForgotPasswordController {
 
             if(rs.next()){
                 int userId = getUserId(email, "tutors");
-                updatePassword(userId, "tutors");
+                updatePassword(userId);
                 return rs.getString("email");
                 //reset password
                 //send email
@@ -106,15 +106,14 @@ public class ForgotPasswordController {
         return 0;
     }
 
-    private void updatePassword(int userId, String type){
+    private void updatePassword(int userId){
         String newPassword = getRandomPassword();
 
         try (Connection connection = dataSource.getConnection()) {
-            String query = "UPDATE ? SET passhash = ? WHERE userId = ?";
+            String query = "UPDATE users SET passhash = ? WHERE userId = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1, type);
-            preparedStatement.setString(2, newPassword);
-            preparedStatement.setInt(3, userId);
+            preparedStatement.setString(1, newPassword);
+            preparedStatement.setInt(2, userId);
             preparedStatement.executeUpdate();
             connection.close();
 
