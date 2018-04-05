@@ -60,11 +60,7 @@ public class ForgotPasswordController {
             ResultSet rs = preparedStatement.executeQuery();
 
             if(rs.next()){
-                int userId = getUserId(email, "tutors");
-                updatePassword(userId);
                 return rs.getString("email");
-                //reset password
-                //send email
             }
 
             connection.close();
