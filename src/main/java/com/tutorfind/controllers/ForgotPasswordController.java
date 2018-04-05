@@ -82,12 +82,11 @@ public class ForgotPasswordController {
         return UUID.randomUUID().toString();
     }
 
-    private int getUserId(String email, String type){
+    private int getUserId(String email){
         try (Connection connection = dataSource.getConnection()) {
-            String query = "SELECT userid FROM ? WHERE email = ?";
+            String query = "SELECT userid FROM users WHERE email = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1, type);
-            preparedStatement.setString(2, email);
+            preparedStatement.setString(1, email);
 
             ResultSet rs = preparedStatement.executeQuery();
             connection.close();
@@ -123,8 +122,8 @@ public class ForgotPasswordController {
     @RequestMapping(value = "/student/{email}",method = RequestMethod.GET)
     public @ResponseBody boolean checkIfStudentEmailIsActive(@PathVariable("email") String email){
         if(isStudentEmailActive(email).equals(email)){
-            int userId = getUserId(email, "students");
-            updatePassword(1);
+            int userId = getUserId(email);
+            updatePassword(userId);
             return true;
         } else {
             return false;
@@ -134,8 +133,8 @@ public class ForgotPasswordController {
     @RequestMapping(value = "/tutor/{email}",method = RequestMethod.GET)
     public @ResponseBody boolean checkIfTutorEmailIsActive(@PathVariable("email") String email){
         if(isTutorEmailActive(email).equals(email)){
-            int userId = getUserId(email, "tutors");
-            updatePassword(1);
+            int userId = getUserId(email);
+            updatePassword(userId);
             return true;
         } else {
             return false;
