@@ -118,13 +118,13 @@ public class ForgotPasswordController {
 
 
     @RequestMapping(value = "/student/{email}",method = RequestMethod.GET)
-    public @ResponseBody int checkIfStudentEmailIsActive(@PathVariable("email") String email){
+    public @ResponseBody boolean checkIfStudentEmailIsActive(@PathVariable("email") String email){
         if(isStudentEmailActive(email).equals(email)){
             int userId = getUserId(email);
-            updatePassword(1);
-            return userId;
+            updatePassword(userId);
+            return true;
         } else {
-            return 0;
+            return false;
         }
     }
 
