@@ -54,8 +54,8 @@ public class ForgotPasswordController {
 
 
     @RequestMapping(value = "/student/{email}",method = RequestMethod.GET)
-    public @ResponseBody String checkIfEmailIsActive(@PathVariable("email") String email){
+    public @ResponseBody boolean checkIfEmailIsActive(@PathVariable("email") String email){
 
-        return isStudentEmailActive(email);
+        return isStudentEmailActive(email) == email;
     }
 }
