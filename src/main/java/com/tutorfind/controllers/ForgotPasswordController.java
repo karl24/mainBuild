@@ -52,10 +52,41 @@ public class ForgotPasswordController {
         return "not a match to active student";
     }
 
+    private String isTutorEmailActive(String email){
+
+        try (Connection connection = dataSource.getConnection()) {
+            String query = "SELECT u.email AS email FROM users u LEFT JOIN tutors t ON u.userid = t.userid WHERE u.email = ? AND t.active = true";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, email);
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+            if(rs.next()){
+                return rs.getString("email");
+                //reset password
+                //send email
+            }
+
+            connection.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return e.getMessage();
+        }
+
+        return "not a match to active tutor";
+    }
+
 
     @RequestMapping(value = "/student/{email}",method = RequestMethod.GET)
-    public @ResponseBody boolean checkIfEmailIsActive(@PathVariable("email") String email){
+    public @ResponseBody boolean checkIfStudentEmailIsActive(@PathVariable("email") String email){
 
         return isStudentEmailActive(email) == email;
+    }
+
+    @RequestMapping(value = "/tutor/{email}",method = RequestMethod.GET)
+    public @ResponseBody boolean checkIfTutorEmailIsActive(@PathVariable("email") String email){
+
+        return isTutorEmailActive(email) == email;
     }
 }
