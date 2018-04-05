@@ -48,14 +48,14 @@ public class ForgotPasswordController {
             e.printStackTrace();
         }
 
-        return "";
+        return "not a match";
     }
 
 
     @RequestMapping(value = "{email}",method = RequestMethod.GET)
-    public @ResponseBody boolean checkIfEmailIsActive(@PathVariable("email") String email){
+    public @ResponseBody String checkIfEmailIsActive(@PathVariable("email") String email){
 
-        return (isEmailActive(email) == email);
+        return isEmailActive(email);
 
     }
 }
