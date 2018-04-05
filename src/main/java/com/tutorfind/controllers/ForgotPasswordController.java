@@ -44,8 +44,7 @@ public class ForgotPasswordController {
             ResultSet rs = preparedStatement.executeQuery();
 
             if(rs.next()){
-                isActiveEmail = rs.getBoolean("active");
-                return isActiveEmail;
+                return true;
                 //reset password
                 //send email
             }
