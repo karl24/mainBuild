@@ -36,19 +36,21 @@ public class ForgotPasswordController {
 
             ResultSet rs = preparedStatement.executeQuery(query);
 
-            if(rs.next()){
+            return query;
+
+/*            if(rs.next()){
                 return rs.getString("email");
                 //reset password
                 //send email
             }
 
-            connection.close();
+            connection.close();*/
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return "set email to " + email;
+        return "error";
     }
 
 
