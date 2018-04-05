@@ -48,9 +48,10 @@ public class ForgotPasswordController {
 
         } catch (SQLException e) {
             e.printStackTrace();
+            return e.getMessage();
         }
 
-        return "error";
+//        return "error";
     }
 
 
