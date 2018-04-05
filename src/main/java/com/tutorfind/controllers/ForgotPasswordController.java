@@ -24,20 +24,13 @@ import java.util.ArrayList;
 @RequestMapping("forgotpassword")
 public class ForgotPasswordController {
 
-    boolean isActiveEmail = false;
-
     @Autowired
     private DataSource dataSource;
 
-    private boolean isEmailActive(String email){
+    private String isEmailActive(String email){
 
         try (Connection connection = dataSource.getConnection()) {
-            String query = "SELECT CASE " +
-                " WHEN s.active IS TRUE THEN s.active WHEN t.active IS TRUE THEN t.active ELSE FALSE" +
-                    " END AS active FROM users u" +
-                    " LEFT JOIN students s ON u.userid = s.userid" +
-                    " LEFT JOIN tutors t ON u.userid = t.userid" +
-                    " WHERE u.email = ?";
+            String query = "SELECT s.active FROM users u LEFT JOIN students s ON u.userid = s.userid WHERE u.email = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, email);
 
@@ -55,7 +48,7 @@ public class ForgotPasswordController {
             e.printStackTrace();
         }
 
-        return true;
+        return false;
     }
 
 
