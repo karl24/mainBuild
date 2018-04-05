@@ -37,7 +37,7 @@ public class ForgotPasswordController {
             ResultSet rs = preparedStatement.executeQuery(query);
 
             if(rs.next()){
-                return "you had a resultset";
+                return rs.getString("email");
                 //reset password
                 //send email
             }
@@ -47,14 +47,14 @@ public class ForgotPasswordController {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        
+
         return "set email to " + email;
     }
 
 
     @RequestMapping(value = "/student/{email}",method = RequestMethod.GET)
-    public @ResponseBody boolean checkIfEmailIsActive(@PathVariable("email") String email){
+    public @ResponseBody String checkIfEmailIsActive(@PathVariable("email") String email){
 
-        return (email == isStudentEmailActive(email));
+        return isStudentEmailActive(email);
     }
 }
