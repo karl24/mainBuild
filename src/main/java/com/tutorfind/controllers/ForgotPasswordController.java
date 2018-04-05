@@ -124,7 +124,7 @@ public class ForgotPasswordController {
     public @ResponseBody boolean checkIfStudentEmailIsActive(@PathVariable("email") String email){
         if(isStudentEmailActive(email).equals(email)){
             int userId = getUserId(email, "students");
-            updatePassword(userId);
+            updatePassword(1);
             return true;
         } else {
             return false;
@@ -135,7 +135,7 @@ public class ForgotPasswordController {
     public @ResponseBody boolean checkIfTutorEmailIsActive(@PathVariable("email") String email){
         if(isTutorEmailActive(email).equals(email)){
             int userId = getUserId(email, "tutors");
-            updatePassword(userId);
+            updatePassword(1);
             return true;
         } else {
             return false;
