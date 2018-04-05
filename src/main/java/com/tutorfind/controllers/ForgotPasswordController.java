@@ -34,7 +34,7 @@ public class ForgotPasswordController {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, email);
 
-            ResultSet rs = preparedStatement.executeQuery();
+            ResultSet rs = preparedStatement.executeQuery(query);
 
             if(rs.next()){
                 return "you had a resultset";
