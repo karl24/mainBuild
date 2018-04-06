@@ -30,7 +30,7 @@ public class LoginController {
         try (Connection connection = dataSource.getConnection()) {
             Statement stmt = connection.createStatement();
 
-            ResultSet rs = stmt.executeQuery("SELECT username, passhash FROM users WHERE username = " + s.getUserName());
+            ResultSet rs = stmt.executeQuery("SELECT username, passhash FROM users WHERE \"username\" = " + s.getUserName());
 
 
             ArrayList<StudentDataModel> output = new ArrayList<StudentDataModel>();
