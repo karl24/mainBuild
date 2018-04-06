@@ -1,15 +1,12 @@
 package com.tutorfind.controllers;
 
 
+import com.tutorfind.exceptions.ResourceNotFoundException;
 import com.tutorfind.model.TutorsDataModel;
 import com.tutorfind.model.UserDataModel;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.sql.DataSource;
@@ -172,6 +169,60 @@ public class TutorController extends UserController{
         return null;
 
     }
+
+    @RequestMapping(value = "login", method = {RequestMethod.POST})
+    public TutorsDataModel loginStudent(@RequestBody TutorsDataModel t){
+        ArrayList<TutorsDataModel> tutors = getActiveTutorsFromDB();
+        ArrayList<UserDataModel> users = getActiveUsersFromDB();
+        try (Connection connection = dataSource.getConnection()) {
+
+            String sql = "SELECT userId, passhash = crypt(?, passhash) as pass, passhash from users where passhash = crypt(?, passhash) AND username = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(2,t.getPasshash());
+            preparedStatement.setString(1,t.getPasshash());
+            preparedStatement.setString(3,t.getUserName());
+            ResultSet rs = preparedStatement.executeQuery();
+
+
+            ArrayList<TutorsDataModel> output = new ArrayList<TutorsDataModel>();
+
+            while (rs.next()) {
+                for(TutorsDataModel tutor : tutors){
+                    for(UserDataModel u : users){
+                        if(tutor.getUserId() == u.getUserId()){
+                            if(rs.getInt("userId") == tutor.getUserId()) {
+                                tutor.setEmail(u.getEmail());
+                                tutor.setUserName(u.getUserName());
+                                tutor.setSalt(u.getSalt());
+                                tutor.setUserType(u.getUserType());
+                                tutor.setPasshash(u.getPasshash());
+                                output.add(tutor);
+
+                            }
+                        }
+
+                    }
+
+                }
+
+            }
+
+
+
+            if(output.isEmpty()){
+                throw new ResourceNotFoundException();
+            }else {
+                return output.get(0);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+
+        }
+
+    }
+
 
     @RequestMapping(method = {RequestMethod.PUT})
     public ResponseEntity<TutorsDataModel> insertTutor(@RequestBody TutorsDataModel t) {
