@@ -215,7 +215,7 @@ public class StudentController extends UserController{
             Statement stmt = connection.createStatement();
             PreparedStatement preparedStatement = connection.prepareStatement("SELECT userId, username, passhash FROM users WHERE userName = ? AND passhash = crypt('$2a$06$cyFdOCjX9kgUqhLaDg59E.7fXSeUc9i4W2/EjkEVO73NXUlVM3d9u', passhash)");
             preparedStatement.setString(1,s.getUserName());
-            preparedStatement.setString(2,s.getPasshash());
+           // preparedStatement.setString(2,s.getPasshash());
             ResultSet rs = preparedStatement.executeQuery();
 
 
