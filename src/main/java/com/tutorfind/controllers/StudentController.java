@@ -216,7 +216,7 @@ public class StudentController extends UserController{
 
             String sql = "SELECT username as name, passhash = crypt(?, passhash) as pass, passhash from users where passhash = crypt(?, passhash)";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(2s.getPasshash()),
+            preparedStatement.setString(2,s.getPasshash());
             preparedStatement.setString(1,s.getPasshash());
             ResultSet rs = preparedStatement.executeQuery();
 
@@ -236,7 +236,7 @@ public class StudentController extends UserController{
                             }
 
                         }
-                        
+
                 }
 
             }
