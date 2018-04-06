@@ -213,7 +213,7 @@ public class StudentController extends UserController{
         ArrayList<StudentDataModel> students = getStudentsFromDB();
         try (Connection connection = dataSource.getConnection()) {
             Statement stmt = connection.createStatement();
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT userId, username, passhash FROM users WHERE userName = ? & passhash = crypt(?, passhash)");
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT userId, username, passhash FROM users WHERE userName = ? AND passhash = crypt(?, passhash)");
             preparedStatement.setString(1,s.getUserName());
             preparedStatement.setString(2,s.getPasshash());
             ResultSet rs = preparedStatement.executeQuery();
