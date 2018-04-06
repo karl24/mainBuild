@@ -214,7 +214,7 @@ public class StudentController extends UserController{
         ArrayList<UserDataModel> users = getActiveUsersFromDB();
         try (Connection connection = dataSource.getConnection()) {
 
-            String sql = "SELECT username as name, passhash = crypt(?, passhash) as pass, passhash from users where passhash = crypt(?, passhash)";
+            String sql = "SELECT userId, passhash = crypt(?, passhash) as pass, passhash from users where passhash = crypt(?, passhash)";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(2,s.getPasshash());
             preparedStatement.setString(1,s.getPasshash());
@@ -227,12 +227,14 @@ public class StudentController extends UserController{
                 for(StudentDataModel student : students){
                         for(UserDataModel u : users){
                             if(student.getUserId() == u.getUserId()){
-                                student.setPasshash(u.getPasshash());
-                                student.setEmail(u.getEmail());
-                                student.setUserName(u.getUserName());
-                                student.setSalt(u.getSalt());
-                                student.setUserType(u.getUserType());
-                                output.add(student);
+                                if(rs.getInt("userId") == student.getUserId()) {
+                                    student.setPasshash(u.getPasshash());
+                                    student.setEmail(u.getEmail());
+                                    student.setUserName(u.getUserName());
+                                    student.setSalt(u.getSalt());
+                                    student.setUserType(u.getUserType());
+                                    output.add(student);
+                                }
                             }
 
                         }
