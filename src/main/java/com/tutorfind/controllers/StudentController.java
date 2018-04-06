@@ -213,8 +213,9 @@ public class StudentController extends UserController{
         ArrayList<StudentDataModel> students = getStudentsFromDB();
         try (Connection connection = dataSource.getConnection()) {
             Statement stmt = connection.createStatement();
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT userId, username, passhash FROM users WHERE userName = ?");
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT userId, username, passhash FROM users WHERE userName = ? & passhash = crypt(?, passhash)");
             preparedStatement.setString(1,s.getUserName());
+            preparedStatement.setString(2,s.getPasshash());
             ResultSet rs = preparedStatement.executeQuery();
 
 
@@ -223,7 +224,7 @@ public class StudentController extends UserController{
             while (rs.next()) {
                 for(StudentDataModel student : students){
                     if(rs.getInt("userId") == student.getUserId());
-                    output.add(new StudentDataModel());
+                    output.add(new StudentDataModel(student.getUserId(),student.getLegalFirstName(),student.getLegalLastName(),student.getBio(),student.getMajor(),student.getMinor(),student.getImg(),student.isActive(),student.getCreationDate()));
                 }
 
             }
