@@ -211,12 +211,13 @@ public class StudentController extends UserController{
     @RequestMapping(value = "login", method = {RequestMethod.POST})
     public StudentDataModel loginStudent(@RequestBody StudentDataModel s){
         ArrayList<StudentDataModel> students = getStudentsFromDB();
+        ArrayList<UserDataModel> users = getActiveUsersFromDB();
         try (Connection connection = dataSource.getConnection()) {
 
-            String sql = "SELECT passhash = crypt('$2a$06$cyFdOCjX9kgUqhLaDg59E.7fXSeUc9i4W2/EjkEVO73NXUlVM3d9u', passhash), userId from users where username = ?";
+            String sql = "SELECT passhash = crypt(?, passhash), userId from users where username = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1,s.getUserName());
-           // preparedStatement.setString(2,s.getPasshash());
+            preparedStatement.setString(2,s.getUserName());
+            preparedStatement.setString(1,s.getPasshash());
             ResultSet rs = preparedStatement.executeQuery();
 
 
@@ -224,8 +225,21 @@ public class StudentController extends UserController{
 
             while (rs.next()) {
                 for(StudentDataModel student : students){
-                    if(rs.getInt("userId") == student.getUserId())
-                        output.add(new StudentDataModel(student.getUserId(),student.getLegalFirstName(),student.getLegalLastName(),student.getBio(),student.getMajor(),student.getMinor(),student.getImg(),student.isActive(),student.getCreationDate()));
+                    if(rs.getInt("userId") == student.getUserId()) {
+                        for(UserDataModel u : users){
+                            if(student.getUserId() == u.getUserId()){
+                                student.setPasshash(u.getPasshash());
+                                student.setEmail(u.getEmail());
+                                student.setUserName(u.getUserName());
+                                student.setSalt(u.getSalt());
+                                student.setUserType(u.getUserType());
+                                output.add(student);
+                            }
+
+                        }
+
+
+                    }
                 }
 
             }
