@@ -1,5 +1,6 @@
 package com.tutorfind.controllers;
 
+import com.tutorfind.exceptions.ResourceNotFoundException;
 import com.tutorfind.model.StudentDataModel;
 import com.tutorfind.model.UserDataModel;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,7 @@ public class StudentController extends UserController{
     private DataSource dataSource;
 
 
-    private ArrayList<StudentDataModel> getStudentsFromDB() {
+    public ArrayList<StudentDataModel> getStudentsFromDB() {
         try (Connection connection = dataSource.getConnection()) {
             Statement stmt = connection.createStatement();
 
@@ -207,7 +208,57 @@ public class StudentController extends UserController{
     }
 
 
+    @RequestMapping(value = "login", method = {RequestMethod.POST})
+    public StudentDataModel loginStudent(@RequestBody StudentDataModel s){
+        ArrayList<StudentDataModel> students = getStudentsFromDB();
+        ArrayList<UserDataModel> users = getActiveUsersFromDB();
+        try (Connection connection = dataSource.getConnection()) {
 
+            String sql = "SELECT userId, passhash = crypt(?, passhash) as pass, passhash from users where passhash = crypt(?, passhash) AND username = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(2,s.getPasshash());
+            preparedStatement.setString(1,s.getPasshash());
+            preparedStatement.setString(3,s.getUserName());
+            ResultSet rs = preparedStatement.executeQuery();
+
+
+            ArrayList<StudentDataModel> output = new ArrayList<StudentDataModel>();
+
+            while (rs.next()) {
+                for(StudentDataModel student : students){
+                        for(UserDataModel u : users){
+                            if(student.getUserId() == u.getUserId()){
+                                if(rs.getInt("userId") == student.getUserId()) {
+                                    student.setPasshash(u.getPasshash());
+                                    student.setEmail(u.getEmail());
+                                    student.setUserName(u.getUserName());
+                                    student.setSalt(u.getSalt());
+                                    student.setUserType(u.getUserType());
+                                    output.add(student);
+                                }
+                            }
+
+                        }
+
+                }
+
+            }
+
+
+
+            if(output.isEmpty()){
+                throw new ResourceNotFoundException();
+            }else {
+                return output.get(0);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+
+        }
+
+    }
 
 
 
