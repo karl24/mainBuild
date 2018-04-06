@@ -96,6 +96,7 @@
           <artifactId>spring-data-commons</artifactId>
           <version>1.13.10.RELEASE</version>
       </dependency>
+
   </dependencies>
 
   <build>
