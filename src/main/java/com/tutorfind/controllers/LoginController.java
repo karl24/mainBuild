@@ -20,13 +20,15 @@ public class LoginController {
     @Autowired
     private DataSource dataSource;
 
+    private StudentController studentController = new StudentController();
+
 
     @RequestMapping(method = {RequestMethod.POST})
     public StudentDataModel loginStudent(@RequestBody StudentDataModel s){
-
+        ArrayList<StudentDataModel> students = studentController.getStudentsFromDB();
         try (Connection connection = dataSource.getConnection()) {
             Statement stmt = connection.createStatement();
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT username, passhash FROM users WHERE userName = ?");
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT userId, username, passhash FROM users WHERE userName = ?");
             preparedStatement.setString(1,s.getUserName());
             ResultSet rs = preparedStatement.executeQuery();
 
@@ -34,8 +36,11 @@ public class LoginController {
             ArrayList<StudentDataModel> output = new ArrayList<StudentDataModel>();
 
             while (rs.next()) {
-                output.add(new StudentDataModel(rs.getInt("userId"), rs.getString("legalFirstName"), rs.getString("legalLastName"),
-                        rs.getString("bio"), rs.getString("major"), rs.getString("minor"), rs.getString("img"), rs.getBoolean("active"), rs.getTimestamp("creationDate")));
+                for(StudentDataModel student : students){
+                    if(rs.getInt("userId") == student.getUserId());
+                    output.add(new StudentDataModel());
+                }
+
             }
 
            if(output.isEmpty()){

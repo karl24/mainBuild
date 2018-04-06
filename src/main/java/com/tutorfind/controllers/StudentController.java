@@ -26,7 +26,7 @@ public class StudentController extends UserController{
     private DataSource dataSource;
 
 
-    private ArrayList<StudentDataModel> getStudentsFromDB() {
+    public ArrayList<StudentDataModel> getStudentsFromDB() {
         try (Connection connection = dataSource.getConnection()) {
             Statement stmt = connection.createStatement();
 
