@@ -8,10 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 
 
@@ -29,8 +26,9 @@ public class LoginController {
 
         try (Connection connection = dataSource.getConnection()) {
             Statement stmt = connection.createStatement();
-            String sql = "SELECT username, passhash FROM users WHERE username = " + s.getUserName();
-            ResultSet rs = stmt.executeQuery(sql);
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT username, passhash FROM users WHERE userName = ?");
+            preparedStatement.setString(1,s.getUserName());
+            ResultSet rs = preparedStatement.executeQuery();
 
 
             ArrayList<StudentDataModel> output = new ArrayList<StudentDataModel>();
