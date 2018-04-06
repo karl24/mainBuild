@@ -223,8 +223,8 @@ public class StudentController extends UserController{
 
             while (rs.next()) {
                 for(StudentDataModel student : students){
-                    if(rs.getInt("userId") == student.getUserId());
-                    output.add(new StudentDataModel(student.getUserId(),student.getLegalFirstName(),student.getLegalLastName(),student.getBio(),student.getMajor(),student.getMinor(),student.getImg(),student.isActive(),student.getCreationDate()));
+                    if(rs.getInt("userId") == student.getUserId())
+                        output.add(new StudentDataModel(student.getUserId(),student.getLegalFirstName(),student.getLegalLastName(),student.getBio(),student.getMajor(),student.getMinor(),student.getImg(),student.isActive(),student.getCreationDate()));
                 }
 
             }
