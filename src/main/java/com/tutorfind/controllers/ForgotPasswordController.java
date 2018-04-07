@@ -118,24 +118,24 @@ public class ForgotPasswordController {
 
 
     @RequestMapping(value = "/student/{email}",method = RequestMethod.GET)
-    public @ResponseBody boolean checkIfStudentEmailIsActive(@PathVariable("email") String email){
+    public ResponseEntity<Void> checkIfStudentEmailIsActive(@PathVariable("email") String email){
         if(isStudentEmailActive(email).equals(email)){
             int userId = getUserId(email);
             updatePassword(userId);
-            return true;
+            return new ResponseEntity<Void>(HttpStatus.OK);
         } else {
-            return false;
+            return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
         }
     }
 
     @RequestMapping(value = "/tutor/{email}",method = RequestMethod.GET)
-    public @ResponseBody boolean checkIfTutorEmailIsActive(@PathVariable("email") String email){
+    public ResponseEntity<Void> checkIfTutorEmailIsActive(@PathVariable("email") String email){
         if(isTutorEmailActive(email).equals(email)){
             int userId = getUserId(email);
             updatePassword(userId);
-            return true;
+            return new ResponseEntity<Void>(HttpStatus.OK);
         } else {
-            return false;
+            return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
         }
 
     }
