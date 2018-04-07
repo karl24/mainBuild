@@ -157,6 +157,7 @@ public class TutorController extends UserController{
                     tutor.setSalt(user.getSalt());
                     tutor.setUserName(user.getUserName());
                     tutor.setEmail(user.getEmail());
+                    tutor.setSubjects(user.getSubjects());
                 }
             }
 

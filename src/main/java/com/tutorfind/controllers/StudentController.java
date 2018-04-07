@@ -165,6 +165,7 @@ public class StudentController extends UserController{
                     s.setEmail(u.getEmail());
                     s.setUserName(u.getUserName());
                     s.setSalt(u.getSalt());
+                    s.setSubjects(u.getSubjects());
                 }
             }
         }
