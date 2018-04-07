@@ -96,7 +96,7 @@ public class TutorController extends UserController{
             //Statement stmt = connection.createStatement();
 
             final java.sql.Array sqlArray = connection.createArrayOf("integer", ratings);
-            String query = "insert into tutors VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+            String query = "insert into tutors VALUES(?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(3, legalLastName);
             preparedStatement.setString(2, legalFirstName);
