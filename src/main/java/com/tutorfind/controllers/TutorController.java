@@ -229,7 +229,7 @@ public class TutorController extends UserController{
     public ResponseEntity<TutorsDataModel> insertTutor(@RequestBody TutorsDataModel t) {
 
 
-        insertUserIntoDB(t.getUserName(),t.getEmail(),t.getSalt(),t.getPasshash(),t.getUserType());
+        insertUserIntoDB(t.getUserName(),t.getEmail(),t.getSalt(),t.getPasshash(),t.getUserType(),t.getSubjects());
         ArrayList<UserDataModel> users = getActiveUsersFromDB();
         for(UserDataModel user : users){
             if(user.getUserName().equals(t.getUserName()))
@@ -245,7 +245,7 @@ public class TutorController extends UserController{
     public ResponseEntity<TutorsDataModel> updateTutor(@PathVariable("tutorId") int id, @RequestBody TutorsDataModel t) {
 
         updateTutorsFromDB(id,t.getLegalFirstName(),t.getLegalLastName(),t.getBio(),t.getDegrees(),t.getLinks(),t.getImg(),t.getActive(),t.getTimestamp(),t.getRatings());
-        updateUserFromDB(id,t.getUserName(),t.getEmail(),t.getSalt(),t.getPasshash(),t.getUserType());
+        updateUserFromDB(id,t.getUserName(),t.getEmail(),t.getSalt(),t.getPasshash(),t.getUserType(),t.getSubjects());
         return new ResponseEntity<>(HttpStatus.OK);
 
 
