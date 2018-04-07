@@ -29,25 +29,13 @@ public abstract class UserController {
 
             while (rs.next()) {
                 String subjectsString = rs.getString("subjects");
-                if (subjectsString.length() != 2) {
                     String[] r = subjectsString.split(",");
                     String[] subjects = new String[r.length];
-                    for (int i = 0; i < r.length; i++) {
-                        if (i == 0) {
-                            subjects[i] = r[i].substring(1);
-                        } else if (i == r.length - 1) {
-                            subjects[i] = r[i].substring(0, 1);
-                        } else {
-                            subjects[i] = r[i];
-                        }
-                    }
+
+
                     output.add(new UserDataModel(rs.getInt("userId"), rs.getString("userName"), rs.getString("email"),
                             rs.getString("salt"), rs.getString("passhash"), rs.getString("userType"),subjects));
-                }else {
-                    String[] subjects = new String[0];
-                    output.add(new UserDataModel(rs.getInt("userId"), rs.getString("userName"), rs.getString("email"),
-                            rs.getString("salt"), rs.getString("passhash"), rs.getString("userType"),subjects));
-                }
+                
             }
 
             return output;
