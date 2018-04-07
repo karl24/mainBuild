@@ -1,8 +1,9 @@
 # compiled class file
 *.class
+target
 
 # Intellij
-.idea/workspace.xml
+.idea
 *.iml
 
 # Mac

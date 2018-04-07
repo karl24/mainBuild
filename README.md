@@ -7,7 +7,7 @@
 Make sure you have Java and Maven installed.  Also, install the [Heroku CLI](https://cli.heroku.com/).
 
 ```sh
-$ git clone https://github.com/heroku/java-getting-started.git
+$ git clone https://github.com/ndnu-senior-project-2018/mainBuild.git
 $ cd java-getting-started
 $ mvn install
 $ heroku local:start
