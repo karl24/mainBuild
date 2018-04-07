@@ -2,7 +2,7 @@
 *.class
 
 # Intellij
-.idea/workspace.xml
+.idea
 *.iml
 
 # Mac
