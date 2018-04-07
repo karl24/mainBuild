@@ -108,6 +108,7 @@ public class TutorController extends UserController{
             preparedStatement.setTimestamp(9, timestamp);
             preparedStatement.setArray(10, sqlArray);
             preparedStatement.setInt(1,userId);
+
             preparedStatement.executeUpdate();
             connection.close();
 
@@ -228,8 +229,13 @@ public class TutorController extends UserController{
     public ResponseEntity<TutorsDataModel> insertTutor(@RequestBody TutorsDataModel t) {
 
 
-        insertUserIntoDB(t.getUserId(),t.getUserName(),t.getEmail(),t.getSalt(),t.getPasshash(),t.getUserType());
-        insertTutorIntoDB(t.getUserId(),t.getLegalFirstName(),t.getLegalLastName(),t.getBio(),t.getDegrees(),t.getLinks(),t.getImg(),t.getActive(),t.getTimestamp(),t.getRatings());
+        insertUserIntoDB(t.getUserName(),t.getEmail(),t.getSalt(),t.getPasshash(),t.getUserType());
+        ArrayList<UserDataModel> users = getActiveUsersFromDB();
+        for(UserDataModel user : users){
+            if(user.getUserName().equals(t.getUserName()))
+                insertTutorIntoDB(user.getUserId(),t.getLegalFirstName(),t.getLegalLastName(),t.getBio(),t.getDegrees(),t.getLinks(),t.getImg(),t.getActive(),t.getTimestamp(),t.getRatings());
+        }
+
         return new ResponseEntity<>(HttpStatus.OK);
 
 

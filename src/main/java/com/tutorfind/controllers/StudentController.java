@@ -90,6 +90,7 @@ public class StudentController extends UserController{
             preparedStatement.setBoolean(8,active);
             preparedStatement.setTimestamp(9, creationdate);
             preparedStatement.setInt(1,userId);
+
             preparedStatement.executeUpdate();
             connection.close();
 
@@ -188,8 +189,12 @@ public class StudentController extends UserController{
     public ResponseEntity<StudentDataModel> insertStudent(@RequestBody StudentDataModel s) {
 
 
-        insertUserIntoDB(s.getUserId(),s.getUserName(),s.getEmail(),s.getSalt(),s.getPasshash(),s.getUserType());
-        insertStudentIntoDB(s.getUserId(),s.getLegalFirstName(),s.getLegalLastName(),s.getBio(),s.getMajor(),s.getMinor(),s.getImg(),s.isActive(),s.getCreationDate());
+        insertUserIntoDB(s.getUserName(),s.getEmail(),s.getSalt(),s.getPasshash(),s.getUserType());
+        ArrayList<UserDataModel> users = getActiveUsersFromDB();
+        for(UserDataModel user : users) {
+            if(user.getUserName().equals(s.getUserName()))
+                insertStudentIntoDB(user.getUserId(),s.getLegalFirstName(), s.getLegalLastName(), s.getBio(), s.getMajor(), s.getMinor(), s.getImg(), s.isActive(), s.getCreationDate());
+        }
         return new ResponseEntity<>(HttpStatus.OK);
 
 
