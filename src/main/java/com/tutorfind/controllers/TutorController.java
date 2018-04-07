@@ -91,22 +91,23 @@ public class TutorController extends UserController{
         }
     }
 
-    public void insertTutorIntoDB(String legalFirstName,String legalLastName, String bio, String degrees, String links,String img, boolean active, Timestamp timestamp, Integer[] ratings){
+    public void insertTutorIntoDB(int userId, String legalFirstName,String legalLastName, String bio, String degrees, String links,String img, boolean active, Timestamp timestamp, Integer[] ratings){
         try (Connection connection = dataSource.getConnection()) {
             //Statement stmt = connection.createStatement();
 
             final java.sql.Array sqlArray = connection.createArrayOf("integer", ratings);
-            String query = "insert into tutors VALUES(?,?,?,?,?,?,?,?,?,?)";
+            String query = "insert into tutors VALUES(?,?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(2, legalLastName);
-            preparedStatement.setString(1, legalFirstName);
-            preparedStatement.setString(3, bio);
-            preparedStatement.setString(4, degrees);
-            preparedStatement.setString(5, links);
-            preparedStatement.setString(6, img);
-            preparedStatement.setBoolean(7,active);
-            preparedStatement.setTimestamp(8, timestamp);
-            preparedStatement.setArray(9, sqlArray);
+            preparedStatement.setString(3, legalLastName);
+            preparedStatement.setString(2, legalFirstName);
+            preparedStatement.setString(4, bio);
+            preparedStatement.setString(5, degrees);
+            preparedStatement.setString(6, links);
+            preparedStatement.setString(7, img);
+            preparedStatement.setBoolean(8,active);
+            preparedStatement.setTimestamp(9, timestamp);
+            preparedStatement.setArray(10, sqlArray);
+            preparedStatement.setInt(1,userId);
 
             preparedStatement.executeUpdate();
             connection.close();
@@ -229,7 +230,12 @@ public class TutorController extends UserController{
 
 
         insertUserIntoDB(t.getUserName(),t.getEmail(),t.getSalt(),t.getPasshash(),t.getUserType());
-        insertTutorIntoDB(t.getLegalFirstName(),t.getLegalLastName(),t.getBio(),t.getDegrees(),t.getLinks(),t.getImg(),t.getActive(),t.getTimestamp(),t.getRatings());
+        ArrayList<UserDataModel> users = getActiveUsersFromDB();
+        for(UserDataModel user : users){
+            if(user.getUserName().equals(t.getUserName()))
+                insertTutorIntoDB(user.getUserId(),t.getLegalFirstName(),t.getLegalLastName(),t.getBio(),t.getDegrees(),t.getLinks(),t.getImg(),t.getActive(),t.getTimestamp(),t.getRatings());
+        }
+
         return new ResponseEntity<>(HttpStatus.OK);
 
 
