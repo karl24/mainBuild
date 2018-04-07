@@ -1,16 +1,10 @@
 package com.tutorfind.controllers;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.tutorfind.model.UserDataModel;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.sql.DataSource;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.sql.*;
 import java.util.ArrayList;
@@ -49,16 +43,16 @@ public abstract class UserController {
 
 
 
-    public void insertUserIntoDB(int userId, String  userName, String email, String salt, String passhash, String userType){
+    public void insertUserIntoDB(String  userName, String email, String salt, String passhash, String userType){
         try (Connection connection = dataSource.getConnection()) {
 
-            String query = "insert into users VALUES (?,?,?,gen_salt('bf'),crypt(?,gen_salt('bf')),?)";
+            String query = "insert into users VALUES (DEFAULT,?,?,gen_salt('bf'),crypt(?,gen_salt('bf')),?)";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1,userId);
-            preparedStatement.setString(2, userName);
-            preparedStatement.setString(3, email);
-            preparedStatement.setString(4, passhash);
-            preparedStatement.setString(5, userType);
+
+            preparedStatement.setString(1, userName);
+            preparedStatement.setString(2, email);
+            preparedStatement.setString(3, passhash);
+            preparedStatement.setString(4, userType);
             preparedStatement.executeUpdate();
             connection.close();
 

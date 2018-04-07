@@ -76,20 +76,20 @@ public class StudentController extends UserController{
         }
     }
 
-    public void insertStudentIntoDB(int userId, String legalFirstName,String legalLastName, String bio, String major, String minor, String img, boolean active, Timestamp creationdate){
+    public void insertStudentIntoDB(String legalFirstName,String legalLastName, String bio, String major, String minor, String img, boolean active, Timestamp creationdate){
         try (Connection connection = dataSource.getConnection()) {
             //Statement stmt = connection.createStatement();
-            String query = "insert into students VALUES(?,?,?,?,?,?,?,?,?)";
+            String query = "insert into students VALUES(?,?,?,?,?,?,?,?)";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(3, legalLastName);
-            preparedStatement.setString(2, legalFirstName);
-            preparedStatement.setString(4, bio);
-            preparedStatement.setString(5, major);
-            preparedStatement.setString(6, minor);
-            preparedStatement.setString(7, img);
-            preparedStatement.setBoolean(8,active);
-            preparedStatement.setTimestamp(9, creationdate);
-            preparedStatement.setInt(1,userId);
+            preparedStatement.setString(2, legalLastName);
+            preparedStatement.setString(1, legalFirstName);
+            preparedStatement.setString(3, bio);
+            preparedStatement.setString(4, major);
+            preparedStatement.setString(5, minor);
+            preparedStatement.setString(6, img);
+            preparedStatement.setBoolean(7,active);
+            preparedStatement.setTimestamp(8, creationdate);
+
             preparedStatement.executeUpdate();
             connection.close();
 
@@ -188,8 +188,8 @@ public class StudentController extends UserController{
     public ResponseEntity<StudentDataModel> insertStudent(@RequestBody StudentDataModel s) {
 
 
-        insertUserIntoDB(s.getUserId(),s.getUserName(),s.getEmail(),s.getSalt(),s.getPasshash(),s.getUserType());
-        insertStudentIntoDB(s.getUserId(),s.getLegalFirstName(),s.getLegalLastName(),s.getBio(),s.getMajor(),s.getMinor(),s.getImg(),s.isActive(),s.getCreationDate());
+        insertUserIntoDB(s.getUserName(),s.getEmail(),s.getSalt(),s.getPasshash(),s.getUserType());
+        insertStudentIntoDB(s.getLegalFirstName(),s.getLegalLastName(),s.getBio(),s.getMajor(),s.getMinor(),s.getImg(),s.isActive(),s.getCreationDate());
         return new ResponseEntity<>(HttpStatus.OK);
 
 
