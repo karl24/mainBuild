@@ -32,7 +32,7 @@ public abstract class UserController {
 
                     String[] subjects = subjectsString.split(",");
                     subjects[0] = subjects[0].substring(1);
-                    subjects[subjects.length-1] = subjects[subjects.length-1].substring(0, subjects.length-1);
+                    subjects[subjects.length-1] = subjects[subjects.length-1].substring(0, subjects[subjects.length-1].length()-1);
 
 
                     output.add(new UserDataModel(rs.getInt("userId"), rs.getString("userName"), rs.getString("email"),
