@@ -124,6 +124,7 @@ public class StudentController extends UserController{
                     s.setPasshash(u.getPasshash());
                     s.setEmail(u.getEmail());
                     s.setUserName(u.getUserName());
+                    s.setSubjects(u.getSubjects());
                 }
             }
         }
