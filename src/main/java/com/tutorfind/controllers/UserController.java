@@ -36,7 +36,7 @@ public abstract class UserController {
 
 
                     output.add(new UserDataModel(rs.getInt("userId"), rs.getString("userName"), rs.getString("email"),
-                            rs.getString("salt"), rs.getString("passhash"), rs.getString("userType"),r));
+                            rs.getString("salt"), rs.getString("passhash"), rs.getString("userType"),subjects));
 
             }
 
