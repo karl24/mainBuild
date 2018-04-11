@@ -15,7 +15,7 @@ import java.util.Properties;
 @RestController
 @RequestMapping("mail")
 public class SendMailTLS {
-
+    //testing
     @RequestMapping(method = {RequestMethod.GET})
     public ResponseEntity<StudentDataModel> sendMail() {
         final String username = "karl24fernando@gmail.com"; // enter your mail id
