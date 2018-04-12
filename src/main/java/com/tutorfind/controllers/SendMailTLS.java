@@ -18,8 +18,8 @@ public class SendMailTLS {
     //testing
     @RequestMapping(method = {RequestMethod.GET})
     public ResponseEntity<StudentDataModel> sendMail() {
-        final String username = "karl24fernando@gmail.com"; // enter your mail id
-        final String password = "karlfernando24";// enter ur password
+        final String username = "karl24fernando@gmail.com";
+        final String password = "password";
 
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
@@ -37,9 +37,9 @@ public class SendMailTLS {
         try {
 
             Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress("karl24fernando@gmail.com")); // same email id
+            message.setFrom(new InternetAddress("karl24fernando@gmail.com"));
             message.setRecipients(Message.RecipientType.TO,
-                    InternetAddress.parse("karl24fernando@gmail.com"));// whome u have to send mails that person id
+                    InternetAddress.parse("sendItToSomeone@gmail.com")); //send it to who???
             message.setSubject("Testing Subject");
             message.setText("Dear someone,"
                     + "\n\n Your new password is: efewufewuigwbdw");

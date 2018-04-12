@@ -3,21 +3,28 @@ Created by Adam Hardy
  */
 
 
+/*
+Created by Adam Hardy
+ */
+
+
 package com.tutorfind.controllers;
 
+import com.tutorfind.model.StudentDataModel;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.http.MediaType;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.mail.*;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.sql.DataSource;
-import java.sql.*;
-import java.util.ArrayList;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Properties;
 import java.util.UUID;
 
 @CrossOrigin
@@ -73,7 +80,6 @@ public class ForgotPasswordController {
         return "not a match to active tutor";
     }
 
-    //once we figure out session validation, we'll need to generate a password and hash
     private String getRandomPassword(){
         return UUID.randomUUID().toString();
     }
@@ -99,7 +105,7 @@ public class ForgotPasswordController {
         return 0;
     }
 
-    private void updatePassword(int userId){
+    private String updatePassword(int userId){
         String newPassword = getRandomPassword();
 
         try (Connection connection = dataSource.getConnection()) {
@@ -109,11 +115,51 @@ public class ForgotPasswordController {
             preparedStatement.setInt(2, userId);
             preparedStatement.executeUpdate();
             connection.close();
+            return newPassword;
+
 
         } catch (SQLException e) {
             e.printStackTrace();
 
         }
+        return newPassword;
+    }
+
+    private  ResponseEntity<StudentDataModel> sendMail(String email, String password) {
+        final String username = "tutorfindapp@gmail.com";
+
+        Properties props = new Properties();
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.host", "smtp.gmail.com");
+        props.put("mail.smtp.port", "587");
+
+        Session session = Session.getInstance(props,
+                new javax.mail.Authenticator() {
+                    protected PasswordAuthentication getPasswordAuthentication() {
+                        return new PasswordAuthentication(username, password);
+                    }
+                });
+
+        try {
+
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress("tutorfindapp@gmail.com"));
+            message.setRecipients(Message.RecipientType.TO,
+                    InternetAddress.parse(email));
+            message.setSubject("Testing Subject");
+            message.setText("Dear someone,"
+                    + "\n\n Your new password is: " + password);
+
+            Transport.send(message);
+
+//            System.out.println("Done");
+
+        } catch (MessagingException e) {
+            throw new RuntimeException(e);
+        }
+
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
 
@@ -132,7 +178,8 @@ public class ForgotPasswordController {
     public ResponseEntity<Void> checkIfTutorEmailIsActive(@PathVariable("email") String email){
         if(isTutorEmailActive(email).equals(email)){
             int userId = getUserId(email);
-            updatePassword(userId);
+            String newPassword = updatePassword(userId);
+            sendMail(email, newPassword);
             return new ResponseEntity<Void>(HttpStatus.OK);
         } else {
             return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
