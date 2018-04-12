@@ -10,7 +10,6 @@ Created by Adam Hardy
 
 package com.tutorfind.controllers;
 
-import com.tutorfind.model.StudentDataModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -125,9 +124,9 @@ public class ForgotPasswordController {
         return newPassword;
     }
 
-    private  ResponseEntity<StudentDataModel> sendMail(String email, String password) {
-        final String username = "tutorfindapp@gmail.com";
-
+    private  ResponseEntity<Void> sendMail(String email, String newPassword) {
+        final String username = "karl24fernando@gmail.com";
+        final String password = "karlfernando24";
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
@@ -144,12 +143,12 @@ public class ForgotPasswordController {
         try {
 
             Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress("tutorfindapp@gmail.com"));
+            message.setFrom(new InternetAddress("karl24fernando@gmail.com"));
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(email));
             message.setSubject("Testing Subject");
             message.setText("Dear someone,"
-                    + "\n\n Your new password is: " + password);
+                    + "\n\n Your new password is: " + newPassword);
 
             Transport.send(message);
 
