@@ -108,7 +108,7 @@ public class ForgotPasswordController {
         String newPassword = getRandomPassword();
 
         try (Connection connection = dataSource.getConnection()) {
-            String query = "UPDATE users SET passhash = ? WHERE userId = ?";
+            String query = "UPDATE users SET passhash = crypt(?, gen_salt('bf')), salt = gen_salt('bf') WHERE userId = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, newPassword);
             preparedStatement.setInt(2, userId);
@@ -166,7 +166,8 @@ public class ForgotPasswordController {
     public ResponseEntity<Void> checkIfStudentEmailIsActive(@PathVariable("email") String email){
         if(isStudentEmailActive(email).equals(email)){
             int userId = getUserId(email);
-            updatePassword(userId);
+            String newPassword = updatePassword(userId);
+            sendMail(email, newPassword);
             return new ResponseEntity<Void>(HttpStatus.OK);
         } else {
             return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
