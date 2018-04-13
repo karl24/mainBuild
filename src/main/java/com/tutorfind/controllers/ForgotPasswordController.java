@@ -104,9 +104,9 @@ public class ForgotPasswordController {
         return 0;
     }
 
-    private String getFirstName(String email){
+    private String getFirstName(String email, String table){
         try (Connection connection = dataSource.getConnection()) {
-            String query = "SELECT tutors.legalfirstname FROM tutors inner join users ON tutors.userId = users.userId WHERE users.email = ?";
+            String query = "SELECT " + table + ".legalfirstname FROM " + table + " inner join users ON " + table + ".userId = users.userId WHERE users.email = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, email);
 
@@ -145,7 +145,7 @@ public class ForgotPasswordController {
         return newPassword;
     }
 
-    private  ResponseEntity<Void> sendMail(String email, String newPassword) {
+    private  ResponseEntity<Void> sendMail(String email, String newPassword, String table) {
         final String username = "karl24fernando@gmail.com";
         final String password = "karlfernando24";
         Properties props = new Properties();
@@ -168,7 +168,7 @@ public class ForgotPasswordController {
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(email));
             message.setSubject("Testing Subject");
-            message.setText("Dear " + getFirstName(email) + ", "
+            message.setText("Dear " + getFirstName(email,table) + ", "
                     + "\n\n Your new password is: " + newPassword);
 
             Transport.send(message);
@@ -188,7 +188,7 @@ public class ForgotPasswordController {
         if(isStudentEmailActive(email).equals(email)){
             int userId = getUserId(email);
             String newPassword = updatePassword(userId);
-            sendMail(email, newPassword);
+            sendMail(email, newPassword, "students");
             return new ResponseEntity<Void>(HttpStatus.OK);
         } else {
             return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
@@ -200,7 +200,7 @@ public class ForgotPasswordController {
         if(isTutorEmailActive(email).equals(email)){
             int userId = getUserId(email);
             String newPassword = updatePassword(userId);
-            sendMail(email, newPassword);
+            sendMail(email, newPassword, "tutors");
             return new ResponseEntity<Void>(HttpStatus.OK);
         } else {
             return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
