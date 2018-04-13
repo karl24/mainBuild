@@ -124,6 +124,7 @@ public class StudentController extends UserController{
                     s.setPasshash(u.getPasshash());
                     s.setEmail(u.getEmail());
                     s.setUserName(u.getUserName());
+                    s.setSubjects(u.getSubjects());
                 }
             }
         }
@@ -165,6 +166,7 @@ public class StudentController extends UserController{
                     s.setEmail(u.getEmail());
                     s.setUserName(u.getUserName());
                     s.setSalt(u.getSalt());
+                    s.setSubjects(u.getSubjects());
                 }
             }
         }
@@ -189,7 +191,7 @@ public class StudentController extends UserController{
     public ResponseEntity<StudentDataModel> insertStudent(@RequestBody StudentDataModel s) {
 
 
-        insertUserIntoDB(s.getUserName(),s.getEmail(),s.getSalt(),s.getPasshash(),s.getUserType());
+        insertUserIntoDB(s.getUserName(),s.getEmail(),s.getSalt(),s.getPasshash(),s.getUserType(),s.getSubjects());
         ArrayList<UserDataModel> users = getActiveUsersFromDB();
         for(UserDataModel user : users) {
             if(user.getUserName().equals(s.getUserName()))
@@ -206,7 +208,7 @@ public class StudentController extends UserController{
 
 
             updateStudentFromDB(id,s.getLegalFirstName(),s.getLegalLastName(),s.getBio(),s.getMajor(),s.getMinor(),s.getImg(),s.isActive());
-            updateUserFromDB(id,s.getUserName(),s.getEmail(),s.getSalt(),s.getPasshash(),s.getUserType());
+            updateUserFromDB(id,s.getUserName(),s.getEmail(),s.getSalt(),s.getPasshash(),s.getUserType(),s.getSubjects());
             return new ResponseEntity<>(HttpStatus.OK);
 
 

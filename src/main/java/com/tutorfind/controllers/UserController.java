@@ -28,8 +28,16 @@ public abstract class UserController {
             ArrayList<UserDataModel> output = new ArrayList();
 
             while (rs.next()) {
-                output.add(new UserDataModel(rs.getInt("userId"), rs.getString("userName"), rs.getString("email"),
-                        rs.getString("salt"), rs.getString("passhash"), rs.getString("userType")));
+                String subjectsString = rs.getString("subjects");
+
+                    String[] subjects = subjectsString.split(",");
+                    subjects[0] = subjects[0].substring(1);
+                    subjects[subjects.length-1] = subjects[subjects.length-1].substring(0, subjects[subjects.length-1].length()-1);
+
+
+                    output.add(new UserDataModel(rs.getInt("userId"), rs.getString("userName"), rs.getString("email"),
+                            rs.getString("salt"), rs.getString("passhash"), rs.getString("userType"),subjects));
+
             }
 
             return output;
@@ -43,16 +51,17 @@ public abstract class UserController {
 
 
 
-    public void insertUserIntoDB(String  userName, String email, String salt, String passhash, String userType){
+    public void insertUserIntoDB(String  userName, String email, String salt, String passhash, String userType, String[] subjects){
         try (Connection connection = dataSource.getConnection()) {
-
-            String query = "insert into users VALUES (DEFAULT,?,?,gen_salt('bf'),crypt(?,gen_salt('bf')),?)";
+            final java.sql.Array sqlArray = connection.createArrayOf("VARCHAR", subjects);
+            String query = "insert into users VALUES (DEFAULT,?,?,gen_salt('bf'),crypt(?,gen_salt('bf')),?,?)";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
 
             preparedStatement.setString(1, userName);
             preparedStatement.setString(2, email);
             preparedStatement.setString(3, passhash);
             preparedStatement.setString(4, userType);
+            preparedStatement.setArray(5,sqlArray);
             preparedStatement.executeUpdate();
             connection.close();
 
@@ -63,17 +72,19 @@ public abstract class UserController {
         }
     }
 
-    public void updateUserFromDB(int userId,String username, String email, String salt, String passhash, String usertype){
+    public void updateUserFromDB(int userId,String username, String email, String salt, String passhash, String usertype, String[] subjects){
         try (Connection connection = dataSource.getConnection()) {
-            //Statement stmt = connection.createStatement();
-            String query = "update users set username = ?, email = ?, salt = ?, passhash = ?, usertype = ? where userId = ?";
+            final java.sql.Array sqlArray = connection.createArrayOf("varchar", subjects);
+            String query = "update users set username = ?, email = ?, salt = ?, passhash = ?, usertype = ?, subjects = ? where userId = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1,username);
             preparedStatement.setString(2,email);
             preparedStatement.setString(3,salt);
             preparedStatement.setString(4,passhash);
             preparedStatement.setString(5,usertype);
-            preparedStatement.setInt(6,userId);
+            preparedStatement.setArray(6, sqlArray);
+            preparedStatement.setInt(7,userId);
+
             preparedStatement.executeUpdate();
             connection.close();
 

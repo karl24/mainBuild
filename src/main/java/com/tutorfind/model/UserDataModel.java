@@ -1,5 +1,6 @@
 package com.tutorfind.model;
 
+import java.util.Arrays;
 import java.util.Objects;
 
 public class UserDataModel {
@@ -10,14 +11,16 @@ public class UserDataModel {
     private String salt;
     private String passhash;
     private String userType;
+    private String[] subjects;
 
-    public UserDataModel(int userId, String userName, String email, String salt, String passhash, String userType) {
+    public UserDataModel(int userId, String userName, String email, String salt, String passhash, String userType, String[] subjects) {
         this.userId = userId;
         this.userName = userName;
         this.email = email;
         this.salt = salt;
         this.passhash = passhash;
         this.userType = userType;
+        this.subjects = subjects;
     }
     
     public UserDataModel() {}
@@ -70,6 +73,14 @@ public class UserDataModel {
         this.userType = userType;
     }
 
+    public String[] getSubjects() {
+        return subjects;
+    }
+
+    public void setSubjects(String[] subjects) {
+        this.subjects = subjects;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -80,24 +91,27 @@ public class UserDataModel {
                 Objects.equals(email, that.email) &&
                 Objects.equals(salt, that.salt) &&
                 Objects.equals(passhash, that.passhash) &&
-                Objects.equals(userType, that.userType);
+                Objects.equals(userType, that.userType) &&
+                Arrays.equals(subjects, that.subjects);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(userId, userName, email, salt, passhash, userType);
+        int result = Objects.hash(userId, userName, email, salt, passhash, userType);
+        result = 31 * result + Arrays.hashCode(subjects);
+        return result;
     }
 
     @Override
     public String toString() {
-
-        return
-                "userId=" + userId +
+        return  "userId=" + userId +
                 ", userName='" + userName + '\'' +
                 ", email='" + email + '\'' +
                 ", salt='" + salt + '\'' +
                 ", passhash='" + passhash + '\'' +
-                ", userType='" + userType + '\'';
+                ", userType='" + userType + '\'' +
+                ", subjects=" + Arrays.toString(subjects) +
+                '}';
     }
 }
