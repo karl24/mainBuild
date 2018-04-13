@@ -106,7 +106,7 @@ public class ForgotPasswordController {
 
     private String getFirstName(String email){
         try (Connection connection = dataSource.getConnection()) {
-            String query = "SELECT tutors.legalfirstname FROM tutors inner join users WHERE tutors.userId = users.userId AND email = ?";
+            String query = "SELECT tutors.legalfirstname FROM tutors inner join users ON tutors.userId = users.userId WHERE users.email = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, email);
 
