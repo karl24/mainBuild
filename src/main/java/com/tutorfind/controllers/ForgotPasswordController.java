@@ -104,6 +104,27 @@ public class ForgotPasswordController {
         return 0;
     }
 
+    private String getFirstName(String email){
+        try (Connection connection = dataSource.getConnection()) {
+            String query = "SELECT tutors.legalfirstname FROM tutors inner join users WHERE tutors.userId = users.userId AND email = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, email);
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+
+            if(rs.next()){
+                return rs.getString("legalFirstName");
+            }
+            connection.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
     private String updatePassword(int userId){
         String newPassword = getRandomPassword();
 
@@ -147,7 +168,7 @@ public class ForgotPasswordController {
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(email));
             message.setSubject("Testing Subject");
-            message.setText("Dear someone,"
+            message.setText("Dear " + getFirstName(email) + ", "
                     + "\n\n Your new password is: " + newPassword);
 
             Transport.send(message);
