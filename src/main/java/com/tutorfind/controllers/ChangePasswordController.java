@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -45,18 +46,42 @@ public class ChangePasswordController extends UserController{
 
     @RequestMapping(value = "{id}", method = {RequestMethod.POST})
     public ResponseEntity<Void> createStudentNewPassword(@PathVariable("id") int id, @RequestBody StudentDataModel s, @RequestParam(value = "oldpassword") String password) {
-        ArrayList<UserDataModel> users = getActiveUsersFromDB();
-        for(UserDataModel user : users){
-            if(user.getUserId() == id){
-                if(user.getPasshash().equals(password)){
-                    updatePassword(s.getPasshash(),s.getUserId());
-                    return new ResponseEntity<>(HttpStatus.OK);
+        try (Connection connection = dataSource.getConnection()) {
+
+            String sql = "SELECT userId, passhash = crypt(?, passhash) as pass, passhash from users where passhash = crypt(?, passhash) AND userId = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(2, password);
+            preparedStatement.setString(1, password);
+            preparedStatement.setInt(3, id);
+            ResultSet rs = preparedStatement.executeQuery();
+
+
+
+            while(rs.next()){
+                ArrayList<UserDataModel> users = getActiveUsersFromDB();
+                for(UserDataModel user : users){
+                    if(user.getUserId() == id){
+                            updatePassword(s.getPasshash(),s.getUserId());
+                            return new ResponseEntity<>(HttpStatus.OK);
+
+                    }
                 }
             }
+
+
+
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+
         }
 
+
+
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        
+
     }
 
 }
