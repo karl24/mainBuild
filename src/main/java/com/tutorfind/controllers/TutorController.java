@@ -247,7 +247,7 @@ public class TutorController extends UserController{
     public ResponseEntity<TutorsDataModel> updateTutor(@PathVariable("tutorId") int id, @RequestBody TutorsDataModel t) {
 
         updateTutorsFromDB(id,t.getLegalFirstName(),t.getLegalLastName(),t.getBio(),t.getDegrees(),t.getLinks(),t.getImg(),t.getActive(),t.getTimestamp(),t.getRatings());
-        updateUserFromDB(id,t.getUserName(),t.getEmail(),t.getSalt(),t.getPasshash(),t.getUserType(),t.getSubjects());
+        updateUserFromDB(id,t.getUserName(),t.getEmail(),t.getUserType(),t.getSubjects());
         return new ResponseEntity<>(HttpStatus.OK);
 
 
