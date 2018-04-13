@@ -44,8 +44,8 @@ public class ChangePasswordController extends UserController{
 
 
 
-    @RequestMapping(value = "{id}", method = {RequestMethod.POST})
-    public ResponseEntity<Void> createStudentNewPassword(@PathVariable("id") int id, @RequestBody StudentDataModel s, @RequestParam(value = "oldpassword") String password) {
+    @RequestMapping(value = "{id}/{oldpassword}", method = {RequestMethod.POST})
+    public ResponseEntity<Void> changePassword(@PathVariable("id") int id, @RequestBody StudentDataModel s, @PathVariable("oldpassword") String password) {
         try (Connection connection = dataSource.getConnection()) {
 
             String sql = "SELECT userId, passhash = crypt(?, passhash) as pass, passhash from users where passhash = crypt(?, passhash) AND userId = ?";
