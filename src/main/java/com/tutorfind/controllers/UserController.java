@@ -72,18 +72,16 @@ public abstract class UserController {
         }
     }
 
-    public void updateUserFromDB(int userId,String username, String email, String salt, String passhash, String usertype, String[] subjects){
+    public void updateUserFromDB(int userId,String username, String email, String usertype, String[] subjects){
         try (Connection connection = dataSource.getConnection()) {
             final java.sql.Array sqlArray = connection.createArrayOf("varchar", subjects);
-            String query = "update users set username = ?, email = ?, salt = ?, passhash = ?, usertype = ?, subjects = ? where userId = ?";
+            String query = "update users set username = ?, email = ?,usertype = ?, subjects = ? where userId = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1,username);
             preparedStatement.setString(2,email);
-            preparedStatement.setString(3,salt);
-            preparedStatement.setString(4,passhash);
-            preparedStatement.setString(5,usertype);
-            preparedStatement.setArray(6, sqlArray);
-            preparedStatement.setInt(7,userId);
+            preparedStatement.setString(3,usertype);
+            preparedStatement.setArray(4, sqlArray);
+            preparedStatement.setInt(5,userId);
 
             preparedStatement.executeUpdate();
             connection.close();
