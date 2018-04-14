@@ -146,8 +146,8 @@ public class ForgotPasswordController {
     }
 
     private  ResponseEntity<Void> sendMail(String email, String newPassword, String table) {
-        final String username = "karl24fernando@gmail.com";
-        final String password = "karlfernando24";
+        final String username = "tutorfindapp@gmail.com";
+        final String password = "y2xzIhJQzk2g";
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
@@ -164,10 +164,10 @@ public class ForgotPasswordController {
         try {
 
             Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress("karl24fernando@gmail.com"));
+            message.setFrom(new InternetAddress("tutorfindapp@gmail.com"));
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(email));
-            message.setSubject("Testing Subject");
+            message.setSubject("New Password");
             message.setText("Dear " + getFirstName(email,table) + ", "
                     + "\n\n Your new password is: " + newPassword);
 
