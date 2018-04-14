@@ -199,6 +199,7 @@ public class TutorController extends UserController{
                                 tutor.setSalt(u.getSalt());
                                 tutor.setUserType(u.getUserType());
                                 tutor.setPasshash(u.getPasshash());
+                                tutor.setSubjects(u.getSubjects());
                                 output.add(tutor);
 
                             }
