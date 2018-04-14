@@ -230,10 +230,15 @@ public class TutorController extends UserController{
 
     @RequestMapping(method = {RequestMethod.PUT})
     public ResponseEntity<TutorsDataModel> insertTutor(@RequestBody TutorsDataModel t) {
-
+        ArrayList<UserDataModel> users = getActiveUsersFromDB();
+        for(UserDataModel user : users){
+            if(user.getUserName().equals(t.getUserName()) || user.getEmail().equals(t.getEmail())){
+                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            }
+        }
 
         insertUserIntoDB(t.getUserName(),t.getEmail(),t.getSalt(),t.getPasshash(),t.getUserType(),t.getSubjects());
-        ArrayList<UserDataModel> users = getActiveUsersFromDB();
+        users = getActiveUsersFromDB();
         for(UserDataModel user : users){
             if(user.getUserName().equals(t.getUserName()))
                 insertTutorIntoDB(user.getUserId(),t.getLegalFirstName(),t.getLegalLastName(),t.getBio(),t.getDegrees(),t.getLinks(),t.getImg(),t.getActive(),t.getTimestamp(),t.getRatings());
