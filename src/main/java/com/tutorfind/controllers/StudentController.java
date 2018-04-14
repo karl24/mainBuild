@@ -189,10 +189,14 @@ public class StudentController extends UserController{
 
     @RequestMapping(method = {RequestMethod.PUT}, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<StudentDataModel> insertStudent(@RequestBody StudentDataModel s) {
-
-
-        insertUserIntoDB(s.getUserName(),s.getEmail(),s.getSalt(),s.getPasshash(),s.getUserType(),s.getSubjects());
         ArrayList<UserDataModel> users = getActiveUsersFromDB();
+        for(UserDataModel user : users){
+            if(user.getUserName().equals(s.getUserName()) || user.getEmail().equals(s.getEmail())){
+                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            }
+        }
+        insertUserIntoDB(s.getUserName(),s.getEmail(),s.getSalt(),s.getPasshash(),s.getUserType(),s.getSubjects());
+        users = getActiveUsersFromDB();
         for(UserDataModel user : users) {
             if(user.getUserName().equals(s.getUserName()))
                 insertStudentIntoDB(user.getUserId(),s.getLegalFirstName(), s.getLegalLastName(), s.getBio(), s.getMajor(), s.getMinor(), s.getImg(), s.isActive(), s.getCreationDate());
