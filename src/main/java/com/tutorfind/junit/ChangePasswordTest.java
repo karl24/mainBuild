@@ -1,4 +1,5 @@
 package com.tutorfind.junit;
+
 import com.tutorfind.controllers.ChangePasswordController;
 import com.tutorfind.model.StudentDataModel;
 import org.junit.Test;
@@ -32,9 +33,9 @@ public class ChangePasswordTest {
         StudentDataModel s= new StudentDataModel();
         s.setUserId(1);
         s.setActive(Boolean.TRUE);
-        s.setLegalFirstName("Zeeshan");
-        s.setLegalLastName("Naeem");
-        s.setMajor("Major");
+        s.setLegalFirstName("John");
+        s.setLegalLastName("Youssefi");
+        s.setMajor("CIS");
 
 
         HttpEntity<StudentDataModel> entity = new HttpEntity<StudentDataModel>(s, headers);

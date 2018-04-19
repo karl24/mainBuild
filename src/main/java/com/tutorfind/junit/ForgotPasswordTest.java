@@ -1,6 +1,5 @@
 package com.tutorfind.junit;
 
-
 import com.tutorfind.controllers.ForgotPasswordController;
 import org.json.JSONException;
 import org.junit.Test;

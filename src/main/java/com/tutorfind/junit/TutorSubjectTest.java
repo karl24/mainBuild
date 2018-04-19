@@ -1,10 +1,6 @@
 package com.tutorfind.junit;
 
-import static org.junit.Assert.assertTrue;
-
-import java.util.Arrays;
-
-import com.tutorfind.controllers.*;
+import com.tutorfind.controllers.TutorSubjectController;
 import org.json.JSONException;
 import org.junit.Test;
 import org.junit.runner.RunWith;

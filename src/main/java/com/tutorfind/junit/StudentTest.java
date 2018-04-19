@@ -1,17 +1,10 @@
 package com.tutorfind.junit;
 
 
-import static org.junit.Assert.assertTrue;
-
-import java.util.Arrays;
-
-import com.tutorfind.controllers.ForgotPasswordController;
-import com.tutorfind.controllers.PostController;
 import com.tutorfind.controllers.StudentController;
 import com.tutorfind.model.StudentDataModel;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.skyscreamer.jsonassert.JSONAssert;
 import org.springframework.boot.context.embedded.LocalServerPort;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
@@ -20,6 +13,8 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import static org.junit.Assert.assertTrue;
 
 
 @RunWith(SpringRunner.class)
@@ -39,9 +34,9 @@ public class StudentTest {
         StudentDataModel s= new StudentDataModel();
         s.setUserId(1);
         s.setActive(Boolean.TRUE);
-        s.setLegalFirstName("Zeeshan");
-        s.setLegalLastName("Naeem");
-        s.setMajor("Major");
+        s.setLegalFirstName("John");
+        s.setLegalLastName("Youssefi");
+        s.setMajor("CIS");
 
 
         HttpEntity<StudentDataModel> entity = new HttpEntity<StudentDataModel>(s, headers);

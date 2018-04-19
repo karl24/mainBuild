@@ -39,8 +39,6 @@ public class PostTest {
         JSONAssert.assertEquals(expected, response.getBody(), false);
     }
 
-
-
     private String createURLWithPort(String uri) {
         return "http://localhost:" + port + uri;
     }

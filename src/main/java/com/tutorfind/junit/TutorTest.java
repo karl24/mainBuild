@@ -1,12 +1,5 @@
 package com.tutorfind.junit;
 
-import static org.junit.Assert.assertEquals;
-
-import java.util.Arrays;
-
-import com.tutorfind.controllers.ForgotPasswordController;
-import com.tutorfind.controllers.PostController;
-import com.tutorfind.controllers.StudentPostController;
 import com.tutorfind.controllers.TutorController;
 import org.json.JSONException;
 import org.junit.Test;
