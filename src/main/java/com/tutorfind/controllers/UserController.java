@@ -27,18 +27,7 @@ public abstract class UserController {
 
             ArrayList<UserDataModel> output = new ArrayList();
 
-            while (rs.next()) {
-                String subjectsString = rs.getString("subjects");
-
-                    String[] subjects = subjectsString.split(",");
-                    subjects[0] = subjects[0].substring(1);
-                    subjects[subjects.length-1] = subjects[subjects.length-1].substring(0, subjects[subjects.length-1].length()-1);
-
-
-                    output.add(new UserDataModel(rs.getInt("userId"), rs.getString("userName"), rs.getString("email"),
-                            rs.getString("salt"), rs.getString("passhash"), rs.getString("userType"),subjects));
-
-            }
+            getUsers(rs, output);
 
             return output;
 
@@ -93,6 +82,18 @@ public abstract class UserController {
 
         }
     }
+    protected static void getUsers(ResultSet rs, ArrayList<UserDataModel> output) throws SQLException {
+        while (rs.next()) {
+            String subjectsString = rs.getString("subjects");
 
+            String[] subjects = subjectsString.split(",");
+            subjects[0] = subjects[0].substring(1);
+            subjects[subjects.length-1] = subjects[subjects.length-1].substring(0, subjects[subjects.length-1].length()-1);
+
+            output.add(new UserDataModel(rs.getInt("userId"), rs.getString("userName"), rs.getString("email"),
+                    rs.getString("salt"), rs.getString("passhash"), rs.getString("userType"),subjects));
+
+        }
+    }
 
 }
