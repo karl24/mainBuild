@@ -1,8 +1,10 @@
 package com.tutorfind.controllers;
 
+import org.springframework.web.bind.annotation.*;
+import org.springframework.http.*;
+
 import com.tutorfind.model.UserDataModel;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RestController;
 
 import javax.sql.DataSource;
 import java.security.SecureRandom;
@@ -10,6 +12,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.Random;
 
+@CrossOrigin
 @RestController
 public abstract class UserController {
 
@@ -30,13 +33,13 @@ public abstract class UserController {
             while (rs.next()) {
                 String subjectsString = rs.getString("subjects");
 
-                    String[] subjects = subjectsString.split(",");
-                    subjects[0] = subjects[0].substring(1);
-                    subjects[subjects.length-1] = subjects[subjects.length-1].substring(0, subjects[subjects.length-1].length()-1);
+                String[] subjects = subjectsString.split(",");
+                subjects[0] = subjects[0].substring(1);
+                subjects[subjects.length-1] = subjects[subjects.length-1].substring(0, subjects[subjects.length-1].length()-1);
 
 
-                    output.add(new UserDataModel(rs.getInt("userId"), rs.getString("userName"), rs.getString("email"),
-                            rs.getString("salt"), rs.getString("passhash"), rs.getString("userType"),subjects));
+                output.add(new UserDataModel(rs.getInt("userId"), rs.getString("userName"), rs.getString("email"),
+                        rs.getString("salt"), rs.getString("passhash"), rs.getString("userType"),subjects));
 
             }
 
@@ -90,8 +93,31 @@ public abstract class UserController {
         } catch (SQLException e) {
             e.printStackTrace();
 
+        }
+    }
+
+    public void makeAdmin(int userId){
+        try (Connection connection = dataSource.getConnection()) {
+            String query = "UPDATE users SET usertype = 'admin' WHERE userId = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, userId);
+
+            preparedStatement.executeUpdate();
+            connection.close();
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
 
         }
+    }
+
+    @RequestMapping(value = "users/makeadmin/{userId}", method = {RequestMethod.POST})
+    public ResponseEntity<UserDataModel> makeUserAdmin(@PathVariable("userId") int id) {
+
+        makeAdmin(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+
     }
 
 
