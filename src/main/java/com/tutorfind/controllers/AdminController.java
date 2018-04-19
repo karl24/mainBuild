@@ -39,6 +39,23 @@ public class AdminController extends UserController{
         }
     }
 
+    public String getUserType(int id){
+        try(Connection connection = dataSource.getConnection()){
+            String sql = "select usertype from users where userid = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1,id);
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while(rs.next()) {
+                return rs.getString("usertype");
+            }
+
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     @RequestMapping(value = "login", method = {RequestMethod.POST})
     public UserDataModel loginAdmin(@RequestBody UserDataModel u){
         ArrayList<UserDataModel> users = getActiveUsersFromDB();
@@ -73,28 +90,78 @@ public class AdminController extends UserController{
 
     @RequestMapping(value = "updateUserType/{userid}", method = {RequestMethod.POST})
     public ResponseEntity<UserDataModel> updateUserType(@PathVariable("userid") int id, @RequestBody UserDataModel u) {
+        try {
+            String usertype = getUserType(id);
+            if(usertype.equalsIgnoreCase("student"))
+               updateUserFromStudentTable(false,id);
+            else if(usertype.equalsIgnoreCase("tutor"))
+                updateUserFromTutorTable(false,id);
+            else if(usertype.equalsIgnoreCase("admin")){
+                if(u.getUserType().equalsIgnoreCase("student"))
+                   updateUserFromStudentTable(true,id);
+                else
+                    updateUserFromTutorTable(true,id);
+            }
+            updateUserTypeFromDB(u.getUserType(), id);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }catch(IllegalArgumentException e){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
 
-        updateUserTypeFromDB(u.getUserType(),id);
-        return new ResponseEntity<>(HttpStatus.OK);
 
 
     }
-    public void updateUserTypeFromDB(String usertype, int userId){
-        try (Connection connection = dataSource.getConnection()) {
 
-            String query = "update users set usertype = ? where userId = ?";
+    public void updateUserFromTutorTable(boolean active, int id){
+        try (Connection connection = dataSource.getConnection()){
+            String query = "update tutors set active = ? where userId = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1,usertype);
-            preparedStatement.setInt(2,userId);
-
+            preparedStatement.setBoolean(1,active);
+            preparedStatement.setInt(2,id);
             preparedStatement.executeUpdate();
             connection.close();
-
-
-        } catch (SQLException e) {
+        }catch(SQLException e){
             e.printStackTrace();
+        }
+    }
 
 
+    public void updateUserFromStudentTable(boolean active, int id){
+        try (Connection connection = dataSource.getConnection()){
+            String query = "update students set active = ? where userId = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setBoolean(1,active);
+            preparedStatement.setInt(2,id);
+            preparedStatement.executeUpdate();
+            connection.close();
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+
+
+
+    public void updateUserTypeFromDB(String usertype, int userId){
+        if(usertype.equalsIgnoreCase("admin") || usertype.equalsIgnoreCase("student") || usertype.equalsIgnoreCase("tutor")) {
+            try (Connection connection = dataSource.getConnection()) {
+
+                String query = "update users set usertype = ? where userId = ?";
+                PreparedStatement preparedStatement = connection.prepareStatement(query);
+                preparedStatement.setString(1, usertype);
+                preparedStatement.setInt(2, userId);
+
+                preparedStatement.executeUpdate();
+                connection.close();
+
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+
+
+            }
+        }else {
+            throw new IllegalArgumentException();
         }
     }
 
