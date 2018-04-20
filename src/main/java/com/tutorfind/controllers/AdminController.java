@@ -112,15 +112,23 @@ public class AdminController extends UserController{
         }else {
             try {
                 String usertype = getUserType(id);
-                if (usertype.equalsIgnoreCase("student"))
+                if (usertype.equalsIgnoreCase("student")) {
                     updateUserFromStudentTable(false, id);
-                else if (usertype.equalsIgnoreCase("tutor"))
+                    updatePostFromPostTable(false,id);
+                }
+                else if (usertype.equalsIgnoreCase("tutor")) {
                     updateUserFromTutorTable(false, id);
+                    updatePostFromPostTable(false,id);
+                }
                 else if (usertype.equalsIgnoreCase("admin")) {
-                    if (u.getUserType().equalsIgnoreCase("student"))
+                    if (u.getUserType().equalsIgnoreCase("student")) {
                         updateUserFromStudentTable(true, id);
-                    else
+                        updatePostFromPostTable(true,id);
+                    }
+                    else {
                         updateUserFromTutorTable(true, id);
+                        updatePostFromPostTable(true, id);
+                    }
                 }
                 updateUserTypeFromDB(u.getUserType(), id);
                 return new ResponseEntity<>(HttpStatus.OK);
@@ -130,6 +138,19 @@ public class AdminController extends UserController{
 
         }
 
+    }
+
+    public void updatePostFromPostTable(boolean active, int id){
+        try (Connection connection = dataSource.getConnection()) {
+            String query = "update posts set active = ? where ownerId = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setBoolean(1,active);
+            preparedStatement.setInt(2,id);
+            preparedStatement.executeUpdate();
+            connection.close();
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
     }
 
     public void updateUserFromTutorTable(boolean active, int id){
