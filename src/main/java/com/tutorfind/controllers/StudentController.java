@@ -153,7 +153,7 @@ public class StudentController extends UserController{
     StudentDataModel printStudent(HttpServletResponse response, @CookieValue(value = "email", defaultValue = "") String email,
                                   @PathVariable("id") int userId) {
 
-
+        StudentDataModel student = new StudentDataModel();
 
 
         ArrayList<StudentDataModel> students = getStudentsFromDB();
@@ -171,18 +171,22 @@ public class StudentController extends UserController{
             }
         }
 
-        for (StudentDataModel student : students) {
+        for (StudentDataModel s : students) {
 
 
-            if(student.getUserId() == userId) {
+            if(s.getUserId() == userId) {
                 Cookie cookie = new Cookie("email",student.getEmail());
                 response.addCookie(cookie);
-                return student;
+                student = s;
             }
         }
 
+        if (student.getUserName() == null){
+            throw new ResourceNotFoundException();
+        }else {
 
-        return null;
+            return student;
+        }
 
     }
 
