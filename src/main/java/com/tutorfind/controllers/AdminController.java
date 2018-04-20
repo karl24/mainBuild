@@ -90,25 +90,28 @@ public class AdminController extends UserController{
 
     @RequestMapping(value = "updateUserType/{userid}", method = {RequestMethod.POST})
     public ResponseEntity<UserDataModel> updateUserType(@PathVariable("userid") int id, @RequestBody UserDataModel u) {
-        try {
-            String usertype = getUserType(id);
-            if(usertype.equalsIgnoreCase("student"))
-               updateUserFromStudentTable(false,id);
-            else if(usertype.equalsIgnoreCase("tutor"))
-                updateUserFromTutorTable(false,id);
-            else if(usertype.equalsIgnoreCase("admin")){
-                if(u.getUserType().equalsIgnoreCase("student"))
-                   updateUserFromStudentTable(true,id);
-                else
-                    updateUserFromTutorTable(true,id);
-            }
-            updateUserTypeFromDB(u.getUserType(), id);
-            return new ResponseEntity<>(HttpStatus.OK);
-        }catch(IllegalArgumentException e){
+        if(id != u.getUserId()){
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }else {
+            try {
+                String usertype = getUserType(id);
+                if (usertype.equalsIgnoreCase("student"))
+                    updateUserFromStudentTable(false, id);
+                else if (usertype.equalsIgnoreCase("tutor"))
+                    updateUserFromTutorTable(false, id);
+                else if (usertype.equalsIgnoreCase("admin")) {
+                    if (u.getUserType().equalsIgnoreCase("student"))
+                        updateUserFromStudentTable(true, id);
+                    else
+                        updateUserFromTutorTable(true, id);
+                }
+                updateUserTypeFromDB(u.getUserType(), id);
+                return new ResponseEntity<>(HttpStatus.OK);
+            } catch (IllegalArgumentException e) {
+                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            }
+
         }
-
-
 
     }
 
