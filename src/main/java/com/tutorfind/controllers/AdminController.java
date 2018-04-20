@@ -5,6 +5,7 @@ import com.tutorfind.exceptions.ResourceNotFoundException;
 import com.tutorfind.model.UserDataModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -85,6 +86,22 @@ public class AdminController extends UserController{
             return null;
 
         }
+
+    }
+
+    @RequestMapping(method = {RequestMethod.PUT}, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<UserDataModel> insertAdmin(@RequestBody UserDataModel u) {
+        ArrayList<UserDataModel> users = getActiveUsersFromDB();
+        for(UserDataModel user : users){
+            if(user.getUserName().equals(u.getUserName()) || user.getEmail().equals(u.getEmail())){
+                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            }
+        }
+        insertUserIntoDB(u.getUserName(),u.getEmail(),u.getSalt(),u.getPasshash(),u.getUserType(),u.getSubjects());
+
+        return new ResponseEntity<>(HttpStatus.OK);
+
+
 
     }
 
@@ -169,5 +186,28 @@ public class AdminController extends UserController{
     }
 
 
+    @RequestMapping(value = "{id}", method = RequestMethod.GET)
+    public @ResponseBody
+    UserDataModel printStudent(@PathVariable("id") int userId) {
+
+        ArrayList<UserDataModel> users = getAdminFromDB();
+
+        for(UserDataModel u : users) {
+            if(u.getUserId() == userId){
+                return u;
+            }
+        }
+
+        return null;
+
+    }
+
+    @RequestMapping(method = RequestMethod.GET)
+    public @ResponseBody
+    ArrayList<UserDataModel> printUsers(){
+
+        return getAdminFromDB();
+
+    }
 
 }
