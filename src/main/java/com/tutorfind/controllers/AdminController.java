@@ -25,7 +25,7 @@ public class AdminController extends UserController{
         try (Connection connection = dataSource.getConnection()) {
             Statement stmt = connection.createStatement();
 
-            ResultSet rs = stmt.executeQuery("SELECT * FROM users WHERE userType = 'admin' ORDER BY creationdate DESC");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM users WHERE userType = 'admin'");
 
             ArrayList<UserDataModel> output = new ArrayList();
 
