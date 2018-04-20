@@ -147,29 +147,36 @@ public class TutorController extends UserController{
     @RequestMapping(value = "{id}",method = RequestMethod.GET)
     public @ResponseBody TutorsDataModel printTutor(@PathVariable("id") int id) {
 
+        TutorsDataModel tutor = new TutorsDataModel();
+
         ArrayList<TutorsDataModel> tutors = getActiveTutorsFromDB();
         ArrayList<UserDataModel> users = getActiveUsersFromDB();
 
-        for(TutorsDataModel tutor : tutors){
+        for(TutorsDataModel t : tutors){
             for(UserDataModel user : users){
-                if(tutor.getUserId() == user.getUserId()){
-                    tutor.setUserType(user.getUserType());
-                    tutor.setPasshash(user.getPasshash());
-                    tutor.setSalt(user.getSalt());
-                    tutor.setUserName(user.getUserName());
-                    tutor.setEmail(user.getEmail());
-                    tutor.setSubjects(user.getSubjects());
+                if(t.getUserId() == user.getUserId()){
+                    t.setUserType(user.getUserType());
+                    t.setPasshash(user.getPasshash());
+                    t.setSalt(user.getSalt());
+                    t.setUserName(user.getUserName());
+                    t.setEmail(user.getEmail());
+                    t.setSubjects(user.getSubjects());
                 }
             }
 
         }
 
-        for(TutorsDataModel tutor : tutors){
-            if(tutor.getUserId() == id){
-                return tutor;
+        for(TutorsDataModel t : tutors){
+            if(t.getUserId() == id){
+                tutor = t;
             }
         }
-        return null;
+        if(tutor.getUserName() == null) {
+            throw new ResourceNotFoundException();
+        }else {
+            return tutor;
+        }
+       
 
     }
 
