@@ -9,17 +9,18 @@ GRANT ALL PRIVILEGES ON DATABASE tutortestdb TO ahardy; --change to your user na
 --2.1) Create first set of tables
 
 CREATE TABLE users(
-    userId SERIAL,
-    userName VARCHAR(256),
-    email VARCHAR(256),
-    salt VARCHAR(256),
-    passHash VARCHAR(256),
-    userType VARCHAR(8),
+    userId SERIAL NOT NULL,
+    userName VARCHAR(256) UNIQUE NOT NULL,
+    email VARCHAR(256) UNIQUE NOT NULL,
+    salt VARCHAR(256) NOT NULL,
+    passHash VARCHAR(256) NOT NULL,
+    userType VARCHAR(8) NOT NULL,
+    subjects VARCHAR[],
     PRIMARY KEY (userId)
 );
 
 CREATE TABLE tutors(
-    userId int,
+    userId INT NOT NULL,
     legalFirstName VARCHAR(256),
     legalLastName VARCHAR(256),
     bio VARCHAR(256),
@@ -29,11 +30,11 @@ CREATE TABLE tutors(
     active BOOLEAN,
     creationDate TIMESTAMP,
     rating integer[],
-    PRIMARY KEY (userId)
+    FOREIGN KEY (userId) REFERENCES users (userId)
 );
     
 CREATE TABLE students(
-    userId INT,
+    userId INT NOT NULL,
     legalFirstName VARCHAR(256),
     legalLastName VARCHAR(256),
     bio VARCHAR(256),
@@ -42,13 +43,13 @@ CREATE TABLE students(
     img VARCHAR(256),
     active BOOLEAN,
     creationDate TIMESTAMP,
-    PRIMARY KEY (userId)
+    FOREIGN KEY (userId) REFERENCES users (userId)
 );
 
 --2.2) Create second set of tables
 
 CREATE TABLE posts(
-    postId SERIAL,
+    postId SERIAL NOT NULL,
     posterType VARCHAR(16),
     ownerId INT,
     subject VARCHAR(64),
@@ -77,12 +78,12 @@ CREATE TABLE posts(
 
 --3.1) Insert data into tables
 
-INSERT INTO users (userName, email, salt, passHash, userType)
-VALUES ('joetest', 'joetest@gmail.com', 'asdf1234', 'asdfqwer12345678', 'student')
-    ,('susantutor', 'susantutor@yahoo.com', '4321fdsa', '87654321fdsarewq', 'tutor')
-    ,('steveadmin', 'steveadmin@gmail.com', 'trewq654321', 'asdfzxcvqwer12345678', 'admin')
-    ,('sallygamemaker', 'sallygamemaker@gmail.com', '654321yuiop', '0987poiu', 'tutor')
-    ,('jameskirk', 'captain@enterprise.com', 'star1234', 'rats4321', 'student');
+INSERT INTO users (userName, email, salt, passHash, userType, subjects)
+VALUES ('joetest', 'joetest@gmail.com', '$2a$06$g3pbxKcEzacSPdcRMXO0R.', '$2a$06$rs/x6ytn4dfMgG1L3oIrS.g3F.rb4lqDzD4IXkhOU/sTuAs019Blm', 'student', '{English,Biology,Math}')
+    ,('susantutor', 'susantutor@yahoo.com', '$2a$06$yz8Sn02hVENjJAuDeeKkIO', '$2a$06$rs/x6ytn4dfMgG1L3oIrS.g3F.rb4lqDzD4IXkhOU/sTuAs019Blm', 'tutor', '{Computer_Science}')
+    ,('steveadmin', 'steveadmin@gmail.com', '$2a$06$tbkeEJ/ww6f3l6JgaJqQlu', '$2a$06$I/wdUrsjWpMK5dNPzjxrJ.ydO6HGMEdkAAH1iey9Bb3xqWcVhdkYe', 'admin', '{Math,Biology}')
+    ,('sallygamemaker', 'sallygamemaker@gmail.com', '$2a$06$rEA98lJAlF3mV91i.efste', '$2a$06$rnWGs.cVl9aa/vdgoZvWxOfjN7NS/dGae8fqRLNhf3eghfobw6NUq', 'tutor', '{Math}')
+    ,('jameskirk', 'captain@enterprise.com', '$2a$06$67JgcEqgm3cYrZeiBumox.', '$2a$06$LWWpmrf7VOx6CAaRAiVdE.SZJQd6qXgDIjDhsof.5Ga2P.6eT1Bha', 'student', '{Physics}');
 
 INSERT INTO tutors (userId, legalFirstName, legalLastName, bio, degrees, links, img, active, creationDate, rating)
 VALUES (2, 'Susan', 'Test', 'I am an amazing tutor', 'Masters in Biology', 'www.google.com', 'https://i.imgur.com/IW0RAD8.jpg', TRUE, '2018-02-01 08:15:36', '{4,5}')
