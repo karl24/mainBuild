@@ -28,7 +28,7 @@ CREATE TABLE tutors(
     img VARCHAR(256),
     active BOOLEAN,
     creationDate TIMESTAMP,
-    rating integer[],
+    rating JSON,
     FOREIGN KEY (userId) REFERENCES users (userId)
 );
     
@@ -85,8 +85,8 @@ VALUES ('joetest', 'joetest@gmail.com', '$2a$06$g3pbxKcEzacSPdcRMXO0R.', '$2a$06
     ,('jameskirk', 'captain@enterprise.com', '$2a$06$67JgcEqgm3cYrZeiBumox.', '$2a$06$LWWpmrf7VOx6CAaRAiVdE.SZJQd6qXgDIjDhsof.5Ga2P.6eT1Bha', 'student', '{Physics}');
 
 INSERT INTO tutors (userId, legalFirstName, legalLastName, bio, degrees, links, img, active, creationDate, rating)
-VALUES (2, 'Susan', 'Test', 'I am an amazing tutor', 'Masters in Biology', 'www.google.com', 'https://i.imgur.com/IW0RAD8.jpg', TRUE, '2018-02-01 08:15:36', '{4,5}')
-    ,(4, 'Sally', 'Game-Maker', 'I like games', 'PhD in video gaming', 'www.ea.com', 'http://downdetector.com/status/ea', TRUE, '2018-09-09 09:09:09', '{1,2,3}');
+VALUES (2, 'Susan', 'Test', 'I am an amazing tutor', 'Masters in Biology', 'www.google.com', 'https://i.imgur.com/IW0RAD8.jpg', TRUE, '2018-02-01 08:15:36', '{1:5, 5:5}')
+    ,(4, 'Sally', 'Game-Maker', 'I like games', 'PhD in video gaming', 'www.ea.com', 'http://downdetector.com/status/ea', TRUE, '2018-09-09 09:09:09', '{1:4, 5:5}');
 
 INSERT INTO students (userId, legalFirstName, legalLastName, bio, major, minor, img, active, creationDate)
 VALUES (1, 'Joe', 'Test', 'I am a really cool student', 'CIS', 'Math', 'https://i.imgur.com/MU2dD8E.jpg', TRUE, '2018-02-01 09:14:28')
