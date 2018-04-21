@@ -62,7 +62,7 @@ public class AdminController extends UserController{
         ArrayList<UserDataModel> users = getActiveUsersFromDB();
         try (Connection connection = dataSource.getConnection()) {
 
-            String sql = "SELECT * from users where passhash = crypt(?, passhash) AND username = ?";
+            String sql = "SELECT * from users where passhash = crypt(?, passhash) AND username = ? AND usertype = 'admin'";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1,u.getPasshash());
             preparedStatement.setString(2,u.getUserName());
