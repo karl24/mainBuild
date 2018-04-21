@@ -13,6 +13,7 @@ import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
 
+@CrossOrigin
 @RestController
 @RequestMapping("admin")
 public class AdminController extends UserController{
