@@ -30,26 +30,11 @@ public class TutorController extends UserController{
             ArrayList<TutorsDataModel> output = new ArrayList();
 
             while (rs.next()) {
-                String ratingsString = rs.getString("rating");
-                if (ratingsString.length() != 2) {
-                    String[] r = ratingsString.split(",");
-                    Integer[] ratings = new Integer[r.length];
-                    for (int i = 0; i < r.length; i++) {
-                        if (i == 0) {
-                            ratings[i] = Integer.parseInt(r[i].substring(1));
-                        } else if (i == r.length - 1) {
-                            ratings[i] = Integer.parseInt(r[i].substring(0, 1));
-                        } else {
-                            ratings[i] = Integer.parseInt(r[i]);
-                        }
-                    }
-                    output.add(new TutorsDataModel(rs.getInt("userId"), rs.getString("legalfirstname"), rs.getString("legallastname"), rs.getString("bio"), rs.getString("degrees"), rs.getString("links"), rs.getString("img"), rs.getBoolean("active"), rs.getTimestamp("creationdate"), ratings));
 
-                }else {
-                   Integer[] ratings = new Integer[0];
-                    output.add(new TutorsDataModel(rs.getInt("userId"), rs.getString("legalfirstname"), rs.getString("legallastname"), rs.getString("bio"), rs.getString("degrees"), rs.getString("links"), rs.getString("img"), rs.getBoolean("active"), rs.getTimestamp("creationdate"), ratings));
 
-                }
+                    output.add(new TutorsDataModel(rs.getInt("userId"), rs.getString("legalfirstname"), rs.getString("legallastname"), rs.getString("bio"), rs.getString("degrees"), rs.getString("links"), rs.getString("img"), rs.getBoolean("active"), rs.getTimestamp("creationdate"), rs.getString("rating")));
+
+
 
 
             }
@@ -63,12 +48,12 @@ public class TutorController extends UserController{
     }
 
 
-    public void updateTutorsFromDB(int userId, String legalFirstName,String legalLastName, String bio, String degrees, String links,String img, boolean active, Timestamp creationdate, Integer[] ratings){
+    public void updateTutorsFromDB(int userId, String legalFirstName,String legalLastName, String bio, String degrees, String links,String img, boolean active, Timestamp creationdate,String ratings){
         try (Connection connection = dataSource.getConnection()) {
-            final java.sql.Array sqlArray = connection.createArrayOf("integer", ratings);
+
            
             //Statement stmt = connection.createStatement();
-            String query = "update tutors set legalFirstName = ?, legalLastName = ?, bio = ?, degrees = ?, links = ?, img = ?, active = ?, creationdate = ?, rating = ? where userId = ?";
+            String query = "update tutors set legalFirstName = ?, legalLastName = ?, bio = ?, degrees = ?, links = ?, img = ?, active = ?, creationdate = ?, rating = CAST(? AS JSON) where userId = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(2, legalLastName);
             preparedStatement.setString(1, legalFirstName);
@@ -78,7 +63,7 @@ public class TutorController extends UserController{
             preparedStatement.setString(6, img);
             preparedStatement.setBoolean(7,active);
             preparedStatement.setTimestamp(8, creationdate);
-            preparedStatement.setArray(9,sqlArray);
+            preparedStatement.setString(9,ratings);
             preparedStatement.setInt(10,userId);
             preparedStatement.executeUpdate();
             connection.close();
@@ -91,12 +76,12 @@ public class TutorController extends UserController{
         }
     }
 
-    public void insertTutorIntoDB(int userId, String legalFirstName,String legalLastName, String bio, String degrees, String links,String img, boolean active, Timestamp timestamp, Integer[] ratings){
+    public void insertTutorIntoDB(int userId, String legalFirstName,String legalLastName, String bio, String degrees, String links,String img, boolean active, Timestamp timestamp, String ratings){
         try (Connection connection = dataSource.getConnection()) {
             //Statement stmt = connection.createStatement();
 
-            final java.sql.Array sqlArray = connection.createArrayOf("integer", ratings);
-            String query = "insert into tutors VALUES(?,?,?,?,?,?,?,?,?,?)";
+
+            String query = "insert into tutors VALUES(?,?,?,?,?,?,?,?,?, CAST(? AS JSON))";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(3, legalLastName);
             preparedStatement.setString(2, legalFirstName);
@@ -106,7 +91,7 @@ public class TutorController extends UserController{
             preparedStatement.setString(7, img);
             preparedStatement.setBoolean(8,active);
             preparedStatement.setTimestamp(9, timestamp);
-            preparedStatement.setArray(10, sqlArray);
+            preparedStatement.setString(10, ratings);
             preparedStatement.setInt(1,userId);
 
             preparedStatement.executeUpdate();

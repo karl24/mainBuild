@@ -4,10 +4,7 @@ package com.tutorfind.model;
 Author: Bryan
  */
 
-import java.sql.Time;
 import java.sql.Timestamp;
-import java.util.Arrays;
-import java.util.Date;
 import java.util.Objects;
 
 public class TutorsDataModel extends UserDataModel{
@@ -22,9 +19,9 @@ public class TutorsDataModel extends UserDataModel{
     private String img;
     private Boolean active;
     private Timestamp timestamp;
-    private Integer[] ratings;
+    private String ratings;
 
-    public TutorsDataModel(int userId, String legalFirstName, String legalLastName, String bio, String degrees, String links, String img, Boolean active, Timestamp timestamp,  Integer[] ratings) {
+    public TutorsDataModel(int userId, String legalFirstName, String legalLastName, String bio, String degrees, String links, String img, Boolean active, Timestamp timestamp, String ratings) {
         this.userId = userId;
         this.legalFirstName = legalFirstName;
         this.legalLastName = legalLastName;
@@ -111,13 +108,14 @@ public class TutorsDataModel extends UserDataModel{
         this.timestamp = timestamp;
     }
 
-    public Integer[] getRatings() {
+    public String getRatings() {
         return ratings;
     }
 
-    public void setRatings(Integer[] ratings) {
+    public void setRatings(String ratings) {
         this.ratings = ratings;
     }
+
 
     @Override
     public boolean equals(Object o) {
@@ -134,15 +132,13 @@ public class TutorsDataModel extends UserDataModel{
                 Objects.equals(img, that.img) &&
                 Objects.equals(active, that.active) &&
                 Objects.equals(timestamp, that.timestamp) &&
-                Arrays.equals(ratings, that.ratings);
+                Objects.equals(ratings, that.ratings);
     }
 
     @Override
     public int hashCode() {
 
-        int result = Objects.hash(super.hashCode(), userId, legalFirstName, legalLastName, bio, degrees, links, img, active, timestamp);
-        result = 31 * result + Arrays.hashCode(ratings);
-        return result;
+        return Objects.hash(super.hashCode(), userId, legalFirstName, legalLastName, bio, degrees, links, img, active, timestamp, ratings);
     }
 
     @Override
@@ -157,7 +153,7 @@ public class TutorsDataModel extends UserDataModel{
                 ", img='" + img + '\'' +
                 ", active=" + active +
                 ", timestamp=" + timestamp +
-                ", ratings=" + Arrays.toString(ratings) +
+                ", ratings=" + ratings +
                 '}';
     }
 }
