@@ -261,23 +261,27 @@ public class TutorController extends UserController{
 //        updateUserFromDB(t.getUserId(),t.getUserName(),t.getEmail(),t.getUserType(),t.getSubjects());
 //        return new ResponseEntity<>(HttpStatus.OK);
         boolean badRequest = true;
-        try {
-            JSONObject jsonObj = new JSONObject(t.getRating());
-            Iterator<?> keys = jsonObj.keys();
+        ArrayList<TutorsDataModel> tutors = new ArrayList<>();
+        for( TutorsDataModel tutor : tutors) {
+            if( tutor.getUserId() == t.getUserId()) {
+                try {
+                    JSONObject jsonObj = new JSONObject(tutor.getRating());
+                    Iterator<?> keys = jsonObj.keys();
 
-            while( keys.hasNext() ) {
-                String key = (String) keys.next();
-                if(!key.equalsIgnoreCase(String.valueOf(studentId))){
-                    badRequest = false;
-                }else {
-                    badRequest = true;
-                    break;
+                    while (keys.hasNext()) {
+                        String key = (String) keys.next();
+                        if (!key.equalsIgnoreCase(String.valueOf(studentId))) {
+                            badRequest = false;
+                        } else {
+                            badRequest = true;
+                            break;
+                        }
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
             }
-        } catch (JSONException e) {
-            e.printStackTrace();
         }
-
         if(badRequest == true){
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }else {
