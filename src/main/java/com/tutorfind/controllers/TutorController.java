@@ -4,6 +4,8 @@ package com.tutorfind.controllers;
 import com.tutorfind.exceptions.ResourceNotFoundException;
 import com.tutorfind.model.TutorsDataModel;
 import com.tutorfind.model.UserDataModel;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 @CrossOrigin
 @RestController
@@ -257,8 +260,20 @@ public class TutorController extends UserController{
 //        updateTutorsFromDB(t.getUserId(),t.getLegalFirstName(),t.getLegalLastName(),t.getBio(),t.getDegrees(),t.getLinks(),t.getImg(),t.getActive(),t.getTimestamp(),t.getRating());
 //        updateUserFromDB(t.getUserId(),t.getUserName(),t.getEmail(),t.getUserType(),t.getSubjects());
 //        return new ResponseEntity<>(HttpStatus.OK);
+        try {
+            JSONObject jsonObj = new JSONObject(t.getRating());
+            Iterator<?> keys = jsonObj.keys();
 
-        return t.getRating();
+            while( keys.hasNext() ) {
+                String key = (String) keys.next();
+                if(key.equalsIgnoreCase("1")){
+                    return key;
+                }
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 }
