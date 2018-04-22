@@ -48,7 +48,7 @@ public class TutorController extends UserController{
     }
 
 
-    public void updateTutorsFromDB(int userId, String legalFirstName,String legalLastName, String bio, String degrees, String links,String img, boolean active, Timestamp creationdate,String ratings){
+    public void updateTutorsFromDB(int userId, String legalFirstName,String legalLastName, String bio, String degrees, String links,String img, boolean active, Timestamp creationdate,String rating){
         try (Connection connection = dataSource.getConnection()) {
 
            
@@ -63,7 +63,7 @@ public class TutorController extends UserController{
             preparedStatement.setString(6, img);
             preparedStatement.setBoolean(7,active);
             preparedStatement.setTimestamp(8, creationdate);
-            preparedStatement.setString(9,ratings);
+            preparedStatement.setString(9,rating);
             preparedStatement.setInt(10,userId);
             preparedStatement.executeUpdate();
             connection.close();
@@ -81,18 +81,19 @@ public class TutorController extends UserController{
             //Statement stmt = connection.createStatement();
 
 
-            String query = "insert into tutors VALUES(?,?,?,?,?,?,?,?,?, CAST(? AS JSON))";
+            //String query = "insert into tutors VALUES(?,?,?,?,?,?,?,?,?, CAST(? AS JSON))";
+            String query = "insert into tutors (rating) VALUES (CAST(? AS JSON))";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(3, legalLastName);
-            preparedStatement.setString(2, legalFirstName);
-            preparedStatement.setString(4, bio);
-            preparedStatement.setString(5, degrees);
-            preparedStatement.setString(6, links);
-            preparedStatement.setString(7, img);
-            preparedStatement.setBoolean(8,active);
-            preparedStatement.setTimestamp(9, timestamp);
-            preparedStatement.setString(10, ratings);
-            preparedStatement.setInt(1,userId);
+//            preparedStatement.setString(3, legalLastName);
+//            preparedStatement.setString(2, legalFirstName);
+//            preparedStatement.setString(4, bio);
+//            preparedStatement.setString(5, degrees);
+//            preparedStatement.setString(6, links);
+//            preparedStatement.setString(7, img);
+//            preparedStatement.setBoolean(8,active);
+//            preparedStatement.setTimestamp(9, timestamp);
+            preparedStatement.setString(1, ratings);
+//            preparedStatement.setInt(1,userId);
 
             preparedStatement.executeUpdate();
             connection.close();
@@ -233,7 +234,7 @@ public class TutorController extends UserController{
         users = getActiveUsersFromDB();
         for(UserDataModel user : users){
             if(user.getUserName().equals(t.getUserName()))
-                insertTutorIntoDB(user.getUserId(),t.getLegalFirstName(),t.getLegalLastName(),t.getBio(),t.getDegrees(),t.getLinks(),t.getImg(),t.getActive(),t.getTimestamp(),t.getRatings());
+                insertTutorIntoDB(user.getUserId(),t.getLegalFirstName(),t.getLegalLastName(),t.getBio(),t.getDegrees(),t.getLinks(),t.getImg(),t.getActive(),t.getTimestamp(),t.getRating());
         }
 
         return new ResponseEntity<>(HttpStatus.OK);
@@ -244,7 +245,7 @@ public class TutorController extends UserController{
     @RequestMapping(value = "{tutorId}", method = {RequestMethod.POST})
     public ResponseEntity<TutorsDataModel> updateTutor(@PathVariable("tutorId") int id, @RequestBody TutorsDataModel t) {
 
-        updateTutorsFromDB(id,t.getLegalFirstName(),t.getLegalLastName(),t.getBio(),t.getDegrees(),t.getLinks(),t.getImg(),t.getActive(),t.getTimestamp(),t.getRatings());
+        updateTutorsFromDB(id,t.getLegalFirstName(),t.getLegalLastName(),t.getBio(),t.getDegrees(),t.getLinks(),t.getImg(),t.getActive(),t.getTimestamp(),t.getRating());
         updateUserFromDB(id,t.getUserName(),t.getEmail(),t.getUserType(),t.getSubjects());
         return new ResponseEntity<>(HttpStatus.OK);
 

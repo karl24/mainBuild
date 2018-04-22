@@ -19,9 +19,9 @@ public class TutorsDataModel extends UserDataModel{
     private String img;
     private Boolean active;
     private Timestamp timestamp;
-    private String ratings;
+    private String rating;
 
-    public TutorsDataModel(int userId, String legalFirstName, String legalLastName, String bio, String degrees, String links, String img, Boolean active, Timestamp timestamp, String ratings) {
+    public TutorsDataModel(int userId, String legalFirstName, String legalLastName, String bio, String degrees, String links, String img, Boolean active, Timestamp timestamp, String rating) {
         this.userId = userId;
         this.legalFirstName = legalFirstName;
         this.legalLastName = legalLastName;
@@ -31,7 +31,7 @@ public class TutorsDataModel extends UserDataModel{
         this.img = img;
         this.active = active;
         this.timestamp = timestamp;
-        this.ratings = ratings;
+        this.rating = rating;
     }
 
     public TutorsDataModel(){}
@@ -108,12 +108,12 @@ public class TutorsDataModel extends UserDataModel{
         this.timestamp = timestamp;
     }
 
-    public String getRatings() {
-        return ratings;
+    public String getRating() {
+        return rating;
     }
 
-    public void setRatings(String ratings) {
-        this.ratings = ratings;
+    public void setRating(String rating) {
+        this.rating = rating;
     }
 
 
@@ -132,13 +132,13 @@ public class TutorsDataModel extends UserDataModel{
                 Objects.equals(img, that.img) &&
                 Objects.equals(active, that.active) &&
                 Objects.equals(timestamp, that.timestamp) &&
-                Objects.equals(ratings, that.ratings);
+                Objects.equals(rating, that.rating);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(super.hashCode(), userId, legalFirstName, legalLastName, bio, degrees, links, img, active, timestamp, ratings);
+        return Objects.hash(super.hashCode(), userId, legalFirstName, legalLastName, bio, degrees, links, img, active, timestamp, rating);
     }
 
     @Override
@@ -153,7 +153,7 @@ public class TutorsDataModel extends UserDataModel{
                 ", img='" + img + '\'' +
                 ", active=" + active +
                 ", timestamp=" + timestamp +
-                ", ratings=" + ratings +
+                ", rating=" + rating +
                 '}';
     }
 }
