@@ -268,15 +268,24 @@ public class TutorController extends UserController{
             while( keys.hasNext() ) {
                 String key = (String) keys.next();
                 if(!key.equalsIgnoreCase(String.valueOf(studentId))){
-                   updateTutorsFromDB(t.getUserId(),t.getLegalFirstName(),t.getLegalLastName(),t.getBio(),t.getDegrees(),t.getLinks(),t.getImg(),t.getActive(),t.getTimestamp(),t.getRating());
-                   return new ResponseEntity<>(HttpStatus.OK);
+                    badRequest = false;
+                }else {
+                    badRequest = true;
+                    break;
                 }
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
-        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        if(badRequest == true){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }else {
+            updateTutorsFromDB(t.getUserId(),t.getLegalFirstName(),t.getLegalLastName(),t.getBio(),t.getDegrees(),t.getLinks(),t.getImg(),t.getActive(),t.getTimestamp(),t.getRating());
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
+
+
     }
 
 }
