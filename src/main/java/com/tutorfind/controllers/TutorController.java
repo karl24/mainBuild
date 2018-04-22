@@ -255,25 +255,28 @@ public class TutorController extends UserController{
     }
 
     @RequestMapping(value = "{studentId}/addrating", method = {RequestMethod.POST})
-    public String addRating(@PathVariable("studentId") int studentId, @RequestBody TutorsDataModel t) {
+    public ResponseEntity<Void> addRating(@PathVariable("studentId") int studentId, @RequestBody TutorsDataModel t) {
 
 //        updateTutorsFromDB(t.getUserId(),t.getLegalFirstName(),t.getLegalLastName(),t.getBio(),t.getDegrees(),t.getLinks(),t.getImg(),t.getActive(),t.getTimestamp(),t.getRating());
 //        updateUserFromDB(t.getUserId(),t.getUserName(),t.getEmail(),t.getUserType(),t.getSubjects());
 //        return new ResponseEntity<>(HttpStatus.OK);
+        boolean badRequest = true;
         try {
             JSONObject jsonObj = new JSONObject(t.getRating());
             Iterator<?> keys = jsonObj.keys();
 
             while( keys.hasNext() ) {
                 String key = (String) keys.next();
-                if(key.equalsIgnoreCase("1")){
-                    return key;
+                if(!key.equalsIgnoreCase(String.valueOf(studentId))){
+                   updateTutorsFromDB(t.getUserId(),t.getLegalFirstName(),t.getLegalLastName(),t.getBio(),t.getDegrees(),t.getLinks(),t.getImg(),t.getActive(),t.getTimestamp(),t.getRating());
+                   return new ResponseEntity<>(HttpStatus.OK);
                 }
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        return null;
+
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
 }
