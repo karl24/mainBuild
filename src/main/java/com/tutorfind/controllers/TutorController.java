@@ -251,4 +251,14 @@ public class TutorController extends UserController{
 
     }
 
+    @RequestMapping(value = "{studentId}/addrating", method = {RequestMethod.POST})
+    public String addRating(@PathVariable("studentId") int studentId, @RequestBody TutorsDataModel t) {
+
+//        updateTutorsFromDB(t.getUserId(),t.getLegalFirstName(),t.getLegalLastName(),t.getBio(),t.getDegrees(),t.getLinks(),t.getImg(),t.getActive(),t.getTimestamp(),t.getRating());
+//        updateUserFromDB(t.getUserId(),t.getUserName(),t.getEmail(),t.getUserType(),t.getSubjects());
+//        return new ResponseEntity<>(HttpStatus.OK);
+
+        return t.getRating();
+    }
+
 }
