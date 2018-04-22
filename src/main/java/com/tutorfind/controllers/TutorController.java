@@ -261,7 +261,7 @@ public class TutorController extends UserController{
 //        updateUserFromDB(t.getUserId(),t.getUserName(),t.getEmail(),t.getUserType(),t.getSubjects());
 //        return new ResponseEntity<>(HttpStatus.OK);
         boolean badRequest = true;
-        ArrayList<TutorsDataModel> tutors = new ArrayList<>();
+        ArrayList<TutorsDataModel> tutors = getActiveTutorsFromDB();
         for( TutorsDataModel tutor : tutors) {
             if( tutor.getUserId() == t.getUserId()) {
                 try {
@@ -270,11 +270,12 @@ public class TutorController extends UserController{
 
                     while (keys.hasNext()) {
                         String key = (String) keys.next();
-                        if (!key.equalsIgnoreCase(String.valueOf(studentId))) {
-                            badRequest = false;
-                        } else {
+                        if (key.equalsIgnoreCase(String.valueOf(studentId))) {
                             badRequest = true;
                             break;
+                        } else {
+                            badRequest = false;
+
                         }
                     }
                 } catch (JSONException e) {
