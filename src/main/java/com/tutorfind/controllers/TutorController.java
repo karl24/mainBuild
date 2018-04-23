@@ -264,22 +264,26 @@ public class TutorController extends UserController{
         ArrayList<TutorsDataModel> tutors = getActiveTutorsFromDB();
         for( TutorsDataModel tutor : tutors) {
             if( tutor.getUserId() == t.getUserId()) {
-                try {
-                    JSONObject jsonObj = new JSONObject(tutor.getRating());
-                    Iterator<?> keys = jsonObj.keys();
+                if (tutor.getRating() != null) {
+                    try {
+                        JSONObject jsonObj = new JSONObject(tutor.getRating());
+                        Iterator<?> keys = jsonObj.keys();
 
-                    while (keys.hasNext()) {
-                        String key = (String) keys.next();
-                        if (key.equalsIgnoreCase(String.valueOf(studentId))) {
-                            badRequest = true;
-                            break;
-                        } else {
-                            badRequest = false;
+                        while (keys.hasNext()) {
+                            String key = (String) keys.next();
+                            if (key.equalsIgnoreCase(String.valueOf(studentId))) {
+                                badRequest = true;
+                                break;
+                            } else {
+                                badRequest = false;
 
+                            }
                         }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
-                } catch (JSONException e) {
-                    e.printStackTrace();
+                }else {
+                    badRequest = false;
                 }
             }
         }
