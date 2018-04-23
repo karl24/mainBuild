@@ -84,7 +84,7 @@ public class TutorController extends UserController{
             //Statement stmt = connection.createStatement();
             String defaultValue = "{\"0\":\"0\"}";
 
-            String query = "insert into tutors VALUES(?,?,?,?,?,?,?,?,?, CAST(defaulValue AS JSON))";
+            String query = "insert into tutors VALUES(?,?,?,?,?,?,?,?,?, CAST(? AS JSON))";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(3, legalLastName);
             preparedStatement.setString(2, legalFirstName);
@@ -94,6 +94,7 @@ public class TutorController extends UserController{
             preparedStatement.setString(7, img);
             preparedStatement.setBoolean(8,active);
             preparedStatement.setTimestamp(9, timestamp);
+            preparedStatement.setString(10,defaultValue);
             preparedStatement.setInt(1,userId);
 
             preparedStatement.executeUpdate();
