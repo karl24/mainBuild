@@ -82,9 +82,9 @@ public class TutorController extends UserController{
     public void insertTutorIntoDB(int userId, String legalFirstName,String legalLastName, String bio, String degrees, String links,String img, boolean active, Timestamp timestamp, String ratings){
         try (Connection connection = dataSource.getConnection()) {
             //Statement stmt = connection.createStatement();
+            String defaultValue = "{\"0\":\"0\"}";
 
-
-            String query = "insert into tutors VALUES(?,?,?,?,?,?,?,?,?, CAST(\"{\"0\":\"0\"}\" AS JSON))";
+            String query = "insert into tutors VALUES(?,?,?,?,?,?,?,?,?, CAST(defaulValue AS JSON))";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(3, legalLastName);
             preparedStatement.setString(2, legalFirstName);
@@ -94,7 +94,6 @@ public class TutorController extends UserController{
             preparedStatement.setString(7, img);
             preparedStatement.setBoolean(8,active);
             preparedStatement.setTimestamp(9, timestamp);
-            preparedStatement.setString(10, ratings);
             preparedStatement.setInt(1,userId);
 
             preparedStatement.executeUpdate();
