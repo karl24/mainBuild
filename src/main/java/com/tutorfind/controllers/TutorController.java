@@ -84,7 +84,7 @@ public class TutorController extends UserController{
             //Statement stmt = connection.createStatement();
 
 
-            String query = "insert into tutors VALUES(?,?,?,?,?,?,?,?,?, CAST(? AS JSON))";
+            String query = "insert into tutors VALUES(?,?,?,?,?,?,?,?,?, CAST(\"{\"0\":\"0\"}\" AS JSON))";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(3, legalLastName);
             preparedStatement.setString(2, legalFirstName);
