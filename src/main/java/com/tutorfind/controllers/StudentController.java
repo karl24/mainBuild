@@ -243,9 +243,9 @@ public class StudentController extends UserController{
 
     @RequestMapping(value = "{studentId}", method = {RequestMethod.POST})
     public ResponseEntity<StudentDataModel> updateStudent(@PathVariable("studentId") int id, @RequestBody StudentDataModel s) {
-          
-            String domainName = s.getEmail().substring(s.getEmail().length()-17);
-            if(domainName.equals("students.ndnu.edu")) {
+
+            String domainName = s.getEmail().substring(s.getEmail().length()-16);
+            if(domainName.equals("student.ndnu.edu")) {
                 updateStudentFromDB(id, s.getLegalFirstName(), s.getLegalLastName(), s.getBio(), s.getMajor(), s.getMinor(), s.getImg(), s.isActive());
                 updateUserFromDB(id, s.getUserName(), s.getEmail(), s.getUserType(), s.getSubjects());
                 return new ResponseEntity<>(HttpStatus.OK);
