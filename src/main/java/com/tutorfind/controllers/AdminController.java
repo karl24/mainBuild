@@ -43,7 +43,7 @@ public class AdminController extends UserController{
 
     public String getUserType(int id){
         try(Connection connection = dataSource.getConnection()){
-            String sql = "select usertype from users where userid = ?";
+            String sql = "SELECT usertype from users where userid = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1,id);
             ResultSet rs = preparedStatement.executeQuery();

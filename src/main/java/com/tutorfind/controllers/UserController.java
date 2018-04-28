@@ -96,4 +96,20 @@ public abstract class UserController {
         }
     }
 
+
+
+
+    public void updatePostFromPostTable(boolean active, int id){
+        try (Connection connection = dataSource.getConnection()) {
+            String query = "update posts set active = ? where ownerId = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(2,id);
+            preparedStatement.setBoolean(1,active);
+            preparedStatement.executeUpdate();
+            connection.close();
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+
 }

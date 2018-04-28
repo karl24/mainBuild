@@ -254,6 +254,36 @@ public class TutorController extends UserController{
 
     }
 
+    @RequestMapping(value = "delete/{tutorId}", method = {RequestMethod.POST})
+    public ResponseEntity<Void> deleteTutor(@PathVariable("tutorId") int id, @RequestBody TutorsDataModel t) {
+
+        updatePostFromPostTable(t.getActive(),id);
+        updateTutorsFromDB(id,t.getActive());
+        return new ResponseEntity<>(HttpStatus.OK);
+
+
+    }
+
+    public void updateTutorsFromDB(int userId, boolean active){
+        try (Connection connection = dataSource.getConnection()) {
+
+
+            //Statement stmt = connection.createStatement();
+            String query = "update tutors set active = ? where userId = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(2,userId);
+            preparedStatement.setBoolean(1,active);
+            preparedStatement.executeUpdate();
+            connection.close();
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+
+        }
+    }
+
     @RequestMapping(value = "{studentId}/addrating", method = {RequestMethod.POST})
     public ResponseEntity<Void> addRating(@PathVariable("studentId") int studentId, @RequestBody TutorsDataModel t) {
 
