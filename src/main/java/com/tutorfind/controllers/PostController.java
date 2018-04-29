@@ -4,6 +4,7 @@ Created by Adam Hardy based on Karl's StudentController and UserController
 
 package com.tutorfind.controllers;
 
+import com.tutorfind.exceptions.ResourceNotFoundException;
 import com.tutorfind.model.PostDataModel;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -171,8 +172,11 @@ public class PostController{
 
 
         }
-        return acceptedPosts;
-
+        if(acceptedPosts.isEmpty()){
+            throw new ResourceNotFoundException();
+        }else {
+            return acceptedPosts;
+        }
     }
 
     @RequestMapping(value = "{id}",method = RequestMethod.GET)
