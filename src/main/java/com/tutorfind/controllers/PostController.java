@@ -161,7 +161,7 @@ public class PostController{
         }
     }
 
-    @RequestMapping(value = "{subject}",method = RequestMethod.GET)
+    @RequestMapping(value = "subject/{subject}",method = RequestMethod.GET)
     public @ResponseBody ArrayList<PostDataModel> getPostsBasedOnSubjects(@PathVariable("subject") String subject) {
         ArrayList<PostDataModel> posts = getActivePostsFromDB();
         ArrayList<PostDataModel> acceptedPosts = new ArrayList<>();
