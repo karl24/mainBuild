@@ -259,7 +259,7 @@ public class StudentController extends UserController{
 
 
     @RequestMapping(value = "login", method = {RequestMethod.POST})
-    public StudentDataModel loginStudent(@RequestBody StudentDataModel s){
+    public StudentDataModel loginStudent(HttpServletResponse response, @CookieValue(value = "userId", defaultValue = "") int userId, @RequestBody StudentDataModel s){
         ArrayList<StudentDataModel> students = getStudentsFromDB();
         ArrayList<UserDataModel> users = getActiveUsersFromDB();
         try (Connection connection = dataSource.getConnection()) {
@@ -286,6 +286,8 @@ public class StudentController extends UserController{
                                     student.setUserType(u.getUserType());
                                     student.setSubjects(u.getSubjects());
                                     output.add(student);
+                                    Cookie cookie = new Cookie("userId",String.valueOf(student.getUserId()));
+                                    response.addCookie(cookie);
                                 }
                             }
 

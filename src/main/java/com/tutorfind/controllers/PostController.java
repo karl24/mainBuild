@@ -162,15 +162,16 @@ public class PostController{
     }
 
     @RequestMapping(value = "subject/{subject}",method = RequestMethod.GET)
-    public @ResponseBody ArrayList<PostDataModel> getPostsBasedOnSubjects(@PathVariable("subject") String subject) {
+    public @ResponseBody ArrayList<PostDataModel> getPostsBasedOnSubjects(@PathVariable("subject") ArrayList<String> subject) {
         ArrayList<PostDataModel> posts = getActivePostsFromDB();
         ArrayList<PostDataModel> acceptedPosts = new ArrayList<>();
         for(PostDataModel post: posts) {
-            if(post.getSubject().equalsIgnoreCase(subject)){
-                acceptedPosts.add(post);
+            for(String s : subject) {
+                if (post.getSubject().equalsIgnoreCase(s)) {
+                    acceptedPosts.add(post);
+                }
+
             }
-
-
         }
         if(acceptedPosts.isEmpty()){
             throw new ResourceNotFoundException();
