@@ -160,6 +160,21 @@ public class PostController{
         }
     }
 
+    @RequestMapping(value = "{subject}",method = RequestMethod.GET)
+    public @ResponseBody ArrayList<PostDataModel> getPostsBasedOnSubjects(@PathVariable("subject") String subject) {
+        ArrayList<PostDataModel> posts = getActivePostsFromDB();
+        ArrayList<PostDataModel> acceptedPosts = new ArrayList<>();
+        for(PostDataModel post: posts) {
+            if(post.getSubject().equalsIgnoreCase(subject)){
+                acceptedPosts.add(post);
+            }
+
+
+        }
+        return acceptedPosts;
+
+    }
+
     @RequestMapping(value = "{id}",method = RequestMethod.GET)
     public @ResponseBody PostDataModel printPosts(@PathVariable("id") int id) {
 
