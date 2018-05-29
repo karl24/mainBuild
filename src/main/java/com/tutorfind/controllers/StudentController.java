@@ -175,8 +175,8 @@ public class StudentController extends UserController{
 
 
             if(s.getUserId() == userId) {
-                Cookie cookie = new Cookie("email",student.getEmail());
-                response.addCookie(cookie);
+//                Cookie cookie = new Cookie("email",student.getEmail());
+//                response.addCookie(cookie);
                 student = s;
             }
         }
