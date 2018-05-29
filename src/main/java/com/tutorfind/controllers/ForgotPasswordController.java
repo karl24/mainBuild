@@ -10,6 +10,7 @@ Created by Adam Hardy
 
 package com.tutorfind.controllers;
 
+import com.tutorfind.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +19,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -33,6 +36,9 @@ public class ForgotPasswordController {
 
     @Autowired
     private DataSource dataSource;
+
+    String uniqueKey;
+    int userId;
 
     private String isStudentEmailActive(String email){
 
@@ -145,7 +151,7 @@ public class ForgotPasswordController {
         return newPassword;
     }
 
-    private  ResponseEntity<Void> sendMail(String email, String newPassword, String table) {
+    private  ResponseEntity<Void> sendMail(String email, String table) {
         final String username = "tutorfindapp@gmail.com";
         final String password = "y2xzIhJQzk2g";
         Properties props = new Properties();
@@ -169,7 +175,7 @@ public class ForgotPasswordController {
                     InternetAddress.parse(email));
             message.setSubject("New Password");
             message.setText("Dear " + getFirstName(email,table) + ", "
-                    + "\n\n Your new password is: " + newPassword);
+                    + "\n\n Go to this link to reset password: https://www.tutor-find.me/forgotpassword/" + uniqueKey);
 
             Transport.send(message);
 
@@ -182,13 +188,35 @@ public class ForgotPasswordController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/{uniquekey}",method = RequestMethod.GET)
+    public String getNewPassword(@PathVariable("uniquekey") String uniquekey){
+        String newPassword;
+        if(uniquekey.equals(uniqueKey)){
+            newPassword = updatePassword(userId);
+            return newPassword;
+        }else {
+           throw new ResourceNotFoundException();
+        }
+
+
+    }
+
+
+    private String getUniqueKey(){
+
+        return UUID.randomUUID().toString();
+    }
+
 
     @RequestMapping(value = "/student/{email}",method = RequestMethod.GET)
-    public ResponseEntity<Void> checkIfStudentEmailIsActive(@PathVariable("email") String email){
+    public ResponseEntity<Void> checkIfStudentEmailIsActive(HttpServletResponse response, @CookieValue(value = "uniqueKey", defaultValue = "") String unique, @PathVariable("email") String email){
         if(isStudentEmailActive(email).equals(email)){
-            int userId = getUserId(email);
-            String newPassword = updatePassword(userId);
-            sendMail(email, newPassword, "students");
+            userId = getUserId(email);
+            uniqueKey = getUniqueKey();
+            Cookie cookie = new Cookie("uniqueKey",uniqueKey);
+            response.addCookie(cookie);
+            //String newPassword = updatePassword(userId);
+            sendMail(email,"students");
             return new ResponseEntity<Void>(HttpStatus.OK);
         } else {
             return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
@@ -196,11 +224,13 @@ public class ForgotPasswordController {
     }
 
     @RequestMapping(value = "/tutor/{email}",method = RequestMethod.GET)
-    public ResponseEntity<Void> checkIfTutorEmailIsActive(@PathVariable("email") String email){
+    public ResponseEntity<Void> checkIfTutorEmailIsActive(HttpServletResponse response, @CookieValue(value = "uniqueKey", defaultValue = "") String unique,@PathVariable("email") String email){
         if(isTutorEmailActive(email).equals(email)){
-            int userId = getUserId(email);
-            String newPassword = updatePassword(userId);
-            sendMail(email, newPassword, "tutors");
+            uniqueKey = getUniqueKey();
+            userId = getUserId(email);
+            Cookie cookie = new Cookie("uniqueKey",uniqueKey);
+            response.addCookie(cookie);
+            sendMail(email, "tutors");
             return new ResponseEntity<Void>(HttpStatus.OK);
         } else {
             return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
