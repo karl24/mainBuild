@@ -12,6 +12,7 @@ package com.tutorfind.controllers;
 
 import com.tutorfind.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -217,6 +218,8 @@ public class ForgotPasswordController {
             response.addCookie(cookie);
             //String newPassword = updatePassword(userId);
             sendMail(email,"students");
+            HttpHeaders headers  = new HttpHeaders();
+            headers.add(cookie.getName(),cookie.getValue());
             return new ResponseEntity<Void>(HttpStatus.OK);
         } else {
             return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
