@@ -41,6 +41,25 @@ public class AdminController extends UserController{
         }
     }
 
+    public ArrayList<UserDataModel> getAllStudentsFromDB() {
+        try (Connection connection = dataSource.getConnection()) {
+            Statement stmt = connection.createStatement();
+
+            ResultSet rs = stmt.executeQuery("select * from users inner join students on  users.userType = 'student' and users.userid = students.userid");
+
+            ArrayList<UserDataModel> output = new ArrayList();
+
+            getUsers(rs, output);
+
+            return output;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+
+        }
+    }
+
     public String getUserType(int id){
         try(Connection connection = dataSource.getConnection()){
             String sql = "SELECT usertype from users where userid = ?";
@@ -229,6 +248,14 @@ public class AdminController extends UserController{
     ArrayList<UserDataModel> printUsers(){
 
         return getAdminFromDB();
+
+    }
+
+    @RequestMapping(method = RequestMethod.GET)
+    public @ResponseBody
+    ArrayList<UserDataModel> printAllStudents(){
+
+        return getAllStudentsFromDB();
 
     }
 
