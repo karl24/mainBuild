@@ -57,7 +57,7 @@ public class AdminController extends UserController{
             while(rs.next()){
                 StudentDataModel s = new StudentDataModel(rs.getInt("userId"),rs.getString("legalFirstName"),rs.getString("legalLastName"), rs.getString("bio"),
                         rs.getString("major"), rs.getString("minor"), rs.getString("img"), rs.getBoolean("active"),
-                        rs.getTimestamp("creationdate"),rs.getString("username"),rs.getString("email"),rs.getString("salt"),rs.getString("passhash"),rs.getString("usertype"),subjects;
+                        rs.getTimestamp("creationdate"),rs.getString("username"),rs.getString("email"),rs.getString("salt"),rs.getString("passhash"),rs.getString("usertype"),subjects);
                 output.add(s);
             }
 
