@@ -29,6 +29,19 @@ public class StudentDataModel extends UserDataModel{
         this.creationDate = creationDate;
     }
 
+    public StudentDataModel(int userId, String legalFirstName, String legalLastName, String bio, String major, String minor, String img, boolean active, Timestamp creationDate,String userName, String email, String salt, String passhash, String userType, String[] subjects) {
+        super(userId, userName, email, salt, passhash, userType, subjects);
+        this.userId = userId;
+        this.legalFirstName = legalFirstName;
+        this.legalLastName = legalLastName;
+        this.bio = bio;
+        this.major = major;
+        this.minor = minor;
+        this.img = img;
+        this.active = active;
+        this.creationDate = creationDate;
+    }
+
     public int getUserId() {
         return userId;
     }

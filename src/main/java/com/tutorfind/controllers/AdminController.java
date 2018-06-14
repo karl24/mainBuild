@@ -2,6 +2,7 @@ package com.tutorfind.controllers;
 
 
 import com.tutorfind.exceptions.ResourceNotFoundException;
+import com.tutorfind.model.StudentDataModel;
 import com.tutorfind.model.UserDataModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -41,15 +42,24 @@ public class AdminController extends UserController{
         }
     }
 
-    public ArrayList<UserDataModel> getAllStudentsFromDB() {
+    public ArrayList<StudentDataModel> getAllStudentsFromDB() {
         try (Connection connection = dataSource.getConnection()) {
             Statement stmt = connection.createStatement();
 
             ResultSet rs = stmt.executeQuery("select * from users inner join students on  users.userType = 'student' and users.userid = students.userid");
 
-            ArrayList<UserDataModel> output = new ArrayList();
+            ArrayList<StudentDataModel> output = new ArrayList();
+            String subjectsString = rs.getString("subjects");
 
-            getUsers(rs, output);
+            String[] subjects = subjectsString.split(",");
+            subjects[0] = subjects[0].substring(1);
+            subjects[subjects.length-1] = subjects[subjects.length-1].substring(0, subjects[subjects.length-1].length()-1);
+            while(rs.next()){
+                StudentDataModel s = new StudentDataModel(rs.getInt("userId"),rs.getString("legalFirstName"),rs.getString("legalLastName"), rs.getString("bio"),
+                        rs.getString("major"), rs.getString("minor"), rs.getString("img"), rs.getBoolean("active"),
+                        rs.getTimestamp("creationdate"),rs.getString("username"),rs.getString("email"),rs.getString("salt"),rs.getString("passhash"),rs.getString("usertype"),subjects;
+                output.add(s);
+            }
 
             return output;
 
@@ -253,7 +263,7 @@ public class AdminController extends UserController{
 
     @RequestMapping(value = "students", method = RequestMethod.GET)
     public @ResponseBody
-    ArrayList<UserDataModel> printAllStudents(){
+    ArrayList<StudentDataModel> printAllStudents(){
 
         return getAllStudentsFromDB();
 
