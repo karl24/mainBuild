@@ -251,7 +251,7 @@ public class AdminController extends UserController{
 
     }
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value = "students", method = RequestMethod.GET)
     public @ResponseBody
     ArrayList<UserDataModel> printAllStudents(){
 
