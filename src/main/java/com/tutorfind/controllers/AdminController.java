@@ -49,12 +49,13 @@ public class AdminController extends UserController{
             ResultSet rs = stmt.executeQuery("select * from users inner join students on  users.userType = 'student' and users.userid = students.userid");
 
             ArrayList<StudentDataModel> output = new ArrayList();
-            String subjectsString = rs.getString("subjects");
 
-            String[] subjects = subjectsString.split(",");
-            subjects[0] = subjects[0].substring(1);
-            subjects[subjects.length-1] = subjects[subjects.length-1].substring(0, subjects[subjects.length-1].length()-1);
             while(rs.next()){
+                String subjectsString = rs.getString("subjects");
+
+                String[] subjects = subjectsString.split(",");
+                subjects[0] = subjects[0].substring(1);
+                subjects[subjects.length-1] = subjects[subjects.length-1].substring(0, subjects[subjects.length-1].length()-1);
                 StudentDataModel s = new StudentDataModel(rs.getInt("userId"),rs.getString("legalFirstName"),rs.getString("legalLastName"), rs.getString("bio"),
                         rs.getString("major"), rs.getString("minor"), rs.getString("img"), rs.getBoolean("active"),
                         rs.getTimestamp("creationdate"),rs.getString("username"),rs.getString("email"),rs.getString("salt"),rs.getString("passhash"),rs.getString("usertype"),subjects);
