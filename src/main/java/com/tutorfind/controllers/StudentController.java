@@ -183,7 +183,7 @@ public class StudentController extends UserController{
 
     }
 
-    @RequestMapping(value = "{name}", method = RequestMethod.GET)
+    @RequestMapping(value = "name/{name}", method = RequestMethod.GET)
     public @ResponseBody
     ArrayList<StudentDataModel> printStudent(
                                   @PathVariable("name")String name) {

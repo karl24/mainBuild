@@ -160,7 +160,7 @@ public class TutorController extends UserController{
 
     }
 
-    @RequestMapping(value = "{name}", method = RequestMethod.GET)
+    @RequestMapping(value = "name/{name}", method = RequestMethod.GET)
     public @ResponseBody
     ArrayList<TutorsDataModel> printTutorsByName(
             @PathVariable("name")String name) {
