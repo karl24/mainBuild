@@ -23,6 +23,21 @@ import java.util.ArrayList;
 public class StudentController extends UserController{
 
 
+    /*
+    v1 endpoints:
+    GET /students - returns all active students
+    GET /students/{id} - return specific student
+    POST /students/delete/{id} - deletes specific student
+    PUT /students - inserts new student in DB
+    POST /students/{id} - updates student
+    POST /students/login - logins students
+
+    *v2 endpoints*
+    GET /students/all - return all students
+    GET /students/{name} - returns all students with given legalFirstName or legalLastName
+
+     */
+
     @Autowired
     private DataSource dataSource;
 
@@ -116,18 +131,7 @@ public class StudentController extends UserController{
         ArrayList<StudentDataModel> students = getStudentsFromDB();
         ArrayList<StudentDataModel> acceptedStudents = new ArrayList<>();
         ArrayList<UserDataModel> users = getActiveUsersFromDB();
-        for(StudentDataModel s: students){
-            for(UserDataModel u : users){
-                if(s.getUserId() == u.getUserId()){
-                    s.setUserType(u.getUserType());
-                    s.setSalt(u.getSalt());
-                    s.setPasshash(u.getPasshash());
-                    s.setEmail(u.getEmail());
-                    s.setUserName(u.getUserName());
-                    s.setSubjects(u.getSubjects());
-                }
-            }
-        }
+        setUserAttributesToStudents(students,users);
 
         for (StudentDataModel student : students) {
             if (student.getLegalFirstName().equals(legalFirstName)){
@@ -158,18 +162,7 @@ public class StudentController extends UserController{
 
         ArrayList<StudentDataModel> students = getStudentsFromDB();
         ArrayList<UserDataModel> users = getActiveUsersFromDB();
-        for(StudentDataModel s: students){
-            for(UserDataModel u : users){
-                if(s.getUserId() == u.getUserId()){
-                    s.setUserType(u.getUserType());
-                    s.setPasshash(u.getPasshash());
-                    s.setEmail(u.getEmail());
-                    s.setUserName(u.getUserName());
-                    s.setSalt(u.getSalt());
-                    s.setSubjects(u.getSubjects());
-                }
-            }
-        }
+        setUserAttributesToStudents(students, users);
 
         for (StudentDataModel s : students) {
 
@@ -190,9 +183,53 @@ public class StudentController extends UserController{
 
     }
 
+    @RequestMapping(value = "{name}", method = RequestMethod.GET)
+    public @ResponseBody
+    ArrayList<StudentDataModel> printStudent(
+                                  @PathVariable("name")String name) {
+
+
+
+        ArrayList<StudentDataModel> acceptedStudents = new ArrayList<>();
+        ArrayList<StudentDataModel> students = getStudentsFromDB();
+        ArrayList<UserDataModel> users = getActiveUsersFromDB();
+        setUserAttributesToStudents(students, users);
+
+        for (StudentDataModel s : students) {
+
+
+            if(s.getLegalFirstName().equals(name) || s.getLegalLastName().equals(name)) {
+                acceptedStudents.add(s);
+            }
+        }
+
+        if (acceptedStudents.isEmpty()){
+            throw new ResourceNotFoundException();
+        }else {
+
+            return acceptedStudents;
+        }
+
+    }
+
+    protected void setUserAttributesToStudents(ArrayList<StudentDataModel> students, ArrayList<UserDataModel> users) {
+        for(StudentDataModel s: students){
+            for(UserDataModel u : users){
+                if(s.getUserId() == u.getUserId()){
+                    s.setUserType(u.getUserType());
+                    s.setPasshash(u.getPasshash());
+                    s.setEmail(u.getEmail());
+                    s.setUserName(u.getUserName());
+                    s.setSalt(u.getSalt());
+                    s.setSubjects(u.getSubjects());
+                }
+            }
+        }
+    }
+
 
     @RequestMapping(value = "delete/{studentId}", method = {RequestMethod.POST})
-    public ResponseEntity<Void> deleteTutor(@PathVariable("studentId") int id, @RequestBody StudentDataModel s) {
+    public ResponseEntity<Void> deleteStudent(@PathVariable("studentId") int id, @RequestBody StudentDataModel s) {
 
         updatePostFromPostTable(s.isActive(),id);
         updateStudentFromDB(id,s.isActive());
@@ -254,6 +291,43 @@ public class StudentController extends UserController{
             }
 
 
+
+    }
+
+    public ArrayList<StudentDataModel> getAllStudentsFromDB() {
+        try (Connection connection = dataSource.getConnection()) {
+            Statement stmt = connection.createStatement();
+
+            ResultSet rs = stmt.executeQuery("select * from users inner join students on  users.userType = 'student' and users.userid = students.userid");
+
+            ArrayList<StudentDataModel> output = new ArrayList();
+
+            while(rs.next()){
+                String subjectsString = rs.getString("subjects");
+
+                String[] subjects = subjectsString.split(",");
+                subjects[0] = subjects[0].substring(1);
+                subjects[subjects.length-1] = subjects[subjects.length-1].substring(0, subjects[subjects.length-1].length()-1);
+                StudentDataModel s = new StudentDataModel(rs.getInt("userId"),rs.getString("legalFirstName"),rs.getString("legalLastName"), rs.getString("bio"),
+                        rs.getString("major"), rs.getString("minor"), rs.getString("img"), rs.getBoolean("active"),
+                        rs.getTimestamp("creationdate"),rs.getString("username"),rs.getString("email"),rs.getString("salt"),rs.getString("passhash"),rs.getString("usertype"),subjects);
+                output.add(s);
+            }
+
+            return output;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+
+        }
+    }
+
+    @RequestMapping(value = "all", method = RequestMethod.GET)
+    public @ResponseBody
+    ArrayList<StudentDataModel> printAllStudents(){
+
+        return getAllStudentsFromDB();
 
     }
 

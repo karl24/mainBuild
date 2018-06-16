@@ -28,6 +28,15 @@ public class PostController{
     @Autowired
     private DataSource dataSource;
 
+    /*
+     *v1 endpoints*
+     GET /posts?={type} - returns all posts based on the type
+     GET /posts/subject/{subject} - returns specific posts based on subjects
+     GET /posts/{id} - returns posts based on id
+     POST /posts/{id} - updates posts based on id
+     PUT /posts - inserts post into DB
+     */
+
     private ArrayList<PostDataModel> getActivePostsFromDB() {
         try (Connection connection = dataSource.getConnection()) {
             Statement stmt = connection.createStatement();

@@ -1,9 +1,6 @@
 package com.tutorfind.controllers;
 
-import com.tutorfind.model.StudentDataModel;
 import com.tutorfind.model.TutorPostDataModel;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,6 +10,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+
+
+//--------------------DEPRECIATED------------------------
 
 @RestController
 @RequestMapping("tutorpost")

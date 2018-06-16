@@ -2,7 +2,6 @@ package com.tutorfind.controllers;
 
 
 import com.tutorfind.exceptions.ResourceNotFoundException;
-import com.tutorfind.model.StudentDataModel;
 import com.tutorfind.model.UserDataModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,6 +22,15 @@ public class AdminController extends UserController{
     private DataSource dataSource;
 
 
+    /*
+    *v1 endpoints*
+    POST admin/login - logins admin users
+    PUT admin - inserts admin into db
+    POST admin/updateUserType/{userid} - update users to admin or tutor or student
+    GET admin/{id} - returns specific admin with given id
+    GET admin - returns all admins
+     */
+
     public ArrayList<UserDataModel> getAdminFromDB() {
         try (Connection connection = dataSource.getConnection()) {
             Statement stmt = connection.createStatement();
@@ -42,34 +50,7 @@ public class AdminController extends UserController{
         }
     }
 
-    public ArrayList<StudentDataModel> getAllStudentsFromDB() {
-        try (Connection connection = dataSource.getConnection()) {
-            Statement stmt = connection.createStatement();
 
-            ResultSet rs = stmt.executeQuery("select * from users inner join students on  users.userType = 'student' and users.userid = students.userid");
-
-            ArrayList<StudentDataModel> output = new ArrayList();
-
-            while(rs.next()){
-                String subjectsString = rs.getString("subjects");
-
-                String[] subjects = subjectsString.split(",");
-                subjects[0] = subjects[0].substring(1);
-                subjects[subjects.length-1] = subjects[subjects.length-1].substring(0, subjects[subjects.length-1].length()-1);
-                StudentDataModel s = new StudentDataModel(rs.getInt("userId"),rs.getString("legalFirstName"),rs.getString("legalLastName"), rs.getString("bio"),
-                        rs.getString("major"), rs.getString("minor"), rs.getString("img"), rs.getBoolean("active"),
-                        rs.getTimestamp("creationdate"),rs.getString("username"),rs.getString("email"),rs.getString("salt"),rs.getString("passhash"),rs.getString("usertype"),subjects);
-                output.add(s);
-            }
-
-            return output;
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return null;
-
-        }
-    }
 
     public String getUserType(int id){
         try(Connection connection = dataSource.getConnection()){
@@ -240,7 +221,7 @@ public class AdminController extends UserController{
 
     @RequestMapping(value = "{id}", method = RequestMethod.GET)
     public @ResponseBody
-    UserDataModel printStudent(@PathVariable("id") int userId) {
+    UserDataModel printAdmin(@PathVariable("id") int userId) {
 
         ArrayList<UserDataModel> users = getAdminFromDB();
 
@@ -256,18 +237,12 @@ public class AdminController extends UserController{
 
     @RequestMapping(method = RequestMethod.GET)
     public @ResponseBody
-    ArrayList<UserDataModel> printUsers(){
+    ArrayList<UserDataModel> printAdmins(){
 
         return getAdminFromDB();
 
     }
 
-    @RequestMapping(value = "students", method = RequestMethod.GET)
-    public @ResponseBody
-    ArrayList<StudentDataModel> printAllStudents(){
 
-        return getAllStudentsFromDB();
-
-    }
 
 }

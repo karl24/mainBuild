@@ -23,6 +23,11 @@ public class ChangePasswordController extends UserController{
     @Autowired
     private DataSource dataSource;
 
+    /*
+     *v1 endpoints*
+    POST changepassword/{id}/{oldpassword} - changes password
+     */
+
     private void updatePassword(String password, int userId){
         try (Connection connection = dataSource.getConnection()) {
 

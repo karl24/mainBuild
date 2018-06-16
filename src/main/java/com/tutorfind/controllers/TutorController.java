@@ -24,6 +24,50 @@ public class TutorController extends UserController{
     @Autowired
     private DataSource dataSource;
 
+
+    /*
+    *v1 endpoints*
+    GET /tutors - returns all active tutors
+    GET /tutors/{id} - returns tutor based on id
+    POST /tutors/login - logins tutor
+    PUT /tutors - inserts tutor into DB
+    POST /tutors/{tutorid} - updates tutor based on id
+    POST /tutors/delete/{tutorid} - delete tutor based on id
+    POST /tutors/{studentid}/addrating - student add rating to tutor
+
+    *v2 endpoints*
+    GET /tutors/all - return all tutors
+    GET /tutors/{name}
+     */
+
+
+    public ArrayList<TutorsDataModel> getAllTutorsFromDB() {
+        try (Connection connection = dataSource.getConnection()) {
+            Statement stmt = connection.createStatement();
+
+            ResultSet rs = stmt.executeQuery("select * from users inner join tutors on  users.userType = 'tutor' and users.userid = tutors.userid");
+
+            ArrayList<TutorsDataModel> output = new ArrayList();
+
+            while(rs.next()){
+                String subjectsString = rs.getString("subjects");
+
+                String[] subjects = subjectsString.split(",");
+                subjects[0] = subjects[0].substring(1);
+                subjects[subjects.length-1] = subjects[subjects.length-1].substring(0, subjects[subjects.length-1].length()-1);
+                TutorsDataModel s = new TutorsDataModel(rs.getInt("userId"), rs.getString("legalfirstname"), rs.getString("legallastname"), rs.getString("bio"), rs.getString("degrees"), rs.getString("links"), rs.getString("img"), rs.getBoolean("active"), rs.getTimestamp("creationdate"), rs.getString("rating"),rs.getString("username"),rs.getString("email"),rs.getString("salt"),rs.getString("passhash"),rs.getString("usertype"),subjects);
+                output.add(s);
+            }
+
+            return output;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+
+        }
+    }
+
     private ArrayList<TutorsDataModel> getActiveTutorsFromDB() {
         try (Connection connection = dataSource.getConnection()) {
             Statement stmt = connection.createStatement();
@@ -108,14 +152,25 @@ public class TutorController extends UserController{
         }
     }
 
+    @RequestMapping(value = "all", method = RequestMethod.GET)
+    public @ResponseBody
+    ArrayList<TutorsDataModel> printAllTutors(){
 
-    @RequestMapping(method = RequestMethod.GET)
-    public @ResponseBody ArrayList<TutorsDataModel> printTutors() {
+        return getAllTutorsFromDB();
 
+    }
+
+    @RequestMapping(value = "{name}", method = RequestMethod.GET)
+    public @ResponseBody
+    ArrayList<TutorsDataModel> printTutorsByName(
+            @PathVariable("name")String name) {
+
+
+
+        ArrayList<TutorsDataModel> acceptedTutors = new ArrayList<>();
         ArrayList<TutorsDataModel> tutors = getActiveTutorsFromDB();
-
         ArrayList<UserDataModel> users = getActiveUsersFromDB();
-
+        
         for(TutorsDataModel tutor : tutors){
             for(UserDataModel user : users){
                 if(tutor.getUserId() == user.getUserId()){
@@ -129,6 +184,33 @@ public class TutorController extends UserController{
             }
 
         }
+
+        for (TutorsDataModel t : tutors) {
+
+
+            if(t.getLegalFirstName().equals(name) || t.getLegalLastName().equals(name)) {
+                acceptedTutors.add(t);
+            }
+        }
+
+        if (acceptedTutors.isEmpty()){
+            throw new ResourceNotFoundException();
+        }else {
+
+            return acceptedTutors;
+        }
+
+    }
+
+
+    @RequestMapping(method = RequestMethod.GET)
+    public @ResponseBody ArrayList<TutorsDataModel> printTutors() {
+
+        ArrayList<TutorsDataModel> tutors = getActiveTutorsFromDB();
+
+        ArrayList<UserDataModel> users = getActiveUsersFromDB();
+
+
         return tutors;
     }
 
