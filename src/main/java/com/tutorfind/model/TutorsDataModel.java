@@ -34,7 +34,7 @@ public class TutorsDataModel extends UserDataModel{
         this.rating = rating;
     }
 
-    public TutorsDataModel(int userId, String legalFirstName, String legalLastName, String bio, String degrees, String links, String img, Boolean active, Timestamp timestamp, String rating,,String userName, String email, String salt, String passhash, String userType, String[] subjects) {
+    public TutorsDataModel(int userId, String legalFirstName, String legalLastName, String bio, String degrees, String links, String img, Boolean active, Timestamp timestamp, String rating,String userName, String email, String salt, String passhash, String userType, String[] subjects) {
         super(userId, userName, email, salt, passhash, userType, subjects);
         this.userId = userId;
         this.legalFirstName = legalFirstName;

@@ -170,7 +170,7 @@ public class TutorController extends UserController{
         ArrayList<TutorsDataModel> acceptedTutors = new ArrayList<>();
         ArrayList<TutorsDataModel> tutors = getActiveTutorsFromDB();
         ArrayList<UserDataModel> users = getActiveUsersFromDB();
-        
+
         for(TutorsDataModel tutor : tutors){
             for(UserDataModel user : users){
                 if(tutor.getUserId() == user.getUserId()){
