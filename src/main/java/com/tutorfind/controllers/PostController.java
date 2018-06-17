@@ -37,7 +37,7 @@ public class PostController{
      PUT /posts - inserts post into DB
 
      *v2 endpoints*
-     Get /posts/{name}
+     Get /posts/{name} - returns all posts on given first name or last name
      */
 
     private ArrayList<PostDataModel> getActivePostsFromDB() {
@@ -253,7 +253,7 @@ public class PostController{
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @RequestMapping(value = "{name}",method = RequestMethod.GET)
+    @RequestMapping(value = "name/{name}",method = RequestMethod.GET)
     public @ResponseBody ArrayList<PostDataModel> printPostsByTutorOwnerName(@PathVariable("name") String name) {
 
         ArrayList<PostDataModel> posts = getActivePostsByOwnerNameFromDB(name);

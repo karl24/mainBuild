@@ -37,7 +37,7 @@ public class TutorController extends UserController{
 
     *v2 endpoints*
     GET /tutors/all - return all tutors
-    GET /tutors/name/{name}
+    GET /tutors/name/{name} - returns all tutors with given first name or last name
      */
 
 
