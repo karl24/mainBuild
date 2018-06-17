@@ -29,8 +29,26 @@ public class StudentTest {
     HttpHeaders headers = new HttpHeaders();
 
     @Test
-    public void addCourse() {
+    public void testGetStudentWithId() {
 
+        testStudent("/students/1/");
+
+    }
+
+    @Test
+    public void testGetStudentWithName() {
+
+        testStudent("/students/name/John");
+
+    }
+
+    @Test
+    public void testAllStudents(){
+        testStudent("/students");
+    }
+
+
+    protected void testStudent(String s2) {
         StudentDataModel s= new StudentDataModel();
         s.setUserId(1);
         s.setActive(Boolean.TRUE);
@@ -42,14 +60,14 @@ public class StudentTest {
         HttpEntity<StudentDataModel> entity = new HttpEntity<StudentDataModel>(s, headers);
 
         ResponseEntity<String> response = restTemplate.exchange(
-                createURLWithPort("/students/1/"),
+                createURLWithPort(s2),
                 HttpMethod.POST, entity, String.class);
 
         String actual = response.getHeaders().get(HttpHeaders.LOCATION).get(0);
 
-        assertTrue(actual.contains("/students/1/"));
-
+        assertTrue(actual.contains(s2));
     }
+
 
 
 

@@ -35,6 +35,9 @@ public class PostController{
      GET /posts/{id} - returns posts based on id
      POST /posts/{id} - updates posts based on id
      PUT /posts - inserts post into DB
+
+     *v2 endpoints*
+     Get /posts/{name}
      */
 
     private ArrayList<PostDataModel> getActivePostsFromDB() {
@@ -92,6 +95,36 @@ public class PostController{
 
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+    }
+
+    private ArrayList<PostDataModel> getActivePostsByOwnerNameFromDB(String name) {
+        try (Connection connection = dataSource.getConnection()) {
+            String query = "select * from posts inner join tutors on posts.ownerid = tutors.userid AND (tutors.legalfirstname = ? OR tutors.legallastname = ?)";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, name);
+            preparedStatement.setString(2,name);
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+            ArrayList<PostDataModel> output = new ArrayList();
+
+            while (rs.next()) {
+                output.add(new PostDataModel(rs.getInt("postId"), rs.getString("posterType"),
+                        rs.getInt("ownerId"), rs.getString("subject"),
+                        rs.getString("location"), rs.getString("availability"),
+                        rs.getBoolean("acceptsPaid"), rs.getDouble("rate"),
+                        rs.getString("unit"), rs.getTimestamp("createdTs"),
+                        rs.getBoolean("active"), rs.getBoolean("acceptsGroupTutoring"),
+                        rs.getInt("currentlySignedUp")));
+            }
+
+            connection.close();
+            return output;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
         }
     }
 
@@ -218,5 +251,17 @@ public class PostController{
                 pdm.getLocation(), pdm.getAvailability(), pdm.isAcceptsPaid(), pdm.getRate(), pdm.getUnit(),
                 pdm.getCreatedTs(), pdm.isActive(), pdm. isAcceptsGroupTutoring(), pdm.getCurrentlySignedUp());
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "{name}",method = RequestMethod.GET)
+    public @ResponseBody ArrayList<PostDataModel> printPostsByTutorOwnerName(@PathVariable("name") String name) {
+
+        ArrayList<PostDataModel> posts = getActivePostsByOwnerNameFromDB(name);
+
+       if(posts.isEmpty()){
+           throw new ResourceNotFoundException();
+       }else {
+           return posts;
+       }
     }
 }

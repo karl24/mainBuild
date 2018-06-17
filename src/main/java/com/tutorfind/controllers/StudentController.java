@@ -34,7 +34,7 @@ public class StudentController extends UserController{
 
     *v2 endpoints*
     GET /students/all - return all students
-    GET /students/{name} - returns all students with given legalFirstName or legalLastName
+    GET /students/name/{name} - returns all students with given legalFirstName or legalLastName
 
      */
 
