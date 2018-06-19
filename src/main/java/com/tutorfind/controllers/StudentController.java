@@ -128,9 +128,10 @@ public class StudentController extends UserController{
                                               @RequestParam(value = "name", required = false) String name){
 
         hits++;
-        Cookie cookie = new Cookie("hits",hits.toString());
+        Cookie cookie = new Cookie("hits",status);
         response.addCookie(cookie);
         ArrayList<StudentDataModel> students = getActiveStudentsFromDB();
+
         if(!name.isEmpty()) {
             ArrayList<StudentDataModel> acceptedStudents = new ArrayList<>();
             students = getActiveStudentsFromDB();
