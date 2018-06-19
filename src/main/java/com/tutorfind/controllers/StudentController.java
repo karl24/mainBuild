@@ -161,9 +161,7 @@ public class StudentController extends UserController{
         StudentDataModel student = new StudentDataModel();
 
 
-        ArrayList<StudentDataModel> students = getStudentsFromDB();
-        ArrayList<UserDataModel> users = getActiveUsersFromDB();
-        setUserAttributesToStudents(students, users);
+        ArrayList<StudentDataModel> students = getActiveStudentsFromDB();
 
         for (StudentDataModel s : students) {
 
