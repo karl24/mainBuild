@@ -122,14 +122,11 @@ public class StudentController extends UserController{
 
     @RequestMapping(method = RequestMethod.GET)
     public @ResponseBody
-    ArrayList<StudentDataModel> printStudents(HttpServletResponse response,
-                                              @CookieValue(value = "hits",defaultValue = "0") Long hits,
+    ArrayList<StudentDataModel> printStudents(
+
                                               @RequestParam(value = "status", required = false) String status,
                                               @RequestParam(value = "name", required = false) String name){
-//
-//        hits++;
-//        Cookie cookie = new Cookie("hits",hits);
-//        response.addCookie(cookie);
+
         ArrayList<StudentDataModel> students = getActiveStudentsFromDB();
 
 //        if(!name.isEmpty()) {
