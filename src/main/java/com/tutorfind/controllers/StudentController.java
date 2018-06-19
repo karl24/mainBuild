@@ -132,9 +132,9 @@ public class StudentController extends UserController{
 
         if(!name.isEmpty() && name != null) {
             ArrayList<StudentDataModel> acceptedStudents = new ArrayList<>();
-            students = getActiveStudentsFromDB();
+            ArrayList<StudentDataModel> activeStudents = getActiveStudentsFromDB();
 
-            for (StudentDataModel s : students) {
+            for (StudentDataModel s : activeStudents) {
 
 
                 if(s.getLegalFirstName().equals(name) || s.getLegalLastName().equals(name)) {
