@@ -139,8 +139,11 @@ public class StudentController extends UserController{
 
             return students;
 
-        }else {
+        }else if(status.equals("inactive")){
             ArrayList<StudentDataModel> students = getInactiveStudentsFromDB();
+            return students;
+        }else {
+            ArrayList<StudentDataModel> students = getActiveStudentsFromDB();
             return students;
         }
 
@@ -180,7 +183,7 @@ public class StudentController extends UserController{
     @RequestMapping(method = RequestMethod.GET)
     public @ResponseBody
     ArrayList<StudentDataModel> printStudentBasedName(
-            @RequestParam(value = "name", required = false) String name) {
+            @RequestParam(value = "name", required = true) String name) {
 
 
 
