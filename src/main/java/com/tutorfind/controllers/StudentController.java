@@ -124,11 +124,32 @@ public class StudentController extends UserController{
     public @ResponseBody
     ArrayList<StudentDataModel> printStudents(HttpServletResponse response,
                                               @CookieValue(value = "hits",defaultValue = "0") Long hits,
-                                              @RequestParam(value = "status", required = false) String status){
+                                              @RequestParam(value = "status", required = false) String status,
+                                              @RequestParam(value = "name", required = false) String name){
 
         hits++;
         Cookie cookie = new Cookie("hits",hits.toString());
         response.addCookie(cookie);
+
+        if(status.isEmpty()) {
+            ArrayList<StudentDataModel> acceptedStudents = new ArrayList<>();
+            ArrayList<StudentDataModel> students = getActiveStudentsFromDB();
+
+            for (StudentDataModel s : students) {
+
+
+                if(s.getLegalFirstName().equals(name) || s.getLegalLastName().equals(name)) {
+                    acceptedStudents.add(s);
+                }
+            }
+
+            if (acceptedStudents.isEmpty()){
+                throw new ResourceNotFoundException();
+            }else {
+
+                return acceptedStudents;
+            }
+        }
 
         if(!status.equals("active")) {
             ArrayList<StudentDataModel> students = getActiveStudentsFromDB();
@@ -146,6 +167,8 @@ public class StudentController extends UserController{
             ArrayList<StudentDataModel> students = getActiveStudentsFromDB();
             return students;
         }
+
+
 
 
 
@@ -176,33 +199,6 @@ public class StudentController extends UserController{
         }else {
 
             return student;
-        }
-
-    }
-
-    @RequestMapping(method = RequestMethod.GET)
-    public @ResponseBody
-    ArrayList<StudentDataModel> printStudentBasedName(
-            @RequestParam(value = "name", required = true) String name) {
-
-
-
-        ArrayList<StudentDataModel> acceptedStudents = new ArrayList<>();
-        ArrayList<StudentDataModel> students = getActiveStudentsFromDB();
-
-        for (StudentDataModel s : students) {
-
-
-            if(s.getLegalFirstName().equals(name) || s.getLegalLastName().equals(name)) {
-                acceptedStudents.add(s);
-            }
-        }
-
-        if (acceptedStudents.isEmpty()){
-            throw new ResourceNotFoundException();
-        }else {
-
-            return acceptedStudents;
         }
 
     }
