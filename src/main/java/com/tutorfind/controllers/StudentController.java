@@ -148,6 +148,8 @@ public class StudentController extends UserController{
 
                 return acceptedStudents;
             }
+        }else {
+            return students;
         }
 //
 //        if(status.equals("active")) {
@@ -167,9 +169,6 @@ public class StudentController extends UserController{
 //            return students;
 //        }
 
-
-
-        return students;
 
     }
 
