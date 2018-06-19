@@ -126,10 +126,10 @@ public class StudentController extends UserController{
                                               @CookieValue(value = "hits",defaultValue = "0") Long hits,
                                               @RequestParam(value = "status", required = false) String status,
                                               @RequestParam(value = "name", required = false) String name){
-
-        hits++;
-        Cookie cookie = new Cookie("hits",status);
-        response.addCookie(cookie);
+//
+//        hits++;
+//        Cookie cookie = new Cookie("hits",hits);
+//        response.addCookie(cookie);
         ArrayList<StudentDataModel> students = getActiveStudentsFromDB();
 
 //        if(!name.isEmpty()) {
