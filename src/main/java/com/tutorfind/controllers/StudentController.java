@@ -129,25 +129,26 @@ public class StudentController extends UserController{
 
         ArrayList<StudentDataModel> students = getActiveStudentsFromDB();
 
-//        if(!name.isEmpty()) {
-//            ArrayList<StudentDataModel> acceptedStudents = new ArrayList<>();
-//            students = getActiveStudentsFromDB();
-//
-//            for (StudentDataModel s : students) {
-//
-//
-//                if(s.getLegalFirstName().equals(name) || s.getLegalLastName().equals(name)) {
-//                    acceptedStudents.add(s);
-//                }
-//            }
-//
-//            if (acceptedStudents.isEmpty()){
-//                throw new ResourceNotFoundException();
-//            }else {
-//
-//                return acceptedStudents;
-//            }
-//        }
+
+        if(!name.isEmpty()) {
+            ArrayList<StudentDataModel> acceptedStudents = new ArrayList<>();
+            students = getActiveStudentsFromDB();
+
+            for (StudentDataModel s : students) {
+
+
+                if(s.getLegalFirstName().equals(name) || s.getLegalLastName().equals(name)) {
+                    acceptedStudents.add(s);
+                }
+            }
+
+            if (acceptedStudents.isEmpty()){
+                throw new ResourceNotFoundException();
+            }else {
+
+                return acceptedStudents;
+            }
+        }
 //
 //        if(status.equals("active")) {
 //            students = getActiveStudentsFromDB();
