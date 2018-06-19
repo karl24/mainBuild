@@ -33,8 +33,10 @@ public class StudentController extends UserController{
     POST /students/login - logins students
 
     *v2 endpoints*
-    GET /students/all - return all students
-    GET /students/name/{name} - returns all students with given legalFirstName or legalLastName
+    GET /students?status=any - returns list of students with any status
+    GET /students?status=inactive - returns list of only inactive student accounts
+    GET /students?status=active - returns same as '/students', the lust of active student accounts
+    GET /students?name={name} - returns all students with given legalFirstName or legalLastName
 
      */
 
@@ -122,31 +124,30 @@ public class StudentController extends UserController{
     public @ResponseBody
     ArrayList<StudentDataModel> printStudents(HttpServletResponse response,
                                               @CookieValue(value = "hits",defaultValue = "0") Long hits,
-                                              @RequestParam(value = "legalFirstName", defaultValue = "") String legalFirstName){
+                                              @RequestParam(value = "status", required = false) String status){
 
         hits++;
         Cookie cookie = new Cookie("hits",hits.toString());
         response.addCookie(cookie);
 
-        ArrayList<StudentDataModel> students = getStudentsFromDB();
-        ArrayList<StudentDataModel> acceptedStudents = new ArrayList<>();
-        ArrayList<UserDataModel> users = getActiveUsersFromDB();
-        setUserAttributesToStudents(students,users);
-
-        for (StudentDataModel student : students) {
-            if (student.getLegalFirstName().equals(legalFirstName)){
-                acceptedStudents.add(student);
-
-            }
-
-        }
-
-
-        if (acceptedStudents.isEmpty()) {
+        if(!status.equals("active")) {
+            ArrayList<StudentDataModel> students = getActiveStudentsFromDB();
             return students;
+
+        }else if(status.equals("all")){
+            ArrayList<StudentDataModel> students = getAllStudentsFromDB();
+
+            return students;
+
         }else {
-            return acceptedStudents;
+            ArrayList<StudentDataModel> students = getInactiveStudentsFromDB();
+            return students;
         }
+
+
+
+
+
 
 
 
@@ -183,17 +184,15 @@ public class StudentController extends UserController{
 
     }
 
-    @RequestMapping(value = "name/{name}", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public @ResponseBody
     ArrayList<StudentDataModel> printStudent(
-                                  @PathVariable("name")String name) {
+            @RequestParam(value = "name", required = false) String name) {
 
 
 
         ArrayList<StudentDataModel> acceptedStudents = new ArrayList<>();
-        ArrayList<StudentDataModel> students = getStudentsFromDB();
-        ArrayList<UserDataModel> users = getActiveUsersFromDB();
-        setUserAttributesToStudents(students, users);
+        ArrayList<StudentDataModel> students = getActiveStudentsFromDB();
 
         for (StudentDataModel s : students) {
 
@@ -212,20 +211,6 @@ public class StudentController extends UserController{
 
     }
 
-    protected void setUserAttributesToStudents(ArrayList<StudentDataModel> students, ArrayList<UserDataModel> users) {
-        for(StudentDataModel s: students){
-            for(UserDataModel u : users){
-                if(s.getUserId() == u.getUserId()){
-                    s.setUserType(u.getUserType());
-                    s.setPasshash(u.getPasshash());
-                    s.setEmail(u.getEmail());
-                    s.setUserName(u.getUserName());
-                    s.setSalt(u.getSalt());
-                    s.setSubjects(u.getSubjects());
-                }
-            }
-        }
-    }
 
 
     @RequestMapping(value = "delete/{studentId}", method = {RequestMethod.POST})
@@ -294,25 +279,23 @@ public class StudentController extends UserController{
 
     }
 
+    public ArrayList<StudentDataModel> getActiveStudentsFromDB() {
+        return getStudentDataModels("select * from users inner join students on  users.userType = 'student' and users.userid = students.userid WHERE active = true");
+    }
+
     public ArrayList<StudentDataModel> getAllStudentsFromDB() {
+        return getStudentDataModels("select * from users inner join students on  users.userType = 'student' and users.userid = students.userid");
+    }
+
+    protected ArrayList<StudentDataModel> getStudentDataModels(String s) {
         try (Connection connection = dataSource.getConnection()) {
             Statement stmt = connection.createStatement();
 
-            ResultSet rs = stmt.executeQuery("select * from users inner join students on  users.userType = 'student' and users.userid = students.userid");
+            ResultSet rs = stmt.executeQuery(s);
 
             ArrayList<StudentDataModel> output = new ArrayList();
 
-            while(rs.next()){
-                String subjectsString = rs.getString("subjects");
-
-                String[] subjects = subjectsString.split(",");
-                subjects[0] = subjects[0].substring(1);
-                subjects[subjects.length-1] = subjects[subjects.length-1].substring(0, subjects[subjects.length-1].length()-1);
-                StudentDataModel s = new StudentDataModel(rs.getInt("userId"),rs.getString("legalFirstName"),rs.getString("legalLastName"), rs.getString("bio"),
-                        rs.getString("major"), rs.getString("minor"), rs.getString("img"), rs.getBoolean("active"),
-                        rs.getTimestamp("creationdate"),rs.getString("username"),rs.getString("email"),rs.getString("salt"),rs.getString("passhash"),rs.getString("usertype"),subjects);
-                output.add(s);
-            }
+            setStudent(rs, output);
 
             return output;
 
@@ -320,6 +303,24 @@ public class StudentController extends UserController{
             e.printStackTrace();
             return null;
 
+        }
+    }
+
+    public ArrayList<StudentDataModel> getInactiveStudentsFromDB() {
+        return getStudentDataModels("select * from users inner join students on  users.userType = 'student' and users.userid = students.userid WHERE active = false");
+    }
+
+    protected void setStudent(ResultSet rs, ArrayList<StudentDataModel> output) throws SQLException {
+        while(rs.next()){
+            String subjectsString = rs.getString("subjects");
+
+            String[] subjects = subjectsString.split(",");
+            subjects[0] = subjects[0].substring(1);
+            subjects[subjects.length-1] = subjects[subjects.length-1].substring(0, subjects[subjects.length-1].length()-1);
+            StudentDataModel s = new StudentDataModel(rs.getInt("userId"),rs.getString("legalFirstName"),rs.getString("legalLastName"), rs.getString("bio"),
+                    rs.getString("major"), rs.getString("minor"), rs.getString("img"), rs.getBoolean("active"),
+                    rs.getTimestamp("creationdate"),rs.getString("username"),rs.getString("email"),rs.getString("salt"),rs.getString("passhash"),rs.getString("usertype"),subjects);
+            output.add(s);
         }
     }
 

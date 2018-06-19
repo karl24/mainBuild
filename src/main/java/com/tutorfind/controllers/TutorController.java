@@ -37,7 +37,7 @@ public class TutorController extends UserController{
 
     *v2 endpoints*
     GET /tutors/all - return all tutors
-    GET /tutors/name/{name} - returns all tutors with given first name or last name
+    GET /tutors?name={name} - returns all tutors with given first name or last name
      */
 
 
@@ -160,10 +160,10 @@ public class TutorController extends UserController{
 
     }
 
-    @RequestMapping(value = "name/{name}", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public @ResponseBody
     ArrayList<TutorsDataModel> printTutorsByName(
-            @PathVariable("name")String name) {
+            @RequestParam(value = "name", required = false) String name) {
 
 
 

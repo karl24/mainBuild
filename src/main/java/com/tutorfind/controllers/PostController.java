@@ -30,14 +30,14 @@ public class PostController{
 
     /*
      *v1 endpoints*
-     GET /posts?={type} - returns all posts based on the type
+     GET /posts?type={type} - returns all posts based on the type
      GET /posts/subject/{subject} - returns specific posts based on subjects
      GET /posts/{id} - returns posts based on id
      POST /posts/{id} - updates posts based on id
      PUT /posts - inserts post into DB
 
      *v2 endpoints*
-     Get /posts/{name} - returns all posts on given first name or last name
+     Get /posts?name={name} - returns all posts on given first name or last name
      */
 
     private ArrayList<PostDataModel> getActivePostsFromDB() {
@@ -253,8 +253,8 @@ public class PostController{
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @RequestMapping(value = "name/{name}",method = RequestMethod.GET)
-    public @ResponseBody ArrayList<PostDataModel> printPostsByTutorOwnerName(@PathVariable("name") String name) {
+    @RequestMapping(method = RequestMethod.GET)
+    public @ResponseBody ArrayList<PostDataModel> printPostsByTutorOwnerName(@RequestParam(value = "name", required = false) String name) {
 
         ArrayList<PostDataModel> posts = getActivePostsByOwnerNameFromDB(name);
 
