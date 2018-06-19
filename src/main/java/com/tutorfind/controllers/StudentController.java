@@ -146,11 +146,6 @@ public class StudentController extends UserController{
 
 
 
-
-
-
-
-
     }
 
     @RequestMapping(value = "{id}", method = RequestMethod.GET)
@@ -184,7 +179,7 @@ public class StudentController extends UserController{
 
     @RequestMapping(method = RequestMethod.GET)
     public @ResponseBody
-    ArrayList<StudentDataModel> printStudent(
+    ArrayList<StudentDataModel> printStudentBasedName(
             @RequestParam(value = "name", required = false) String name) {
 
 
