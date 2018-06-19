@@ -130,10 +130,10 @@ public class StudentController extends UserController{
         hits++;
         Cookie cookie = new Cookie("hits",hits.toString());
         response.addCookie(cookie);
-
-        if(status.isEmpty()) {
+        ArrayList<StudentDataModel> students = getActiveStudentsFromDB();
+        if(!name.isEmpty()) {
             ArrayList<StudentDataModel> acceptedStudents = new ArrayList<>();
-            ArrayList<StudentDataModel> students = getActiveStudentsFromDB();
+            students = getActiveStudentsFromDB();
 
             for (StudentDataModel s : students) {
 
@@ -151,26 +151,26 @@ public class StudentController extends UserController{
             }
         }
 
-        if(!status.equals("active")) {
-            ArrayList<StudentDataModel> students = getActiveStudentsFromDB();
+        if(status.equals("active")) {
+            students = getActiveStudentsFromDB();
             return students;
 
         }else if(status.equals("all")){
-            ArrayList<StudentDataModel> students = getAllStudentsFromDB();
+            students = getAllStudentsFromDB();
 
             return students;
 
         }else if(status.equals("inactive")){
-            ArrayList<StudentDataModel> students = getInactiveStudentsFromDB();
+            students = getInactiveStudentsFromDB();
             return students;
-        }else {
-            ArrayList<StudentDataModel> students = getActiveStudentsFromDB();
+        }else if(status.isEmpty()){
+            students = getActiveStudentsFromDB();
             return students;
         }
 
 
 
-
+        return students;
 
     }
 
