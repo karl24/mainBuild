@@ -194,13 +194,25 @@ public class PostController{
     //working with empty param or no param, doesn't filter correctly when I put in tutor or student
     @RequestMapping(method = RequestMethod.GET)
     public @ResponseBody ArrayList<PostDataModel> printPosts(@RequestParam(value = "type", required = false
-        ) String posterType) {
+        ) String posterType, @RequestParam(value = "name", required = false) String name) {
+
+        if(name != null && !name.isEmpty()) {
+            ArrayList<PostDataModel> posts = getActivePostsByOwnerNameFromDB(name);
+
+            if(posts.isEmpty()){
+                throw new ResourceNotFoundException();
+            }else {
+                return posts;
+            }
+        }
 
         if(posterType != null && !posterType.isEmpty()){
             return getActivePostsByTypeFromDB(posterType);
         } else {
             return getActivePostsFromDB();
         }
+
+
     }
 
     @RequestMapping(value = "subject/{subject}",method = RequestMethod.GET)
@@ -253,15 +265,5 @@ public class PostController{
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @RequestMapping(method = RequestMethod.GET)
-    public @ResponseBody ArrayList<PostDataModel> printPostsByTutorOwnerName(@RequestParam(value = "name", required = false) String name) {
 
-        ArrayList<PostDataModel> posts = getActivePostsByOwnerNameFromDB(name);
-
-       if(posts.isEmpty()){
-           throw new ResourceNotFoundException();
-       }else {
-           return posts;
-       }
-    }
 }
