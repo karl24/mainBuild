@@ -129,7 +129,7 @@ public class StudentController extends UserController{
 
         ArrayList<StudentDataModel> students = getActiveStudentsFromDB();
 
-
+        System.out.println("this is the name " + name);
         if(!name.isEmpty() && name != null) {
             ArrayList<StudentDataModel> acceptedStudents = new ArrayList<>();
             ArrayList<StudentDataModel> activeStudents = getActiveStudentsFromDB();
