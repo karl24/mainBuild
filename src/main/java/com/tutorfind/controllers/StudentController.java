@@ -149,7 +149,7 @@ public class StudentController extends UserController{
                 return acceptedStudents;
             }
         }else {
-            return students;
+            return getActiveStudentsFromDB();
         }
 //
 //        if(status.equals("active")) {
