@@ -29,6 +29,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Properties;
 import java.util.UUID;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @CrossOrigin
 @RestController
@@ -37,11 +39,15 @@ public class ForgotPasswordController {
 
     @Autowired
     private DataSource dataSource;
-
+    private static final Logger LOGGER = Logger.getLogger(StudentController.class.getName());
     String uniqueKey;
     int userId;
 
     private String isStudentEmailActive(String email){
+        LOGGER.info("Logger Name: "+LOGGER.getName());
+
+        LOGGER.warning("Can cause SQLException");
+
 
         try (Connection connection = dataSource.getConnection()) {
             String query = "SELECT u.email AS email FROM users u LEFT JOIN students s ON u.userid = s.userid WHERE u.email = ? AND s.active = true";
@@ -56,6 +62,8 @@ public class ForgotPasswordController {
             connection.close();
 
         } catch (SQLException e) {
+
+            LOGGER.log(Level.SEVERE, "Exception occur",e);
             e.printStackTrace();
             return e.getMessage();
         }
@@ -64,6 +72,10 @@ public class ForgotPasswordController {
     }
 
     private String isTutorEmailActive(String email){
+        LOGGER.info("Logger Name: "+LOGGER.getName());
+
+        LOGGER.warning("Can cause SQLException");
+
 
         try (Connection connection = dataSource.getConnection()) {
             String query = "SELECT u.email AS email FROM users u LEFT JOIN tutors t ON u.userid = t.userid WHERE u.email = ? AND t.active = true";
@@ -79,6 +91,8 @@ public class ForgotPasswordController {
             connection.close();
 
         } catch (SQLException e) {
+
+            LOGGER.log(Level.SEVERE, "Exception occur",e);
             e.printStackTrace();
             return e.getMessage();
         }
@@ -91,6 +105,10 @@ public class ForgotPasswordController {
     }
 
     private int getUserId(String email){
+        LOGGER.info("Logger Name: "+LOGGER.getName());
+
+        LOGGER.warning("Can cause SQLException");
+
         try (Connection connection = dataSource.getConnection()) {
             String query = "SELECT userid FROM users WHERE email = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -105,6 +123,8 @@ public class ForgotPasswordController {
             connection.close();
 
         } catch (SQLException e) {
+
+            LOGGER.log(Level.SEVERE, "Exception occur",e);
             e.printStackTrace();
         }
 
@@ -112,6 +132,10 @@ public class ForgotPasswordController {
     }
 
     private String getFirstName(String email, String table){
+        LOGGER.info("Logger Name: "+LOGGER.getName());
+
+        LOGGER.warning("Can cause SQLException");
+
         try (Connection connection = dataSource.getConnection()) {
             String query = "SELECT " + table + ".legalfirstname FROM " + table + " inner join users ON " + table + ".userId = users.userId WHERE users.email = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -126,6 +150,8 @@ public class ForgotPasswordController {
             connection.close();
 
         } catch (SQLException e) {
+
+            LOGGER.log(Level.SEVERE, "Exception occur",e);
             e.printStackTrace();
         }
 
@@ -134,6 +160,9 @@ public class ForgotPasswordController {
 
     private String updatePassword(int userId){
         String newPassword = getRandomPassword();
+        LOGGER.info("Logger Name: "+LOGGER.getName());
+
+        LOGGER.warning("Can cause SQLException");
 
         try (Connection connection = dataSource.getConnection()) {
             String query = "UPDATE users SET passhash = crypt(?, gen_salt('bf')), salt = gen_salt('bf') WHERE userId = ?";
@@ -146,6 +175,8 @@ public class ForgotPasswordController {
 
 
         } catch (SQLException e) {
+
+            LOGGER.log(Level.SEVERE, "Exception occur",e);
             e.printStackTrace();
 
         }
@@ -153,6 +184,10 @@ public class ForgotPasswordController {
     }
 
     private  ResponseEntity<Void> sendMail(String email, String table) {
+        LOGGER.info("Logger Name: "+LOGGER.getName());
+
+        LOGGER.warning("Can cause MessagingException");
+
         final String username = "tutorfindapp@gmail.com";
         final String password = "y2xzIhJQzk2g";
         Properties props = new Properties();
@@ -183,6 +218,8 @@ public class ForgotPasswordController {
 //            System.out.println("Done");
 
         } catch (MessagingException e) {
+
+            LOGGER.log(Level.SEVERE, "Exception occur",e);
             throw new RuntimeException(e);
         }
 
@@ -191,11 +228,17 @@ public class ForgotPasswordController {
 
     @RequestMapping(value = "/{uniquekey}",method = RequestMethod.GET)
     public String getNewPassword(@PathVariable("uniquekey") String uniquekey){
+        LOGGER.info("Logger Name: "+LOGGER.getName());
+
+        LOGGER.warning("Can cause ResourceNotFoundException");
+
         String newPassword;
         if(uniquekey.equals(uniqueKey)){
             newPassword = updatePassword(userId);
             return newPassword;
         }else {
+
+            LOGGER.log(Level.SEVERE, "Exception occur");
            throw new ResourceNotFoundException();
         }
 

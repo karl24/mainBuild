@@ -13,6 +13,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @CrossOrigin
 @RestController
@@ -22,13 +24,17 @@ public class ChangePasswordController extends UserController{
 
     @Autowired
     private DataSource dataSource;
-
+    private static final Logger LOGGER = Logger.getLogger(StudentController.class.getName());
     /*
      *v1 endpoints*
     POST changepassword/{id}/{oldpassword} - changes password
      */
 
     private void updatePassword(String password, int userId){
+        LOGGER.info("Logger Name: "+LOGGER.getName());
+
+        LOGGER.warning("Can cause SQLException");
+
         try (Connection connection = dataSource.getConnection()) {
 
             String query = "UPDATE users SET passhash = crypt(?, gen_salt('bf')), salt = gen_salt('bf') WHERE userId = ?";
@@ -42,6 +48,8 @@ public class ChangePasswordController extends UserController{
 
 
         } catch (SQLException e) {
+
+            LOGGER.log(Level.SEVERE, "Exception occur",e);
             e.printStackTrace();
 
 
@@ -52,6 +60,10 @@ public class ChangePasswordController extends UserController{
 
     @RequestMapping(value = "{id}/{oldpassword}", method = {RequestMethod.POST})
     public ResponseEntity<Void> changePassword(@PathVariable("id") int id, @RequestBody StudentDataModel s, @PathVariable("oldpassword") String password) {
+        LOGGER.info("Logger Name: "+LOGGER.getName());
+
+        LOGGER.warning("Can cause SQLException");
+
         try (Connection connection = dataSource.getConnection()) {
 
             String sql = "SELECT userId, passhash = crypt(?, passhash) as pass, passhash from users where passhash = crypt(?, passhash) AND userId = ?";
@@ -79,6 +91,7 @@ public class ChangePasswordController extends UserController{
 
 
         } catch (SQLException e) {
+            LOGGER.log(Level.SEVERE, "Exception occur",e);
             e.printStackTrace();
             return null;
 

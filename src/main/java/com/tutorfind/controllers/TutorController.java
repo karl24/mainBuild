@@ -15,6 +15,8 @@ import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @CrossOrigin
 @RestController
@@ -23,7 +25,7 @@ public class TutorController extends UserController{
 
     @Autowired
     private DataSource dataSource;
-
+    private static final Logger LOGGER = Logger.getLogger(StudentController.class.getName());
 
     /*
     *v1 endpoints*
@@ -55,6 +57,10 @@ public class TutorController extends UserController{
     }
 
     protected ArrayList<TutorsDataModel> getTutorsDataModels(String s) {
+        LOGGER.info("Logger Name: "+LOGGER.getName());
+
+        LOGGER.warning("Can cause SQLException");
+
         try (Connection connection = dataSource.getConnection()) {
             Statement stmt = connection.createStatement();
 
@@ -67,6 +73,8 @@ public class TutorController extends UserController{
             return output;
 
         } catch (SQLException e) {
+
+            LOGGER.log(Level.SEVERE, "Exception occur",e);
             e.printStackTrace();
             return null;
 
@@ -87,6 +95,10 @@ public class TutorController extends UserController{
 
 
     public void updateTutorsFromDB(int userId, String legalFirstName,String legalLastName, String bio, String degrees, String links,String img, boolean active, Timestamp creationdate,String rating){
+        LOGGER.info("Logger Name: "+LOGGER.getName());
+
+        LOGGER.warning("Can cause SQLException");
+
         try (Connection connection = dataSource.getConnection()) {
 
            
@@ -108,6 +120,8 @@ public class TutorController extends UserController{
 
 
         } catch (SQLException e) {
+
+            LOGGER.log(Level.SEVERE, "Exception occur",e);
             e.printStackTrace();
 
 
@@ -115,6 +129,10 @@ public class TutorController extends UserController{
     }
 
     public void insertTutorIntoDB(int userId, String legalFirstName,String legalLastName, String bio, String degrees, String links,String img, boolean active, Timestamp timestamp, String ratings){
+        LOGGER.info("Logger Name: "+LOGGER.getName());
+
+        LOGGER.warning("Can cause SQLException");
+
         try (Connection connection = dataSource.getConnection()) {
             //Statement stmt = connection.createStatement();
             String defaultValue = "{\"0\":\"0\"}";
@@ -137,6 +155,8 @@ public class TutorController extends UserController{
 
 
         } catch (SQLException e) {
+
+            LOGGER.log(Level.SEVERE, "Exception occur",e);
             e.printStackTrace();
 
 
@@ -155,6 +175,9 @@ public class TutorController extends UserController{
             @RequestParam(value = "name", required = false) String name,
             @RequestParam(value = "status", required = false) String status) {
 
+        LOGGER.info("Logger Name: "+LOGGER.getName());
+
+        LOGGER.warning("Can cause ResourceNotFoundException");
 
         ArrayList<TutorsDataModel> tutors = getActiveTutorsFromDB();
 
@@ -173,6 +196,8 @@ public class TutorController extends UserController{
             }
 
             if (acceptedTutors.isEmpty()) {
+
+                LOGGER.log(Level.SEVERE, "Exception occur");
                 throw new ResourceNotFoundException();
             } else {
 
@@ -201,6 +226,9 @@ public class TutorController extends UserController{
 
     @RequestMapping(value = "{id}",method = RequestMethod.GET)
     public @ResponseBody TutorsDataModel printTutor(@PathVariable("id") int id) {
+        LOGGER.info("Logger Name: "+LOGGER.getName());
+
+        LOGGER.warning("Can cause ResourceNotFoundException");
 
         TutorsDataModel tutor = new TutorsDataModel();
 
@@ -227,6 +255,8 @@ public class TutorController extends UserController{
             }
         }
         if(tutor.getUserName() == null) {
+
+            LOGGER.log(Level.SEVERE, "Exception occur");
             throw new ResourceNotFoundException();
         }else {
             return tutor;
@@ -237,6 +267,10 @@ public class TutorController extends UserController{
 
     @RequestMapping(value = "login", method = {RequestMethod.POST})
     public TutorsDataModel loginStudent(@RequestBody TutorsDataModel t){
+        LOGGER.info("Logger Name: "+LOGGER.getName());
+
+        LOGGER.warning("Can cause SQLException");
+        LOGGER.warning("Can cause ResourceNotFoundException");
         ArrayList<TutorsDataModel> tutors = getActiveTutorsFromDB();
         ArrayList<UserDataModel> users = getActiveUsersFromDB();
         try (Connection connection = dataSource.getConnection()) {
@@ -276,12 +310,16 @@ public class TutorController extends UserController{
 
 
             if(output.isEmpty()){
+
+                LOGGER.log(Level.SEVERE, "Exception occur");
                 throw new ResourceNotFoundException();
             }else {
                 return output.get(0);
             }
 
         } catch (SQLException e) {
+
+            LOGGER.log(Level.SEVERE, "Exception occur",e);
             e.printStackTrace();
             return null;
 
@@ -332,6 +370,10 @@ public class TutorController extends UserController{
     }
 
     public void updateTutorsFromDB(int userId, boolean active){
+        LOGGER.info("Logger Name: "+LOGGER.getName());
+
+        LOGGER.warning("Can cause SQLException");
+
         try (Connection connection = dataSource.getConnection()) {
 
 
@@ -345,6 +387,7 @@ public class TutorController extends UserController{
 
 
         } catch (SQLException e) {
+            LOGGER.log(Level.SEVERE, "Exception occur",e);
             e.printStackTrace();
 
 
@@ -354,9 +397,10 @@ public class TutorController extends UserController{
     @RequestMapping(value = "{studentId}/addrating", method = {RequestMethod.POST})
     public ResponseEntity<Void> addRating(@PathVariable("studentId") int studentId, @RequestBody TutorsDataModel t) {
 
-//        updateTutorsFromDB(t.getUserId(),t.getLegalFirstName(),t.getLegalLastName(),t.getBio(),t.getDegrees(),t.getLinks(),t.getImg(),t.getActive(),t.getTimestamp(),t.getRating());
-//        updateUserFromDB(t.getUserId(),t.getUserName(),t.getEmail(),t.getUserType(),t.getSubjects());
-//        return new ResponseEntity<>(HttpStatus.OK);
+        LOGGER.info("Logger Name: "+LOGGER.getName());
+
+        LOGGER.warning("Can cause JSONException");
+
         boolean badRequest = true;
         ArrayList<TutorsDataModel> tutors = getActiveTutorsFromDB();
         for( TutorsDataModel tutor : tutors) {
@@ -377,6 +421,8 @@ public class TutorController extends UserController{
                             }
                         }
                     } catch (JSONException e) {
+
+                        LOGGER.log(Level.SEVERE, "Exception occur",e);
                         e.printStackTrace();
                     }
                 }else {

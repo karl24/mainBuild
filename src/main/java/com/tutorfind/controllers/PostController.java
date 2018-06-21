@@ -6,19 +6,17 @@ package com.tutorfind.controllers;
 
 import com.tutorfind.exceptions.ResourceNotFoundException;
 import com.tutorfind.model.PostDataModel;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.http.MediaType;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @CrossOrigin
 @RestController
@@ -27,7 +25,7 @@ public class PostController{
 
     @Autowired
     private DataSource dataSource;
-
+    private static final Logger LOGGER = Logger.getLogger(StudentController.class.getName());
     /*
      *v1 endpoints*
      GET /posts?type={type} - returns all posts based on the type
@@ -41,6 +39,10 @@ public class PostController{
      */
 
     private ArrayList<PostDataModel> getActivePostsFromDB() {
+        LOGGER.info("Logger Name: "+LOGGER.getName());
+
+        LOGGER.warning("Can cause SQLException");
+
         try (Connection connection = dataSource.getConnection()) {
             Statement stmt = connection.createStatement();
 
@@ -61,6 +63,8 @@ public class PostController{
             return output;
 
         } catch (SQLException e) {
+
+            LOGGER.log(Level.SEVERE, "Exception occur",e);
             e.printStackTrace();
             return null;
         }
@@ -69,6 +73,10 @@ public class PostController{
     public void updatePostsFromDB(int postId, String posterType, int ownerId, String subject, String location,
         String availability, boolean acceptsPaid, double rate, String unit, Timestamp createdTs, boolean active,
         boolean acceptsGroupTutoring, int currentlySignedUp){
+        LOGGER.info("Logger Name: "+LOGGER.getName());
+
+        LOGGER.warning("Can cause SQLException");
+
 
         try (Connection connection = dataSource.getConnection()) {
             String query = "UPDATE posts SET posterType = ?, ownerId = ?, subject = ?, location = ?, " +
@@ -94,11 +102,17 @@ public class PostController{
             connection.close();
 
         } catch (SQLException e) {
+
+            LOGGER.log(Level.SEVERE, "Exception occur",e);
             e.printStackTrace();
         }
     }
 
     private ArrayList<PostDataModel> getActivePostsByOwnerNameFromDB(String name) {
+        LOGGER.info("Logger Name: "+LOGGER.getName());
+
+        LOGGER.warning("Can cause SQLException");
+
         try (Connection connection = dataSource.getConnection()) {
             String query = "select * from posts inner join tutors on posts.ownerid = tutors.userid AND (tutors.legalfirstname = ? OR tutors.legallastname = ?)";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -123,12 +137,18 @@ public class PostController{
             return output;
 
         } catch (SQLException e) {
+
+            LOGGER.log(Level.SEVERE, "Exception occur",e);
             e.printStackTrace();
             return null;
         }
     }
 
     private ArrayList<PostDataModel> getActivePostsByTypeFromDB(String posterType) {
+        LOGGER.info("Logger Name: "+LOGGER.getName());
+
+        LOGGER.warning("Can cause SQLException");
+
         try (Connection connection = dataSource.getConnection()) {
             String query = "SELECT * FROM posts WHERE active IS TRUE AND posterType=? ORDER BY createdTs DESC";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -152,6 +172,8 @@ public class PostController{
             return output;
 
         } catch (SQLException e) {
+
+            LOGGER.log(Level.SEVERE, "Exception occur",e);
             e.printStackTrace();
             return null;
         }
@@ -160,6 +182,10 @@ public class PostController{
     public void insertPostIntoDB(String posterType, int ownerId, String subject, String location,
         String availability, boolean acceptsPaid, double rate, String unit, Timestamp createdTs, boolean active,
         boolean acceptsGroupTutoring, int currentlySignedUp){
+        LOGGER.info("Logger Name: "+LOGGER.getName());
+
+        LOGGER.warning("Can cause SQLException");
+
 
         try (Connection connection = dataSource.getConnection()) {
 
@@ -185,6 +211,8 @@ public class PostController{
             connection.close();
 
         } catch (SQLException e) {
+
+            LOGGER.log(Level.SEVERE, "Exception occur",e);
             e.printStackTrace();
 
         }
@@ -195,11 +223,16 @@ public class PostController{
     @RequestMapping(method = RequestMethod.GET)
     public @ResponseBody ArrayList<PostDataModel> printPosts(@RequestParam(value = "type", required = false
         ) String posterType, @RequestParam(value = "name", required = false) String name) {
+        LOGGER.info("Logger Name: "+LOGGER.getName());
+
+        LOGGER.warning("Can cause ResourceNotFoundException");
 
         if(name != null && !name.isEmpty()) {
             ArrayList<PostDataModel> posts = getActivePostsByOwnerNameFromDB(name);
 
             if(posts.isEmpty()){
+
+                LOGGER.log(Level.SEVERE, "Exception occur");
                 throw new ResourceNotFoundException();
             }else {
                 return posts;
@@ -217,6 +250,10 @@ public class PostController{
 
     @RequestMapping(value = "subject/{subject}",method = RequestMethod.GET)
     public @ResponseBody ArrayList<PostDataModel> getPostsBasedOnSubjects(@PathVariable("subject") ArrayList<String> subject) {
+        LOGGER.info("Logger Name: "+LOGGER.getName());
+
+        LOGGER.warning("Can cause SQLException");
+
         ArrayList<PostDataModel> posts = getActivePostsFromDB();
         ArrayList<PostDataModel> acceptedPosts = new ArrayList<>();
         for(PostDataModel post: posts) {
@@ -228,6 +265,8 @@ public class PostController{
             }
         }
         if(acceptedPosts.isEmpty()){
+
+            LOGGER.log(Level.SEVERE, "Exception occur");
             throw new ResourceNotFoundException();
         }else {
             return acceptedPosts;

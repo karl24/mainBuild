@@ -9,17 +9,23 @@ import java.security.SecureRandom;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @RestController
 public abstract class UserController {
 
     @Autowired
     private DataSource dataSource;
-
+    private static final Logger LOGGER = Logger.getLogger(StudentController.class.getName());
 
     private static final Random RANDOM = new SecureRandom();
 
     public ArrayList<UserDataModel> getActiveUsersFromDB() {
+        LOGGER.info("Logger Name: "+LOGGER.getName());
+
+        LOGGER.warning("Can cause SQLException");
+
         try (Connection connection = dataSource.getConnection()) {
             Statement stmt = connection.createStatement();
 
@@ -32,6 +38,8 @@ public abstract class UserController {
             return output;
 
         } catch (SQLException e) {
+
+            LOGGER.log(Level.SEVERE, "Exception occur",e);
             e.printStackTrace();
             return null;
 
@@ -41,6 +49,10 @@ public abstract class UserController {
 
 
     public void insertUserIntoDB(String  userName, String email, String salt, String passhash, String userType, String[] subjects){
+        LOGGER.info("Logger Name: "+LOGGER.getName());
+
+        LOGGER.warning("Can cause SQLException");
+
         try (Connection connection = dataSource.getConnection()) {
             final java.sql.Array sqlArray = connection.createArrayOf("VARCHAR", subjects);
             String query = "insert into users VALUES (DEFAULT,?,?,gen_salt('bf'),crypt(?,gen_salt('bf')),?,?)";
@@ -56,12 +68,18 @@ public abstract class UserController {
 
 
         } catch (SQLException e) {
+
+            LOGGER.log(Level.SEVERE, "Exception occur",e);
             e.printStackTrace();
 
         }
     }
 
     public void updateUserFromDB(int userId,String username, String email, String usertype, String[] subjects){
+        LOGGER.info("Logger Name: "+LOGGER.getName());
+
+        LOGGER.warning("Can cause SQLException");
+
         try (Connection connection = dataSource.getConnection()) {
             final java.sql.Array sqlArray = connection.createArrayOf("varchar", subjects);
             String query = "update users set username = ?, email = ?,usertype = ?, subjects = ? where userId = ?";
@@ -77,6 +95,8 @@ public abstract class UserController {
 
 
         } catch (SQLException e) {
+
+            LOGGER.log(Level.SEVERE, "Exception occur",e);
             e.printStackTrace();
 
 
@@ -100,6 +120,10 @@ public abstract class UserController {
 
 
     public void updatePostFromPostTable(boolean active, int id){
+        LOGGER.info("Logger Name: "+LOGGER.getName());
+
+        LOGGER.warning("Can cause SQLException");
+
         try (Connection connection = dataSource.getConnection()) {
             String query = "update posts set active = ? where ownerId = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -108,6 +132,8 @@ public abstract class UserController {
             preparedStatement.executeUpdate();
             connection.close();
         }catch(SQLException e){
+            
+            LOGGER.log(Level.SEVERE, "Exception occur",e);
             e.printStackTrace();
         }
     }
