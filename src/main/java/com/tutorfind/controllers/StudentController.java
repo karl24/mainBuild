@@ -78,6 +78,12 @@ public class StudentController extends UserController{
     }
 
     public void updateStudentFromDB(int userId, String legalFirstName,String legalLastName, String bio, String major, String minor, String img, boolean active) {
+        LOGGER.info("Logger Name: "+LOGGER.getName());
+
+        LOGGER.warning("Can cause SQLException");
+
+
+
         try (Connection connection = dataSource.getConnection()) {
             //Statement stmt = connection.createStatement();
             String query = "update students set legalFirstName = ?, legalLastName = ?, bio = ?, major = ?, minor = ?, img = ?, active = ? where userId = ?";
@@ -97,6 +103,8 @@ public class StudentController extends UserController{
 
 
         } catch (SQLException e) {
+
+            LOGGER.log(Level.SEVERE, "Exception occur", e);
             e.printStackTrace();
 
 
@@ -104,6 +112,11 @@ public class StudentController extends UserController{
     }
 
     public void insertStudentIntoDB(int userId, String legalFirstName,String legalLastName, String bio, String major, String minor, String img, boolean active, Timestamp creationdate){
+        LOGGER.info("Logger Name: "+LOGGER.getName());
+
+        LOGGER.warning("Can cause SQLException");
+
+
         try (Connection connection = dataSource.getConnection()) {
             //Statement stmt = connection.createStatement();
             String query = "insert into students VALUES(?,?,?,?,?,?,?,?,?)";
@@ -125,6 +138,7 @@ public class StudentController extends UserController{
         } catch (SQLException e) {
             e.printStackTrace();
 
+            LOGGER.log(Level.SEVERE, "Exception occur", e);
 
         }
     }
@@ -187,6 +201,11 @@ public class StudentController extends UserController{
     StudentDataModel printStudent(HttpServletResponse response, @CookieValue(value = "email", defaultValue = "") String email,
                                   @PathVariable("id") int userId) {
 
+        LOGGER.info("Logger Name: "+LOGGER.getName());
+
+        LOGGER.warning("Can cause ResourceNotFoundException");
+
+
         StudentDataModel student = new StudentDataModel();
 
 
@@ -203,6 +222,7 @@ public class StudentController extends UserController{
         }
 
         if (student.getUserName() == null){
+            LOGGER.log(Level.SEVERE, "Exception occur");
             throw new ResourceNotFoundException();
         }else {
 
@@ -224,6 +244,11 @@ public class StudentController extends UserController{
     }
 
     public void updateStudentFromDB(int userId, boolean active){
+        LOGGER.info("Logger Name: "+LOGGER.getName());
+
+        LOGGER.warning("Can cause SQLException");
+
+
         try (Connection connection = dataSource.getConnection()) {
 
 
@@ -237,6 +262,8 @@ public class StudentController extends UserController{
 
 
         } catch (SQLException e) {
+
+            LOGGER.log(Level.SEVERE, "Exception occur",e);
             e.printStackTrace();
 
 
@@ -344,6 +371,13 @@ public class StudentController extends UserController{
     public StudentDataModel loginStudent(HttpServletResponse response, @CookieValue(value = "userId", defaultValue = "") String userId, @RequestBody StudentDataModel s){
         ArrayList<StudentDataModel> students = getStudentsFromDB();
         ArrayList<UserDataModel> users = getActiveUsersFromDB();
+        LOGGER.info("Logger Name: "+LOGGER.getName());
+
+        LOGGER.warning("Can cause SQLException");
+
+
+        LOGGER.warning("Can cause ResourceNotFoundException");
+
         try (Connection connection = dataSource.getConnection()) {
 
             String sql = "SELECT userId, passhash = crypt(?, passhash) as pass, passhash from users where passhash = crypt(?, passhash) AND username = ?";
@@ -382,12 +416,16 @@ public class StudentController extends UserController{
 
 
             if(output.isEmpty()){
+
+                LOGGER.log(Level.SEVERE, "Exception occur");
                 throw new ResourceNotFoundException();
             }else {
                 return output.get(0);
             }
 
         } catch (SQLException e) {
+
+            LOGGER.log(Level.SEVERE, "Exception occur",e);
             e.printStackTrace();
             return null;
 

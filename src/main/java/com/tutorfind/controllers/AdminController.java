@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @CrossOrigin
 @RestController
@@ -21,7 +23,7 @@ public class AdminController extends UserController{
     @Autowired
     private DataSource dataSource;
 
-
+    private static final Logger LOGGER = Logger.getLogger(StudentController.class.getName());
     /*
     *v1 endpoints*
     POST admin/login - logins admin users
@@ -32,6 +34,9 @@ public class AdminController extends UserController{
      */
 
     public ArrayList<UserDataModel> getAdminFromDB() {
+        LOGGER.info("Logger Name: "+LOGGER.getName());
+
+        LOGGER.warning("Can cause SQLException");
         try (Connection connection = dataSource.getConnection()) {
             Statement stmt = connection.createStatement();
 
@@ -44,6 +49,8 @@ public class AdminController extends UserController{
             return output;
 
         } catch (SQLException e) {
+
+            LOGGER.log(Level.SEVERE, "Exception occur",e);
             e.printStackTrace();
             return null;
 
@@ -53,6 +60,10 @@ public class AdminController extends UserController{
 
 
     public String getUserType(int id){
+        LOGGER.info("Logger Name: "+LOGGER.getName());
+
+        LOGGER.warning("Can cause SQLException");
+
         try(Connection connection = dataSource.getConnection()){
             String sql = "SELECT usertype from users where userid = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -64,6 +75,8 @@ public class AdminController extends UserController{
             }
 
         }catch(SQLException e){
+
+            LOGGER.log(Level.SEVERE, "Exception occur",e);
             e.printStackTrace();
         }
         return null;
@@ -72,6 +85,11 @@ public class AdminController extends UserController{
     @RequestMapping(value = "login", method = {RequestMethod.POST})
     public UserDataModel loginAdmin(@RequestBody UserDataModel u){
         ArrayList<UserDataModel> users = getActiveUsersFromDB();
+        LOGGER.info("Logger Name: "+LOGGER.getName());
+
+        LOGGER.warning("Can cause SQLException");
+        LOGGER.warning("Can cause ResourceNotFoundException");
+
         try (Connection connection = dataSource.getConnection()) {
 
             String sql = "SELECT * from users where passhash = crypt(?, passhash) AND username = ? AND usertype = 'admin'";
@@ -88,12 +106,16 @@ public class AdminController extends UserController{
             getUsers(rs,output);
 
             if(output.isEmpty()){
+
+                LOGGER.log(Level.SEVERE, "Exception occur");
                 throw new ResourceNotFoundException();
             }else {
                 return output.get(0);
             }
 
         } catch (SQLException e) {
+
+            LOGGER.log(Level.SEVERE, "Exception occur",e);
             e.printStackTrace();
             return null;
 
@@ -119,6 +141,11 @@ public class AdminController extends UserController{
 
     @RequestMapping(value = "updateUserType/{userid}", method = {RequestMethod.POST})
     public ResponseEntity<UserDataModel> updateUserType(@PathVariable("userid") int id, @RequestBody UserDataModel u) {
+        LOGGER.info("Logger Name: "+LOGGER.getName());
+
+        LOGGER.warning("Can cause IllegalArgumentException");
+
+
         if(id != u.getUserId()){
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }else {
@@ -145,6 +172,8 @@ public class AdminController extends UserController{
                 updateUserTypeFromDB(u.getUserType(), id);
                 return new ResponseEntity<>(HttpStatus.OK);
             } catch (IllegalArgumentException e) {
+
+                LOGGER.log(Level.SEVERE, "Exception occur",e);
                 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
             }
 
@@ -153,6 +182,10 @@ public class AdminController extends UserController{
     }
 
     public void updatePostFromPostTable(boolean active, int id){
+        LOGGER.info("Logger Name: "+LOGGER.getName());
+
+        LOGGER.warning("Can cause SQLException");
+
         try (Connection connection = dataSource.getConnection()) {
             String query = "update posts set active = ? where ownerId = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -161,11 +194,17 @@ public class AdminController extends UserController{
             preparedStatement.executeUpdate();
             connection.close();
         }catch(SQLException e){
+
+            LOGGER.log(Level.SEVERE, "Exception occur",e);
             e.printStackTrace();
         }
     }
 
     public void updateUserFromTutorTable(boolean active, int id){
+        LOGGER.info("Logger Name: "+LOGGER.getName());
+
+        LOGGER.warning("Can cause SQLException");
+
         try (Connection connection = dataSource.getConnection()){
             String query = "update tutors set active = ? where userId = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -174,12 +213,18 @@ public class AdminController extends UserController{
             preparedStatement.executeUpdate();
             connection.close();
         }catch(SQLException e){
+
+            LOGGER.log(Level.SEVERE, "Exception occur",e);
             e.printStackTrace();
         }
     }
 
 
     public void updateUserFromStudentTable(boolean active, int id){
+        LOGGER.info("Logger Name: "+LOGGER.getName());
+
+        LOGGER.warning("Can cause SQLException");
+
         try (Connection connection = dataSource.getConnection()){
             String query = "update students set active = ? where userId = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -188,6 +233,8 @@ public class AdminController extends UserController{
             preparedStatement.executeUpdate();
             connection.close();
         }catch(SQLException e){
+
+            LOGGER.log(Level.SEVERE, "Exception occur",e);
             e.printStackTrace();
         }
     }
@@ -196,6 +243,10 @@ public class AdminController extends UserController{
 
 
     public void updateUserTypeFromDB(String usertype, int userId){
+        LOGGER.info("Logger Name: "+LOGGER.getName());
+
+        LOGGER.warning("Can cause SQLException");
+        LOGGER.warning("Can cause IllegalArgumentException");
         if(usertype.equalsIgnoreCase("admin") || usertype.equalsIgnoreCase("student") || usertype.equalsIgnoreCase("tutor")) {
             try (Connection connection = dataSource.getConnection()) {
 
@@ -209,11 +260,15 @@ public class AdminController extends UserController{
 
 
             } catch (SQLException e) {
+
+                LOGGER.log(Level.SEVERE, "Exception occur",e);
                 e.printStackTrace();
 
 
             }
         }else {
+
+            LOGGER.log(Level.SEVERE, "Exception occur");
             throw new IllegalArgumentException();
         }
     }
