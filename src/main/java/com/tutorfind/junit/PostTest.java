@@ -1,10 +1,10 @@
 package com.tutorfind.junit;
 
 import com.tutorfind.controllers.PostController;
-import org.json.JSONException;
+import com.tutorfind.model.PostDataModel;
+import com.tutorfind.model.StudentDataModel;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.skyscreamer.jsonassert.JSONAssert;
 import org.springframework.boot.context.embedded.LocalServerPort;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
@@ -13,6 +13,8 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import static junit.framework.TestCase.assertTrue;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = PostController.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -25,18 +27,40 @@ public class PostTest {
 
     HttpHeaders headers = new HttpHeaders();
 
-    @Test
-    public void printPostTest() throws JSONException {
 
-        HttpEntity<String> entity = new HttpEntity<String>(null, headers);
+    @Test
+    public void testAllPosts(){
+        testPost("/posts");
+    }
+
+    @Test
+    public void testGetPostsByName(){
+        testPost("/posts?name=John");
+    }
+    
+
+    protected void testPost(String s2) {
+        PostDataModel p = new PostDataModel();
+        p.setPostId(1);
+        p.setOwnerId(2);
+        p.setPosterType("student");
+        p.setActive(true);
+        p.setLocation("NDNU");
+
+        StudentDataModel s = new StudentDataModel();
+        s.setUserId(1);
+        s.setLegalFirstName("John");
+
+
+        HttpEntity<PostDataModel> entity = new HttpEntity<PostDataModel>(p, headers);
 
         ResponseEntity<String> response = restTemplate.exchange(
-                createURLWithPort("/posts/1/"),
-                HttpMethod.GET, entity, String.class);
+                createURLWithPort(s2),
+                HttpMethod.POST, entity, String.class);
 
-        String expected = "{id:Course1,name:Spring,description:10 Steps}";
+        String actual = response.getHeaders().get(HttpHeaders.LOCATION).get(0);
 
-        JSONAssert.assertEquals(expected, response.getBody(), false);
+        assertTrue(actual.contains(s2));
     }
 
     private String createURLWithPort(String uri) {

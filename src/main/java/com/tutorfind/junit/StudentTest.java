@@ -31,15 +31,20 @@ public class StudentTest {
     @Test
     public void testGetStudentWithId() {
 
-        testStudent("/students/1/");
+        testStudent("/students/1");
 
     }
 
     @Test
     public void testGetStudentWithName() {
 
-        testStudent("/students/name/John");
+        testStudent("/students?name=John");
 
+    }
+
+    @Test
+    public void testGetStudentWithStatus() {
+        testStudent("/students?status=active");
     }
 
     @Test
@@ -55,6 +60,7 @@ public class StudentTest {
         s.setLegalFirstName("John");
         s.setLegalLastName("Youssefi");
         s.setMajor("CIS");
+        s.setActive(true);
 
 
         HttpEntity<StudentDataModel> entity = new HttpEntity<StudentDataModel>(s, headers);

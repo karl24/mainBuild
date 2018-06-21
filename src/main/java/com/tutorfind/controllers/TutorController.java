@@ -40,6 +40,7 @@ public class TutorController extends UserController{
     GET /tutors?status=inactive - returns list of only inactive tutors accounts
     GET /tutors?status=active - returns same as '/tutors', the lust of active student accounts
     GET /tutors?name={name} - returns all tutors with given legalFirstName or legalLastName
+
      */
 
 
