@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @CrossOrigin
 @RestController
@@ -42,13 +44,18 @@ public class StudentController extends UserController{
 
     @Autowired
     private DataSource dataSource;
-
+    private static final Logger LOGGER = Logger.getLogger(StudentController.class.getName());
 
     public ArrayList<StudentDataModel> getStudentsFromDB() {
+        LOGGER.info("Logger Name: "+LOGGER.getName());
+        LOGGER.warning("Can cause SQLException");
+
+
         try (Connection connection = dataSource.getConnection()) {
             Statement stmt = connection.createStatement();
 
             ResultSet rs = stmt.executeQuery("SELECT * FROM students WHERE active IS TRUE ORDER BY creationdate DESC");
+
 
 
             ArrayList<StudentDataModel> output = new ArrayList<StudentDataModel>();
@@ -61,6 +68,8 @@ public class StudentController extends UserController{
             return output;
 
         } catch (SQLException e) {
+            LOGGER.log(Level.SEVERE, "Exception occur", e);
+
             e.printStackTrace();
             return null;
 

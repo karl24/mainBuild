@@ -37,7 +37,7 @@ public class PostTest {
     public void testGetPostsByName(){
         testPost("/posts?name=John");
     }
-    
+
 
     protected void testPost(String s2) {
         PostDataModel p = new PostDataModel();
