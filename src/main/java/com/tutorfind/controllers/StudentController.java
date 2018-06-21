@@ -48,6 +48,7 @@ public class StudentController extends UserController{
 
     public ArrayList<StudentDataModel> getStudentsFromDB() {
         LOGGER.info("Logger Name: "+LOGGER.getName());
+        
         LOGGER.warning("Can cause SQLException");
 
 
