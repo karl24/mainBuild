@@ -48,7 +48,7 @@ public class StudentController extends UserController{
 
     public ArrayList<StudentDataModel> getStudentsFromDB() {
         LOGGER.info("Logger Name: "+LOGGER.getName());
-        
+
         LOGGER.warning("Can cause SQLException");
 
 
@@ -288,6 +288,12 @@ public class StudentController extends UserController{
     }
 
     protected ArrayList<StudentDataModel> getStudentDataModels(String s) {
+
+        LOGGER.info("Logger Name: "+LOGGER.getName());
+
+        LOGGER.warning("Can cause SQLException");
+
+
         try (Connection connection = dataSource.getConnection()) {
             Statement stmt = connection.createStatement();
 
@@ -300,6 +306,7 @@ public class StudentController extends UserController{
             return output;
 
         } catch (SQLException e) {
+            LOGGER.log(Level.SEVERE, "Exception occur", e);
             e.printStackTrace();
             return null;
 
