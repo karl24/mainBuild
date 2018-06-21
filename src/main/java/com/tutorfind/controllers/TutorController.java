@@ -36,8 +36,10 @@ public class TutorController extends UserController{
     POST /tutors/{studentid}/addrating - student add rating to tutor
 
     *v2 endpoints*
-    GET /tutors/all - return all tutors
-    GET /tutors?name={name} - returns all tutors with given first name or last name
+    GET /tutors?status=any - returns list of tutors with any status
+    GET /tutors?status=inactive - returns list of only inactive tutors accounts
+    GET /tutors?status=active - returns same as '/tutors', the lust of active student accounts
+    GET /tutors?name={name} - returns all tutors with given legalFirstName or legalLastName
      */
 
 
@@ -140,30 +142,28 @@ public class TutorController extends UserController{
         }
     }
 
-    @RequestMapping(value = "all", method = RequestMethod.GET)
-    public @ResponseBody
-    ArrayList<TutorsDataModel> printAllTutors(){
 
-        return getAllTutorsFromDB();
 
+    public ArrayList<TutorsDataModel> getInactiveTutorsFromDB() {
+        return getTutorsDataModels("select * from users inner join students on  users.userType = 'student' and users.userid = students.userid WHERE active = false");
     }
 
     @RequestMapping(method = RequestMethod.GET)
     public @ResponseBody
     ArrayList<TutorsDataModel> printTutorsByName(
-            @RequestParam(value = "name", required = false) String name) {
+            @RequestParam(value = "name", required = false) String name,
+            @RequestParam(value = "status", required = false) String status) {
 
 
-
-        ArrayList<TutorsDataModel> acceptedTutors = new ArrayList<>();
         ArrayList<TutorsDataModel> tutors = getActiveTutorsFromDB();
 
 
+        if (name != null && !name.isEmpty()) {
 
+            ArrayList<TutorsDataModel> acceptedTutors = new ArrayList<>();
+            ArrayList<TutorsDataModel> activeTutors = getActiveTutorsFromDB();
 
-        if(name != null && !name.isEmpty()) {
-
-            for (TutorsDataModel t : tutors) {
+            for (TutorsDataModel t : activeTutors) {
 
 
                 if (t.getLegalFirstName().equals(name) || t.getLegalLastName().equals(name)) {
@@ -177,9 +177,24 @@ public class TutorController extends UserController{
 
                 return acceptedTutors;
             }
-        }else {
-            return tutors;
+        } else if (status != null && !status.isEmpty()) {
+            if (status.equals("active")) {
+                tutors = getActiveTutorsFromDB();
+                return tutors;
+
+            } else if (status.equals("all")) {
+                tutors = getAllTutorsFromDB();
+
+                return tutors;
+
+            } else if (status.equals("inactive")) {
+                tutors = getInactiveTutorsFromDB();
+                return tutors;
+            }
         }
+
+
+        return tutors;
     }
 
 
