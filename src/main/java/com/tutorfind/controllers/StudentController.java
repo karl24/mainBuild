@@ -125,12 +125,12 @@ public class StudentController extends UserController{
     ArrayList<StudentDataModel> printStudents(
 
                                               @RequestParam(value = "status", required = false) String status,
-                                              @RequestParam(value = "name", required = false) String name){
+                                              @RequestParam(value = "name", required = false) String name) {
 
         ArrayList<StudentDataModel> students = getActiveStudentsFromDB();
 
         System.out.println("this is the name " + name);
-        if(name != null && !name.isEmpty()) {
+        if (name != null && !name.isEmpty()) {
             System.out.println("name is not empty");
             ArrayList<StudentDataModel> acceptedStudents = new ArrayList<>();
             ArrayList<StudentDataModel> activeStudents = getActiveStudentsFromDB();
@@ -138,37 +138,36 @@ public class StudentController extends UserController{
             for (StudentDataModel s : activeStudents) {
 
 
-                if(s.getLegalFirstName().equals(name) || s.getLegalLastName().equals(name)) {
+                if (s.getLegalFirstName().equals(name) || s.getLegalLastName().equals(name)) {
                     acceptedStudents.add(s);
                 }
             }
 
-            if (acceptedStudents.isEmpty()){
+            if (acceptedStudents.isEmpty()) {
                 throw new ResourceNotFoundException();
-            }else {
+            } else {
 
                 return acceptedStudents;
             }
-        }else {
-            return getActiveStudentsFromDB();
+        } else if (status != null && !status.isEmpty()) {
+            if (status.equals("active")) {
+                students = getActiveStudentsFromDB();
+                return students;
+
+            } else if (status.equals("all")) {
+                students = getAllStudentsFromDB();
+
+                return students;
+
+            } else if (status.equals("inactive")) {
+                students = getInactiveStudentsFromDB();
+                return students;
+            }
         }
-//
-//        if(status.equals("active")) {
-//            students = getActiveStudentsFromDB();
-//            return students;
-//
-//        }else if(status.equals("all")){
-//            students = getAllStudentsFromDB();
-//
-//            return students;
-//
-//        }else if(status.equals("inactive")){
-//            students = getInactiveStudentsFromDB();
-//            return students;
-//        }else if(status.isEmpty()){
-//            students = getActiveStudentsFromDB();
-//            return students;
-//        }
+
+
+        return getActiveStudentsFromDB();
+
 
 
     }
