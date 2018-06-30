@@ -48,6 +48,21 @@ public abstract class UserController {
 
 
 
+
+    protected static void getUsers(ResultSet rs, ArrayList<UserDataModel> output) throws SQLException {
+        while (rs.next()) {
+            String subjectsString = rs.getString("subjects");
+
+            String[] subjects = subjectsString.split(",");
+            subjects[0] = subjects[0].substring(1);
+            subjects[subjects.length-1] = subjects[subjects.length-1].substring(0, subjects[subjects.length-1].length()-1);
+
+            output.add(new UserDataModel(rs.getInt("userId"), rs.getString("userName"), rs.getString("email"),
+                    rs.getString("salt"), rs.getString("passhash"), rs.getString("userType"),subjects));
+
+        }
+    }
+
     public void insertUserIntoDB(String  userName, String email, String salt, String passhash, String userType, String[] subjects){
         LOGGER.info("Logger Name: "+LOGGER.getName());
 
@@ -74,6 +89,8 @@ public abstract class UserController {
 
         }
     }
+
+
 
     public void updateUserFromDB(int userId,String username, String email, String usertype, String[] subjects){
         LOGGER.info("Logger Name: "+LOGGER.getName());
@@ -102,22 +119,6 @@ public abstract class UserController {
 
         }
     }
-    protected static void getUsers(ResultSet rs, ArrayList<UserDataModel> output) throws SQLException {
-        while (rs.next()) {
-            String subjectsString = rs.getString("subjects");
-
-            String[] subjects = subjectsString.split(",");
-            subjects[0] = subjects[0].substring(1);
-            subjects[subjects.length-1] = subjects[subjects.length-1].substring(0, subjects[subjects.length-1].length()-1);
-
-            output.add(new UserDataModel(rs.getInt("userId"), rs.getString("userName"), rs.getString("email"),
-                    rs.getString("salt"), rs.getString("passhash"), rs.getString("userType"),subjects));
-
-        }
-    }
-
-
-
 
     public void updatePostFromPostTable(boolean active, int id){
         LOGGER.info("Logger Name: "+LOGGER.getName());
@@ -132,7 +133,7 @@ public abstract class UserController {
             preparedStatement.executeUpdate();
             connection.close();
         }catch(SQLException e){
-            
+
             LOGGER.log(Level.SEVERE, "Exception occur",e);
             e.printStackTrace();
         }

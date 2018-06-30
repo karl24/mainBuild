@@ -211,7 +211,7 @@ public class ForgotPasswordController {
                     InternetAddress.parse(email));
             message.setSubject("New Password");
             message.setText("Dear " + getFirstName(email,table) + ", "
-                    + "\n\n Go to this link to reset password: https://www.tutor-find.me/resetpassword/" + uniqueKey);
+                    + "\n\n Go to this link to reset password: www.tutor-find.me/resetpassword/" + uniqueKey);
 
             Transport.send(message);
 
