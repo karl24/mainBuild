@@ -60,7 +60,7 @@ public class Main {
     try {
 
       // This block configure the logger with handler and formatter
-      fh = new FileHandler("C:/temp/test/MyLogFile.log");
+      fh = new FileHandler("~/mainBuild/MyLogFile.log");
       logger.addHandler(fh);
       SimpleFormatter formatter = new SimpleFormatter();
       fh.setFormatter(formatter);
