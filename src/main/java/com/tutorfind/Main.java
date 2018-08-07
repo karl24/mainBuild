@@ -28,12 +28,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.sql.DataSource;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.logging.FileHandler;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
 
 @Controller
 @SpringBootApplication
@@ -48,6 +52,30 @@ public class Main {
 
   public static void main(String[] args) throws Exception {
     SpringApplication.run(Main.class, args);
+
+    Logger logger = Logger.getLogger("MyLog");
+
+    FileHandler fh;
+
+    try {
+
+      // This block configure the logger with handler and formatter
+      fh = new FileHandler("C:/temp/test/MyLogFile.log");
+      logger.addHandler(fh);
+      SimpleFormatter formatter = new SimpleFormatter();
+      fh.setFormatter(formatter);
+
+      // the following statement is used to log any messages
+      logger.info("My first log");
+
+    } catch (SecurityException e) {
+      e.printStackTrace();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+
+    logger.info("Hi How r u?");
+
   }
 
   @RequestMapping("/")
