@@ -108,7 +108,49 @@ public class PostController{
         }
     }
 
+    public ArrayList<PostDataModel> getActivePostsByStudent(String name) {
+        try(Connection connection = dataSource.getConnection()){
+            String query2 = "select * from posts inner join students on posts.ownerid = students.userid AND (students.legalfirstname = ? OR students.legallastname = ?)";
+            PreparedStatement preparedStatement2 = connection.prepareStatement(query2);
+            preparedStatement2.setString(1, name);
+            preparedStatement2.setString(2,name);
+
+            ResultSet rs2 = preparedStatement2.executeQuery();
+
+            ArrayList<PostDataModel> output = new ArrayList();
+
+            while(rs2.next()) {
+                output.add(new PostDataModel(rs2.getInt("postId"), rs2.getString("posterType"),
+                        rs2.getInt("ownerId"), rs2.getString("subject"),
+                        rs2.getString("location"), rs2.getString("availability"),
+                        rs2.getBoolean("acceptsPaid"), rs2.getDouble("rate"),
+                        rs2.getString("unit"), rs2.getTimestamp("createdTs"),
+                        rs2.getBoolean("active"), rs2.getBoolean("acceptsGroupTutoring"),
+                        rs2.getInt("currentlySignedUp")));
+            }
+
+            connection.close();
+            return output;
+
+        }catch(SQLException e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     private ArrayList<PostDataModel> getActivePostsByOwnerNameFromDB(String name) {
+
+        if(!getActivePostsByStudent(name).isEmpty()){
+            return getActivePostsByStudent(name);
+        }else if (!getActivePostsByTutor(name).isEmpty()){
+            return getActivePostsByTutor(name);
+        }else {
+            return null;
+        }
+
+    }
+
+    private ArrayList<PostDataModel> getActivePostsByTutor(String name) {
         LOGGER.info("Logger Name: "+LOGGER.getName());
 
         LOGGER.warning("Can cause SQLException");
@@ -119,15 +161,11 @@ public class PostController{
             preparedStatement.setString(1, name);
             preparedStatement.setString(2,name);
 
-            String query2 = "select * from posts inner join students on posts.ownerid = students.userid AND (students.legalfirstname = ? OR students.legallastname = ?)";
-            PreparedStatement preparedStatement2 = connection.prepareStatement(query2);
-            preparedStatement2.setString(1, name);
-            preparedStatement2.setString(2,name);
 
 
             ResultSet rs = preparedStatement.executeQuery();
 
-            ResultSet rs2 = preparedStatement2.executeQuery();
+
 
             ArrayList<PostDataModel> output = new ArrayList();
 
@@ -139,13 +177,7 @@ public class PostController{
                         rs.getString("unit"), rs.getTimestamp("createdTs"),
                         rs.getBoolean("active"), rs.getBoolean("acceptsGroupTutoring"),
                         rs.getInt("currentlySignedUp")));
-                output.add(new PostDataModel(rs2.getInt("postId"), rs2.getString("posterType"),
-                        rs2.getInt("ownerId"), rs2.getString("subject"),
-                        rs2.getString("location"), rs2.getString("availability"),
-                        rs2.getBoolean("acceptsPaid"), rs2.getDouble("rate"),
-                        rs2.getString("unit"), rs2.getTimestamp("createdTs"),
-                        rs2.getBoolean("active"), rs2.getBoolean("acceptsGroupTutoring"),
-                        rs2.getInt("currentlySignedUp")));
+
             }
 
             connection.close();
