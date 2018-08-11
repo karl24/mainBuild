@@ -121,8 +121,8 @@ public class PostController{
 
             String query2 = "select * from posts inner join students on posts.ownerid = students.userid AND (students.legalfirstname = ? OR students.legallastname = ?)";
             PreparedStatement preparedStatement2 = connection.prepareStatement(query2);
-            preparedStatement.setString(1, name);
-            preparedStatement.setString(2,name);
+            preparedStatement2.setString(1, name);
+            preparedStatement2.setString(2,name);
 
 
             ResultSet rs = preparedStatement.executeQuery();
